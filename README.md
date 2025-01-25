@@ -39,17 +39,25 @@ The WETH portion of these rewards was [distributed](https://docs.google.com/spre
 ## Contract Addresses
 
 ### Clanker Account & Core Contracts
-#### v2 contracts (coming soon, ETA 11-29-2024)
-#### v1 contracts
-- Deployer EOA: ``0x1832a03C194f438DDd50824f9d5A8Dd2E7494323``
-- Clanker.sol: ``0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1``
-- LockerFactory.sol: ``0x18db5Fce22bE8814B7E31FBDA2f6488d607A1172``
-#### v0 contracts
-- Deployer EOA: ``0xc204af95b0307162118f7bc36a91c9717490ab69``
-- SocialDexDeployer.sol: ``0x250c9FB2b411B48273f69879007803790A6AeA47``
-- LockerFactory.sol: ``0x515d45F06EdD179565aa2796388417ED65E88939``
+#### Clanker Factory Versions
+- v0: [0x250c9fb2b411b48273f69879007803790a6aea47](https://basescan.org/address/0x250c9fb2b411b48273f69879007803790a6aea47)
+- v1: [0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1](https://basescan.org/address/0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1)
+- v2: [0x732560fa1d1A76350b1A500155BA978031B53833](https://basescan.org/address/0x732560fa1d1A76350b1A500155BA978031B53833)
+- v3: [0x375C15db32D28cEcdcAB5C03Ab889bf15cbD2c5E](https://basescan.org/address/0x375C15db32D28cEcdcAB5C03Ab889bf15cbD2c5E)
+
+#### Presale Factory
+- Presale Factory (v3): [0x71cDc0bDF30F5601fb0ac80Cf1d20B771342C035](https://basescan.org/address/0x71cDc0bDF30F5601fb0ac80Cf1d20B771342C035)
+
+#### LP Lockers
+- LP Meta Locker (v0): [0xAa6e44bccd3Eb1310f2DA525772cF23E7Dc5Eb12](https://basescan.org/address/0xAa6e44bccd3Eb1310f2DA525772cF23E7Dc5Eb12)
+- *note v1 LPs are individually locked until the year 2100*
+- LP Locker (v2): [0x618A9840691334eE8d24445a4AdA4284Bf42417D](https://basescan.org/address/0x618A9840691334eE8d24445a4AdA4284Bf42417D)
+- LP Locker (v3): [0x5eC4f99F342038c67a312a166Ff56e6D70383D86](https://basescan.org/address/0x5eC4f99F342038c67a312a166Ff56e6D70383D86)
+
 #### LP Information
-- Default Lock Period for LP: 2100 (4132317178 unix timestamp)
+- v1: Default Lock Period for LP: 2100 (4132317178 unix timestamp)
+for v0, v2, and v3, all LP NFTs are transferred to a LP locker, without the ability to transfer out, thus locking forever.
+
 ## Governance
 ### Clanker DevCo Safe #1
 Address: ``**0x1eaf444ebDf6495C57aD52A04C61521bBf564ace**``
