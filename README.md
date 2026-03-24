@@ -1,6 +1,6 @@
 # Clanker Documentation
 
-Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io).
+Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
 
 ## API Reference
 
