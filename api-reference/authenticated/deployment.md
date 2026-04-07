@@ -14,7 +14,7 @@ Deploy a new Clanker token. Supports v4 deployment with rewards, fees, vault, ai
 |-----------|------|----------|---------|-------------|
 | `token` | `object` | Yes | — | Token config: { name, symbol, image, tokenAdmin, description?, socialMediaUrls?, auditUrls?, requestKey }. |
 | `rewards` | `array` | No | — | Reward splits: [{ recipient, admin, allocation, rewardsToken? }]. Allocations must sum to 100. |
-| `pool` | `object` | No | — | Pool config: { type?, pairedToken?, initialMarketCap? }. |
+| `pool` | `object` | No | — | Pool config: { type?, pairedToken?, initialMarketCap? }. type `charmsUsdc` (Base + Base USDC `pairedToken`) selects CHARMS_USDC_CONFIG; Base + that USDC without `charmsUsdc` uses the same layout. |
 | `fees` | `object` | No | — | Fee config (static or dynamic). |
 | `vault` | `object` | No | — | Vault configuration. |
 | `airdrop` | `object` | No | — | Airdrop configuration. |
