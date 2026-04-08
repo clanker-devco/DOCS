@@ -9,7 +9,7 @@ These endpoints require a partner API key passed via the `x-api-key` header. Con
 ### Tokens
 
 - `GET /api/tokens/authenticated` — Search and list tokens (authenticated variant with higher limits up to 200 per page).
-- `GET /api/get-clanker-by-address` — Returns detailed token data by contract address, including deployer info and social URLs.
+- `GET /api/get-clanker-by-address` — Returns detailed token data by EVM contract address or Solana token mint, including deployer info and social URLs.
 - `GET /api/get-clankers-by-fid` — Returns tokens deployed by a Farcaster FID.
 - `GET /api/tokens/fetch-by-admin` — Returns tokens administered by a given address.
 - `GET /api/tokens/is-blocked` — Checks whether a token address is blocked.

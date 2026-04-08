@@ -43,7 +43,7 @@ Search and list tokens (authenticated variant with higher limits up to 200 per p
 
 ### GET `/api/get-clanker-by-address`
 
-Returns detailed token data by contract address, including deployer info and social URLs.
+Returns detailed token data by EVM contract address or Solana token mint, including deployer info and social URLs.
 
 **Authentication:** Partner API Key (`x-api-key` header)
 
@@ -51,7 +51,7 @@ Returns detailed token data by contract address, including deployer info and soc
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `address` | `address` | Yes | — | Token contract address. |
+| `address` | `address` | Yes | — | EVM token contract (0x…) or Solana mint address. |
 
 **Response:** Token data with social URLs and verified address.
 
