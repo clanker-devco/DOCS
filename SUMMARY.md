@@ -5,6 +5,7 @@
 ## General
 
 * [Educational Resources](general/educational-resources.md)
+* [FAQ](general/faq.md)
 
 ## Droids
 
