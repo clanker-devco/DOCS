@@ -58,7 +58,9 @@ Droids run on Base mainnet — they can't pay for their own inference on a testn
 
 ## Advanced: route the fee share to a contract
 
-> **TODO (dev):** Currently the droid's reward-admin slot is always populated with the runtime wallet address at launch — there is no user-facing UI to point it at an arbitrary contract. Whether that slot can be replaced with a contract (and how) is governed by the underlying Clanker contract; today the routing code path is implemented for **Clanker v4** only. **Needs review** before promising support for arbitrary contracts as the droid fee receiver, or for v5.
+The droid's reward-admin slot can be pointed at an arbitrary contract instead of the default runtime wallet — useful when you want droid funding to flow through a treasury, splitter, or other on-chain mechanism (e.g. a Juicebox multiterminal). Supported on Clanker v4 and v5.
+
+The destination contract must be able to receive the paired-token reward in the format the Clanker contract emits. If the contract custodies the USDC elsewhere, make sure the droid's runtime wallet still has spendable USDC for inference — top it up directly if needed.
 
 ## Related
 

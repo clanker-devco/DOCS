@@ -43,9 +43,7 @@ The droid runtime wallet address is shown in both the Droid panel and the Chat w
 
 ## Can a deployer withdraw from the droid wallet?
 
-No. The runtime wallet is sandboxed — there is no UI or API path on clanker.world that moves funds out of it. USDC sent to the wallet (manually or via the LP-reward keeper) is spendable only on inference.
-
-> **TODO (dev):** Reconfirm the custody/withdraw policy with the runtime service team before publishing.
+No. The runtime wallet is sandboxed by design — there is no UI or API path that moves funds out of it. USDC sent to the wallet (manually or via the LP-reward keeper) is spendable only on inference.
 
 ## Related
 

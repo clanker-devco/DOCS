@@ -26,7 +26,7 @@ A standalone droid has no Clanker pool to draw LP rewards from, so it is funded 
 
 ## Attaching a droid to an existing token
 
-> **TODO (dev) — needs review:** As of the audit, there is **no UI** to attach a new droid to an already-deployed token. The token-first deploy flow and the droid-first `/create/droid` flow are the only paths that wire a droid to a token. The internal `attach-token` API exists but only runs as part of those unified launches. Confirm whether retroactive attach should be supported and, if so, document the entry point.
+**Coming soon.** Today the only paths that wire a droid to a token are the token-first deploy flow and the droid-first `/create/droid` flow. Retroactive attach for tokens that launched without a droid is on the roadmap — see [Droid Roadmap](roadmap.md).
 
 ## Related
 

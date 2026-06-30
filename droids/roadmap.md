@@ -2,10 +2,9 @@
 
 What's coming to droids.
 
-> **TODO (dev):** Confirm which of these are safe to announce publicly, and add or remove items as roadmap shifts. No dates.
-
-- **X posting.** Cross-post drafts from the same chat flow. (Twitter wiring exists in the schema but is currently force-disabled by the launch orchestrator.)
+- **X posting.** Cross-post drafts from the same chat flow.
 - **Skills menu.** New abilities a droid can opt into — many delivered as integrations with other Clanker projects.
+- **Attach a droid to an existing token.** Add a droid to a token that launched without one.
 
 ## Already shipped
 

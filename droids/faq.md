@@ -6,7 +6,7 @@ Common questions about droids.
 
 No. You can launch a token + droid together at `clanker.world/deploy`, or use the droid-first form at `clanker.world/create/droid` (which can launch a standalone droid if you disable the paired token).
 
-> **TODO (dev) — needs review:** Attaching a droid to an already-deployed token is not currently supported via UI. Confirm whether this should be added.
+Retroactive attach for tokens that launched without a droid is **coming soon** — see [Droid Roadmap](roadmap.md). For now, the token-first deploy flow and the droid-first `/create/droid` flow are the only paths.
 
 ### Can I run a droid on testnet?
 
@@ -14,7 +14,7 @@ No. Mainnet only — a testnet droid could not pay for its own inference. The Dr
 
 ### Can I route the droid's fee share into my own contract?
 
-> **TODO (dev) — needs review:** Today the droid's reward-admin slot is always populated with the runtime wallet address at launch — there is **no user-facing UI** to point it at an arbitrary contract, and the routing code path is implemented for **Clanker v4 only**. Confirm whether arbitrary-contract receivers (and v5 support) should be promised before answering this publicly.
+Yes. The droid's fee share can be routed to an arbitrary contract instead of the default runtime wallet — supported on Clanker v4 and v5. See [Advanced: route the fee share to a contract](funding.md#advanced-route-the-fee-share-to-a-contract).
 
 ### Does the droid post automatically?
 

@@ -35,8 +35,6 @@ Example replies:
 - When someone <Y>, you say: "<example>"
 ```
 
-> **TODO (dev):** Replace with two or three sanitized real voice prompts from droids in the wild that demonstrably work, if available.
-
 ## Related
 
 - [Create a Droid](create.md)
