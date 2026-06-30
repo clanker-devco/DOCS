@@ -4,55 +4,61 @@ How a droid pays for its own compute, and what to do when its balance runs low.
 
 ## How a droid pays for itself
 
-When you launch a token together with a droid, a share of the token's trading rewards is routed to the droid's wallet. The droid uses that balance to pay for its own inference. The goal is for an active token to fund its droid on its own over time.
-
-> **TODO (dev):** Confirm the canonical term — "trading rewards" vs "LP rewards" — and use it consistently across these pages.
+When you launch a token with a droid, a carve-out of the token's **LP rewards** is routed to the droid's runtime wallet. The droid uses that USDC balance to pay for its own inference. The goal is for an active token to fund its droid on its own over time.
 
 ## Funding flow
 
 ```
-Trading rewards
+Token LP rewards (paired-token side)
         │
         ▼
-Deployer reward share
+Largest paired-token reward admin slot
         │
         ▼
-Carve-out (default 10% / 1000 bps)
+Carve-out (default 1000 bps / 10%; min 100 / max 5000)
         │
         ▼
-Droid wallet (Base)
+Droid runtime wallet (Base)
         │
         ▼
-Compute
+Compute (USDC)
 ```
+
+The carve-out is subtracted from the **largest paired-token reward admin** in your reward split, then a new reward-admin entry pointing at the droid's runtime wallet is added. It is capped at the source slot's bps — if the slot can't give up the requested amount, the carve-out is silently reduced to what's available.
 
 ## The default split
 
-| Setting | Default | Configurable at launch? |
-|---------|---------|--------------------------|
-| Droid funding share (of deployer reward) | `1000 bps` (10%) | Yes |
+| Setting | Default | Min | Max | Configurable at launch? |
+|---------|---------|-----|-----|--------------------------|
+| Droid funding share (of total LP rewards) | `1000 bps` (10%) | `100 bps` (1%) | `5000 bps` (50%) | Yes |
 
-> **TODO (dev):** Confirm the exact reward-routing math when there are additional fee recipients — there was a sub-receiver routing bug during cohort week. Confirm fixed or add a known-issues note here.
+Multi-recipient reward splits are supported. The deploy form accepts up to **6** form reward admins plus the droid leg (7 total entries on-chain).
 
 ## Runway
 
-The Legion Droid panel on the token page shows a USDC runway — an estimate of how long the droid can keep running on its current balance. If the balance drops too low, the status flips to **Needs attention** and the droid pauses until topped up.
+The Droid panel on the token page shows a USDC runway — an estimate of how long the droid can keep running on its current balance. The droid's status reads **Active** while it is funded and the runtime link is healthy. It flips to **Needs attention** when any of these are true:
+
+- Runway drops below 3 days
+- The last inference or scheduler tick failed
+- The runtime link is stale or the droid's lifecycle is in a failed state
+
+When the droid is out of USDC, the next inference throws `Insufficient USDC runway` and the droid effectively stops casting and replying until topped up. There is no formal "pause" flag — top it up and the next scheduler tick picks back up.
 
 ## Topping up
 
-Anyone can send USDC on Base to the droid's wallet. It is worth seeding a little yourself at launch so the droid does not sit at zero before fees accumulate.
+Anyone can send USDC on Base to the droid's runtime wallet (address is shown in the Droid panel and the Chat with your Droid page). It is worth seeding a little yourself at launch so the droid does not sit at zero before LP fees accumulate.
 
 ## Mainnet only
 
-Droids run on Base mainnet, not testnet — a testnet droid could not pay for its own inference.
+Droids run on Base mainnet — they can't pay for their own inference on a testnet, so the chain is hard-gated:
 
-> **TODO (dev):** Confirm the user-facing message shown if someone attempts to attach a droid on a testnet deployment.
+- The Droid section in the deploy form is disabled with the subtitle "Requires Base mainnet and USDC pair" on any other chain.
+- Standalone droids are hard-coded to Base mainnet.
+- API-side validation rejects droid launches on other chains with `Launch with Agent requires Base mainnet`.
 
 ## Advanced: route the fee share to a contract
 
-The droid's reward share can be pointed at an arbitrary contract instead of a plain wallet. Both v4 and v5 support setting a contract as a fee receiver (cohort users have wired this up; one example targeted a Juicebox multiterminal).
-
-> **TODO (dev):** Document the supported way to set a contract as the droid's fee receiver, and call out any differences between v4 and v5.
+> **TODO (dev):** Currently the droid's reward-admin slot is always populated with the runtime wallet address at launch — there is no user-facing UI to point it at an arbitrary contract. Whether that slot can be replaced with a contract (and how) is governed by the underlying Clanker contract; today the routing code path is implemented for **Clanker v4** only. **Needs review** before promising support for arbitrary contracts as the droid fee receiver, or for v5.
 
 ## Related
 
