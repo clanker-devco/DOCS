@@ -53,6 +53,10 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator.
 - `GET /api/metadata/factories` — Returns Clanker factory contract addresses and event selectors.
 
+### Legion
+
+- `GET /api/droid/leaderboard` — Ranked droid leaderboard rows for a given interval. Public projection covers token, runs, actions, cast metrics, creator, and last-active fields. The composite `score` object (composite, components, washConfidence, washFlags) is admin-only and omitted from non-admin responses.
+
 ### Fees
 
 - `GET /api/get-estimated-uncollected-fees/{address}` — Estimate uncollected fees for a position. *(deprecated)*
