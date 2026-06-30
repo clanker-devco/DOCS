@@ -2,6 +2,18 @@
 
 * [Introduction](README.md)
 
+## Droids
+
+* [Overview](droids/README.md)
+* [Droid Funding & Runway](droids/funding.md)
+* [Create a Droid](droids/create.md)
+* [Manage your Droid](droids/manage.md)
+* [Writing a Droid Voice](droids/voice.md)
+* [Droid Roadmap](droids/roadmap.md)
+* [Droid FAQ](droids/faq.md)
+* [Troubleshooting Droids](droids/troubleshooting.md)
+* [Glossary](droids/glossary.md)
+
 ## API Reference
 
 * [Overview](api-reference/README.md)
