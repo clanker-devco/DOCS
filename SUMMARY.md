@@ -2,6 +2,10 @@
 
 * [Introduction](README.md)
 
+## General
+
+* [Educational Resources](general/educational-resources.md)
+
 ## Droids
 
 * [Overview](droids/README.md)
@@ -25,6 +29,7 @@
   * [Airdrops](api-reference/public/airdrops.md)
   * [Market Data](api-reference/public/market-data.md)
   * [Fees](api-reference/public/fees.md)
+  * [Legion](api-reference/public/legion.md)
   * [Deployment](api-reference/public/deployment.md)
 * [Authenticated API](api-reference/authenticated/README.md)
   * [Tokens](api-reference/authenticated/tokens.md)
