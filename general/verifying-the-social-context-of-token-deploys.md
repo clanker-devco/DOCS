@@ -81,18 +81,19 @@ For Twitter tokens, confirm that `social_context.id` matches the queried Twitter
 
 ```mermaid
 flowchart TD
-    Start[Retrieve msg_sender, contract_address, social_context] --> A{contract_address allowlisted?}
-    A -->|Yes| T1[Trusted<br/>isTrustedClanker]
-    A -->|No| B{msg_sender is a trusted deployer?}
-    B -->|Yes| T2[Trusted<br/>isTrustedDeployer]
-    B -->|No| C{social_context platform?}
-    C -->|Farcaster| D[Fetch verified_addresses<br/>from Neynar]
-    D --> E{msg_sender ∈ verified_addresses?}
-    E -->|Yes| T3[Trusted<br/>fidMatchesDeployer]
-    E -->|No| U[Untrusted]
-    C -->|Twitter| F{social_context.id matches<br/>queried user ID?}
-    F -->|Yes| T4[Trusted<br/>fidMatchesDeployer]
-    F -->|No| U
+  A[Token row] --> B{contract on ALLOWLISTED_CLANKERS?}
+  B -- yes --> T[Trusted: allowlisted]
+  B -- no --> C{msg_sender in TRUSTED_DEPLOYERS?}
+  C -- yes --> T2[Trusted: vetted deployer]
+  C -- no --> D{social_context.platform}
+  D -- farcaster --> E[Fetch FID via Neynar]
+  E --> F{msg_sender ∈ verified_addresses?}
+  F -- yes --> T3[Trusted: FID-verified]
+  F -- no --> U[Unverified]
+  D -- twitter --> G{social_context.id == queried twitterId?}
+  G -- yes --> T4[Trusted: handle match only]
+  G -- no --> U
+  D -- none --> U
 ```
 
 ## Using the API
