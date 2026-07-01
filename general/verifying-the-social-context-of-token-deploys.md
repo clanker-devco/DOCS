@@ -1,10 +1,79 @@
 # Verifying the Social Context of Token Deploys
 
+Anyone can deploy a Clanker and attach an arbitrary `social_context` (Farcaster FID, Twitter handle, etc.) to it. The on-chain payload is not authenticated — it's just metadata the deployer chose to embed. To verify a token's claimed creator, check the social context against trusted signals.
+
+This document outlines the trust model used by clanker.world and how to replicate these checks using the public `GET /api/search-creator` endpoint.
+
+## Why This Matters
+
+A token row from `/api/search-creator` looks like:
+
+```json
+{
+  "contract_address": "0xabc...",
+  "msg_sender": "0xdeadbeef...",
+  "social_context": {
+    "platform": "farcaster",
+    "id": "12345"
+  },
+  "trustStatus": {
+    "isTrustedDeployer": false,
+    "isTrustedClanker": false,
+    "fidMatchesDeployer": true,
+    "verifiedAddresses": ["0xdeadbeef..."]
+  }
+}
+```
+
+There are two distinct identities:
+
+* `msg_sender` — the EOA or contract that initiated the on-chain call. This is provable through transaction records.
+* `social_context` — a free-form `{ platform, id }` field that the deployment embeds. The deployer might not control the referenced account.
+
+A malicious deployer can claim any FID in `social_context`. The trust check aims to answer: "Is the signatory wallet truly owned by the claimed social account?"
+
+## Trust Signals (in Priority Order)
+
+clanker.world resolves trust using four signals. The first matching one determines trust.
+
+### 1. Allowlisted Clanker (`isTrustedClanker`)
+
+The token's contract address is allowlisted, verified out-of-band (e.g., tokens deployed through Clanker and v3 presale clanker addresses). This signal overrides all others.
+
+### 2. Trusted Deployer (`isTrustedDeployer`)
+
+`msg_sender` is in the vetted deployers list maintained by Clanker or partners. Here is a list of historical TRUSTED\_DEPLOYERS but is subject to be modified/added.
+
+```javascript
+// TRUSTED_DEPLOYERS
+  '0x2112b8456AC07c15fA31ddf3Bf713E77716fF3F9',
+  '0xB2C90e2bB032349e7bEc82B37Cdcc93b6B91036a',
+  '0x8da62A828b0D9f1B33F75652605e12ee4E5e4F06',
+  '0x002F07B0D63e8ac14F8ef6B73Ccd8caF1FeF074c',
+  '0xC204af95b0307162118f7Bc36a91c9717490AB69',
+  '0xd9aCd656A5f1B519C9E76a2A6092265A74186e58',
+  '0xdd6494902709C8D7DfFf3daca21cF067271f22F8',
+  '0xdc7D0Ea3B64E0c74488faF6B2BDc927B875Cd3f2',
+  '0x21c78a0350fa50e7c79c761003e33c0c7f440185',
+  '0x5e2b5027742ae08c1a018144e31f101f24dc9824',
+  '0x72469D86A92f5A9E975fE371a66015E667ab288f',
+  '0x8865910d6ca985782Dc9CC521d23a10100fC800B',
+  '0xe0c959eedcfd004952441ea4fb4b8f5af424e74b',
+  '0x24D514Bc8eF5649A367d9c209b3AF16b0f177026',
+  '0x9844050f249604F4485aeD2fC51BAAb3DBe78411',
+  '0x26D0A510553C209a584E01Bd4551bDbe38151Fd4', // bracky deployer
+  '0xBD01E8106a169687C8572672c8900760E5BA170f', // AutoBoy deployer
+```
+
+### 3. FID Verified (`fidMatchesDeployer`) — Farcaster
+
+For Farcaster tokens, clanker.world retrieves the FID's `verified_addresses.eth_addresses` through Neynar to check:
+
 `msg_sender ∈ verifiedAddresses`
 
 A match indicates the same person controls both the Farcaster account and the wallet.
 
-4. **Twitter Context Match — Twitter**
+### 4. Twitter Context Match — Twitter
 
 For Twitter tokens, confirm that `social_context.id` matches the queried Twitter user ID. This is weaker than Farcaster verification.
 
