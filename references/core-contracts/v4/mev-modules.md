@@ -19,5 +19,5 @@ Clanker has four mev modules currently written:
 
 **v4.1, ClankerHookV2**:
 
-* [**ClankerMevDescendingFees**](mev-modules/clankermevdescendingfees.md): A MEV module which enables deployers to select a starting LP fee (up to 80%), an ending fee, and a duration to decay the fee over (max 2 mintues). The fee descends parabolically. Only compatible with **ClankerHookV2**.
+* [**ClankerMevDescendingFees**](mev-modules/clankermevdescendingfees.md): A MEV module which enables deployers to select a starting LP fee (up to 80%), an ending fee, and a duration to decay the fee over (max 2 minutes). The fee descends parabolically. Only compatible with **ClankerHookV2**.
 * [**ClankerSniperAuctionV2**](mev-modules/clankersniperauctionv2.md): The same as ClankerSniperAuctionV0 but with the fee behavior of ClankerMevDescendingFees. Auctioned swaps pay the starting fee and the fee descent starts after the auction ends. Only compatible with **ClankerHookV2**.

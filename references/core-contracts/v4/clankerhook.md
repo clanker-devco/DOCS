@@ -6,7 +6,7 @@ The **ClankerHook** contract itself facilitates:
 
 * Automatic fee collection of the initial LP position's fees. Fees are collected by the **IClankerLpLocker** contracts and are routed to the [**ClankerFeeLocker**](fee-management-contracts/clankerfeelocker.md) contract for users to claim.
 * Collection of a DEX-level protocol fee, separate from the creator LP fees, always in the paired token.
-* Triggering of a pool's `MevModule` until it is disabled or expired. Mev Modules can run for up to 2 mintues max.
+* Triggering of a pool's `MevModule` until it is disabled or expired. Mev Modules can run for up to 2 minutes max.
 
 Note: both of the fee collection mechanisms lag by a swap, so the fees collected in a swap are the fees from the previous swap. This is because a swap's fees are only sent into the `PoolManager` contract after the swap has completed.
 
