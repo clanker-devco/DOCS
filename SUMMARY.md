@@ -6,6 +6,7 @@
 
 * [Educational Resources](general/educational-resources.md)
 * [FAQ](general/faq.md)
+* [Token Deployments](general/token-deployments.md)
 
 ## Droids
 
