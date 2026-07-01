@@ -13,7 +13,11 @@ Please see the [FAQ](faq.md) for detail on finding Token Info pages and collecti
 The Clanker fee is fixed at 20% of LP fees that are collected at the pool level in addition to creator LP fees.&#x20;
 
 $$
-CreatorFee \* 0.2 = SwapFees
+ProtocolFee = CreatorFee \* 0.2
+$$
+
+$$
+SwapFees = CreatorFee + ProtocolFee
 $$
 
 | Creator | Protocol | Total Swap Fee |

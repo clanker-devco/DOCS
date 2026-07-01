@@ -79,7 +79,7 @@ For tokens created directly through interaction with the @clanker bot on Farcast
 1. Your latest Farcaster verified address
 2. Your Farcaster custody address (if you do not have any Farcaster verified addresses)
 
-See [#how-do-i-find-my-farcaster-verified-address-custody-address](#how-do-i-find-my-farcaster-verified-address-custody-address "mention") for guidance on finding your creator rewards address.
+See [#how-do-i-find-my-farcaster-verified-address-custody-address-fid](#how-do-i-find-my-farcaster-verified-address-custody-address-fid "mention") for guidance on finding your creator rewards address.
 
 </details>
 
