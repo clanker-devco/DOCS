@@ -15,6 +15,7 @@
   * [Legacy Deployments](general/token-deployments/legacy-deployments.md)
 * [Creator Rewards & Fees](general/creator-rewards-and-fees.md)
 * [Clanker.world Warning Tags](general/clanker.world-warning-tags.md)
+* [Unclaimed Rewards Balance](general/unclaimed-rewards-balance.md)
 
 ## Droids
 
