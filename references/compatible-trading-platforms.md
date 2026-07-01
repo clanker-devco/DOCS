@@ -37,3 +37,5 @@ Please see below for a list of known, compatible trading platforms as of `July 8
 Clanker v3.1.0 and previous versions deploys tokens into Uniswap v3 pools, which are widely supported by almost all trading venues.&#x20;
 
 Users may run into issues trading Clanker tokens with paired tokens other than $WETH if the paired token does not have a liquid `$pairedToken / $WETH` pool. In this case, users will need to hold the paired token directly to avoid attempting to pool hop ($ETH to $pairedToken to $clankerToken) when trading.
+
+<figure><img src="../.gitbook/assets/compatible-trading-platforms.png" alt=""><figcaption></figcaption></figure>
