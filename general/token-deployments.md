@@ -6,6 +6,8 @@
 
 ### General Token Deployment Info (Clanker v4.0.0)
 
+<figure><img src="../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>
+
 * ERC-20 tokens with a total supply of 100 billion tokens.
   * Tokens are not mintable post-deployment, so the max supply will always be 100 billion.
   * Tokens are burnable using the `burn()` function on the token contract.

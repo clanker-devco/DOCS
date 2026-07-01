@@ -4,28 +4,28 @@
 
 #### Macro
 
-{% file src="/files/0NV12ITjTIwinUa2W4SX" %}
+{% file src="../.gitbook/assets/clanker-v4.1-audit-macro.pdf" %}
 
 ### June-July 2025, Clanker v4
 
 #### Cantina
 
-{% file src="/files/oJout3avKFGUCOvkYSrm" %}
+{% file src="../.gitbook/assets/clanker-v4.0.0-audit-cantina.pdf" %}
 
 #### Macro
 
-{% file src="/files/iF0BdM4Kw5L9tbTVG8b0" %}
+{% file src="../.gitbook/assets/clanker-v4.0.0-audit-macro-1.pdf" %}
 
-{% file src="/files/okxhAjl3C2zqoDUQ5zqE" %}
+{% file src="../.gitbook/assets/clanker-v4.0.0-audit-macro-2.pdf" %}
 
 ### March 2025, Clanker v3.1.0
 
 #### Macro
 
-{% file src="/files/iqzfONkm8p8NVbVW0Lfe" %}
+{% file src="../.gitbook/assets/clanker-v3.1.0-audit-macro.pdf" %}
 
 ### January 2025, Clanker v2.0.0
 
 #### Quantstamp
 
-{% file src="/files/EAtllA9RHfJOsD9hPVOy" %}
+{% file src="../.gitbook/assets/clanker-v2.0.0-audit-quantstamp.pdf" %}

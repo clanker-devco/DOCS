@@ -6,7 +6,11 @@ The fees decay following the formula: `fee = endingFee + feeRange * (timeDecay /
 
 Swaps are able to start in the second after deployment.&#x20;
 
+<figure><img src="../../../../.gitbook/assets/mev-descending-fees-1.png" alt=""><figcaption></figcaption></figure>
+
 The fee applied to the swap is the LP's fee plus Clanker's additional 20% fee. Clanker's default starting market cap is $40k USD, and with the proposed starting fee of 80%, we're setting the starting price for snipers at a market cap of $200k.
+
+<figure><img src="../../../../.gitbook/assets/mev-descending-fees-2.png" alt=""><figcaption></figcaption></figure>
 
 ### Initialization
 

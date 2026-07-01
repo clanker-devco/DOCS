@@ -88,7 +88,12 @@ See [#how-do-i-find-my-farcaster-verified-address-custody-address](#how-do-i-fin
 <summary>How do I find my Farcaster verified address / custody address / FID?</summary>
 
 1. Using Warpcast on desktop, go to your `Profile` and on the top right, press the vertical ellipsis button and select `About`. On the Warpcast mobile app, select the `Information` icon on the top right of your `Profile`.
+
+<figure><img src="../.gitbook/assets/faq-about-screenshot.png" alt=""><figcaption></figcaption></figure>
+
 2. If you have connected an Ethereum wallet, your verified address is the bottom of the list of `Connected Ethereum Wallets`. In the below example, there is only one wallet connected, so that is the verified address.
+
+<figure><img src="../.gitbook/assets/faq-connected-wallets.png" alt=""><figcaption></figcaption></figure>
 
 </details>
 
