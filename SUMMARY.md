@@ -10,6 +10,7 @@
   * [Farcaster Bot Deployments](general/token-deployments/farcaster-bot-deployments.md)
   * [Clanker.world Deployments](general/token-deployments/clanker.world-deployments.md)
   * [Preclank Deployments](general/token-deployments/preclank-deployments.md)
+  * [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
 
 ## Droids
 
