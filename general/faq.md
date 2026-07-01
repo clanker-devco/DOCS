@@ -79,15 +79,7 @@ See  for guidance on finding your creator rewards address.
 
 Using Warpcast on desktop, go to your Profile and on the top right, press the vertical ellipsis button and select About. On the Warpcast mobile app, select the Information icon on the top right of your Profile.
 
-Could not load image
-
-The image file may have been removed.
-
 If you have connected an Ethereum wallet, your verified address is the bottom of the list of Connected Ethereum Wallets. In the below example, there is only one wallet connected, so that is the verified address.
-
-Could not load image
-
-The image file may have been removed.
 
 </details>
 
