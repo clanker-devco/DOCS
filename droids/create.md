@@ -32,4 +32,4 @@ A standalone droid has no Clanker pool to draw LP rewards from, so it is funded 
 
 - [Droid Funding & Runway](funding.md)
 - [Manage your Droid](manage.md)
-- **Clanker.world Deployments** on the main Clanker docs (cross-link once migrated here).
+- [Clanker.world Deployments](../general/token-deployments/clanker.world-deployments.md)
