@@ -7,6 +7,7 @@
 * [Educational Resources](general/educational-resources.md)
 * [FAQ](general/faq.md)
 * [Token Deployments](general/token-deployments.md)
+  * [Farcaster Bot Deployments](general/token-deployments/farcaster-bot-deployments.md)
 
 ## Droids
 
