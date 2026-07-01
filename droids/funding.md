@@ -64,4 +64,4 @@ The destination contract must be able to receive the paired-token reward in the 
 
 ## Related
 
-- The deployer reward share itself is documented in **Creator Rewards & Fees** on the main Clanker docs (cross-link once the page is migrated here).
+- The deployer reward share itself is documented in [Creator Rewards & Fees](../general/creator-rewards-and-fees.md).

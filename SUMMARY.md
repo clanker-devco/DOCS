@@ -13,6 +13,7 @@
   * [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
   * [Deploying a Token](general/token-deployments/deploying-a-token.md)
   * [Legacy Deployments](general/token-deployments/legacy-deployments.md)
+* [Creator Rewards & Fees](general/creator-rewards-and-fees.md)
 
 ## Droids
 
