@@ -1,10 +1,10 @@
 # Verifying the Social Context of Token Deploys
 
-Anyone can deploy a Clanker and attach an arbitrary `social_context` (Farcaster FID, Twitter handle, etc.) to it. The on-chain payload is not authenticated — it's just metadata the deployer chose to embed. To verify a token's claimed creator, check the social context against trusted signals.
+Anyone can deploy a Clanker and attach an arbitrary `social_context` (Farcaster FID, Twitter handle, etc.) to it. The on-chain payload is **not authenticated** — it's just metadata the deployer chose to embed. To verify a token's claimed creator, check the social context against trusted signals.
 
-This document outlines the trust model used by clanker.world and how to replicate these checks using the public `GET /api/search-creator` endpoint.
+This document outlines the trust model used by `clanker.world` and how to replicate these checks using the public [`GET /api/search-creator`](https://clanker.gitbook.io/clanker-documentation/public/get-tokens-by-creator) endpoint.
 
-## Why This Matters
+### Why This Matters
 
 A token row from `/api/search-creator` looks like:
 
@@ -27,24 +27,24 @@ A token row from `/api/search-creator` looks like:
 
 There are two distinct identities:
 
-* `msg_sender` — the EOA or contract that initiated the on-chain call. This is provable through transaction records.
-* `social_context` — a free-form `{ platform, id }` field that the deployment embeds. The deployer might not control the referenced account.
+* **`msg_sender`** — the EOA or contract that initiated the on-chain call. This is provable through transaction records.
+* **`social_context`** — a free-form `{ platform, id }` field that the deployment embeds. The deployer might not control the referenced account.
 
-A malicious deployer can claim any FID in `social_context`. The trust check aims to answer: "Is the signatory wallet truly owned by the claimed social account?"
+A malicious deployer can claim any FID in `social_context`. The trust check aims to answer: **"Is the signatory wallet truly owned by the claimed social account?"**
 
-## Trust Signals (in Priority Order)
+### Trust Signals (in Priority Order)
 
-clanker.world resolves trust using four signals. The first matching one determines trust.
+`clanker.world` resolves trust using four signals. The first matching one determines trust.
 
-### 1. Allowlisted Clanker (`isTrustedClanker`)
+#### 1. Allowlisted Clanker (`isTrustedClanker`)
 
 The token's contract address is allowlisted, verified out-of-band (e.g., tokens deployed through Clanker and v3 presale clanker addresses). This signal overrides all others.
 
-### 2. Trusted Deployer (`isTrustedDeployer`)
+#### 2. Trusted Deployer (`isTrustedDeployer`)
 
-`msg_sender` is in the vetted deployers list maintained by Clanker or partners. Here is a list of historical TRUSTED\_DEPLOYERS but is subject to be modified/added.
+`msg_sender` is in the vetted deployers list maintained by Clanker or partners. Here is a list of historical `TRUSTED_DEPLOYERS` but is subject to be modified/added.&#x20;
 
-```javascript
+```
 // TRUSTED_DEPLOYERS
   '0x2112b8456AC07c15fA31ddf3Bf713E77716fF3F9',
   '0xB2C90e2bB032349e7bEc82B37Cdcc93b6B91036a',
@@ -65,19 +65,19 @@ The token's contract address is allowlisted, verified out-of-band (e.g., tokens 
   '0xBD01E8106a169687C8572672c8900760E5BA170f', // AutoBoy deployer
 ```
 
-### 3. FID Verified (`fidMatchesDeployer`) — Farcaster
+#### 3. FID Verified (`fidMatchesDeployer`) — Farcaster
 
-For Farcaster tokens, clanker.world retrieves the FID's `verified_addresses.eth_addresses` through Neynar to check:
+For Farcaster tokens, `clanker.world` retrieves the FID's `verified_addresses.eth_addresses` through Neynar to check:
 
-`msg_sender ∈ verifiedAddresses`
+> `msg_sender ∈ verifiedAddresses`
 
 A match indicates the same person controls both the Farcaster account and the wallet.
 
-### 4. Twitter Context Match — Twitter
+#### 4. Twitter Context Match — Twitter
 
 For Twitter tokens, confirm that `social_context.id` matches the queried Twitter user ID. This is weaker than Farcaster verification.
 
-## Verification Flow
+### Verification Flow
 
 ```mermaid
 flowchart TD
@@ -96,7 +96,7 @@ flowchart TD
   D -- none --> U
 ```
 
-## Using the API
+### Using the API
 
 ```bash
 curl "https://clanker.world/api/search-creator?q=dish"
@@ -104,12 +104,12 @@ curl "https://clanker.world/api/search-creator?q=dish"
 
 Each `tokens` entry includes `trustStatus`:
 
-| Field                | Type       | Meaning                                                                          |
-| -------------------- | ---------- | -------------------------------------------------------------------------------- |
-| `isTrustedClanker`   | `boolean`  | Contract is manually allowlisted.                                                |
-| `isTrustedDeployer`  | `boolean`  | `msg_sender` is a vetted deployer.                                               |
-| `fidMatchesDeployer` | `boolean`  | `msg_sender` is in the FID's verified addresses (or Twitter match).              |
-| `verifiedAddresses`  | `string[]` | Farcaster verified addresses considered during the check.                        |
+| Field                | Type       | Meaning                                                             |
+| -------------------- | ---------- | ------------------------------------------------------------------- |
+| `isTrustedClanker`   | `boolean`  | Contract is manually allowlisted.                                   |
+| `isTrustedDeployer`  | `boolean`  | `msg_sender` is a vetted deployer.                                  |
+| `fidMatchesDeployer` | `boolean`  | `msg_sender` is in the FID's verified addresses (or Twitter match). |
+| `verifiedAddresses`  | `string[]` | Farcaster verified addresses considered during the check.           |
 
 To filter for verified results, use `trustedOnly=true`:
 
@@ -117,9 +117,9 @@ To filter for verified results, use `trustedOnly=true`:
 curl "https://clanker.world/api/search-creator?q=alice&trustedOnly=true"
 ```
 
-This returns tokens where at least one of `isTrustedClanker`, `isTrustedDeployer`, or `fidMatchesDeployer` is true.
+This returns tokens where at least one of `isTrustedClanker`, `isTrustedDeployer`, or `fidMatchesDeployer` is `true`.
 
-## Checking a Single Token
+### Checking a Single Token
 
 To independently verify a token's creator:
 
@@ -133,7 +133,7 @@ To independently verify a token's creator:
 5. For Twitter context:
    * Confirm user ID matches `social_context.id`.
 
-```typescript
+```ts
 async function isFarcasterVerifiedDeploy({
   msgSender,
   socialContext,
@@ -143,25 +143,26 @@ async function isFarcasterVerifiedDeploy({
 }) {
   const fid = Number(socialContext.id);
   if (!fid) return false;
-​
+
   const res = await fetch(
     `https://api.neynar.com/v2/farcaster/user/bulk?fids=${fid}`,
     { headers: { 'x-api-key': process.env.NEYNAR_API_KEY! } },
   );
   const { users } = await res.json();
   const verified: string[] = users?.[0]?.verified_addresses?.eth_addresses ?? [];
-​
+
   return verified.some((addr) => addr.toLowerCase() === msgSender.toLowerCase());
 }
 ```
 
-## What the Trust Check Does NOT Prove
+### What the Trust Check Does NOT Prove
 
-* It does not guarantee the token's economic intent or value.
-* A false signal does not imply fraudulence.
-* Twitter does not offer on-chain proof like Farcaster; handle Twitter verifications cautiously. Always check the deployment context of X deploys to view the tweet that triggered the deployment. Check the X account for impersonation as well.
-* Always accompany the trust status with standard disclaimers: tokens are speculative, conduct your own research, this is not financial advice.
+* It does **not** guarantee the token's economic intent or value.
+* A `false` signal does **not** imply fraudulence.
+* Twitter does not offer on-chain proof like Farcaster; handle Twitter verifications cautiously. Always check the deployment context of X deploys to view the tweet that triggered the deployment. Check the X account for impersonation as well.&#x20;
 
-## How to have your Farcaster account show as Creator
+Always accompany the trust status with standard disclaimers: tokens are speculative, conduct your own research, this is not financial advice.
 
-You can either clank through the bot in-feed, preclank through the deploy page, or send the `deployToken` method from the deploy page or SDK with an account that is verified to your Farcaster account. To verify an ETH account on your Farcaster profile, go to Settings ⇒ Verified Addresses
+### How to have your Farcaster account show as Creator
+
+You can either clank through the bot in-feed, preclank through the deploy page, or send the `deployToken` method from the deploy page or SDK with an account that is verified to your Farcaster account. To verify an ETH account on your Farcaster profile, go to **Settings ⇒ Verified Addresses**
