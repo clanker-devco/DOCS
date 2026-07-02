@@ -203,3 +203,5 @@ Search tokens by query or FIDs.
 Estimate uncollected rewards for a pool.
 
 **Authentication:** Public
+
+---
