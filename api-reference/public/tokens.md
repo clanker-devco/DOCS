@@ -203,36 +203,3 @@ Search tokens by query or FIDs.
 Estimate uncollected rewards for a pool.
 
 **Authentication:** Public
-
----
-
-### GET `/api/tokens/{address}/holders`
-
-Returns holder count and top-10 concentration for a token.
-
-**Authentication:** Public
-
-**Path Parameters**
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `address` | `address` | Yes | — | Token contract address. |
-
-**Query Parameters**
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `chain` | `number` | No | 8453 | Chain ID (defaults to Base). |
-
-**Response:** Holder statistics.
-
-```json
-{
-  "totalHolders": 4521,
-  "top10Sum": 45.2
-}
-```
-
-> Cached for 5 minutes.
-
----
