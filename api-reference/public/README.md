@@ -16,7 +16,6 @@ These endpoints are publicly accessible and require no authentication.
 - `POST /api/tokens/fetch-by-pool-addresses` — Returns token data for multiple pool addresses (max 100).
 - `GET /api/tokens/search` — Search tokens by query or FIDs. *(deprecated)*
 - `GET /api/tokens/estimate-rewards-by-pool-address` — Estimate uncollected rewards for a pool. *(deprecated)*
-- `GET /api/tokens/{address}/holders` — Returns holder count and top-10 concentration for a token.
 
 ### Users
 
