@@ -19,7 +19,7 @@ Deploy a new Clanker token. Supports v4 deployment with rewards, fees, vault, ai
 | `vault` | `object` | No | — | Vault configuration. |
 | `airdrop` | `object` | No | — | Airdrop configuration. |
 | `context` | `object` | No | — | Social context. |
-| `chainId` | `number` | Yes | — | Chain to deploy on (base, arbitrum, baseSepolia, bsc, monad, unichain). |
+| `chainId` | `number` | Yes | — | Chain to deploy on (base, arbitrum, baseSepolia, bsc, monad, unichain, robinhood). |
 | `dryRun` | `boolean` | No | false | Simulate deployment without executing. |
 
 **Response:** Deployment result with expected token address.
