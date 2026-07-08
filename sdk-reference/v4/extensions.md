@@ -10,18 +10,18 @@
 
 ### PresaleStatus
 
-Defined in: [v4/extensions/presale.ts:19](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L19)
+Defined in: [src/v4/extensions/presale.ts:19](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L19)
 
 #### Enumeration Members
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| <a id="enumeration-member-active"></a> `Active` | `1` | [v4/extensions/presale.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L21) |
-| <a id="enumeration-member-claimable"></a> `Claimable` | `5` | [v4/extensions/presale.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L25) |
-| <a id="enumeration-member-failed"></a> `Failed` | `4` | [v4/extensions/presale.ts:24](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L24) |
-| <a id="enumeration-member-notcreated"></a> `NotCreated` | `0` | [v4/extensions/presale.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L20) |
-| <a id="enumeration-member-successfulmaximumhit"></a> `SuccessfulMaximumHit` | `3` | [v4/extensions/presale.ts:23](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L23) |
-| <a id="enumeration-member-successfulminimumhit"></a> `SuccessfulMinimumHit` | `2` | [v4/extensions/presale.ts:22](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L22) |
+| <a id="enumeration-member-active"></a> `Active` | `1` | [src/v4/extensions/presale.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L21) |
+| <a id="enumeration-member-claimable"></a> `Claimable` | `5` | [src/v4/extensions/presale.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L25) |
+| <a id="enumeration-member-failed"></a> `Failed` | `4` | [src/v4/extensions/presale.ts:24](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L24) |
+| <a id="enumeration-member-notcreated"></a> `NotCreated` | `0` | [src/v4/extensions/presale.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L20) |
+| <a id="enumeration-member-successfulmaximumhit"></a> `SuccessfulMaximumHit` | `3` | [src/v4/extensions/presale.ts:23](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L23) |
+| <a id="enumeration-member-successfulminimumhit"></a> `SuccessfulMinimumHit` | `2` | [src/v4/extensions/presale.ts:22](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L22) |
 
 ## Type Aliases
 
@@ -31,7 +31,7 @@ Defined in: [v4/extensions/presale.ts:19](https://github.com/clanker-devco/clank
 type AirdropRecipient = z.input<typeof AirdropEntrySchema>[0];
 ```
 
-Defined in: [v4/extensions/airdrop.ts:26](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L26)
+Defined in: [src/v4/extensions/airdrop.ts:26](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L26)
 
 ***
 
@@ -41,7 +41,7 @@ Defined in: [v4/extensions/airdrop.ts:26](https://github.com/clanker-devco/clank
 type PresaleConfig = z.input<typeof PresaleConfigSchema>;
 ```
 
-Defined in: [v4/extensions/presale.ts:50](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L50)
+Defined in: [src/v4/extensions/presale.ts:50](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L50)
 
 ## Functions
 
@@ -53,7 +53,7 @@ function buyIntoPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:160](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L160)
+Defined in: [src/v4/extensions/presale.ts:160](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L160)
 
 Buy into a presale
 
@@ -84,7 +84,7 @@ function buyIntoPresaleWithProof(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:650](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L650)
+Defined in: [src/v4/extensions/presale.ts:650](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L650)
 
 Buy into a presale with allowlist proof
 
@@ -133,7 +133,7 @@ function claimAirdrop(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/airdrop.ts:192](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L192)
+Defined in: [src/v4/extensions/airdrop.ts:192](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L192)
 
 Claim an airdrop
 
@@ -166,7 +166,7 @@ function claimEth(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:338](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L338)
+Defined in: [src/v4/extensions/presale.ts:338](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L338)
 
 Claim ETH from a successful presale
 
@@ -204,7 +204,7 @@ function claimTokens(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:275](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L275)
+Defined in: [src/v4/extensions/presale.ts:275](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L275)
 
 Claim tokens from a presale
 
@@ -238,7 +238,7 @@ function createAirdrop(recipients, options?): {
 };
 ```
 
-Defined in: [v4/extensions/airdrop.ts:36](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L36)
+Defined in: [src/v4/extensions/airdrop.ts:36](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L36)
 
 Create an airdrop for the recipients.
 
@@ -266,10 +266,10 @@ Tree to save offline and Airdrop data for the smart contract.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `airdrop` | \{ `amount`: `number`; `merkleRoot`: `` `0x${string}` ``; \} | [v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
-| `airdrop.amount` | `number` | [v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
-| `airdrop.merkleRoot` | `` `0x${string}` `` | [v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
-| `tree` | `MerkleTree`\<`MerkleEntry`\> | [v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
+| `airdrop` | \{ `amount`: `number`; `merkleRoot`: `` `0x${string}` ``; \} | [src/v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
+| `airdrop.amount` | `number` | [src/v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
+| `airdrop.merkleRoot` | `` `0x${string}` `` | [src/v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
+| `tree` | `MerkleTree`\<`MerkleEntry`\> | [src/v4/extensions/airdrop.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L39) |
 
 ***
 
@@ -281,7 +281,7 @@ function endPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:227](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L227)
+Defined in: [src/v4/extensions/presale.ts:227](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L227)
 
 End a presale and deploy the token
 
@@ -328,7 +328,7 @@ function fetchAirdropProofs(token, account): Promise<{
 }>;
 ```
 
-Defined in: [v4/extensions/airdrop.ts:122](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L122)
+Defined in: [src/v4/extensions/airdrop.ts:122](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L122)
 
 Get all proofs for an account given a token that has a merkle tree associated with it. The token and tree must have been registered with the Clanker service.
 
@@ -369,7 +369,7 @@ function getAirdropProofs(tree, account): {
 };
 ```
 
-Defined in: [v4/extensions/airdrop.ts:92](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L92)
+Defined in: [src/v4/extensions/airdrop.ts:92](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L92)
 
 Get all proofs for an account given a merkle tree.
 
@@ -398,7 +398,7 @@ All proofs and their associated entries for claiming.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `proofs` | \{ `entry`: \{ `account`: `` `0x${string}` ``; `amount`: `bigint`; \}; `proof`: `` `0x${string}` ``[]; \}[] | [v4/extensions/airdrop.ts:95](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L95) |
+| `proofs` | \{ `entry`: \{ `account`: `` `0x${string}` ``; `amount`: `bigint`; \}; `proof`: `` `0x${string}` ``[]; \}[] | [src/v4/extensions/airdrop.ts:95](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L95) |
 
 ***
 
@@ -408,7 +408,7 @@ All proofs and their associated entries for claiming.
 function getAllowlistAddress(chainId): `0x${string}` | undefined;
 ```
 
-Defined in: [v4/extensions/presale.ts:579](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L579)
+Defined in: [src/v4/extensions/presale.ts:579](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L579)
 
 Get the allowlist contract address for a specific chain
 
@@ -416,7 +416,7 @@ Get the allowlist contract address for a specific chain
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | The chain ID to get the allowlist address for |
+| `chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | The chain ID to get the allowlist address for |
 
 #### Returns
 
@@ -432,7 +432,7 @@ The allowlist contract address, or undefined if not available
 function getAmountAvailableToClaim(data): Promise<bigint>;
 ```
 
-Defined in: [v4/extensions/presale.ts:485](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L485)
+Defined in: [src/v4/extensions/presale.ts:485](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L485)
 
 Get the amount available for a user to claim from a presale
 
@@ -2185,7 +2185,7 @@ function getBuyIntoPresaleTransaction(presaleId): ClankerTransactionConfig<reado
 }], "buyIntoPresale">;
 ```
 
-Defined in: [v4/extensions/presale.ts:128](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L128)
+Defined in: [src/v4/extensions/presale.ts:128](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L128)
 
 Get a transaction to buy into a presale
 
@@ -2193,8 +2193,8 @@ Get a transaction to buy into a presale
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `value`: `bigint`; \} | The ID of the presale |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `value`: `bigint`; \} | The ID of the presale |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 | `presaleId.value` | `bigint` | - |
 
@@ -5664,7 +5664,7 @@ function getBuyIntoPresaleWithProofTransaction(presaleId): ClankerTransactionCon
 }], "buyIntoPresaleWithProof">;
 ```
 
-Defined in: [v4/extensions/presale.ts:596](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L596)
+Defined in: [src/v4/extensions/presale.ts:596](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L596)
 
 Get a transaction to buy into a presale with allowlist proof
 
@@ -5675,8 +5675,8 @@ The proof must contain your allowlist proof data (merkle proof + allowed amount)
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `proof`: `` `0x${string}` ``; `value`: `bigint`; \} | The ID of the presale |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `proof`: `` `0x${string}` ``; `value`: `bigint`; \} | The ID of the presale |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 | `presaleId.proof` | `` `0x${string}` `` | - |
 | `presaleId.value` | `bigint` | - |
@@ -7825,7 +7825,7 @@ function getClaimAirdropTransaction(token): ClankerTransactionConfig<readonly [{
 }], "claim">;
 ```
 
-Defined in: [v4/extensions/airdrop.ts:157](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L157)
+Defined in: [src/v4/extensions/airdrop.ts:157](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L157)
 
 Create a transaction to claim a specific airdrop for.
 
@@ -7833,9 +7833,9 @@ Create a transaction to claim a specific airdrop for.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `token` | \{ `amount`: `bigint`; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `proof`: `` `0x${string}` ``[]; `recipient`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The token that did the airdrop |
+| `token` | \{ `amount`: `bigint`; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `proof`: `` `0x${string}` ``[]; `recipient`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The token that did the airdrop |
 | `token.amount` | `bigint` | - |
-| `token.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `token.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `token.proof` | `` `0x${string}` ``[] | - |
 | `token.recipient` | `` `0x${string}` `` | - |
 | `token.token` | `` `0x${string}` `` | - |
@@ -9984,7 +9984,7 @@ function getClaimEthTransaction(presaleId): ClankerTransactionConfig<readonly [{
 }], "claimEth">;
 ```
 
-Defined in: [v4/extensions/presale.ts:300](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L300)
+Defined in: [src/v4/extensions/presale.ts:300](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L300)
 
 Get a transaction to claim ETH from a successful presale (for presale owners)
 
@@ -9997,8 +9997,8 @@ to the recipient.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `recipient`: `` `0x${string}` ``; \} | The ID of the presale |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `recipient`: `` `0x${string}` ``; \} | The ID of the presale |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 | `presaleId.recipient` | `` `0x${string}` `` | - |
 
@@ -13468,7 +13468,7 @@ function getClaimTokensTransaction(presaleId): ClankerTransactionConfig<readonly
 }], "claimTokens">;
 ```
 
-Defined in: [v4/extensions/presale.ts:247](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L247)
+Defined in: [src/v4/extensions/presale.ts:247](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L247)
 
 Get a transaction to claim tokens from a presale
 
@@ -13476,8 +13476,8 @@ Get a transaction to claim tokens from a presale
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; \} | The ID of the presale |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; \} | The ID of the presale |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 
 #### Returns
@@ -16946,7 +16946,7 @@ function getEndPresaleTransaction(presaleId): ClankerTransactionConfig<readonly 
 }], "endPresale">;
 ```
 
-Defined in: [v4/extensions/presale.ts:186](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L186)
+Defined in: [src/v4/extensions/presale.ts:186](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L186)
 
 Get a transaction to end a presale
 
@@ -16959,8 +16959,8 @@ A presale can be ended in three scenarios:
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `salt`: `` `0x${string}` ``; \} | The ID of the presale |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `salt`: `` `0x${string}` ``; \} | The ID of the presale |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 | `presaleId.salt` | `` `0x${string}` `` | - |
 
@@ -18760,7 +18760,7 @@ function getPresale(data): Promise<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:358](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L358)
+Defined in: [src/v4/extensions/presale.ts:358](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L358)
 
 Get presale information
 
@@ -18842,7 +18842,7 @@ Presale data
 function getPresaleBuys(data): Promise<bigint>;
 ```
 
-Defined in: [v4/extensions/presale.ts:417](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L417)
+Defined in: [src/v4/extensions/presale.ts:417](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L417)
 
 Get the amount of ETH a user has contributed to a presale
 
@@ -18869,7 +18869,7 @@ Amount of ETH contributed
 function getPresaleClaimed(data): Promise<bigint>;
 ```
 
-Defined in: [v4/extensions/presale.ts:451](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L451)
+Defined in: [src/v4/extensions/presale.ts:451](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L451)
 
 Get the amount of tokens a user has claimed from a presale
 
@@ -18934,7 +18934,7 @@ function getPresaleState(data): Promise<readonly [number, {
 }, `0x${string}`, `0x${string}`, bigint, bigint, bigint, `0x${string}`, bigint, bigint, boolean, boolean, bigint, bigint, bigint, bigint, bigint]>;
 ```
 
-Defined in: [v4/extensions/presale.ts:387](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L387)
+Defined in: [src/v4/extensions/presale.ts:387](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L387)
 
 Get presale state (same as getPresale but different function name in contract)
 
@@ -19206,7 +19206,7 @@ function getSetAddressOverrideTransaction(presaleId): ClankerTransactionConfig<r
 }], "setAddressOverride">;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:89](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L89)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:89](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L89)
 
 Get a transaction to set an address override for a presale allowlist
 
@@ -19218,10 +19218,10 @@ removes the override.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `allowedAmount`: `bigint`; `buyer`: `` `0x${string}` ``; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; \} | The presale ID |
+| `presaleId` | \{ `allowedAmount`: `bigint`; `buyer`: `` `0x${string}` ``; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; \} | The presale ID |
 | `presaleId.allowedAmount` | `bigint` | - |
 | `presaleId.buyer` | `` `0x${string}` `` | - |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 
 #### Returns
@@ -19654,7 +19654,7 @@ function getSetAllowlistEnabledTransaction(presaleId): ClankerTransactionConfig<
 }], "setAllowlistEnabled">;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:177](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L177)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:177](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L177)
 
 Get a transaction to enable or disable the allowlist for a presale
 
@@ -19666,8 +19666,8 @@ provide proof or have an address override.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `enabled`: `boolean`; `presaleId`: `bigint`; \} | The presale ID |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `enabled`: `boolean`; `presaleId`: `bigint`; \} | The presale ID |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.enabled` | `boolean` | - |
 | `presaleId.presaleId` | `bigint` | - |
 
@@ -20101,7 +20101,7 @@ function getSetMerkleRootTransaction(presaleId): ClankerTransactionConfig<readon
 }], "setMerkleRoot">;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L25)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L25)
 
 Get a transaction to set the merkle root for a presale allowlist
 
@@ -20112,8 +20112,8 @@ after the presale has been created.
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `merkleRoot`: `` `0x${string}` ``; `presaleId`: `bigint`; \} | The presale ID |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId` | \{ `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `merkleRoot`: `` `0x${string}` ``; `presaleId`: `bigint`; \} | The presale ID |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.merkleRoot` | `` `0x${string}` `` | - |
 | `presaleId.presaleId` | `bigint` | - |
 
@@ -21957,7 +21957,7 @@ function getStartPresaleTransaction(deploymentConfig): Promise<ClankerTransactio
 }], "startPresale">>;
 ```
 
-Defined in: [v4/extensions/presale.ts:60](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L60)
+Defined in: [src/v4/extensions/presale.ts:60](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L60)
 
 Get a transaction to start a presale
 
@@ -21965,7 +21965,7 @@ Get a transaction to start a presale
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `deploymentConfig` | \{ `presaleConfig`: \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `tokenConfig`: \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \}; \} | The deployment configuration for the token |
+| `deploymentConfig` | \{ `presaleConfig`: \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `tokenConfig`: \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \}; \} | The deployment configuration for the token |
 | `deploymentConfig.presaleConfig` | \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | - |
 | `deploymentConfig.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
 | `deploymentConfig.presaleConfig.allowlistInitializationData?` | `` `0x${string}` `` | Allowlist initialization data (0x for no allowlist) |
@@ -21976,14 +21976,14 @@ Get a transaction to start a presale
 | `deploymentConfig.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
 | `deploymentConfig.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `deploymentConfig.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
-| `deploymentConfig.tokenConfig` | \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \} | - |
+| `deploymentConfig.tokenConfig` | \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \} | - |
 | `deploymentConfig.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `deploymentConfig.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
 | `deploymentConfig.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
 | `deploymentConfig.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
 | `deploymentConfig.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `deploymentConfig.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
-| `deploymentConfig.tokenConfig.chainId?` | `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
+| `deploymentConfig.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `deploymentConfig.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
 | `deploymentConfig.tokenConfig.context.id?` | `string` | User id of the poster on the social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `deploymentConfig.tokenConfig.context.interface?` | `string` | System the token was deployed via. Defaults to "SDK". |
@@ -25393,7 +25393,7 @@ function getWithdrawFromPresaleTransaction(presaleId): ClankerTransactionConfig<
 }], "withdrawFromPresale">;
 ```
 
-Defined in: [v4/extensions/presale.ts:520](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L520)
+Defined in: [src/v4/extensions/presale.ts:520](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L520)
 
 Get a transaction to withdraw from a presale
 
@@ -25401,9 +25401,9 @@ Get a transaction to withdraw from a presale
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `presaleId` | \{ `amount`: `bigint`; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `recipient`: `` `0x${string}` ``; \} | The ID of the presale |
+| `presaleId` | \{ `amount`: `bigint`; `chainId`: `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532`; `presaleId`: `bigint`; `recipient`: `` `0x${string}` ``; \} | The ID of the presale |
 | `presaleId.amount` | `bigint` | - |
-| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `8453` \| `10143` \| `42161` \| `84532` | - |
+| `presaleId.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | - |
 | `presaleId.presaleId` | `bigint` | - |
 | `presaleId.recipient` | `` `0x${string}` `` | - |
 
@@ -27147,7 +27147,7 @@ Transaction configuration for withdrawing from a presale
 function registerAirdrop(token, tree): Promise<boolean>;
 ```
 
-Defined in: [v4/extensions/airdrop.ts:72](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L72)
+Defined in: [src/v4/extensions/airdrop.ts:72](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/airdrop.ts#L72)
 
 Register an airdrop merkle tree with the Clanker service.
 
@@ -27179,7 +27179,7 @@ function setAddressOverride(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:146](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L146)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:146](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L146)
 
 Set an address override for a presale allowlist
 
@@ -27235,7 +27235,7 @@ function setAllowlistEnabled(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:221](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L221)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:221](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L221)
 
 Enable or disable the allowlist for a presale
 
@@ -27280,7 +27280,7 @@ function setMerkleRoot(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale-allowlist-management.ts:59](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L59)
+Defined in: [src/v4/extensions/presale-allowlist-management.ts:59](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale-allowlist-management.ts#L59)
 
 Set the merkle root for a presale allowlist
 
@@ -27322,7 +27322,7 @@ function startPresale(data): Promise<
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:104](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L104)
+Defined in: [src/v4/extensions/presale.ts:104](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L104)
 
 Start a presale
 
@@ -27330,7 +27330,7 @@ Start a presale
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
-| `data` | \{ `clanker`: [`Clanker`](../v4.md#clanker); `presaleConfig`: \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `tokenConfig`: \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \}; \} | - |
+| `data` | \{ `clanker`: [`Clanker`](../v4.md#clanker); `presaleConfig`: \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `tokenConfig`: \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \}; \} | - |
 | `data.clanker` | [`Clanker`](../v4.md#clanker) | - |
 | `data.presaleConfig` | \{ `allowlist?`: `` `0x${string}` ``; `allowlistInitializationData?`: `` `0x${string}` ``; `lockupDuration?`: `number`; `maxEthGoal`: `number`; `minEthGoal`: `number`; `presaleDuration`: `number`; `presaleSupplyBps?`: `number`; `recipient`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | - |
 | `data.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
@@ -27342,14 +27342,14 @@ Start a presale
 | `data.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
 | `data.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `data.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
-| `data.tokenConfig` | \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \} | - |
+| `data.tokenConfig` | \{ `airdrop?`: \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; `chainId?`: `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56`; `context?`: \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \}; `devBuy?`: \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \}; `fees?`: \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \}; `image?`: `string`; `locker?`: \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \}; `metadata?`: \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \}; `name`: `string`; `pool?`: \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \}; `poolExtension?`: \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \}; `presale?`: \{ `bps`: `number`; \}; `rewards?`: \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \}; `salt?`: `` `0x${string}` ``; `sniperFees?`: \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \}; `symbol`: `string`; `tokenAdmin`: `` `0x${string}` ``; `vanity?`: `boolean`; `vault?`: \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \}; \} | - |
 | `data.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `data.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
 | `data.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
 | `data.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
 | `data.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `data.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
-| `data.tokenConfig.chainId?` | `1` \| `143` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
+| `data.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `data.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
 | `data.tokenConfig.context.id?` | `string` | User id of the poster on the social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `data.tokenConfig.context.interface?` | `string` | System the token was deployed via. Defaults to "SDK". |
@@ -27427,7 +27427,7 @@ function withdrawFromPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [v4/extensions/presale.ts:554](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L554)
+Defined in: [src/v4/extensions/presale.ts:554](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L554)
 
 Withdraw ETH from an active presale
 
