@@ -12,6 +12,6 @@ Clanker will reply to the cast with one of three responses:
 2. If the request is not clear to Clanker, Clanker will respond with clarifying questions in order to determine the token name, ticker, and whether the creator wants to deploy the token.
 3. If the creator is unable to deploy a token for various reasons, Clanker will respond with the cast with the reason.
 
-[^1]: Don't have a Farcaster account? You can sign up using [Warpcast](https://warpcast.com/)!\
+[^1]: Don't have a Farcaster account? You can sign up at [farcaster.xyz](https://farcaster.xyz/)!\
     \
     Alternatively, uou can also visit our friends at [Super](https://www.supercast.xyz/) and  [NewCaster](https://newcaster.org/) to create a Farcaster account.

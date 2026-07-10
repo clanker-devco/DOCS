@@ -1,5 +1,5 @@
 # Core Team
 
-* Veganbeef: [Farcaster](https://warpcast.com/veganbeef)
-* Quazia: [Farcaster](https://warpcast.com/quazia)
-* @clanker: [Farcaster](https://warpcast.com/clanker) — general support & marketing
+* Veganbeef: [Farcaster](https://farcaster.xyz/veganbeef)
+* Quazia: [Farcaster](https://farcaster.xyz/quazia)
+* @clanker: [Farcaster](https://farcaster.xyz/clanker) — general support & marketing
