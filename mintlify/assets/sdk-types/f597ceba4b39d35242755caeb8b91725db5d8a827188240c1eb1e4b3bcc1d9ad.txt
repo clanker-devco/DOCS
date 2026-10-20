@@ -1,0 +1,1619 @@
+function getStartPresaleTransaction(deploymentConfig): Promise<ClankerTransactionConfig<readonly [{
+  inputs: readonly [{
+     internalType: "address";
+     name: "owner_";
+     type: "address";
+   }, {
+     internalType: "address";
+     name: "factory_";
+     type: "address";
+   }, {
+     internalType: "address";
+     name: "clankerFeeRecipient_";
+     type: "address";
+  }];
+  stateMutability: "nonpayable";
+  type: "constructor";
+}, {
+  inputs: readonly [];
+  name: "BPS";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "DEPLOYMENT_BAD_BUFFER";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "MAX_PRESALE_DURATION";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "SALT_SET_BUFFER";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "";
+     type: "address";
+  }];
+  name: "admins";
+  outputs: readonly [{
+     internalType: "bool";
+     name: "";
+     type: "bool";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "user";
+     type: "address";
+  }];
+  name: "amountAvailableToClaim";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  name: "buyIntoPresale";
+  outputs: readonly [];
+  stateMutability: "payable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "bytes";
+     name: "proof";
+     type: "bytes";
+  }];
+  name: "buyIntoPresaleWithProof";
+  outputs: readonly [];
+  stateMutability: "payable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+  }];
+  name: "claimEth";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  name: "claimTokens";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "clankerDefaultFeeBps";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "clankerFeeRecipient";
+  outputs: readonly [{
+     internalType: "address";
+     name: "";
+     type: "address";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+  }];
+  name: "enabledAllowlists";
+  outputs: readonly [{
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "bytes32";
+     name: "salt";
+     type: "bytes32";
+  }];
+  name: "endPresale";
+  outputs: readonly [{
+     internalType: "address";
+     name: "token";
+     type: "address";
+  }];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "factory";
+  outputs: readonly [{
+     internalType: "contract IClanker";
+     name: "";
+     type: "address";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId_";
+     type: "uint256";
+  }];
+  name: "getPresale";
+  outputs: readonly [{
+     components: readonly [{
+        internalType: "enum IClankerPresaleEthToCreator.PresaleStatus";
+        name: "status";
+        type: "uint8";
+      }, {
+        components: readonly [{
+           components: readonly [..., ..., ..., ..., ..., ..., ..., ...];
+           internalType: "struct IClanker.TokenConfig";
+           name: "tokenConfig";
+           type: "tuple";
+         }, {
+           components: readonly [..., ..., ..., ..., ...];
+           internalType: "struct IClanker.PoolConfig";
+           name: "poolConfig";
+           type: "tuple";
+         }, {
+           components: readonly [..., ..., ..., ..., ..., ..., ..., ...];
+           internalType: "struct IClanker.LockerConfig";
+           name: "lockerConfig";
+           type: "tuple";
+         }, {
+           components: readonly [..., ...];
+           internalType: "struct IClanker.MevModuleConfig";
+           name: "mevModuleConfig";
+           type: "tuple";
+         }, {
+           components: readonly [..., ..., ..., ...];
+           internalType: "struct IClanker.ExtensionConfig[]";
+           name: "extensionConfigs";
+           type: "tuple[]";
+        }];
+        internalType: "struct IClanker.DeploymentConfig";
+        name: "deploymentConfig";
+        type: "tuple";
+      }, {
+        internalType: "address";
+        name: "allowlist";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "presaleOwner";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "minEthGoal";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "maxEthGoal";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "endTime";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "deployedToken";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "ethRaised";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "tokenSupply";
+        type: "uint256";
+      }, {
+        internalType: "bool";
+        name: "deploymentExpected";
+        type: "bool";
+      }, {
+        internalType: "bool";
+        name: "ethClaimed";
+        type: "bool";
+      }, {
+        internalType: "uint256";
+        name: "lockupDuration";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "vestingDuration";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "lockupEndTime";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "vestingEndTime";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "clankerFee";
+        type: "uint256";
+     }];
+     internalType: "struct IClankerPresaleEthToCreator.Presale";
+     name: "";
+     type: "tuple";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "minLockupDuration";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "owner";
+  outputs: readonly [{
+     internalType: "address";
+     name: "";
+     type: "address";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "user";
+     type: "address";
+  }];
+  name: "presaleBuys";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "amount";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "user";
+     type: "address";
+  }];
+  name: "presaleClaimed";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "amount";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  name: "presaleState";
+  outputs: readonly [{
+     internalType: "enum IClankerPresaleEthToCreator.PresaleStatus";
+     name: "status";
+     type: "uint8";
+   }, {
+     components: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "tokenAdmin";
+           type: "address";
+         }, {
+           internalType: "string";
+           name: "name";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "symbol";
+           type: "string";
+         }, {
+           internalType: "bytes32";
+           name: "salt";
+           type: "bytes32";
+         }, {
+           internalType: "string";
+           name: "image";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "metadata";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "context";
+           type: "string";
+         }, {
+           internalType: "uint256";
+           name: "originatingChainId";
+           type: "uint256";
+        }];
+        internalType: "struct IClanker.TokenConfig";
+        name: "tokenConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "mevModule";
+           type: "address";
+         }, {
+           internalType: "bytes";
+           name: "mevModuleData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.MevModuleConfig";
+        name: "mevModuleConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "extension";
+           type: "address";
+         }, {
+           internalType: "uint256";
+           name: "msgValue";
+           type: "uint256";
+         }, {
+           internalType: "uint16";
+           name: "extensionBps";
+           type: "uint16";
+         }, {
+           internalType: "bytes";
+           name: "extensionData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.ExtensionConfig[]";
+        name: "extensionConfigs";
+        type: "tuple[]";
+     }];
+     internalType: "struct IClanker.DeploymentConfig";
+     name: "deploymentConfig";
+     type: "tuple";
+   }, {
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+   }, {
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "minEthGoal";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "maxEthGoal";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "endTime";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "deployedToken";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "ethRaised";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "tokenSupply";
+     type: "uint256";
+   }, {
+     internalType: "bool";
+     name: "deploymentExpected";
+     type: "bool";
+   }, {
+     internalType: "bool";
+     name: "ethClaimed";
+     type: "bool";
+   }, {
+     internalType: "uint256";
+     name: "lockupDuration";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "vestingDuration";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "lockupEndTime";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "vestingEndTime";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "clankerFee";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     components: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "tokenAdmin";
+           type: "address";
+         }, {
+           internalType: "string";
+           name: "name";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "symbol";
+           type: "string";
+         }, {
+           internalType: "bytes32";
+           name: "salt";
+           type: "bytes32";
+         }, {
+           internalType: "string";
+           name: "image";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "metadata";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "context";
+           type: "string";
+         }, {
+           internalType: "uint256";
+           name: "originatingChainId";
+           type: "uint256";
+        }];
+        internalType: "struct IClanker.TokenConfig";
+        name: "tokenConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "mevModule";
+           type: "address";
+         }, {
+           internalType: "bytes";
+           name: "mevModuleData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.MevModuleConfig";
+        name: "mevModuleConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "extension";
+           type: "address";
+         }, {
+           internalType: "uint256";
+           name: "msgValue";
+           type: "uint256";
+         }, {
+           internalType: "uint16";
+           name: "extensionBps";
+           type: "uint16";
+         }, {
+           internalType: "bytes";
+           name: "extensionData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.ExtensionConfig[]";
+        name: "extensionConfigs";
+        type: "tuple[]";
+     }];
+     internalType: "struct IClanker.DeploymentConfig";
+     name: "deploymentConfig";
+     type: "tuple";
+   }, {
+     components: readonly [{
+        internalType: "Currency";
+        name: "currency0";
+        type: "address";
+      }, {
+        internalType: "Currency";
+        name: "currency1";
+        type: "address";
+      }, {
+        internalType: "uint24";
+        name: "fee";
+        type: "uint24";
+      }, {
+        internalType: "int24";
+        name: "tickSpacing";
+        type: "int24";
+      }, {
+        internalType: "contract IHooks";
+        name: "hooks";
+        type: "address";
+     }];
+     internalType: "struct PoolKey";
+     name: "";
+     type: "tuple";
+   }, {
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "extensionSupply";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "extensionIndex";
+     type: "uint256";
+  }];
+  name: "receiveTokens";
+  outputs: readonly [];
+  stateMutability: "payable";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "renounceOwnership";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "admin";
+     type: "address";
+   }, {
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "setAdmin";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+   }, {
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "setAllowlist";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "clankerDefaultFeeBps_";
+     type: "uint256";
+  }];
+  name: "setClankerDefaultFee";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "newFee";
+     type: "uint256";
+  }];
+  name: "setClankerFeeForPresale";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+  }];
+  name: "setClankerFeeRecipient";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "minLockupDuration_";
+     type: "uint256";
+  }];
+  name: "setMinLockupDuration";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     components: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "tokenAdmin";
+           type: "address";
+         }, {
+           internalType: "string";
+           name: "name";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "symbol";
+           type: "string";
+         }, {
+           internalType: "bytes32";
+           name: "salt";
+           type: "bytes32";
+         }, {
+           internalType: "string";
+           name: "image";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "metadata";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "context";
+           type: "string";
+         }, {
+           internalType: "uint256";
+           name: "originatingChainId";
+           type: "uint256";
+        }];
+        internalType: "struct IClanker.TokenConfig";
+        name: "tokenConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "mevModule";
+           type: "address";
+         }, {
+           internalType: "bytes";
+           name: "mevModuleData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.MevModuleConfig";
+        name: "mevModuleConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "extension";
+           type: "address";
+         }, {
+           internalType: "uint256";
+           name: "msgValue";
+           type: "uint256";
+         }, {
+           internalType: "uint16";
+           name: "extensionBps";
+           type: "uint16";
+         }, {
+           internalType: "bytes";
+           name: "extensionData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.ExtensionConfig[]";
+        name: "extensionConfigs";
+        type: "tuple[]";
+     }];
+     internalType: "struct IClanker.DeploymentConfig";
+     name: "deploymentConfig";
+     type: "tuple";
+   }, {
+     internalType: "uint256";
+     name: "minEthGoal";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "maxEthGoal";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "presaleDuration";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "lockupDuration";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "vestingDuration";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+   }, {
+     internalType: "bytes";
+     name: "allowlistInitializationData";
+     type: "bytes";
+  }];
+  name: "startPresale";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "bytes4";
+     name: "interfaceId";
+     type: "bytes4";
+  }];
+  name: "supportsInterface";
+  outputs: readonly [{
+     internalType: "bool";
+     name: "";
+     type: "bool";
+  }];
+  stateMutability: "pure";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "newOwner";
+     type: "address";
+  }];
+  name: "transferOwnership";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "amount";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+  }];
+  name: "withdrawFromPresale";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "ethAmount";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "fee";
+     type: "uint256";
+  }];
+  name: "ClaimEth";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "claimer";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "tokenAmount";
+     type: "uint256";
+  }];
+  name: "ClaimTokens";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "uint256";
+     name: "oldClankerDefaultFee";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "clankerDefaultFee";
+     type: "uint256";
+  }];
+  name: "ClankerDefaultFeeUpdated";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "address";
+     name: "oldRecipient";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+  }];
+  name: "ClankerFeeRecipientUpdated";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "oldClankerFee";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "clankerFee";
+     type: "uint256";
+  }];
+  name: "ClankerFeeUpdatedForPresale";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "uint256";
+     name: "oldMinLockupDuration";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "minLockupDuration";
+     type: "uint256";
+  }];
+  name: "MinLockupDurationUpdated";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "address";
+     name: "previousOwner";
+     type: "address";
+   }, {
+     indexed: true;
+     internalType: "address";
+     name: "newOwner";
+     type: "address";
+  }];
+  name: "OwnershipTransferred";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "buyer";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "ethToUse";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "ethRaised";
+     type: "uint256";
+  }];
+  name: "PresaleBuy";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "token";
+     type: "address";
+  }];
+  name: "PresaleDeployed";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  name: "PresaleFailed";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+   }, {
+     components: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "tokenAdmin";
+           type: "address";
+         }, {
+           internalType: "string";
+           name: "name";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "symbol";
+           type: "string";
+         }, {
+           internalType: "bytes32";
+           name: "salt";
+           type: "bytes32";
+         }, {
+           internalType: "string";
+           name: "image";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "metadata";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "context";
+           type: "string";
+         }, {
+           internalType: "uint256";
+           name: "originatingChainId";
+           type: "uint256";
+        }];
+        internalType: "struct IClanker.TokenConfig";
+        name: "tokenConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "mevModule";
+           type: "address";
+         }, {
+           internalType: "bytes";
+           name: "mevModuleData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.MevModuleConfig";
+        name: "mevModuleConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "extension";
+           type: "address";
+         }, {
+           internalType: "uint256";
+           name: "msgValue";
+           type: "uint256";
+         }, {
+           internalType: "uint16";
+           name: "extensionBps";
+           type: "uint16";
+         }, {
+           internalType: "bytes";
+           name: "extensionData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.ExtensionConfig[]";
+        name: "extensionConfigs";
+        type: "tuple[]";
+     }];
+     indexed: false;
+     internalType: "struct IClanker.DeploymentConfig";
+     name: "deploymentConfig";
+     type: "tuple";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "minEthGoal";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "maxEthGoal";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "presaleDuration";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "lockupDuration";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "vestingDuration";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "clankerFeeBps";
+     type: "uint256";
+  }];
+  name: "PresaleStarted";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "address";
+     name: "admin";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "SetAdmin";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "address";
+     name: "allowlist";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "SetAllowlist";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "address";
+     name: "withdrawer";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "amount";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "ethRaised";
+     type: "uint256";
+  }];
+  name: "WithdrawFromPresale";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: false;
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "amount";
+     type: "uint256";
+  }];
+  name: "WithdrawWithdrawFee";
+  type: "event";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "allowedAmount";
+     type: "uint256";
+  }];
+  name: "AllowlistAmountExceeded";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "AllowlistNotEnabled";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "EthTransferFailed";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InsufficientBalance";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidClankerFee";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidEthGoal";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidMsgValue";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidPresale";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidPresaleDuration";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidPresaleOwner";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidPresaleSupply";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidTimeLimit";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "LockupDurationTooShort";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "NoTokensToClaim";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "NoWithdrawFeeAccumulated";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "NotExpectingTokenDeployment";
+  type: "error";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "owner";
+     type: "address";
+  }];
+  name: "OwnableInvalidOwner";
+  type: "error";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "account";
+     type: "address";
+  }];
+  name: "OwnableUnauthorizedAccount";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleAlreadyClaimed";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleLockupNotPassed";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleNotActive";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleNotClaimable";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleNotLastExtension";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleNotReadyForDeployment";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleSaltBufferNotExpired";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "PresaleSuccessful";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "RecipientMustBePresaleOwner";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "ReentrancyGuardReentrantCall";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "Unauthorized";
+  type: "error";
+}], "startPresale">>;

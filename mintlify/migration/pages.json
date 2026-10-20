@@ -1,0 +1,690 @@
+[
+  {
+    "indent": 1,
+    "title": "Introduction",
+    "source": "README.md",
+    "route": "index",
+    "oldPath": "readme",
+    "sourceSha256": "e4d839c6fba6225c5764c9301d760d61959e189fd765af86227c0b5c2f5c2c26"
+  },
+  {
+    "indent": 1,
+    "title": "Educational Resources",
+    "source": "general/educational-resources.md",
+    "route": "general/educational-resources",
+    "oldPath": "general/educational-resources",
+    "sourceSha256": "db2ce1eda9e7b628f1d19805bcb6f223c92961bb4938a5ba5290f62db2dcd259"
+  },
+  {
+    "indent": 0,
+    "title": "FAQ",
+    "source": "general/faq.md",
+    "route": "general/faq",
+    "oldPath": "general/faq",
+    "sourceSha256": "505a97076a828cf5807fac791151d1c0e42bf0dff6bb63b18ec76439d839083e"
+  },
+  {
+    "indent": 0,
+    "title": "Token Deployments",
+    "source": "general/token-deployments.md",
+    "route": "general/token-deployments",
+    "oldPath": "general/token-deployments",
+    "sourceSha256": "0757c88ae51a801fb51f41eeadc30de4478bc063730d3b297eb2a244c53a359e"
+  },
+  {
+    "indent": 2,
+    "title": "Farcaster Bot Deployments",
+    "source": "general/token-deployments/farcaster-bot-deployments.md",
+    "route": "general/token-deployments/farcaster-bot-deployments",
+    "oldPath": "general/token-deployments/farcaster-bot-deployments",
+    "sourceSha256": "9e36cf7af0b17d4dbd7468b871db8b265f7f84ebf7501aca6cd026c64c9fbe1c"
+  },
+  {
+    "indent": 2,
+    "title": "Clanker.world Deployments",
+    "source": "general/token-deployments/clanker.world-deployments.md",
+    "route": "general/token-deployments/clanker.world-deployments",
+    "oldPath": "general/token-deployments/clanker.world-deployments",
+    "sourceSha256": "55dc1967fd9a41437d897c4ae54a4bddc8f38520729ba68a67429617375dfdf2"
+  },
+  {
+    "indent": 2,
+    "title": "Preclank Deployments",
+    "source": "general/token-deployments/preclank-deployments.md",
+    "route": "general/token-deployments/preclank-deployments",
+    "oldPath": "general/token-deployments/preclank-deployments",
+    "sourceSha256": "a47059c0a7b847c925dc0477bbd1136a0faacd907d0155a2e2f629f32fdb77b6"
+  },
+  {
+    "indent": 2,
+    "title": "Alternative Interface Deployments",
+    "source": "general/token-deployments/alternative-interface-deployments.md",
+    "route": "general/token-deployments/alternative-interface-deployments",
+    "oldPath": "general/token-deployments/alternative-interface-deployments",
+    "sourceSha256": "91450d922c47262fc92ee1627164a756620a242c7a828584834fcbce9940fe88"
+  },
+  {
+    "indent": 2,
+    "title": "Deploying a Token",
+    "source": "general/token-deployments/deploying-a-token.md",
+    "route": "general/token-deployments/deploying-a-token",
+    "oldPath": "general/token-deployments/deploying-a-token",
+    "sourceSha256": "79208de37f8da1ddaaeb16f33e5f22338cda33ab86d42a1819e1e339b057ba72"
+  },
+  {
+    "indent": 2,
+    "title": "Legacy Deployments",
+    "source": "general/token-deployments/legacy-deployments.md",
+    "route": "general/token-deployments/legacy-deployments",
+    "oldPath": "general/token-deployments/legacy-deployments",
+    "sourceSha256": "d11770413ca2cd7b7a268ab3260542feba4e7ec8d5ef421483a91fd35a1db776"
+  },
+  {
+    "indent": 0,
+    "title": "Creator Rewards & Fees",
+    "source": "general/creator-rewards-and-fees.md",
+    "route": "general/creator-rewards-and-fees",
+    "oldPath": "general/creator-rewards-and-fees",
+    "sourceSha256": "7a99dabfffe70235b7fbb98bd7a20ab45fd28c919e8d78e002ce02829b9c9c71"
+  },
+  {
+    "indent": 0,
+    "title": "Clanker.world Warning Tags",
+    "source": "general/clanker.world-warning-tags.md",
+    "route": "general/clanker.world-warning-tags",
+    "oldPath": "general/clanker.world-warning-tags",
+    "sourceSha256": "b5bd5afb016ceae9b389f6bdbcc5f82e6d1f81eb23be622c8b9e3efc69cb5273"
+  },
+  {
+    "indent": 0,
+    "title": "Unclaimed Rewards Balance",
+    "source": "general/unclaimed-rewards-balance.md",
+    "route": "general/unclaimed-rewards-balance",
+    "oldPath": "general/unclaimed-rewards-balance",
+    "sourceSha256": "b06fd180c0b4b73da5e7eb3de4537ce5ffeba2eb7fbbf0d1e451588f342be234"
+  },
+  {
+    "indent": 0,
+    "title": "Verifying the Social Context of Token Deploys",
+    "source": "general/verifying-the-social-context-of-token-deploys.md",
+    "route": "general/verifying-the-social-context-of-token-deploys",
+    "oldPath": "general/verifying-the-social-context-of-token-deploys",
+    "sourceSha256": "cdf6d8a131ccdbec325f00f59f7aeae39c5061e2e00dd7aaa88b64e5153680d5"
+  },
+  {
+    "indent": 1,
+    "title": "Overview",
+    "source": "droids/README.md",
+    "route": "droids/droids",
+    "oldPath": "droids/droids",
+    "sourceSha256": "37523bec494ffa5aa4cda563b7c46039bec0155ef259df54102000bb498544a3"
+  },
+  {
+    "indent": 0,
+    "title": "Droid Funding & Runway",
+    "source": "droids/funding.md",
+    "route": "droids/funding",
+    "oldPath": "droids/funding",
+    "sourceSha256": "437a83df1096a73b38bdbde04a7c020c620cb0c079f2236194755d3d8b3b0214"
+  },
+  {
+    "indent": 0,
+    "title": "Create a Droid",
+    "source": "droids/create.md",
+    "route": "droids/create",
+    "oldPath": "droids/create",
+    "sourceSha256": "7b0e0547a52f56c2ce57456422fbd000ee4106adcd4c329af7d37712cd17027e"
+  },
+  {
+    "indent": 0,
+    "title": "Manage your Droid",
+    "source": "droids/manage.md",
+    "route": "droids/manage",
+    "oldPath": "droids/manage",
+    "sourceSha256": "f13abb906f808ce4de2503d80eca336438541214d2a7a7fcd6eb4fe17294cecc"
+  },
+  {
+    "indent": 0,
+    "title": "Writing a Droid Voice",
+    "source": "droids/voice.md",
+    "route": "droids/voice",
+    "oldPath": "droids/voice",
+    "sourceSha256": "6052c35f053c5b11d453febdc6a730e4c6eb12b20ee5d6d1f344c9c05ed9e25f"
+  },
+  {
+    "indent": 0,
+    "title": "Droid Roadmap",
+    "source": "droids/roadmap.md",
+    "route": "droids/roadmap",
+    "oldPath": "droids/roadmap",
+    "sourceSha256": "b261ac3a5153463a5907cf59b7f55981fdfd4a98b296fe6c3c1ecc1d1c399d78"
+  },
+  {
+    "indent": 0,
+    "title": "Droid FAQ",
+    "source": "droids/faq.md",
+    "route": "droids/faq",
+    "oldPath": "droids/faq",
+    "sourceSha256": "6bd06a4b1ecfb159e4e528fb10bb87c6cefc5e0e3d8979d5ea07a1a139ca948b"
+  },
+  {
+    "indent": 0,
+    "title": "Troubleshooting Droids",
+    "source": "droids/troubleshooting.md",
+    "route": "droids/troubleshooting",
+    "oldPath": "droids/troubleshooting",
+    "sourceSha256": "8bc5bdab6efb687af7fdf9ff987eade66d9458d5cd79985f0c4a655bc3fbd10f"
+  },
+  {
+    "indent": 0,
+    "title": "Glossary",
+    "source": "droids/glossary.md",
+    "route": "droids/glossary",
+    "oldPath": "droids/glossary",
+    "sourceSha256": "ffd80d14102f129eca1e61ec687810fa2a161731c4b17c0a90403a48f536312e"
+  },
+  {
+    "indent": 1,
+    "title": "Overview",
+    "source": "api-reference/README.md",
+    "route": "api-reference/api-reference",
+    "oldPath": "api-reference/api-reference",
+    "sourceSha256": "35a57d5a6d25f9a39896616500b36c5be39842294fc2945207e96888864d5189"
+  },
+  {
+    "indent": 0,
+    "title": "Public API",
+    "source": "api-reference/public/README.md",
+    "route": "api-reference/public",
+    "oldPath": "api-reference/public",
+    "sourceSha256": "0de6bbdea6389ae9345c131ae066071e7c0ac8046cbfd36c24735285b2fa4ee6"
+  },
+  {
+    "indent": 2,
+    "title": "Tokens",
+    "source": "api-reference/public/tokens.md",
+    "route": "api-reference/public/tokens",
+    "oldPath": "api-reference/public/tokens",
+    "sourceSha256": "dad4c0b487ccc076bccd6d274071656c512635feff2ece6e6c86804bcc5782b9"
+  },
+  {
+    "indent": 2,
+    "title": "Users",
+    "source": "api-reference/public/users.md",
+    "route": "api-reference/public/users",
+    "oldPath": "api-reference/public/users",
+    "sourceSha256": "40f783a1f82e2b7df1af93bec35d5c0ffad9a1d62f02824b75111f1412a0b00a"
+  },
+  {
+    "indent": 2,
+    "title": "Creators",
+    "source": "api-reference/public/creators.md",
+    "route": "api-reference/public/creators",
+    "oldPath": "api-reference/public/creators",
+    "sourceSha256": "ced88b23ee6a0e790cff476e899d8f7c4dd968493ad951446780fa2796dc79f2"
+  },
+  {
+    "indent": 2,
+    "title": "Presales",
+    "source": "api-reference/public/presales.md",
+    "route": "api-reference/public/presales",
+    "oldPath": "api-reference/public/presales",
+    "sourceSha256": "f3445e7b7530a301d16146ee25efb6357c8f91d4b46d8a209603e8501fe19c30"
+  },
+  {
+    "indent": 2,
+    "title": "Airdrops",
+    "source": "api-reference/public/airdrops.md",
+    "route": "api-reference/public/airdrops",
+    "oldPath": "api-reference/public/airdrops",
+    "sourceSha256": "6b33422dc4fcb63d91bcb19b50d5c0e877d02d09b8b9be4883d6f7db255a03de"
+  },
+  {
+    "indent": 2,
+    "title": "Market Data",
+    "source": "api-reference/public/market-data.md",
+    "route": "api-reference/public/market-data",
+    "oldPath": "api-reference/public/market-data",
+    "sourceSha256": "c85485905e96482a411fc82ed37f9289f3cb60bc80422af3dd1df1b7f75f6dcb"
+  },
+  {
+    "indent": 2,
+    "title": "Fees",
+    "source": "api-reference/public/fees.md",
+    "route": "api-reference/public/fees",
+    "oldPath": "api-reference/public/fees",
+    "sourceSha256": "9a86e885b0b48a21fc58c2bbfc1140b6c89dd2a31413f08387cc23673331451d"
+  },
+  {
+    "indent": 2,
+    "title": "Legion",
+    "source": "api-reference/public/legion.md",
+    "route": "api-reference/public/legion",
+    "oldPath": "api-reference/public/legion",
+    "sourceSha256": "0cd88748072c16ac6aa58a18484ebc7a00056b0786225f270fcc86d18b4e817f"
+  },
+  {
+    "indent": 2,
+    "title": "Deployment",
+    "source": "api-reference/public/deployment.md",
+    "route": "api-reference/public/deployment",
+    "oldPath": "api-reference/public/deployment",
+    "sourceSha256": "f2eebab38cb5f0542d3dd8ed847204e80a9d32ce5c56a583ce4441b1ad75e5d9"
+  },
+  {
+    "indent": 0,
+    "title": "Authenticated API",
+    "source": "api-reference/authenticated/README.md",
+    "route": "api-reference/authenticated",
+    "oldPath": "api-reference/authenticated",
+    "sourceSha256": "4a6c58a961f2d5e4b969e7325f93a8de3e0c669ccca6e3cbcf25950614e250bd"
+  },
+  {
+    "indent": 2,
+    "title": "Tokens",
+    "source": "api-reference/authenticated/tokens.md",
+    "route": "api-reference/authenticated/tokens",
+    "oldPath": "api-reference/authenticated/tokens",
+    "sourceSha256": "629aa86fcc9e25d04cdbcb4e1b5ef2ecfe5bdfc3f879a12e7c688e4996c72f18"
+  },
+  {
+    "indent": 2,
+    "title": "Fees",
+    "source": "api-reference/authenticated/fees.md",
+    "route": "api-reference/authenticated/fees",
+    "oldPath": "api-reference/authenticated/fees",
+    "sourceSha256": "bbbd8376ca28ad80be8eab8e7ea20f853b8a7db10ca61f009b58c38881e3381e"
+  },
+  {
+    "indent": 2,
+    "title": "Deployment",
+    "source": "api-reference/authenticated/deployment.md",
+    "route": "api-reference/authenticated/deployment",
+    "oldPath": "api-reference/authenticated/deployment",
+    "sourceSha256": "b086a14c45c877f0ee7ecee38bef9c4a661d3a401f546c3e0a180147188c3b3c"
+  },
+  {
+    "indent": 0,
+    "title": "User API",
+    "source": "api-reference/user/README.md",
+    "route": "api-reference/user",
+    "oldPath": "api-reference/user",
+    "sourceSha256": "a481be761f13167e7c67e6eb2c9fc9af4ca492e6aca0db7f07a6fee5fcb9de2f"
+  },
+  {
+    "indent": 2,
+    "title": "Preclanks",
+    "source": "api-reference/user/preclanks.md",
+    "route": "api-reference/user/preclanks",
+    "oldPath": "api-reference/user/preclanks",
+    "sourceSha256": "3c700f83134a114f734be9af125e81b03d5294f055d9966401db8930bd82eba0"
+  },
+  {
+    "indent": 2,
+    "title": "Deployment",
+    "source": "api-reference/user/deployment.md",
+    "route": "api-reference/user/deployment",
+    "oldPath": "api-reference/user/deployment",
+    "sourceSha256": "cd22d4e5ec20f48196b0c6b5687369f64a52ac2e09d02819f63cbf0069550e1b"
+  },
+  {
+    "indent": 1,
+    "title": "Overview",
+    "source": "sdk-reference/README.md",
+    "route": "sdk-reference/sdk-reference",
+    "oldPath": "sdk-reference/sdk-reference",
+    "sourceSha256": "cec1d6191962f0ee0553ca42e950e59aa0381b6a0719a8f776ce5ebb796fb342"
+  },
+  {
+    "indent": 0,
+    "title": "Core Utilities",
+    "source": "sdk-reference/index.md",
+    "route": "sdk-reference/core-utilities",
+    "oldPath": "sdk-reference/index",
+    "sourceSha256": "970e2cd052ad67df438c03de2152131ae7af3d563fdb9ef1d59dc2b83b4b7023"
+  },
+  {
+    "indent": 0,
+    "title": "V4 — Clanker Class",
+    "source": "sdk-reference/v4.md",
+    "route": "sdk-reference/v4",
+    "oldPath": "sdk-reference/v4",
+    "sourceSha256": "4845fe581baf7f4998c8a7e2b881d2f997c74e4b2405adcd171bf0cea1f270e8"
+  },
+  {
+    "indent": 0,
+    "title": "V3 — Clanker Class",
+    "source": "sdk-reference/v3.md",
+    "route": "sdk-reference/v3",
+    "oldPath": "sdk-reference/v3",
+    "sourceSha256": "71f3b99e5be79b6b8dc57565b1950a3175ffebc98f2d25a3cea1b861d1f0bf9a"
+  },
+  {
+    "indent": 0,
+    "title": "V4 Extensions",
+    "source": "sdk-reference/v4/extensions.md",
+    "route": "sdk-reference/extensions",
+    "oldPath": "sdk-reference/extensions",
+    "sourceSha256": "463fc4f0903663ba47a3ff801bfa77f19d0a9928eff6fbd3e51af1a00251a3e1"
+  },
+  {
+    "indent": 0,
+    "title": "Legacy Fee Claims",
+    "source": "sdk-reference/legacyFeeClaims.md",
+    "route": "sdk-reference/legacyfeeclaims",
+    "oldPath": "sdk-reference/legacyfeeclaims",
+    "sourceSha256": "6bc9e0167d799e841ef7637490758cdc029ade9986699de11e5acfaec66395dd"
+  },
+  {
+    "indent": 1,
+    "title": "Core Contracts",
+    "source": "references/core-contracts.md",
+    "route": "references/core-contracts",
+    "oldPath": "references/core-contracts",
+    "sourceSha256": "dec503158e72e53472314373b7fbc0c5680862cc8d20113c80cd6585de35ddba"
+  },
+  {
+    "indent": 2,
+    "title": "v4",
+    "source": "references/core-contracts/v4.md",
+    "route": "references/core-contracts/v4",
+    "oldPath": "references/core-contracts/v4",
+    "sourceSha256": "e8d74c119aa20f3c1483f3ef2bd83325cd51757a089e5d0d519f31a6e706f12c"
+  },
+  {
+    "indent": 4,
+    "title": "Deployment Config",
+    "source": "references/core-contracts/v4/deployment-config.md",
+    "route": "references/core-contracts/v4/deployment-config",
+    "oldPath": "references/core-contracts/v4/deployment-config",
+    "sourceSha256": "fac34202d21402411b6eb076ed5948aebd64a8767b3129565d55fad841c12ba5"
+  },
+  {
+    "indent": 4,
+    "title": "Fee Management Contracts",
+    "source": "references/core-contracts/v4/fee-management-contracts.md",
+    "route": "references/core-contracts/v4/fee-management-contracts",
+    "oldPath": "references/core-contracts/v4/fee-management-contracts",
+    "sourceSha256": "bd2f94b6c8617bc5298f27bcf8cd41ad0f389f9847438e02589c238bcbe233a4"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerFeeLocker",
+    "source": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker.md",
+    "route": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker",
+    "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker",
+    "sourceSha256": "f82daa0ea0a9bd35e71423318649c847754dc4eceeb96fbbfa6e206cb6018ca9"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerLpLockerMultiple [Deprecated]",
+    "source": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated.md",
+    "route": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated",
+    "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated",
+    "sourceSha256": "8fa04df41c10b7219cc010982f1eb166413dcb528cd298443762e4094afa08da"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerLpLockerFeeConversion",
+    "source": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion.md",
+    "route": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion",
+    "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion",
+    "sourceSha256": "2b37a92ee10eb8e91b3f513387e2831843d87b1c468c0fc432edcb400fcdec13"
+  },
+  {
+    "indent": 4,
+    "title": "Extensions",
+    "source": "references/core-contracts/v4/extensions.md",
+    "route": "references/core-contracts/v4/extensions",
+    "oldPath": "references/core-contracts/v4/extensions",
+    "sourceSha256": "afe5c0076811422d164134a74d08bb220fe6970b95ffa99ac17af5414053d5ed"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerVault",
+    "source": "references/core-contracts/v4/extensions/clankervault.md",
+    "route": "references/core-contracts/v4/extensions/clankervault",
+    "oldPath": "references/core-contracts/v4/extensions/clankervault",
+    "sourceSha256": "e360cd90c6eb13b928d73816dd96b96d9a307b9faeabe798a89989c6e01c91c0"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerAirdrop",
+    "source": "references/core-contracts/v4/extensions/clankerairdrop.md",
+    "route": "references/core-contracts/v4/extensions/clankerairdrop",
+    "oldPath": "references/core-contracts/v4/extensions/clankerairdrop",
+    "sourceSha256": "0d0d2fbc63795c2a89604e5d60ef7872745626f6b6259a483e79d21199426c03"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerAirdropV2",
+    "source": "references/core-contracts/v4/extensions/clankerairdropv2.md",
+    "route": "references/core-contracts/v4/extensions/clankerairdropv2",
+    "oldPath": "references/core-contracts/v4/extensions/clankerairdropv2",
+    "sourceSha256": "08ec77c8aa60ac42924c7af6ea78b74a95b5cc084b59f06e7cb933d2595f9ed6"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerUniv4EthDevBuy",
+    "source": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy.md",
+    "route": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy",
+    "oldPath": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy",
+    "sourceSha256": "ca9a1bd94accea93fbdeffa4ff915d0e2032ba2e0a1ced94ca52f5d2b51dcf85"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerPresaleEthToCreator",
+    "source": "references/core-contracts/v4/extensions/clankerpresaleethtocreator.md",
+    "route": "references/core-contracts/v4/extensions/clankerpresaleethtocreator",
+    "oldPath": "references/core-contracts/v4/extensions/clankerpresaleethtocreator",
+    "sourceSha256": "4f93bdbfdac36c109dd278d51eeb2417cd164d72c11d18f69fd8ab3085d33a9a"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerPresaleAllowlist",
+    "source": "references/core-contracts/v4/extensions/clankerpresaleallowlist.md",
+    "route": "references/core-contracts/v4/extensions/clankerpresaleallowlist",
+    "oldPath": "references/core-contracts/v4/extensions/clankerpresaleallowlist",
+    "sourceSha256": "62b2c275a266304a8c228eec6533acf8c47d7db35ae10baf8ac3037c8c36af72"
+  },
+  {
+    "indent": 4,
+    "title": "ClankerHook",
+    "source": "references/core-contracts/v4/clankerhook.md",
+    "route": "references/core-contracts/v4/clankerhook",
+    "oldPath": "references/core-contracts/v4/clankerhook",
+    "sourceSha256": "73314f5d2f56b42f5945453f889df7dcfea6eb9c9265ddf936c26a9158b30c18"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerHookStaticFee",
+    "source": "references/core-contracts/v4/clankerhook/clankerhookstaticfee.md",
+    "route": "references/core-contracts/v4/clankerhook/clankerhookstaticfee",
+    "oldPath": "references/core-contracts/v4/clankerhook/clankerhookstaticfee",
+    "sourceSha256": "a708eca3947d73ba86f58419143283c44317391fa73a93474e9fc8bf966b08c1"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerHookDynamicFee",
+    "source": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee.md",
+    "route": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee",
+    "oldPath": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee",
+    "sourceSha256": "ae9e23e1887d94caa2fd07fc1b1a2a0f7fc6739268bdd48b28f17826a37da8bb"
+  },
+  {
+    "indent": 4,
+    "title": "ClankerHookV2",
+    "source": "references/core-contracts/v4/clankerhookv2.md",
+    "route": "references/core-contracts/v4/clankerhookv2",
+    "oldPath": "references/core-contracts/v4/clankerhookv2",
+    "sourceSha256": "dfb582fcadba1f14c3f08a6cde71df82f3ab851c43c2fe5de5cdd4b8c54266cf"
+  },
+  {
+    "indent": 6,
+    "title": "Pool Extensions",
+    "source": "references/core-contracts/v4/clankerhookv2/pool-extensions.md",
+    "route": "references/core-contracts/v4/clankerhookv2/pool-extensions",
+    "oldPath": "references/core-contracts/v4/clankerhookv2/pool-extensions",
+    "sourceSha256": "d446389f5f56fa003511abdb3f34b81202b6d73f53fc3979707a4ee68fde5ff1"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerHookStaticFeeV2",
+    "source": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2.md",
+    "route": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2",
+    "oldPath": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2",
+    "sourceSha256": "fcf17db0084c6c086f9fa90bfe00646d2ba58e5eab20c913f7eae4c45039a178"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerHookDynamicFeeV2",
+    "source": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2.md",
+    "route": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2",
+    "oldPath": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2",
+    "sourceSha256": "02e654b1955d318b49897de2042f16debebb20b3946906baee7cfa44dd03a868"
+  },
+  {
+    "indent": 4,
+    "title": "MEV Modules",
+    "source": "references/core-contracts/v4/mev-modules.md",
+    "route": "references/core-contracts/v4/mev-modules",
+    "oldPath": "references/core-contracts/v4/mev-modules",
+    "sourceSha256": "4600df12e251f85753f0660a01405c89bf6e7656d72e34b41cec7121c7b47e3f"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerMevModule2BlockDelay",
+    "source": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay.md",
+    "route": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay",
+    "oldPath": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay",
+    "sourceSha256": "40707bd08f249c1cf725285468296791aa85ba797ca8db1d790383a5b5cf371e"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerSniperAuctionV0",
+    "source": "references/core-contracts/v4/mev-modules/clankersniperauctionv0.md",
+    "route": "references/core-contracts/v4/mev-modules/clankersniperauctionv0",
+    "oldPath": "references/core-contracts/v4/mev-modules/clankersniperauctionv0",
+    "sourceSha256": "1a70d97ba938ee33f990bbae22dfed321308621bd54ac43a00e102bb00ce7923"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerMevDescendingFees",
+    "source": "references/core-contracts/v4/mev-modules/clankermevdescendingfees.md",
+    "route": "references/core-contracts/v4/mev-modules/clankermevdescendingfees",
+    "oldPath": "references/core-contracts/v4/mev-modules/clankermevdescendingfees",
+    "sourceSha256": "9f7e8d6502a99c82177129e840e24ba3bed363869896a377aa3871818df1dbec"
+  },
+  {
+    "indent": 6,
+    "title": "ClankerSniperAuctionV2",
+    "source": "references/core-contracts/v4/mev-modules/clankersniperauctionv2.md",
+    "route": "references/core-contracts/v4/mev-modules/clankersniperauctionv2",
+    "oldPath": "references/core-contracts/v4/mev-modules/clankersniperauctionv2",
+    "sourceSha256": "d24120953270c47ee82bc14ba14e67131866f03bfff2aa18cb0326b523349415"
+  },
+  {
+    "indent": 4,
+    "title": "Administrative Permissions",
+    "source": "references/core-contracts/v4/administrative-permissions.md",
+    "route": "references/core-contracts/v4/administrative-permissions",
+    "oldPath": "references/core-contracts/v4/administrative-permissions",
+    "sourceSha256": "e4202e5909b3f3228530cd00124cd0371c00542955efaeb7a057ded6a294e6d1"
+  },
+  {
+    "indent": 2,
+    "title": "v3.1",
+    "source": "references/core-contracts/v3.1.md",
+    "route": "references/core-contracts/v3.1",
+    "oldPath": "references/core-contracts/v3.1",
+    "sourceSha256": "7e105316d93e93ebaaaf2f70a4ffd58edee4902ddbd7da4ef421cb30785ba585"
+  },
+  {
+    "indent": 4,
+    "title": "Clanker (Direct Contract Deployments)",
+    "source": "references/core-contracts/v3.1/clanker-direct-contract-deployments.md",
+    "route": "references/core-contracts/v3.1/clanker-direct-contract-deployments",
+    "oldPath": "references/core-contracts/v3.1/clanker-direct-contract-deployments",
+    "sourceSha256": "fbebc8aa33c1e23cd789383d7e78363dee26c61edfb17a670e6ad02b616107e4"
+  },
+  {
+    "indent": 4,
+    "title": "LpLockerv2",
+    "source": "references/core-contracts/v3.1/lplockerv2.md",
+    "route": "references/core-contracts/v3.1/lplockerv2",
+    "oldPath": "references/core-contracts/v3.1/lplockerv2",
+    "sourceSha256": "98b0f7c1b5e51ae1e4d2eb10a86571c2ff04802dcd6ae0caf2bada16834d1d03"
+  },
+  {
+    "indent": 4,
+    "title": "ClankerVault",
+    "source": "references/core-contracts/v3.1/clankervault.md",
+    "route": "references/core-contracts/v3.1/clankervault",
+    "oldPath": "references/core-contracts/v3.1/clankervault",
+    "sourceSha256": "0180dd319bf6a133554b57d2ec5b982737a27b787be9c065fdaa31854775a07e"
+  },
+  {
+    "indent": 2,
+    "title": "ClankerToken v3.1.0 and v4.0.0",
+    "source": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0.md",
+    "route": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0",
+    "oldPath": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0",
+    "sourceSha256": "63c438f237fcacbafc0688af2d3da6b462ac7420127a0c87a6fb381a0d49ee61"
+  },
+  {
+    "indent": 0,
+    "title": "Brand Assets",
+    "source": "references/brand-assets.md",
+    "route": "references/brand-assets",
+    "oldPath": "references/brand-assets",
+    "sourceSha256": "dfd9df480b35d83f25eb779496d75a751b4fe98e1c7678e908b6c4690e2d18fa"
+  },
+  {
+    "indent": 0,
+    "title": "Audits",
+    "source": "references/audits.md",
+    "route": "references/audits",
+    "oldPath": "references/audits",
+    "sourceSha256": "7884a1d5f1024f4c7da218e90c20eed660116e10a2ad8275bc177b592dcc5f6b"
+  },
+  {
+    "indent": 0,
+    "title": "Compatible Trading Platforms",
+    "source": "references/compatible-trading-platforms.md",
+    "route": "references/compatible-trading-platforms",
+    "oldPath": "references/compatible-trading-platforms",
+    "sourceSha256": "838917229bf5ff24e032dff44243d54465d356fb321af4ef5e3301166d3840a7"
+  },
+  {
+    "indent": 0,
+    "title": "Deployed Contracts",
+    "source": "references/deployed-contracts.md",
+    "route": "references/deployed-contracts",
+    "oldPath": "references/deployed-contracts",
+    "sourceSha256": "1664842a7f7dd463380a5276ccab44f184e2221e13f0a6f7bcdc08963294fb07"
+  },
+  {
+    "indent": 0,
+    "title": "Supported Quote Tokens",
+    "source": "references/supported-quote-tokens.md",
+    "route": "references/supported-quote-tokens",
+    "oldPath": "references/supported-quote-tokens",
+    "sourceSha256": "60a95f5c2ee3c537fc646a7e8fa1523124a35c33463b00b923722c2606e12aca"
+  },
+  {
+    "indent": 0,
+    "title": "Core Team",
+    "source": "references/core-team.md",
+    "route": "references/core-team",
+    "oldPath": "references/core-team",
+    "sourceSha256": "6e3f9e3ad88e33692f7a7da66f3707be350bbd8e842193d186343cfbc4129fe7"
+  },
+  {
+    "indent": 0,
+    "title": "Contact",
+    "source": "references/contact.md",
+    "route": "references/contact",
+    "oldPath": "references/contact",
+    "sourceSha256": "b6ddb540db25960a73dbd896283b2b207ce66e5f484175b00eeb6335c095e8da"
+  }
+]

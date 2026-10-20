@@ -1,0 +1,53 @@
+---
+title: "Introduction"
+---
+
+Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. These docs cover token deployments, Droids, the API, the SDK and the protocol's contracts.
+
+## Droids
+
+A Droid is an AI agent that ships with your token — own Farcaster account, personality you design, compute funded by the token itself via a carve-out of its LP rewards.
+
+- [Droids Overview](/droids/droids) — What a Droid is and the two ways to create one
+- [Droid Funding & Runway](/droids/funding) — How a droid pays for its own compute
+- [Create a Droid](/droids/create) — Launch a droid with a token (or standalone)
+- [Manage your Droid](/droids/manage) — The Droid panel and chat flow
+- [Writing a Droid Voice](/droids/voice) — Designing a personality worth tagging
+- [Droid FAQ](/droids/faq) and [Troubleshooting](/droids/troubleshooting)
+
+## API Reference
+
+The Clanker REST API is available at `https://www.clanker.world/api`.
+
+| Auth Method | Header | Description |
+|-------------|--------|-------------|
+| Public | None | No authentication required |
+| Partner API Key | `x-api-key: <key>` | Issued per-partner by the Clanker team |
+| User Auth | `Authorization: Bearer <token>` | Farcaster or Privy authentication |
+
+- [Public API](/api-reference/public) — Token search, trending, users, presales, airdrops, market data
+- [Authenticated API](/api-reference/authenticated) — Partner endpoints for tokens, deployment, fees
+- [User API](/api-reference/user) — Preclank management, UI token saves
+
+## SDK Reference
+
+The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain.
+
+```bash
+npm install clanker-sdk
+```
+
+- [Core Utilities](/sdk-reference/core-utilities) — Types, constants, vanity address, merkle tree helpers
+- [V4 Clanker Class](/sdk-reference/v4) — Deploy, claim rewards, update metadata (current version)
+- [V3 Clanker Class](/sdk-reference/v3) — V3 token deployment and management
+- [V4 Extensions](/sdk-reference/extensions) — Airdrops, presales, allowlist management
+- [Legacy Fee Claims](/sdk-reference/legacyfeeclaims) — Fee claims for V0–V3.1 tokens
+
+## Contributing
+
+Documentation is auto-generated from source code:
+
+- **API docs** are generated from [`clanker.world/docs/api-registry.ts`](https://github.com/clanker-devco/clanker.world/blob/main/docs/api-registry.ts) — update the registry to change API documentation
+- **SDK docs** are generated via [TypeDoc](https://typedoc.org/) from JSDoc comments in [`clanker-sdk/src/`](https://github.com/clanker-devco/clanker-sdk/tree/main/src) — update JSDoc in source to change SDK documentation
+
+Both repos have GitHub Actions that regenerate and push docs here on every merge to `main`.

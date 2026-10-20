@@ -1,0 +1,674 @@
+getUpdateCreatorRewardAdminTransaction(tokenId, newAdmin): Promise<{
+  abi: readonly [{
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "tokenFactory_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "positionManager_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "teamRecipient_";
+        type: "address";
+     }];
+     stateMutability: "nonpayable";
+     type: "constructor";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+     }];
+     name: "AlreadyKnownTokenId";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "creatorReward";
+        type: "uint256";
+     }];
+     name: "InvalidCreatorReward";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "InvalidMaxCreatorReward";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "InvalidTeamRecipient";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "MaxCreatorRewardNotSet";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "user";
+        type: "address";
+     }];
+     name: "NotAllowed";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner";
+        type: "address";
+     }];
+     name: "OwnableInvalidOwner";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "account";
+        type: "address";
+     }];
+     name: "OwnableUnauthorizedAccount";
+     type: "error";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "creatorRecipient";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "interfaceRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "teamRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "token0";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "token1";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "creatorReward0";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "creatorReward1";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "interfaceReward0";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "interfaceReward1";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "teamReward0";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "teamReward1";
+        type: "uint256";
+     }];
+     name: "ClaimedRewards";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "oldAdmin";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "CreatorRewardRecipientAdminUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "oldRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "CreatorRewardRecipientUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "oldAdmin";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "InterfaceRewardRecipientAdminUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "oldRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "InterfaceRewardRecipientUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "previousOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "OwnershipTransferred";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "from";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+     }];
+     name: "Received";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "oldRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "TeamOverrideRewardRecipientUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "oldRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "TeamRecipientUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: false;
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "creatorReward";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "creator";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "interfacer";
+        type: "address";
+     }];
+     name: "TokenRewardAdded";
+     type: "event";
+   }, {
+     inputs: readonly [];
+     name: "MAX_CREATOR_REWARD";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "TEAM_REWARD";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        components: readonly [{
+           internalType: "uint256";
+           name: "lpTokenId";
+           type: "uint256";
+         }, {
+           internalType: "uint256";
+           name: "creatorReward";
+           type: "uint256";
+         }, {
+           components: readonly [{
+              internalType: "address";
+              name: "admin";
+              type: "address";
+            }, {
+              internalType: "address";
+              name: "recipient";
+              type: "address";
+           }];
+           internalType: "struct ILpLockerv2.RewardRecipient";
+           name: "creator";
+           type: "tuple";
+         }, {
+           components: readonly [{
+              internalType: "address";
+              name: "admin";
+              type: "address";
+            }, {
+              internalType: "address";
+              name: "recipient";
+              type: "address";
+           }];
+           internalType: "struct ILpLockerv2.RewardRecipient";
+           name: "interfacer";
+           type: "tuple";
+        }];
+        internalType: "struct ILpLockerv2.TokenRewardInfo";
+        name: "tokenRewardInfo";
+        type: "tuple";
+     }];
+     name: "addTokenReward";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+     }];
+     name: "collectRewards";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     name: "creatorTokenIds";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "factory";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "user";
+        type: "address";
+     }];
+     name: "getLpTokenIdsForCreator";
+     outputs: readonly [{
+        internalType: "uint256[]";
+        name: "";
+        type: "uint256[]";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "from";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "id";
+        type: "uint256";
+      }, {
+        internalType: "bytes";
+        name: "";
+        type: "bytes";
+     }];
+     name: "onERC721Received";
+     outputs: readonly [{
+        internalType: "bytes4";
+        name: "";
+        type: "bytes4";
+     }];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "owner";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "positionManager";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "renounceOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newTeamRecipient";
+        type: "address";
+     }];
+     name: "setOverrideTeamRewardRecipientForToken";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     name: "teamOverrideRewardRecipientForToken";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "teamRecipient";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     name: "tokenRewards";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "lpTokenId";
+        type: "uint256";
+      }, {
+        internalType: "uint256";
+        name: "creatorReward";
+        type: "uint256";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "admin";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "recipient";
+           type: "address";
+        }];
+        internalType: "struct ILpLockerv2.RewardRecipient";
+        name: "creator";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "admin";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "recipient";
+           type: "address";
+        }];
+        internalType: "struct ILpLockerv2.RewardRecipient";
+        name: "interfacer";
+        type: "tuple";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "transferOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "updateCreatorRewardAdmin";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "updateCreatorRewardRecipient";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "updateInterfaceRewardAdmin";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "tokenId";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "updateInterfaceRewardRecipient";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "updateTeamRecipient";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "version";
+     outputs: readonly [{
+        internalType: "string";
+        name: "";
+        type: "string";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "withdrawERC20";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "withdrawETH";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+  }];
+  address: `0x${string}`;
+  args: readonly [bigint, `0x${string}`];
+  functionName: "updateCreatorRewardAdmin";
+}>;
