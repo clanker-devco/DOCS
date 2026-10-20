@@ -1,7 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs/promises';
 import { convertMarkdown, rewriteUrl } from './convert.mjs';
 import { validatePage } from './check-docs.mjs';
+import auditLinks from '../migration/audit-links.json' with { type: 'json' };
 
 const pages = [
   { source: 'README.md', route: 'index', title: 'Introduction' },
@@ -48,6 +50,24 @@ test('rewrites published paths and asset links without changing external APIs', 
   assert.equal(rewriteUrl('../.gitbook/assets/audit.pdf', 'references/audits.md', pages), '/assets/audit.pdf');
   assert.equal(rewriteUrl('https://clanker.world/api/tokens', 'README.md', pages), 'https://clanker.world/api/tokens');
   assert.throws(() => rewriteUrl('../../escape.md', 'README.md', pages), /escapes/);
+});
+
+test('every audit uses its public Drive report after regeneration', async () => {
+  const source = await fs.readFile(new URL('../../references/audits.md', import.meta.url), 'utf8');
+  const files = [...source.matchAll(/{% file src="[^"]*\/([^"/]+)" %}/g)].map(match => match[1]);
+  assert.equal(files.length, 6);
+  assert.deepEqual([...files].sort(), Object.keys(auditLinks).sort());
+  const output = convertMarkdown(source, { source: 'references/audits.md', title: 'Audits', pages });
+  for (const file of files) {
+    const { url, label } = auditLinks[file];
+    assert.match(url, /^https:\/\/drive\.google\.com\/file\/d\/[\w-]+\/view\?usp=drivesdk$/);
+    assert.ok(output.includes(`[${label}](${url})`));
+    assert.ok(!output.includes(`/assets/${file}`));
+  }
+  const original = '../.gitbook/assets/clanker-v4.1-audit-macro.pdf#page=2';
+  assert.equal(rewriteUrl(original, 'references/audits.md', pages),
+    auditLinks['clanker-v4.1-audit-macro.pdf'].url + '#page=2');
+  await validatePage(output, 'audits');
 });
 
 test('rejects unknown GitBook directives instead of silently losing content', () => {

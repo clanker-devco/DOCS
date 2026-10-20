@@ -35,6 +35,8 @@ GitBook continues to use the root `README.md`, `SUMMARY.md` and `.gitbook.yaml`.
 
 All 86 published pages are represented: introduction, guides, Droids, API, SDK and contract references. The original 6 audit PDFs and 11 images remain unchanged and have identical copies for Mintlify.
 
+The Mintlify audit page opens the reports in Google Drive because PDF serving requires Mintlify Enterprise. The six reports are in the [Clanker Drive folder](https://drive.google.com/drive/folders/1f0KVQ0da1oFfe1_aWcqfN5aUR4OPynXN), with anyone-with-the-link viewer access. `migration/audit-links.json` maps the original filenames to their public report links, so guide sync preserves them. When adding an audit, upload the PDF, verify its public access, add its mapping and run guide sync. GitBook continues to use its original PDF files.
+
 GitBook hints, expandable sections and step lists become Mintlify callouts, accordions and steps. Brand embeds link to the original Figma and Drive resources. Existing paths are preserved or redirected; the SDK index uses `core-utilities` to avoid a nested index route conflict.
 
 Large generated SDK declarations remain complete in linked text files under `assets/sdk-types/`. Code blocks over 200 lines and type/table values over 2,000 characters use this presentation to keep the pages usable. Short examples stay inline. These generated files belong only to the Mintlify site.

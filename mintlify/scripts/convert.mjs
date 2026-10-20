@@ -5,6 +5,7 @@ import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
 import GithubSlugger from 'github-slugger';
 import { createHash } from 'node:crypto';
+import auditLinks from '../migration/audit-links.json' with { type: 'json' };
 
 const parser = unified().use(remarkParse);
 const callouts = { info: 'Info', success: 'Tip', warning: 'Warning', danger: 'Warning' };
@@ -54,7 +55,18 @@ export function rewriteUrl(url, source, pages) {
   const target = decodeURIComponent(match[1]);
   const suffix = match[2];
   if (!target || target === '/') return '/index' + suffix;
-  if (target.includes('.gitbook/assets/')) return '/assets/' + target.split('.gitbook/assets/')[1] + suffix;
+  if (target.includes('.gitbook/assets/')) {
+    const asset = target.split('.gitbook/assets/')[1];
+    const external = auditLinks[asset]?.url;
+    if (external) {
+      const destination = new URL(external);
+      const original = new URL(value, 'https://docs.local/');
+      original.searchParams.forEach((entry, key) => destination.searchParams.set(key, entry));
+      destination.hash = original.hash;
+      return destination.href;
+    }
+    return '/assets/' + asset + suffix;
+  }
   const normalized = target.startsWith('/')
     ? target.slice(1)
     : path.posix.normalize(path.posix.join(path.posix.dirname(source), target));
@@ -164,8 +176,11 @@ export function convertMarkdown(input, { source, title, pages, declarations }) {
   if (stack.length) throw new Error('Unclosed GitBook callout');
   text = text.replace(/^[ \t]*<\/(Info|Tip|Warning)>/gm, '\n</$1>');
   text = text.replace(/{% (?:end)?content-ref[^%]*%}/g, '');
-  text = text.replace(/{% file src="([^"]+)" %}/g, (_, url) =>
-    `[Download ${path.posix.basename(url)}](${rewriteUrl(url, source, pages)})`);
+  text = text.replace(/{% file src="([^"]+)" %}/g, (_, url) => {
+    const name = path.posix.basename(url);
+    const label = auditLinks[name]?.label ?? `Download ${name}`;
+    return `[${label}](${rewriteUrl(url, source, pages)})`;
+  });
   text = text.replace(/{% embed url="([^"]+)"[^%]*%}/g, (_, url) => {
     const clean = url.replace(/^<|>$/g, '');
     const label = clean.includes('figma.com') ? 'Clanker brand assets in Figma' : 'Clanker brand assets in Google Drive';
