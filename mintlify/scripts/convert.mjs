@@ -6,6 +6,7 @@ import { visit } from 'unist-util-visit';
 import GithubSlugger from 'github-slugger';
 import { createHash } from 'node:crypto';
 import auditLinks from '../migration/audit-links.json' with { type: 'json' };
+import { sdkDownloadUrl } from './sdk-downloads.mjs';
 
 const parser = unified().use(remarkParse);
 const callouts = { info: 'Info', success: 'Tip', warning: 'Warning', danger: 'Warning' };
@@ -78,7 +79,7 @@ export function rewriteUrl(url, source, pages) {
   return '/' + normalized + suffix;
 }
 
-export function convertMarkdown(input, { source, title, pages, declarations }) {
+export function convertMarkdown(input, { source, title, pages, declarations, sdkRef }) {
   if (/CLANKERPROTECTED\d+END/.test(input)) throw new Error('Reserved conversion marker in source');
   let text = input.replace(/\r\n/g, '\n');
   text = text.replace(/<pre[^>]*><code[^>]*>([\s\S]*?)<\/code><\/pre>/g, (_, code) =>
@@ -102,7 +103,7 @@ export function convertMarkdown(input, { source, title, pages, declarations }) {
       const asset = `assets/sdk-types/${createHash('sha256').update(full).digest('hex')}.txt`;
       declarations.set(asset, full);
       largeCells.push({ start, end });
-      edits.push({ start, end, value: `[Full type](/${asset})` });
+      edits.push({ start, end, value: `[Full type](${sdkDownloadUrl(asset, sdkRef)})` });
     });
   }
   visit(parser.parse(text), node => {
@@ -119,7 +120,7 @@ export function convertMarkdown(input, { source, title, pages, declarations }) {
       const label = node.type === 'code'
         ? `View full generated declaration (${full.split('\n').length.toLocaleString('en-US')} lines)`
         : 'Full type';
-      edits.push({ start: node.position.start.offset, end: node.position.end.offset, value: `[${label}](/${asset})` });
+      edits.push({ start: node.position.start.offset, end: node.position.end.offset, value: `[${label}](${sdkDownloadUrl(asset, sdkRef)})` });
       return;
     }
     if (source.startsWith('sdk-reference/') && node.type === 'code' && node.value.split('\n').length > 100) {

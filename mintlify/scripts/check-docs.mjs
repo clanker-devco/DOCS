@@ -8,6 +8,8 @@ import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
 import GithubSlugger from 'github-slugger';
 import { parse } from 'yaml';
+import { createHash } from 'node:crypto';
+import { sdkDownloadAsset } from './sdk-downloads.mjs';
 
 export const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const parser = unified().use(remarkParse).use(remarkGfm);
@@ -75,6 +77,20 @@ export async function checkDocs(directory = root, compileSyntax = true) {
   }
   for (const [route, { links }] of pages) {
     for (const url of links) {
+      if (url.startsWith('/assets/sdk-types/')) {
+        errors.push(`${route}: SDK text downloads must use GitHub hosting: ${url}`);
+        continue;
+      }
+      const sdkAsset = sdkDownloadAsset(url);
+      if (sdkAsset) {
+        try {
+          const content = await fs.readFile(path.join(directory, sdkAsset));
+          const hash = createHash('sha256').update(content).digest('hex');
+          if (path.basename(sdkAsset, '.txt') !== hash) throw new Error('content hash differs');
+        } catch (error) {
+          errors.push(`${route}: invalid SDK download ${sdkAsset}: ${error.message}`);
+        }
+      }
       if (/^(https?:|mailto:|tel:|ipfs:|data:)/.test(url)) continue;
       const parsed = new URL(url, `https://docs.local/${route}`);
       const destination = decodeURIComponent(parsed.pathname).replace(/^\//, '').replace(/\.mdx?$/, '') || 'index';

@@ -39,7 +39,9 @@ The Mintlify audit page opens the reports in Google Drive because PDF serving re
 
 GitBook hints, expandable sections and step lists become Mintlify callouts, accordions and steps. Brand embeds link to the original Figma and Drive resources. Existing paths are preserved or redirected; the SDK index uses `core-utilities` to avoid a nested index route conflict.
 
-Large generated SDK declarations remain complete in linked text files under `assets/sdk-types/`. Code blocks over 200 lines and type/table values over 2,000 characters use this presentation to keep the pages usable. Short examples stay inline. These generated files belong only to the Mintlify site.
+Large generated SDK declarations remain complete in linked text files under `assets/sdk-types/`, served through GitHub's raw file URLs instead of Mintlify. Code blocks over 200 lines and type/table values over 2,000 characters use this presentation to keep the pages usable. Short examples stay inline. These generated files belong only to the Mintlify site. Downloads use the same DOCS branch as the SDK publishing job; local imports use `DOCS_BRANCH` or the current branch. New or changed files become available after that branch is pushed.
+
+Older generated text files are retained so previously shared download links keep working while their GitHub branch remains available. The SDK asset manifest lists the files referenced by the current pages. Before deleting the preview branch, regenerate and verify the links on `main`; any links shared directly from the deleted branch will need updating.
 
 The converter retains the previously reviewed link repairs for ClankerToken, creator search, FAQ anchors and a legacy SDK claim type. Generated references follow current API/SDK source, which can be newer than the checked-in GitBook snapshot. Regeneration can therefore update reference content in both versions.
 
@@ -61,6 +63,8 @@ The API and SDK workflows always retain their existing GitBook copy steps. If `m
 
 `DOCS_BRANCH` selects an existing branch in the DOCS repository and defaults to `main`. It does not select a folder or change the application deployment branch. Keep both generators targeting the same intended DOCS branch. Before the Mintlify folder is merged, the workflows continue updating GitBook alone.
 
+Both publishing jobs check that `DOCS_PAT` is present and its account has push permission before generating files. The credential also needs Contents read/write permission for `clanker-devco/DOCS`, organization authorization where required, and access permitted by the destination branch rules. This initial check does not prove token scopes or branch-rule compatibility; a successful authorized publishing run is still required. Personal GitHub access and this automation credential are separate.
+
 For handwritten guides, continue editing the original GitBook Markdown and run `npm run sync:guides` from `mintlify/`. This refreshes the corresponding MDX and copied assets without modifying GitBook, generated references, navigation or theme. CI detects unsynced guide changes in pull requests. GitBook dashboard edits must also be synced into Mintlify before publishing the corresponding update; they do not automatically run this local command. Add or remove pages in both navigations and the migration page mapping.
 
 Run API and SDK publishing jobs sequentially during the transition. Both use the existing direct Git push mechanism; simultaneous jobs can cause a non-fast-forward rejection. Check and rerun a rejected job after the other completes; do not force-push.
@@ -81,8 +85,8 @@ Use the existing root checkouts. See [README.md](README.md) for commands. No app
 2. Publish the DOCS feature branch when approved. Connect Mintlify to that branch with source directory `mintlify` and review its provided URL. Leave GitBook connected to its existing branch and root.
 3. Confirm hosted search, mobile layout, SDK loading performance and links. Check GitBook-only unpublished content, integrations, analytics and access settings separately.
 4. Merge the revised API and SDK workflow PRs one at a time and check their runs. They still update GitBook if the destination does not yet contain Mintlify. The clanker.world main merge also triggers its normal Vercel Production build.
-5. Merge the additive DOCS changes after review. GitBook keeps its original files. Point Mintlify to `main`, still using the `mintlify` directory.
-6. Run the API and SDK documentation jobs sequentially. Confirm both output formats and both hosted sites. Verify that GitBook's sync continues to use the existing navigation without importing the Mintlify folder.
+5. Merge the additive DOCS changes after review. GitBook keeps its original files. Keep the existing Mintlify branch until the generated references on `main` have been refreshed.
+6. Run the API and SDK documentation jobs sequentially against `main`. The SDK job also updates the raw download links to `main`. Point Mintlify to `main`, still using the `mintlify` directory, and confirm both output formats and both hosted sites. Verify that GitBook's sync continues to use the existing navigation without importing the Mintlify folder. Keep the preview branch until this is complete.
 7. Change the public docs domain or the application's `/docs` route only when ready. Keep the existing GitBook route until the Mintlify domain or proxy has been tested.
 8. Retire GitBook only through a separate, deliberate cleanup after the team decides to do so.
 

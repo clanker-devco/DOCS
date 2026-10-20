@@ -6,6 +6,7 @@ import remarkParse from 'remark-parse';
 import { visit } from 'unist-util-visit';
 import { decodeHtml } from './convert.mjs';
 import { root } from './check-docs.mjs';
+import { sdkDownloadAsset } from './sdk-downloads.mjs';
 
 const [gitbook, api, sdk] = process.argv.slice(2).map(value => path.resolve(value));
 if (!gitbook || !api || !sdk) throw new Error('Usage: node scripts/audit-migration.mjs gitbook-source api-output sdk-output');
@@ -36,8 +37,10 @@ for (const page of pages) {
   const after = await fs.readFile(path.join(root, page.route + '.mdx'), 'utf8');
   const expected = inventory(before);
   const actual = inventory(after);
-  for (const match of after.matchAll(/\[(View full generated declaration \([^)]+\)|Full type)\]\(\/(assets\/sdk-types\/[a-f0-9]{64}\.txt)\)/g)) {
-    const full = await fs.readFile(path.join(root, match[2]), 'utf8');
+  for (const match of after.matchAll(/\[(View full generated declaration \([^)]+\)|Full type)\]\(([^)]+)\)/g)) {
+    const asset = sdkDownloadAsset(match[2]);
+    if (!asset) throw new Error(`Invalid SDK download: ${match[2]}`);
+    const full = await fs.readFile(path.join(root, asset), 'utf8');
     if (match[1].startsWith('View full')) actual.blocks.push(hash(full));
     actual.addresses.push(...inventory(full).addresses);
   }

@@ -4,6 +4,7 @@ import fs from 'node:fs/promises';
 import { convertMarkdown, rewriteUrl } from './convert.mjs';
 import { validatePage } from './check-docs.mjs';
 import auditLinks from '../migration/audit-links.json' with { type: 'json' };
+import { sdkDownloadAsset, sdkDownloadUrl, sdkDownloadRef } from './sdk-downloads.mjs';
 
 const pages = [
   { source: 'README.md', route: 'index', title: 'Introduction' },
@@ -91,14 +92,29 @@ test('oversized SDK types remain available as exact linked text', async () => {
   const code = 'type Generated = {\n' + '  value: string;\n'.repeat(1200) + '};';
   const inline = 'readonly [' + 'string, '.repeat(300) + ']';
   const output = convertMarkdown('# SDK\n\n```ts\n' + code + '\n```\n\n| Type |\n| --- |\n| `' + inline + '` |', {
-    source: 'sdk-reference/v4.md', title: 'SDK', pages, declarations,
+    source: 'sdk-reference/v4.md', title: 'SDK', pages, declarations, sdkRef: 'docs/review',
   });
   assert.ok([...declarations.values()].includes(code));
   assert.ok([...declarations.values()].some(value => value.trim() === '`' + inline + '`' || value === inline));
   assert.ok(output.includes('View full generated declaration (1,202 lines)'));
   assert.ok(output.includes('[Full type]'));
-  assert.match(output, /\| \[Full type\]\(\/assets\/sdk-types\/[a-f0-9]+\.txt\) \|/);
+  for (const asset of declarations.keys()) {
+    assert.ok(output.includes(sdkDownloadUrl(asset, 'docs/review')));
+  }
+  assert.ok(!output.includes('](/assets/sdk-types/'));
   await validatePage(output, 'large types');
+});
+
+test('SDK downloads preserve feature branches and use the selected publishing branch', () => {
+  const asset = `assets/sdk-types/${'a'.repeat(64)}.txt`;
+  const preview = sdkDownloadUrl(asset, 'docs/review');
+  assert.equal(preview, `https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/docs%2Freview/mintlify/${asset}`);
+  assert.equal(sdkDownloadAsset(preview), asset);
+  assert.ok(sdkDownloadUrl(asset, 'main').includes('/refs/heads/main/'));
+  assert.equal(sdkDownloadRef('.', 'main'), 'main');
+  assert.throws(() => sdkDownloadRef('.', '../invalid'), /./);
+  assert.throws(() => sdkDownloadUrl(asset), /DOCS branch/);
+  assert.equal(sdkDownloadAsset('https://example.com/' + asset), undefined);
 });
 
 test('SDK duplicate headings preserve TypeDoc fragment links', async () => {

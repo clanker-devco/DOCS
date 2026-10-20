@@ -4,6 +4,8 @@ import fs from 'node:fs/promises';
 import os from 'node:os';
 import path from 'node:path';
 import { importGenerated } from './import-generated.mjs';
+import { checkDocs } from './check-docs.mjs';
+import { sdkDownloadUrl } from './sdk-downloads.mjs';
 
 test('generated imports are repeatable, preserve guides and remove only stale generated pages', async t => {
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'clanker-docs-test-'));
@@ -47,4 +49,66 @@ test('generated imports are repeatable, preserve guides and remove only stale ge
   await fs.writeFile(path.join(input, 'public/tokens.md'), '# Changed\n{% unsupported %}');
   await assert.rejects(importGenerated('api', input, output), /Unconverted/);
   assert.equal(await fs.readFile(path.join(output, 'api-reference/public/tokens.mdx'), 'utf8'), firstPage);
+});
+
+test('SDK imports retain declarations and update download links when publishing moves to main', async t => {
+  const tempRoot = await fs.realpath(os.tmpdir());
+  const temp = await fs.mkdtemp(path.join(tempRoot, 'clanker-sdk-docs-test-'));
+  t.after(async () => {
+    const resolved = await fs.realpath(temp);
+    assert.equal(path.dirname(resolved), tempRoot);
+    assert.ok(path.basename(resolved).startsWith('clanker-sdk-docs-test-'));
+    await fs.rm(resolved, { recursive: true });
+  });
+  const output = path.join(temp, 'site');
+  const input = path.join(temp, 'generated');
+  const sources = ['index.md', 'v3.md', 'v4.md', 'v4/extensions.md', 'legacyFeeClaims.md'];
+  const baseline = sources.map(source => ({
+    source: 'sdk-reference/' + source, title: source,
+    route: 'sdk-reference/' + source.replace(/\.md$/, '').toLowerCase(),
+  }));
+  baseline.unshift({ source: 'sdk-reference/README.md', title: 'SDK', route: 'sdk-reference/overview' });
+  await fs.mkdir(path.join(output, 'migration'), { recursive: true });
+  await fs.mkdir(path.join(output, 'sdk-reference'), { recursive: true });
+  const overview = '---\ntitle: SDK\n---\n\nHandwritten SDK guide.\n';
+  await fs.writeFile(path.join(output, 'sdk-reference/overview.mdx'), overview);
+  await fs.writeFile(path.join(output, 'migration/pages.json'), JSON.stringify(baseline));
+  await fs.writeFile(path.join(output, 'docs.json'), JSON.stringify({
+    navigation: { groups: [{ group: 'SDK Reference', pages: [] }] },
+  }));
+  const code = 'type Generated = {\n' + '  value: string;\n'.repeat(300) + '};';
+  for (const source of sources) {
+    const target = path.join(input, source);
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.writeFile(target, '# SDK\n\n' + (source === 'index.md' ? '```ts\n' + code + '\n```\n' : 'Reference.\n'));
+  }
+  await importGenerated('sdk', input, output, { sdkRef: 'docs/review' });
+  const assets = JSON.parse(await fs.readFile(path.join(output, 'migration/sdk-assets.json'), 'utf8'));
+  assert.equal(assets.length, 1);
+  const page = path.join(output, 'sdk-reference/index.mdx');
+  assert.ok((await fs.readFile(page, 'utf8')).includes(sdkDownloadUrl(assets[0], 'docs/review')));
+  await importGenerated('sdk', input, output, { sdkRef: 'main' });
+  const main = await fs.readFile(page, 'utf8');
+  assert.ok(main.includes(sdkDownloadUrl(assets[0], 'main')));
+  assert.ok(!main.includes('docs%2Freview'));
+  assert.equal(await fs.readFile(path.join(output, assets[0]), 'utf8'), code);
+  assert.equal(await fs.readFile(path.join(output, 'sdk-reference/overview.mdx'), 'utf8'), overview);
+  await checkDocs(output);
+  await importGenerated('sdk', input, output, { sdkRef: 'main' });
+  assert.equal(await fs.readFile(page, 'utf8'), main);
+  await fs.writeFile(page, main.replace(sdkDownloadUrl(assets[0], 'main'), '/' + assets[0]));
+  await assert.rejects(checkDocs(output), /must use GitHub hosting/);
+  await fs.writeFile(page, main);
+  await fs.writeFile(path.join(output, assets[0]), 'truncated declaration');
+  await assert.rejects(checkDocs(output), /content hash differs/);
+  await fs.writeFile(path.join(output, assets[0]), code);
+  const revised = code + '\ntype Added = string;';
+  await fs.writeFile(path.join(input, 'index.md'), '# SDK\n\n```ts\n' + revised + '\n```\n');
+  await importGenerated('sdk', input, output, { sdkRef: 'main' });
+  const updatedAssets = JSON.parse(await fs.readFile(path.join(output, 'migration/sdk-assets.json'), 'utf8'));
+  assert.equal(updatedAssets.length, 1);
+  assert.notEqual(updatedAssets[0], assets[0]);
+  assert.equal(await fs.readFile(path.join(output, assets[0]), 'utf8'), code);
+  assert.equal(await fs.readFile(path.join(output, updatedAssets[0]), 'utf8'), revised);
+  await checkDocs(output);
 });

@@ -58,7 +58,7 @@ npm run import:sdk -- ../../clanker-sdk/docs/generated
 npm run check
 ```
 
-These local import commands update only Mintlify. Oversized SDK types link to complete generated text files in `assets/sdk-types/`. The SDK overview remains handwritten.
+These local import commands update only Mintlify. Oversized SDK types link to complete generated text files in `assets/sdk-types/`, served by GitHub. The links use `DOCS_BRANCH` when set, or the local DOCS branch. Set `DOCS_BRANCH` explicitly for detached checkouts. The publishing workflow supplies the same branch it checks out, so preview and main links stay aligned. The SDK overview remains handwritten.
 
 ## Publishing
 

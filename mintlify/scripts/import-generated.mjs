@@ -3,9 +3,11 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { convertMarkdown, routeFor } from './convert.mjs';
 import { markdownFiles, validatePage, root } from './check-docs.mjs';
+import { sdkDownloadRef } from './sdk-downloads.mjs';
 
-export async function importGenerated(kind, input, directory = root) {
+export async function importGenerated(kind, input, directory = root, options = {}) {
   if (!['api', 'sdk'].includes(kind)) throw new Error('Choose api or sdk');
+  const sdkRef = kind === 'sdk' ? sdkDownloadRef(directory, options.sdkRef) : undefined;
   const prefix = `${kind}-reference/`;
   const sourceRoot = path.resolve(input);
   if (sourceRoot === path.resolve(directory)) throw new Error('Generator output must be a separate directory');
@@ -45,7 +47,7 @@ export async function importGenerated(kind, input, directory = root) {
   const outputs = [];
   const declarations = new Map();
   for (const { page, content } of incoming) {
-    const converted = convertMarkdown(content, { ...page, pages, declarations });
+    const converted = convertMarkdown(content, { ...page, pages, declarations, sdkRef });
     await validatePage(converted, page.route);
     outputs.push({ route: page.route, content: converted });
   }
@@ -88,7 +90,6 @@ export async function importGenerated(kind, input, directory = root) {
     catch (error) { if (error.code !== 'ENOENT') throw error; }
     for (const asset of previousAssets) {
       if (!/^assets\/sdk-types\/[a-f0-9]{64}\.txt$/.test(asset)) throw new Error('Invalid previous SDK asset');
-      if (!declarations.has(asset)) await fs.unlink(path.join(directory, asset)).catch(error => { if (error.code !== 'ENOENT') throw error; });
     }
     await fs.writeFile(manifest, JSON.stringify([...declarations.keys()].sort(), null, 2) + '\n');
   }

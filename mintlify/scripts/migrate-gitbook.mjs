@@ -3,8 +3,10 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { convertMarkdown } from './convert.mjs';
+import { sdkDownloadRef } from './sdk-downloads.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const sdkRef = sdkDownloadRef(root);
 const source = path.resolve(process.argv[2] ?? '');
 if (!process.argv[2] || source === root) throw new Error('Provide a separate GitBook source directory');
 const summary = await fs.readFile(path.join(source, 'SUMMARY.md'), 'utf8');
@@ -76,7 +78,7 @@ const config = {
 await fs.writeFile(path.join(root, 'docs.json'), JSON.stringify(config, null, 2) + '\n');
 for (const page of pages) {
   const text = await fs.readFile(path.join(source, page.source), 'utf8');
-  const output = convertMarkdown(text, { ...page, pages, declarations });
+  const output = convertMarkdown(text, { ...page, pages, declarations, sdkRef });
   const target = path.join(root, page.route + '.mdx');
   await fs.mkdir(path.dirname(target), { recursive: true });
   await fs.writeFile(target, output);
