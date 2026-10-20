@@ -1,0 +1,402 @@
+function getUpdateTokenCreatorTransaction(token): {
+  abi: readonly [{
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "teamSpender_";
+        type: "address";
+      }, {
+        internalType: "address[]";
+        name: "teamGrantedTokens_";
+        type: "address[]";
+     }];
+     stateMutability: "nonpayable";
+     type: "constructor";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "newCreator";
+        type: "address";
+      }, {
+        internalType: "bytes32[]";
+        name: "proof";
+        type: "bytes32[]";
+     }];
+     name: "initializeTokenCreator";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "owner";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "renounceOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "teamSpender_";
+        type: "address";
+     }];
+     name: "setTeamSpender";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "bytes32";
+        name: "tokenCreatorRoot_";
+        type: "bytes32";
+     }];
+     name: "setTokenCreatorRoot";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     name: "teamGrantedTokens";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "teamGrantedTokensMap";
+     outputs: readonly [{
+        internalType: "bool";
+        name: "teamGranted";
+        type: "bool";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "teamSpender";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "safe";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "amount";
+        type: "uint256";
+     }];
+     name: "teamTransfer";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "safe";
+        type: "address";
+     }];
+     name: "teamTransferEth";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "tokenCreator";
+     outputs: readonly [{
+        internalType: "address";
+        name: "creator";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "tokenCreatorRoot";
+     outputs: readonly [{
+        internalType: "bytes32";
+        name: "";
+        type: "bytes32";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "safe";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "tokenCreatorTransfer";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "transferOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "newCreator";
+        type: "address";
+     }];
+     name: "updateTokenCreator";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: false;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "initializer";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "creator";
+        type: "address";
+     }];
+     name: "InitializeTokenCreator";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "previousOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "OwnershipTransferred";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "previousTeamSpender";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "newTeamSpender";
+        type: "address";
+     }];
+     name: "SetTeamSpender";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: false;
+        internalType: "bytes32";
+        name: "tokenCreatorRoot";
+        type: "bytes32";
+     }];
+     name: "SetTokenCreatorRoot";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "safe";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amount";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "spender";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "Transfer";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: false;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "previousCreator";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newCreator";
+        type: "address";
+     }];
+     name: "UpdateTokenCreator";
+     type: "event";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "safe";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "balance";
+        type: "uint256";
+     }];
+     name: "InsufficientBalance";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "InvalidProof";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "sender";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "NotAuthorizedToSpend";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner";
+        type: "address";
+     }];
+     name: "OwnableInvalidOwner";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "account";
+        type: "address";
+     }];
+     name: "OwnableUnauthorizedAccount";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "delegate";
+        type: "address";
+     }];
+     name: "TokenCreatorAlreadyInitialized";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "bytes32";
+        name: "tokenCreatorRoot";
+        type: "bytes32";
+     }];
+     name: "TokenCreatorRootAlreadySet";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TokenCreatorRootNotSet";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "unauthorized";
+        type: "address";
+     }];
+     name: "Unauthorized";
+     type: "error";
+  }];
+  address: "0x10F4485d6f90239B72c6A5eaD2F2320993D285E4";
+  args: readonly [`0x${string}`, `0x${string}`];
+  functionName: "updateTokenCreator";
+};

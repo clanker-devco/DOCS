@@ -1,0 +1,259 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "mint",
+  "name": "Clanker",
+  "colors": {
+    "primary": "#2563EB",
+    "light": "#93C5FD",
+    "dark": "#3B82F6"
+  },
+  "favicon": "/assets/clanker-logo.png",
+  "navigation": {
+    "groups": [
+      {
+        "group": "Introduction",
+        "pages": [
+          "index"
+        ]
+      },
+      {
+        "group": "General",
+        "pages": [
+          "general/educational-resources",
+          "general/faq",
+          {
+            "group": "Token Deployments",
+            "root": "general/token-deployments",
+            "pages": [
+              "general/token-deployments/farcaster-bot-deployments",
+              "general/token-deployments/clanker.world-deployments",
+              "general/token-deployments/preclank-deployments",
+              "general/token-deployments/alternative-interface-deployments",
+              "general/token-deployments/deploying-a-token",
+              "general/token-deployments/legacy-deployments"
+            ]
+          },
+          "general/creator-rewards-and-fees",
+          "general/clanker.world-warning-tags",
+          "general/unclaimed-rewards-balance",
+          "general/verifying-the-social-context-of-token-deploys"
+        ]
+      },
+      {
+        "group": "Droids",
+        "pages": [
+          "droids/droids",
+          "droids/funding",
+          "droids/create",
+          "droids/manage",
+          "droids/voice",
+          "droids/roadmap",
+          "droids/faq",
+          "droids/troubleshooting",
+          "droids/glossary"
+        ]
+      },
+      {
+        "group": "API Reference",
+        "pages": [
+          "api-reference/api-reference",
+          {
+            "group": "Public API",
+            "root": "api-reference/public",
+            "pages": [
+              "api-reference/public/tokens",
+              "api-reference/public/users",
+              "api-reference/public/creators",
+              "api-reference/public/presales",
+              "api-reference/public/airdrops",
+              "api-reference/public/market-data",
+              "api-reference/public/fees",
+              "api-reference/public/legion",
+              "api-reference/public/deployment"
+            ]
+          },
+          {
+            "group": "Authenticated API",
+            "root": "api-reference/authenticated",
+            "pages": [
+              "api-reference/authenticated/tokens",
+              "api-reference/authenticated/fees",
+              "api-reference/authenticated/deployment"
+            ]
+          },
+          {
+            "group": "User API",
+            "root": "api-reference/user",
+            "pages": [
+              "api-reference/user/preclanks",
+              "api-reference/user/deployment"
+            ]
+          }
+        ]
+      },
+      {
+        "group": "SDK Reference",
+        "pages": [
+          "sdk-reference/sdk-reference",
+          "sdk-reference/core-utilities",
+          "sdk-reference/v4",
+          "sdk-reference/v3",
+          "sdk-reference/extensions",
+          "sdk-reference/legacyfeeclaims"
+        ]
+      },
+      {
+        "group": "References",
+        "pages": [
+          {
+            "group": "Core Contracts",
+            "root": "references/core-contracts",
+            "pages": [
+              {
+                "group": "v4",
+                "root": "references/core-contracts/v4",
+                "pages": [
+                  "references/core-contracts/v4/deployment-config",
+                  {
+                    "group": "Fee Management Contracts",
+                    "root": "references/core-contracts/v4/fee-management-contracts",
+                    "pages": [
+                      "references/core-contracts/v4/fee-management-contracts/clankerfeelocker",
+                      "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated",
+                      "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion"
+                    ]
+                  },
+                  {
+                    "group": "Extensions",
+                    "root": "references/core-contracts/v4/extensions",
+                    "pages": [
+                      "references/core-contracts/v4/extensions/clankervault",
+                      "references/core-contracts/v4/extensions/clankerairdrop",
+                      "references/core-contracts/v4/extensions/clankerairdropv2",
+                      "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy",
+                      "references/core-contracts/v4/extensions/clankerpresaleethtocreator",
+                      "references/core-contracts/v4/extensions/clankerpresaleallowlist"
+                    ]
+                  },
+                  {
+                    "group": "ClankerHook",
+                    "root": "references/core-contracts/v4/clankerhook",
+                    "pages": [
+                      "references/core-contracts/v4/clankerhook/clankerhookstaticfee",
+                      "references/core-contracts/v4/clankerhook/clankerhookdynamicfee"
+                    ]
+                  },
+                  {
+                    "group": "ClankerHookV2",
+                    "root": "references/core-contracts/v4/clankerhookv2",
+                    "pages": [
+                      "references/core-contracts/v4/clankerhookv2/pool-extensions",
+                      "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2",
+                      "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2"
+                    ]
+                  },
+                  {
+                    "group": "MEV Modules",
+                    "root": "references/core-contracts/v4/mev-modules",
+                    "pages": [
+                      "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay",
+                      "references/core-contracts/v4/mev-modules/clankersniperauctionv0",
+                      "references/core-contracts/v4/mev-modules/clankermevdescendingfees",
+                      "references/core-contracts/v4/mev-modules/clankersniperauctionv2"
+                    ]
+                  },
+                  "references/core-contracts/v4/administrative-permissions"
+                ]
+              },
+              {
+                "group": "v3.1",
+                "root": "references/core-contracts/v3.1",
+                "pages": [
+                  "references/core-contracts/v3.1/clanker-direct-contract-deployments",
+                  "references/core-contracts/v3.1/lplockerv2",
+                  "references/core-contracts/v3.1/clankervault"
+                ]
+              },
+              "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0"
+            ]
+          },
+          "references/brand-assets",
+          "references/audits",
+          "references/compatible-trading-platforms",
+          "references/deployed-contracts",
+          "references/supported-quote-tokens",
+          "references/core-team",
+          "references/contact"
+        ]
+      }
+    ]
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Clanker.world",
+        "href": "https://clanker.world"
+      },
+      {
+        "label": "GitHub",
+        "href": "https://github.com/clanker-devco"
+      }
+    ]
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view"
+    ]
+  },
+  "redirects": [
+    {
+      "source": "/readme",
+      "destination": "/index"
+    },
+    {
+      "source": "/sdk-reference/index",
+      "destination": "/sdk-reference/core-utilities"
+    },
+    {
+      "source": "/sdk-reference",
+      "destination": "/sdk-reference/core-utilities"
+    },
+    {
+      "source": "/README",
+      "destination": "/index"
+    },
+    {
+      "source": "/droids/README",
+      "destination": "/droids/droids"
+    },
+    {
+      "source": "/api-reference/README",
+      "destination": "/api-reference/api-reference"
+    },
+    {
+      "source": "/api-reference/public/README",
+      "destination": "/api-reference/public"
+    },
+    {
+      "source": "/api-reference/authenticated/README",
+      "destination": "/api-reference/authenticated"
+    },
+    {
+      "source": "/api-reference/user/README",
+      "destination": "/api-reference/user"
+    },
+    {
+      "source": "/sdk-reference/README",
+      "destination": "/sdk-reference/sdk-reference"
+    },
+    {
+      "source": "/sdk-reference/v4/extensions",
+      "destination": "/sdk-reference/extensions"
+    },
+    {
+      "source": "/sdk-reference/legacyFeeClaims",
+      "destination": "/sdk-reference/legacyfeeclaims"
+    }
+  ]
+}

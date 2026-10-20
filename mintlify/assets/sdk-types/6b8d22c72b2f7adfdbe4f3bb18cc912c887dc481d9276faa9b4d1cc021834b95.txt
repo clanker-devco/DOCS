@@ -1,0 +1,405 @@
+function getClaimAirdropTransaction(token): ClankerTransactionConfig<readonly [{
+  inputs: readonly [{
+     internalType: "address";
+     name: "factory_";
+     type: "address";
+  }];
+  stateMutability: "nonpayable";
+  type: "constructor";
+}, {
+  inputs: readonly [];
+  name: "AirdropAlreadyExists";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "AirdropLockupDurationTooShort";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "AirdropNotUnlocked";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidAirdropPercentage";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidMerkleRoot";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidMsgValue";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "InvalidProof";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "ReentrancyGuardReentrantCall";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "TotalMaxClaimed";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "Unauthorized";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "UserMaxClaimed";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "ZeroClaim";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "ZeroToClaim";
+  type: "error";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     indexed: true;
+     internalType: "address";
+     name: "user";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "totalUserAmountClaimed";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "userAmountStillLocked";
+     type: "uint256";
+  }];
+  name: "AirdropClaimed";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "supply";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "lockupDuration";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "vestingDuration";
+     type: "uint256";
+  }];
+  name: "AirdropCreated";
+  type: "event";
+}, {
+  inputs: readonly [];
+  name: "MIN_LOCKUP_DURATION";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "token";
+     type: "address";
+  }];
+  name: "airdrops";
+  outputs: readonly [{
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+   }, {
+     internalType: "uint256";
+     name: "totalSupply";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "totalClaimed";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "lockupEndTime";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "vestingEndTime";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "allocatedAmount";
+     type: "uint256";
+  }];
+  name: "amountAvailableToClaim";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     internalType: "address";
+     name: "recipient";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "allocatedAmount";
+     type: "uint256";
+   }, {
+     internalType: "bytes32[]";
+     name: "proof";
+     type: "bytes32[]";
+  }];
+  name: "claim";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "factory";
+  outputs: readonly [{
+     internalType: "address";
+     name: "";
+     type: "address";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     components: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "tokenAdmin";
+           type: "address";
+         }, {
+           internalType: "string";
+           name: "name";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "symbol";
+           type: "string";
+         }, {
+           internalType: "bytes32";
+           name: "salt";
+           type: "bytes32";
+         }, {
+           internalType: "string";
+           name: "image";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "metadata";
+           type: "string";
+         }, {
+           internalType: "string";
+           name: "context";
+           type: "string";
+         }, {
+           internalType: "uint256";
+           name: "originatingChainId";
+           type: "uint256";
+        }];
+        internalType: "struct IClanker.TokenConfig";
+        name: "tokenConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "mevModule";
+           type: "address";
+         }, {
+           internalType: "bytes";
+           name: "mevModuleData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.MevModuleConfig";
+        name: "mevModuleConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "extension";
+           type: "address";
+         }, {
+           internalType: "uint256";
+           name: "msgValue";
+           type: "uint256";
+         }, {
+           internalType: "uint16";
+           name: "extensionBps";
+           type: "uint16";
+         }, {
+           internalType: "bytes";
+           name: "extensionData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.ExtensionConfig[]";
+        name: "extensionConfigs";
+        type: "tuple[]";
+     }];
+     internalType: "struct IClanker.DeploymentConfig";
+     name: "deploymentConfig";
+     type: "tuple";
+   }, {
+     components: readonly [{
+        internalType: "Currency";
+        name: "currency0";
+        type: "address";
+      }, {
+        internalType: "Currency";
+        name: "currency1";
+        type: "address";
+      }, {
+        internalType: "uint24";
+        name: "fee";
+        type: "uint24";
+      }, {
+        internalType: "int24";
+        name: "tickSpacing";
+        type: "int24";
+      }, {
+        internalType: "contract IHooks";
+        name: "hooks";
+        type: "address";
+     }];
+     internalType: "struct PoolKey";
+     name: "";
+     type: "tuple";
+   }, {
+     internalType: "address";
+     name: "token";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "extensionSupply";
+     type: "uint256";
+   }, {
+     internalType: "uint256";
+     name: "extensionIndex";
+     type: "uint256";
+  }];
+  name: "receiveTokens";
+  outputs: readonly [];
+  stateMutability: "payable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "bytes4";
+     name: "interfaceId";
+     type: "bytes4";
+  }];
+  name: "supportsInterface";
+  outputs: readonly [{
+     internalType: "bool";
+     name: "";
+     type: "bool";
+  }];
+  stateMutability: "pure";
+  type: "function";
+}], "claim">;

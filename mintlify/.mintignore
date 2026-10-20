@@ -1,0 +1,11 @@
+.gitbook/
+.github/
+scripts/
+migration/
+node_modules/
+.validation/
+README.md
+SUMMARY.md
+MIGRATION.md
+package.json
+package-lock.json

@@ -1,0 +1,842 @@
+getTokenRewardsTransaction(token, options?): Promise<{
+  abi: readonly [{
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "factory_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "feeLocker_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "positionManager_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "permit2_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "universalRouter_";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "poolManager_";
+        type: "address";
+     }];
+     stateMutability: "nonpayable";
+     type: "constructor";
+   }, {
+     inputs: readonly [];
+     name: "BASIS_POINTS";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "MAX_LP_POSITIONS";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "MAX_REWARD_PARTICIPANTS";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "collectRewards";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "collectRewardsWithoutUnlock";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "factory";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "feeLocker";
+     outputs: readonly [{
+        internalType: "contract IClankerFeeLocker";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     name: "feePreferences";
+     outputs: readonly [{
+        internalType: "enum IClankerLpLockerFeeConversion.FeeIn";
+        name: "feePreference";
+        type: "uint8";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "from";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "id";
+        type: "uint256";
+      }, {
+        internalType: "bytes";
+        name: "";
+        type: "bytes";
+     }];
+     name: "onERC721Received";
+     outputs: readonly [{
+        internalType: "bytes4";
+        name: "";
+        type: "bytes4";
+     }];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "owner";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "permit2";
+     outputs: readonly [{
+        internalType: "contract IPermit2";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "locker";
+           type: "address";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickLower";
+           type: "int24[]";
+         }, {
+           internalType: "int24[]";
+           name: "tickUpper";
+           type: "int24[]";
+         }, {
+           internalType: "uint16[]";
+           name: "positionBps";
+           type: "uint16[]";
+         }, {
+           internalType: "bytes";
+           name: "lockerData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.LockerConfig";
+        name: "lockerConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "address";
+           name: "hook";
+           type: "address";
+         }, {
+           internalType: "address";
+           name: "pairedToken";
+           type: "address";
+         }, {
+           internalType: "int24";
+           name: "tickIfToken0IsClanker";
+           type: "int24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "bytes";
+           name: "poolData";
+           type: "bytes";
+        }];
+        internalType: "struct IClanker.PoolConfig";
+        name: "poolConfig";
+        type: "tuple";
+      }, {
+        components: readonly [{
+           internalType: "Currency";
+           name: "currency0";
+           type: "address";
+         }, {
+           internalType: "Currency";
+           name: "currency1";
+           type: "address";
+         }, {
+           internalType: "uint24";
+           name: "fee";
+           type: "uint24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "contract IHooks";
+           name: "hooks";
+           type: "address";
+        }];
+        internalType: "struct PoolKey";
+        name: "poolKey";
+        type: "tuple";
+      }, {
+        internalType: "uint256";
+        name: "poolSupply";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "placeLiquidity";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "positionId";
+        type: "uint256";
+     }];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "poolManager";
+     outputs: readonly [{
+        internalType: "contract IPoolManager";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "positionManager";
+     outputs: readonly [{
+        internalType: "contract IPositionManager";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "renounceOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "bytes4";
+        name: "interfaceId";
+        type: "bytes4";
+     }];
+     name: "supportsInterface";
+     outputs: readonly [{
+        internalType: "bool";
+        name: "";
+        type: "bool";
+     }];
+     stateMutability: "pure";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "tokenRewards";
+     outputs: readonly [{
+        components: readonly [{
+           internalType: "address";
+           name: "token";
+           type: "address";
+         }, {
+           components: readonly [{
+              internalType: "Currency";
+              name: "currency0";
+              type: "address";
+            }, {
+              internalType: "Currency";
+              name: "currency1";
+              type: "address";
+            }, {
+              internalType: "uint24";
+              name: "fee";
+              type: "uint24";
+            }, {
+              internalType: "int24";
+              name: "tickSpacing";
+              type: "int24";
+            }, {
+              internalType: "contract IHooks";
+              name: "hooks";
+              type: "address";
+           }];
+           internalType: "struct PoolKey";
+           name: "poolKey";
+           type: "tuple";
+         }, {
+           internalType: "uint256";
+           name: "positionId";
+           type: "uint256";
+         }, {
+           internalType: "uint256";
+           name: "numPositions";
+           type: "uint256";
+         }, {
+           internalType: "uint16[]";
+           name: "rewardBps";
+           type: "uint16[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardAdmins";
+           type: "address[]";
+         }, {
+           internalType: "address[]";
+           name: "rewardRecipients";
+           type: "address[]";
+        }];
+        internalType: "struct IClankerLpLocker.TokenRewardInfo";
+        name: "";
+        type: "tuple";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "transferOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "universalRouter";
+     outputs: readonly [{
+        internalType: "contract IUniversalRouter";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        internalType: "enum IClankerLpLockerFeeConversion.FeeIn";
+        name: "newFeePreference";
+        type: "uint8";
+     }];
+     name: "updateFeePreference";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "updateRewardAdmin";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "updateRewardRecipient";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "version";
+     outputs: readonly [{
+        internalType: "string";
+        name: "";
+        type: "string";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "withdrawERC20";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+     }];
+     name: "withdrawETH";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amount0";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amount1";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256[]";
+        name: "rewards0";
+        type: "uint256[]";
+      }, {
+        indexed: false;
+        internalType: "uint256[]";
+        name: "rewards1";
+        type: "uint256[]";
+     }];
+     name: "ClaimedRewards";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "enum IClankerLpLockerFeeConversion.FeeIn";
+        name: "oldFeePreference";
+        type: "uint8";
+      }, {
+        indexed: true;
+        internalType: "enum IClankerLpLockerFeeConversion.FeeIn";
+        name: "newFeePreference";
+        type: "uint8";
+     }];
+     name: "FeePreferenceUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "rewardToken";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amountSwapped";
+        type: "uint256";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "swappedToken";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amountOut";
+        type: "uint256";
+     }];
+     name: "FeesSwapped";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "enum IClankerLpLockerFeeConversion.FeeIn[]";
+        name: "feePreference";
+        type: "uint8[]";
+     }];
+     name: "InitialFeePreferences";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "previousOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "OwnershipTransferred";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "from";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "positionId";
+        type: "uint256";
+     }];
+     name: "Received";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "oldAdmin";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newAdmin";
+        type: "address";
+     }];
+     name: "RewardAdminUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "uint256";
+        name: "rewardIndex";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "oldRecipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "newRecipient";
+        type: "address";
+     }];
+     name: "RewardRecipientUpdated";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: false;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        components: readonly [{
+           internalType: "Currency";
+           name: "currency0";
+           type: "address";
+         }, {
+           internalType: "Currency";
+           name: "currency1";
+           type: "address";
+         }, {
+           internalType: "uint24";
+           name: "fee";
+           type: "uint24";
+         }, {
+           internalType: "int24";
+           name: "tickSpacing";
+           type: "int24";
+         }, {
+           internalType: "contract IHooks";
+           name: "hooks";
+           type: "address";
+        }];
+        indexed: false;
+        internalType: "struct PoolKey";
+        name: "poolKey";
+        type: "tuple";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "poolSupply";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "positionId";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "numPositions";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint16[]";
+        name: "rewardBps";
+        type: "uint16[]";
+      }, {
+        indexed: false;
+        internalType: "address[]";
+        name: "rewardAdmins";
+        type: "address[]";
+      }, {
+        indexed: false;
+        internalType: "address[]";
+        name: "rewardRecipients";
+        type: "address[]";
+      }, {
+        indexed: false;
+        internalType: "int24[]";
+        name: "tickLower";
+        type: "int24[]";
+      }, {
+        indexed: false;
+        internalType: "int24[]";
+        name: "tickUpper";
+        type: "int24[]";
+      }, {
+        indexed: false;
+        internalType: "uint16[]";
+        name: "positionBps";
+        type: "uint16[]";
+     }];
+     name: "TokenRewardAdded";
+     type: "event";
+   }, {
+     inputs: readonly [];
+     name: "InvalidPositionBps";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "InvalidRewardBps";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "MismatchedPositionInfos";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "MismatchedRewardArrays";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "NoPositions";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "NoRewardRecipients";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner";
+        type: "address";
+     }];
+     name: "OwnableInvalidOwner";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "account";
+        type: "address";
+     }];
+     name: "OwnableUnauthorizedAccount";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "ReentrancyGuardReentrantCall";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "SafeERC20FailedOperation";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TickRangeLowerThanStartingTick";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TicksBackwards";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TicksNotMultipleOfTickSpacing";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TicksOutOfTickBounds";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TokenAlreadyHasRewards";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TooManyPositions";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TooManyRewardParticipants";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "Unauthorized";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "ZeroRewardAddress";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "ZeroRewardAmount";
+     type: "error";
+  }];
+  address: `0x${string}`;
+  args: readonly [`0x${string}`];
+  functionName: "tokenRewards";
+}>;

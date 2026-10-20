@@ -1,0 +1,294 @@
+getAvailableRewardsTransaction(token, options?): Promise<{
+  abi: readonly [{
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner_";
+        type: "address";
+     }];
+     stateMutability: "nonpayable";
+     type: "constructor";
+   }, {
+     inputs: readonly [];
+     name: "ClaimAmountTooHigh";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "InvalidRecipient";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "NoFeesToClaim";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "owner";
+        type: "address";
+     }];
+     name: "OwnableInvalidOwner";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "account";
+        type: "address";
+     }];
+     name: "OwnableUnauthorizedAccount";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "ReentrancyGuardReentrantCall";
+     type: "error";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "SafeERC20FailedOperation";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "TransferFailed";
+     type: "error";
+   }, {
+     inputs: readonly [];
+     name: "Unauthorized";
+     type: "error";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "depositor";
+        type: "address";
+     }];
+     name: "AddDepositor";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amountClaimed";
+        type: "uint256";
+     }];
+     name: "ClaimTokens";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "address";
+        name: "recipient";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amountClaimed";
+        type: "uint256";
+     }];
+     name: "ClaimTokensPermissioned";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "previousOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "OwnershipTransferred";
+     type: "event";
+   }, {
+     anonymous: false;
+     inputs: readonly [{
+        indexed: true;
+        internalType: "address";
+        name: "sender";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        indexed: true;
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "balance";
+        type: "uint256";
+      }, {
+        indexed: false;
+        internalType: "uint256";
+        name: "amount";
+        type: "uint256";
+     }];
+     name: "StoreTokens";
+     type: "event";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "depositor";
+        type: "address";
+     }];
+     name: "addDepositor";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "depositor";
+        type: "address";
+     }];
+     name: "allowedDepositors";
+     outputs: readonly [{
+        internalType: "bool";
+        name: "isAllowed";
+        type: "bool";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "availableFees";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "claim";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+     }];
+     name: "feesToClaim";
+     outputs: readonly [{
+        internalType: "uint256";
+        name: "balance";
+        type: "uint256";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "owner";
+     outputs: readonly [{
+        internalType: "address";
+        name: "";
+        type: "address";
+     }];
+     stateMutability: "view";
+     type: "function";
+   }, {
+     inputs: readonly [];
+     name: "renounceOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "feeOwner";
+        type: "address";
+      }, {
+        internalType: "address";
+        name: "token";
+        type: "address";
+      }, {
+        internalType: "uint256";
+        name: "amount";
+        type: "uint256";
+     }];
+     name: "storeFees";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "bytes4";
+        name: "interfaceId";
+        type: "bytes4";
+     }];
+     name: "supportsInterface";
+     outputs: readonly [{
+        internalType: "bool";
+        name: "";
+        type: "bool";
+     }];
+     stateMutability: "pure";
+     type: "function";
+   }, {
+     inputs: readonly [{
+        internalType: "address";
+        name: "newOwner";
+        type: "address";
+     }];
+     name: "transferOwnership";
+     outputs: readonly [];
+     stateMutability: "nonpayable";
+     type: "function";
+  }];
+  address: `0x${string}`;
+  args: readonly [`0x${string}`, `0x${string}`];
+  functionName: "availableFees";
+}>;

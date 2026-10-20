@@ -1,0 +1,209 @@
+function getSetMerkleRootTransaction(presaleId): ClankerTransactionConfig<readonly [{
+  inputs: readonly [{
+     internalType: "address";
+     name: "presale_";
+     type: "address";
+  }];
+  stateMutability: "nonpayable";
+  type: "constructor";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+  }];
+  name: "allowlists";
+  outputs: readonly [{
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+   }, {
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "buyer";
+     type: "address";
+   }, {
+     internalType: "bytes";
+     name: "proof";
+     type: "bytes";
+  }];
+  name: "getAllowedAmountForBuyer";
+  outputs: readonly [{
+     internalType: "uint256";
+     name: "";
+     type: "uint256";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     internalType: "bytes";
+     name: "initializationData";
+     type: "bytes";
+  }];
+  name: "initialize";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [];
+  name: "presale";
+  outputs: readonly [{
+     internalType: "address";
+     name: "";
+     type: "address";
+  }];
+  stateMutability: "view";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "address";
+     name: "buyer";
+     type: "address";
+   }, {
+     internalType: "uint256";
+     name: "allowedAmount";
+     type: "uint256";
+  }];
+  name: "setAddressOverride";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "setAllowlistEnabled";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  inputs: readonly [{
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+  }];
+  name: "setMerkleRoot";
+  outputs: readonly [];
+  stateMutability: "nonpayable";
+  type: "function";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: true;
+     internalType: "address";
+     name: "presaleOwner";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+  }];
+  name: "Initialize";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: true;
+     internalType: "address";
+     name: "buyer";
+     type: "address";
+   }, {
+     indexed: false;
+     internalType: "uint256";
+     name: "allowedAmount";
+     type: "uint256";
+  }];
+  name: "SetAddressOverride";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "bool";
+     name: "enabled";
+     type: "bool";
+  }];
+  name: "SetAllowlistEnabled";
+  type: "event";
+}, {
+  anonymous: false;
+  inputs: readonly [{
+     indexed: true;
+     internalType: "uint256";
+     name: "presaleId";
+     type: "uint256";
+   }, {
+     indexed: false;
+     internalType: "bytes32";
+     name: "merkleRoot";
+     type: "bytes32";
+  }];
+  name: "SetMerkleRoot";
+  type: "event";
+}, {
+  inputs: readonly [];
+  name: "InvalidProof";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "MerkleRootNotSet";
+  type: "error";
+}, {
+  inputs: readonly [];
+  name: "Unauthorized";
+  type: "error";
+}], "setMerkleRoot">;
