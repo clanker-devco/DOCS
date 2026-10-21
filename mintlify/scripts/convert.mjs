@@ -1,12 +1,10 @@
 import path from 'node:path';
 import { unified } from 'unified';
 import remarkParse from 'remark-parse';
-import remarkGfm from 'remark-gfm';
 import { visit } from 'unist-util-visit';
 import GithubSlugger from 'github-slugger';
-import { createHash } from 'node:crypto';
 import auditLinks from '../migration/audit-links.json' with { type: 'json' };
-import { sdkDownloadUrl } from './sdk-downloads.mjs';
+import { compactSdkMarkdown } from './sdk-declarations.mjs';
 
 const parser = unified().use(remarkParse);
 const callouts = { info: 'Info', success: 'Tip', warning: 'Warning', danger: 'Warning' };
@@ -84,6 +82,9 @@ export function convertMarkdown(input, { source, title, pages, declarations, sdk
   let text = input.replace(/\r\n/g, '\n');
   text = text.replace(/<pre[^>]*><code[^>]*>([\s\S]*?)<\/code><\/pre>/g, (_, code) =>
     '\n```solidity\n' + decodeHtml(code.replace(/<\/?strong>/g, '')).trimEnd() + '\n```\n');
+  if (declarations && source.startsWith('sdk-reference/')) {
+    text = compactSdkMarkdown(text, { declarations, sdkRef });
+  }
 
   const saved = [];
   const stash = value => {
@@ -92,37 +93,9 @@ export function convertMarkdown(input, { source, title, pages, declarations, sdk
     return token;
   };
   const edits = [];
-  const largeCells = [];
-  if (declarations && source.startsWith('sdk-reference/')) {
-    visit(unified().use(remarkParse).use(remarkGfm).parse(text), 'tableCell', node => {
-      if (!node.children.length) return;
-      const start = node.children[0].position.start.offset;
-      const end = node.children.at(-1).position.end.offset;
-      if (end - start <= 2000) return;
-      const full = text.slice(start, end);
-      const asset = `assets/sdk-types/${createHash('sha256').update(full).digest('hex')}.txt`;
-      declarations.set(asset, full);
-      largeCells.push({ start, end });
-      edits.push({ start, end, value: `[Full type](${sdkDownloadUrl(asset, sdkRef)})` });
-    });
-  }
   visit(parser.parse(text), node => {
     if (node.type !== 'code' && node.type !== 'inlineCode') return;
-    if (largeCells.some(cell => node.position.start.offset >= cell.start && node.position.end.offset <= cell.end)) return;
     let value = text.slice(node.position.start.offset, node.position.end.offset);
-    if (declarations && source.startsWith('sdk-reference/') && (
-      (node.type === 'code' && node.value.split('\n').length > 200) ||
-      (node.type === 'inlineCode' && node.value.length > 2000)
-    )) {
-      const full = node.value.replace(/\r\n/g, '\n');
-      const asset = `assets/sdk-types/${createHash('sha256').update(full).digest('hex')}.txt`;
-      declarations.set(asset, full);
-      const label = node.type === 'code'
-        ? `View full generated declaration (${full.split('\n').length.toLocaleString('en-US')} lines)`
-        : 'Full type';
-      edits.push({ start: node.position.start.offset, end: node.position.end.offset, value: `[${label}](${sdkDownloadUrl(asset, sdkRef)})` });
-      return;
-    }
     if (source.startsWith('sdk-reference/') && node.type === 'code' && node.value.split('\n').length > 100) {
       value = value.replace(/^(`{3,}|~{3,})[^\n]*/, '$1text');
     }

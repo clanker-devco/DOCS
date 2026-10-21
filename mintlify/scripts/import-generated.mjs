@@ -4,13 +4,18 @@ import { fileURLToPath } from 'node:url';
 import { convertMarkdown, routeFor } from './convert.mjs';
 import { markdownFiles, validatePage, root } from './check-docs.mjs';
 import { sdkDownloadRef } from './sdk-downloads.mjs';
+import { compactSdkMarkdown } from './sdk-declarations.mjs';
 
 export async function importGenerated(kind, input, directory = root, options = {}) {
   if (!['api', 'sdk'].includes(kind)) throw new Error('Choose api or sdk');
+  if (options.gitbookDirectory && kind !== 'sdk') throw new Error('GitBook conversion only applies to SDK references');
   const sdkRef = kind === 'sdk' ? sdkDownloadRef(directory, options.sdkRef) : undefined;
   const prefix = `${kind}-reference/`;
   const sourceRoot = path.resolve(input);
   if (sourceRoot === path.resolve(directory)) throw new Error('Generator output must be a separate directory');
+  if (options.gitbookDirectory && sourceRoot === path.resolve(options.gitbookDirectory, 'sdk-reference')) {
+    throw new Error('Use complete TypeDoc output, not the compacted GitBook SDK pages');
+  }
   const baseline = JSON.parse(await fs.readFile(path.join(directory, 'migration/pages.json'), 'utf8'));
   const config = JSON.parse(await fs.readFile(path.join(directory, 'docs.json'), 'utf8'));
   const files = (await markdownFiles(sourceRoot)).filter(file => !file.endsWith('SUMMARY_FRAGMENT.md'));
@@ -45,11 +50,18 @@ export async function importGenerated(kind, input, directory = root, options = {
     return position(a.page) - position(b.page) || a.page.source.localeCompare(b.page.source);
   });
   const outputs = [];
+  const gitbookOutputs = [];
   const declarations = new Map();
   for (const { page, content } of incoming) {
     const converted = convertMarkdown(content, { ...page, pages, declarations, sdkRef });
     await validatePage(converted, page.route);
     outputs.push({ route: page.route, content: converted });
+    if (options.gitbookDirectory) {
+      gitbookOutputs.push({
+        source: page.source,
+        content: compactSdkMarkdown(content.replace(/\r\n/g, '\n'), { declarations, sdkRef }),
+      });
+    }
   }
   const group = config.navigation.groups.find(group => group.group === (kind === 'api' ? 'API Reference' : 'SDK Reference'));
   if (!group) throw new Error(`Missing ${kind} navigation group`);
@@ -98,6 +110,11 @@ export async function importGenerated(kind, input, directory = root, options = {
     await fs.mkdir(path.dirname(target), { recursive: true });
     await fs.writeFile(target, output.content);
   }
+  for (const output of gitbookOutputs) {
+    const target = path.join(options.gitbookDirectory, output.source);
+    await fs.mkdir(path.dirname(target), { recursive: true });
+    await fs.writeFile(target, output.content);
+  }
   for (const route of previous.filter(route => !next.includes(route))) {
     await fs.unlink(path.join(directory, route + '.mdx')).catch(error => { if (error.code !== 'ENOENT') throw error; });
   }
@@ -108,5 +125,8 @@ export async function importGenerated(kind, input, directory = root, options = {
 
 if (process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   if (!process.argv[3]) throw new Error('Usage: node scripts/import-generated.mjs api|sdk path/to/docs/generated');
-  await importGenerated(process.argv[2], process.argv[3]);
+  const kind = process.argv[2];
+  await importGenerated(kind, process.argv[3], root, {
+    gitbookDirectory: kind === 'sdk' ? path.resolve(root, '..') : undefined,
+  });
 }

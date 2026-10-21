@@ -1,6 +1,6 @@
 # Clanker documentation
 
-The original GitBook documentation stays at the repository root. This folder contains the Mintlify version, with its own pages, assets, configuration and tooling. Both versions can be published from the same branch.
+The GitBook documentation stays at the repository root. This folder contains the Mintlify version, with its own pages, assets, configuration and tooling. Both versions can be published from the same branch.
 
 ## Run locally
 
@@ -38,9 +38,9 @@ Stop the preview with Ctrl+C before `npm run validate`, then restart it. The pre
 
 The API reference comes from `clanker.world/docs/api-registry.ts`. The SDK reference comes from TypeDoc in `clanker-sdk`. Update those sources instead of editing generated reference pages.
 
-The upstream workflows first copy generated Markdown into the original GitBook reference directories. When this Mintlify folder is present, they also convert that output into MDX here and validate it. The existing commit step saves both versions together; a failed conversion or check stops publishing.
+The upstream workflows first copy generated Markdown into the GitBook reference directories. When this Mintlify folder is present, they also convert that output into MDX here and validate it. The SDK import also prepares the GitBook pages: oversized generated types link to complete text files instead of rendering thousands of lines inline. Both sites use the same full declarations. Descriptions, examples, headings and page paths stay in place. The existing commit step saves both versions together; a failed conversion or check stops publishing.
 
-For a local Mintlify-only refresh, generate the Markdown in the corresponding source repository:
+For a local refresh, generate the Markdown in the corresponding source repository:
 
 ```sh
 # From clanker.world
@@ -58,7 +58,11 @@ npm run import:sdk -- ../../clanker-sdk/docs/generated
 npm run check
 ```
 
-These local import commands update only Mintlify. Oversized SDK types link to complete generated text files in `assets/sdk-types/`, served by GitHub. The links use `DOCS_BRANCH` when set, or the local DOCS branch. Set `DOCS_BRANCH` explicitly for detached checkouts. The publishing workflow supplies the same branch it checks out, so preview and main links stay aligned. The SDK overview remains handwritten.
+The API import updates only Mintlify. The SDK import updates both the GitBook Markdown and Mintlify MDX from the complete TypeDoc output. Always use the SDK's `docs/generated` directory as input, rather than re-importing the compacted GitBook pages.
+
+`npm run check` verifies both sites, including matching SDK download links and hashes of the full declaration files. It rejects oversized inline SDK declarations in GitBook so future publishes do not restore the rendering problem.
+
+Oversized SDK types link to complete generated text files in `assets/sdk-types/`, served by GitHub. The links use `DOCS_BRANCH` when set, or the local DOCS branch. Set `DOCS_BRANCH` explicitly for detached checkouts. The publishing workflow supplies the same branch it checks out, so preview and main links stay aligned. The SDK overview remains handwritten.
 
 ## Publishing
 
