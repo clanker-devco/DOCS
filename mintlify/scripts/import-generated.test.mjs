@@ -6,6 +6,7 @@ import path from 'node:path';
 import { importGenerated } from './import-generated.mjs';
 import { checkDocs } from './check-docs.mjs';
 import { sdkDownloadUrl } from './sdk-downloads.mjs';
+import { checkGitbookSdk } from './check-gitbook.mjs';
 
 test('generated imports are repeatable, preserve guides and remove only stale generated pages', async t => {
   const temp = await fs.mkdtemp(path.join(os.tmpdir(), 'clanker-docs-test-'));
@@ -63,6 +64,10 @@ test('SDK imports retain declarations and update download links when publishing 
   const output = path.join(temp, 'site');
   const input = path.join(temp, 'generated');
   const sources = ['index.md', 'v3.md', 'v4.md', 'v4/extensions.md', 'legacyFeeClaims.md'];
+  const gitbook = path.join(temp, 'gitbook');
+  await fs.mkdir(path.join(gitbook, 'sdk-reference'), { recursive: true });
+  await fs.writeFile(path.join(gitbook, 'sdk-reference/README.md'), 'Handwritten SDK overview.');
+  await fs.writeFile(path.join(gitbook, 'SUMMARY.md'), 'Original navigation.');
   const baseline = sources.map(source => ({
     source: 'sdk-reference/' + source, title: source,
     route: 'sdk-reference/' + source.replace(/\.md$/, '').toLowerCase(),
@@ -94,21 +99,48 @@ test('SDK imports retain declarations and update download links when publishing 
   assert.equal(await fs.readFile(path.join(output, assets[0]), 'utf8'), code);
   assert.equal(await fs.readFile(path.join(output, 'sdk-reference/overview.mdx'), 'utf8'), overview);
   await checkDocs(output);
-  await importGenerated('sdk', input, output, { sdkRef: 'main' });
+  await importGenerated('sdk', input, output, { sdkRef: 'main', gitbookDirectory: gitbook });
+  const gitbookPage = path.join(gitbook, 'sdk-reference/index.md');
+  const gitbookContent = '# SDK\n\n[View full generated declaration (302 lines)]('
+    + sdkDownloadUrl(assets[0], 'main') + ')\n';
+  assert.equal(await fs.readFile(gitbookPage, 'utf8'), gitbookContent);
+  await checkGitbookSdk(gitbook, output);
+  await assert.rejects(importGenerated('sdk', path.join(gitbook, 'sdk-reference'), output, {
+    sdkRef: 'main', gitbookDirectory: gitbook,
+  }), /complete TypeDoc output/);
+  await fs.writeFile(gitbookPage, gitbookContent.replace('/refs/heads/main/', '/refs/heads/other/'));
+  await assert.rejects(checkGitbookSdk(gitbook, output), /downloads differ/);
+  await fs.writeFile(gitbookPage, '# SDK\n\n```ts\n' + code + '\n```\n');
+  await assert.rejects(checkGitbookSdk(gitbook, output), /oversized declarations/);
+  await fs.writeFile(gitbookPage, gitbookContent);
+  await fs.unlink(path.join(gitbook, 'sdk-reference/v3.md'));
+  await assert.rejects(checkGitbookSdk(gitbook, output), /reference inventory/);
+  await fs.writeFile(path.join(gitbook, 'sdk-reference/v3.md'), '# SDK\n\nReference.\n');
+  assert.equal(await fs.readFile(path.join(gitbook, 'sdk-reference/README.md'), 'utf8'), 'Handwritten SDK overview.');
+  assert.equal(await fs.readFile(path.join(gitbook, 'SUMMARY.md'), 'utf8'), 'Original navigation.');
+  await importGenerated('sdk', input, output, { sdkRef: 'main', gitbookDirectory: gitbook });
+  assert.equal(await fs.readFile(gitbookPage, 'utf8'), gitbookContent);
   assert.equal(await fs.readFile(page, 'utf8'), main);
+  await fs.writeFile(path.join(input, 'v3.md'), '# SDK\n{% unsupported %}');
+  await assert.rejects(importGenerated('sdk', input, output, { sdkRef: 'main', gitbookDirectory: gitbook }), /Unconverted/);
+  assert.equal(await fs.readFile(gitbookPage, 'utf8'), gitbookContent);
+  assert.equal(await fs.readFile(page, 'utf8'), main);
+  await fs.writeFile(path.join(input, 'v3.md'), '# SDK\n\nReference.\n');
   await fs.writeFile(page, main.replace(sdkDownloadUrl(assets[0], 'main'), '/' + assets[0]));
   await assert.rejects(checkDocs(output), /must use GitHub hosting/);
   await fs.writeFile(page, main);
   await fs.writeFile(path.join(output, assets[0]), 'truncated declaration');
   await assert.rejects(checkDocs(output), /content hash differs/);
+  await assert.rejects(checkGitbookSdk(gitbook, output), /content hash differs/);
   await fs.writeFile(path.join(output, assets[0]), code);
   const revised = code + '\ntype Added = string;';
   await fs.writeFile(path.join(input, 'index.md'), '# SDK\n\n```ts\n' + revised + '\n```\n');
-  await importGenerated('sdk', input, output, { sdkRef: 'main' });
+  await importGenerated('sdk', input, output, { sdkRef: 'main', gitbookDirectory: gitbook });
   const updatedAssets = JSON.parse(await fs.readFile(path.join(output, 'migration/sdk-assets.json'), 'utf8'));
   assert.equal(updatedAssets.length, 1);
   assert.notEqual(updatedAssets[0], assets[0]);
   assert.equal(await fs.readFile(path.join(output, assets[0]), 'utf8'), code);
   assert.equal(await fs.readFile(path.join(output, updatedAssets[0]), 'utf8'), revised);
+  assert.ok((await fs.readFile(gitbookPage, 'utf8')).includes(sdkDownloadUrl(updatedAssets[0], 'main')));
   await checkDocs(output);
 });
