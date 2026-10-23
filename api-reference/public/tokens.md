@@ -154,7 +154,7 @@ Returns token data for multiple pool addresses (max 100).
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `poolAddresses` | `string[]` | Yes | — | Array of pool addresses. |
+| `poolAddresses` | `string[]` | Yes | — | Array of up to 100 pool keys: 20-byte pool addresses (v3-era) or 32-byte Uniswap v4 pool ids. |
 
 **Response:** Map of lowercase pool addresses to token objects.
 
