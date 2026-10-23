@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { syncGuides } from './sync-guides.mjs';
 
-test('guide sync preserves GitBook, generated references and theme; check mode never writes', async t => {
+test('guide sync preserves GitBook, generated references and theme; check mode never writes', async (t) => {
   const tempRoot = await fs.realpath(os.tmpdir());
   const source = await fs.mkdtemp(path.join(tempRoot, 'clanker-guides-test-'));
   t.after(async () => {
@@ -24,10 +24,13 @@ test('guide sync preserves GitBook, generated references and theme; check mode n
   await fs.writeFile(path.join(source, '.gitbook/assets/audit.pdf'), asset);
   await fs.writeFile(path.join(destination, 'docs.json'), config);
   await fs.writeFile(path.join(destination, 'api.mdx'), 'generated API reference');
-  await fs.writeFile(path.join(destination, 'migration/pages.json'), JSON.stringify([
-    { source: 'guide.md', route: 'guide', title: 'Guide' },
-    { source: 'api-reference/tokens.md', route: 'api', title: 'API' },
-  ]));
+  await fs.writeFile(
+    path.join(destination, 'migration/pages.json'),
+    JSON.stringify([
+      { source: 'guide.md', route: 'guide', title: 'Guide' },
+      { source: 'api-reference/tokens.md', route: 'api', title: 'API' },
+    ]),
+  );
   await assert.rejects(syncGuides(source, destination, true), /refresh/);
   await assert.rejects(fs.access(path.join(destination, 'guide.mdx')));
   await syncGuides(source, destination);
@@ -36,7 +39,10 @@ test('guide sync preserves GitBook, generated references and theme; check mode n
   assert.deepEqual(await fs.readFile(path.join(source, '.gitbook/assets/audit.pdf')), asset);
   assert.deepEqual(await fs.readFile(path.join(destination, 'assets/audit.pdf')), asset);
   assert.equal(await fs.readFile(path.join(destination, 'docs.json'), 'utf8'), config);
-  assert.equal(await fs.readFile(path.join(destination, 'api.mdx'), 'utf8'), 'generated API reference');
+  assert.equal(
+    await fs.readFile(path.join(destination, 'api.mdx'), 'utf8'),
+    'generated API reference',
+  );
   const converted = await fs.readFile(path.join(destination, 'guide.mdx'), 'utf8');
   await fs.writeFile(path.join(source, 'guide.md'), '# Changed\n\n{% unknown %}');
   await assert.rejects(syncGuides(source, destination), /Unconverted/);

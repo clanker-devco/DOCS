@@ -1,0 +1,4 @@
+#!/bin/sh
+# Run the same format, lint and test checks as CI before pushing. The Mintlify
+# build and link checks run in CI. Bypass with --no-verify.
+npm --prefix mintlify run check

@@ -8,9 +8,14 @@ import { sdkDownloadAsset, sdkDownloadUrl, sdkDownloadRef } from './sdk-download
 
 const pages = [
   { source: 'README.md', route: 'index', title: 'Introduction' },
-  { source: 'sdk-reference/v4/extensions.md', route: 'sdk-reference/extensions', title: 'Extensions' },
+  {
+    source: 'sdk-reference/v4/extensions.md',
+    route: 'sdk-reference/extensions',
+    title: 'Extensions',
+  },
 ];
-const convert = input => convertMarkdown(input, { source: 'README.md', title: 'Introduction', pages });
+const convert = (input) =>
+  convertMarkdown(input, { source: 'README.md', title: 'Introduction', pages });
 
 test('preserves executable examples and inline generic types', async () => {
   const code = 'const value = { text: "<Info>{% hint %}</Info>", path: "./example.md" };';
@@ -41,24 +46,39 @@ test('converts nested callouts, list endings, steps and accordions to valid MDX'
 });
 
 test('preserves union types inside Markdown tables', async () => {
-  const output = convert('# Intro\n\n| Type | Meaning |\n| --- | --- |\n| `"buy" | "sell"` | Direction |\n');
+  const output = convert(
+    '# Intro\n\n| Type | Meaning |\n| --- | --- |\n| `"buy" | "sell"` | Direction |\n',
+  );
   assert.ok(output.includes('`"buy" \\| "sell"`'));
   await validatePage(output, 'table');
 });
 
 test('rewrites published paths and asset links without changing external APIs', () => {
-  assert.equal(rewriteUrl('./v4/extensions.md#clankervault', 'sdk-reference/index.md', pages), '/sdk-reference/extensions#clankervault');
-  assert.equal(rewriteUrl('../.gitbook/assets/audit.pdf', 'references/audits.md', pages), '/assets/audit.pdf');
-  assert.equal(rewriteUrl('https://clanker.world/api/tokens', 'README.md', pages), 'https://clanker.world/api/tokens');
+  assert.equal(
+    rewriteUrl('./v4/extensions.md#clankervault', 'sdk-reference/index.md', pages),
+    '/sdk-reference/extensions#clankervault',
+  );
+  assert.equal(
+    rewriteUrl('../.gitbook/assets/audit.pdf', 'references/audits.md', pages),
+    '/assets/audit.pdf',
+  );
+  assert.equal(
+    rewriteUrl('https://clanker.world/api/tokens', 'README.md', pages),
+    'https://clanker.world/api/tokens',
+  );
   assert.throws(() => rewriteUrl('../../escape.md', 'README.md', pages), /escapes/);
 });
 
 test('every audit uses its public Drive report after regeneration', async () => {
   const source = await fs.readFile(new URL('../../references/audits.md', import.meta.url), 'utf8');
-  const files = [...source.matchAll(/{% file src="[^"]*\/([^"/]+)" %}/g)].map(match => match[1]);
+  const files = [...source.matchAll(/{% file src="[^"]*\/([^"/]+)" %}/g)].map((match) => match[1]);
   assert.equal(files.length, 6);
   assert.deepEqual([...files].sort(), Object.keys(auditLinks).sort());
-  const output = convertMarkdown(source, { source: 'references/audits.md', title: 'Audits', pages });
+  const output = convertMarkdown(source, {
+    source: 'references/audits.md',
+    title: 'Audits',
+    pages,
+  });
   for (const file of files) {
     const { url, label } = auditLinks[file];
     assert.match(url, /^https:\/\/drive\.google\.com\/file\/d\/[\w-]+\/view\?usp=drivesdk$/);
@@ -66,8 +86,10 @@ test('every audit uses its public Drive report after regeneration', async () => 
     assert.ok(!output.includes(`/assets/${file}`));
   }
   const original = '../.gitbook/assets/clanker-v4.1-audit-macro.pdf#page=2';
-  assert.equal(rewriteUrl(original, 'references/audits.md', pages),
-    auditLinks['clanker-v4.1-audit-macro.pdf'].url + '#page=2');
+  assert.equal(
+    rewriteUrl(original, 'references/audits.md', pages),
+    auditLinks['clanker-v4.1-audit-macro.pdf'].url + '#page=2',
+  );
   await validatePage(output, 'audits');
 });
 
@@ -77,12 +99,20 @@ test('rejects unknown GitBook directives instead of silently losing content', ()
 
 test('large generated declarations retain every line without expensive syntax highlighting', () => {
   const code = 'type Generated = {\n' + '  value: string;\n'.repeat(120) + '};';
-  const output = convertMarkdown('# SDK\n\n```ts\n' + code + '\n```', { source: 'sdk-reference/v4.md', title: 'SDK', pages });
+  const output = convertMarkdown('# SDK\n\n```ts\n' + code + '\n```', {
+    source: 'sdk-reference/v4.md',
+    title: 'SDK',
+    pages,
+  });
   assert.ok(output.includes('```text\n' + code + '\n```'));
 });
 
 test('API endpoint links retain their original anchors', async () => {
-  const output = convertMarkdown('# API\n\n### GET `/api/tokens`\n\nDescription.', { source: 'api-reference/public/tokens.md', title: 'Tokens', pages });
+  const output = convertMarkdown('# API\n\n### GET `/api/tokens`\n\nDescription.', {
+    source: 'api-reference/public/tokens.md',
+    title: 'Tokens',
+    pages,
+  });
   assert.ok(output.includes('<a id="get-apitokens"></a>'));
   await validatePage(output, 'anchors');
 });
@@ -91,11 +121,22 @@ test('oversized SDK types remain available as exact linked text', async () => {
   const declarations = new Map();
   const code = 'type Generated = {\n' + '  value: string;\n'.repeat(1200) + '};';
   const inline = 'readonly [' + 'string, '.repeat(300) + ']';
-  const output = convertMarkdown('# SDK\n\n```ts\n' + code + '\n```\n\n| Type |\n| --- |\n| `' + inline + '` |', {
-    source: 'sdk-reference/v4.md', title: 'SDK', pages, declarations, sdkRef: 'docs/review',
-  });
+  const output = convertMarkdown(
+    '# SDK\n\n```ts\n' + code + '\n```\n\n| Type |\n| --- |\n| `' + inline + '` |',
+    {
+      source: 'sdk-reference/v4.md',
+      title: 'SDK',
+      pages,
+      declarations,
+      sdkRef: 'docs/review',
+    },
+  );
   assert.ok([...declarations.values()].includes(code));
-  assert.ok([...declarations.values()].some(value => value.trim() === '`' + inline + '`' || value === inline));
+  assert.ok(
+    [...declarations.values()].some(
+      (value) => value.trim() === '`' + inline + '`' || value === inline,
+    ),
+  );
   assert.ok(output.includes('View full generated declaration (1,202 lines)'));
   assert.ok(output.includes('[Full type]'));
   for (const asset of declarations.keys()) {
@@ -108,7 +149,10 @@ test('oversized SDK types remain available as exact linked text', async () => {
 test('SDK downloads preserve feature branches and use the selected publishing branch', () => {
   const asset = `assets/sdk-types/${'a'.repeat(64)}.txt`;
   const preview = sdkDownloadUrl(asset, 'docs/review');
-  assert.equal(preview, `https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/docs%2Freview/mintlify/${asset}`);
+  assert.equal(
+    preview,
+    `https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/docs%2Freview/mintlify/${asset}`,
+  );
   assert.equal(sdkDownloadAsset(preview), asset);
   assert.ok(sdkDownloadUrl(asset, 'main').includes('/refs/heads/main/'));
   assert.equal(sdkDownloadRef('.', 'main'), 'main');
@@ -118,9 +162,14 @@ test('SDK downloads preserve feature branches and use the selected publishing br
 });
 
 test('SDK duplicate headings preserve TypeDoc fragment links', async () => {
-  const output = convertMarkdown('# SDK\n\n### Clankers\n\nA type.\n\n### CLANKERS\n\nA constant.\n\n[Constant](#clankers-1)', {
-    source: 'sdk-reference/index.md', title: 'SDK', pages,
-  });
+  const output = convertMarkdown(
+    '# SDK\n\n### Clankers\n\nA type.\n\n### CLANKERS\n\nA constant.\n\n[Constant](#clankers-1)',
+    {
+      source: 'sdk-reference/index.md',
+      title: 'SDK',
+      pages,
+    },
+  );
   assert.ok(output.includes('<h3 id="clankers">'));
   assert.ok(output.includes('<h3 id="clankers-1">'));
   await validatePage(output, 'SDK anchors');
