@@ -9,10 +9,11 @@ From the repository root, use Node.js 22 or later:
 ```sh
 cd mintlify
 npm ci --ignore-scripts
+npm run prepare
 npm run dev
 ```
 
-Open http://localhost:3001. No product environment variables, database, wallet or Docker setup is needed.
+Open http://localhost:3001. No product environment variables, database, wallet or Docker setup is needed. `npm run prepare` turns on the git hooks: staged scripts and config are formatted on commit, and `npm run check` runs before each push.
 
 Local search asks for a Mintlify CLI login. Larger generated SDK pages can take longer on their first render; check hosted performance before release.
 
@@ -22,15 +23,25 @@ During the transition, edit handwritten guides in the original GitBook Markdown 
 
 ```sh
 npm run sync:guides
-npm test
-npm run check
-npm run validate
+npm run check   # format check, lint and tests
+npm run build   # Mintlify validation
 npm run links
 ```
 
+| Command | What it does |
+| --- | --- |
+| `check` | Everything below except build and links; runs before each push |
+| `format` / `format:check` | Prettier for scripts, workflows and editor config. Pages are synced from GitBook or generated, so they aren't reformatted |
+| `lint` | Page structure, GitBook rendering rules, SDK downloads, and unsynced guide changes |
+| `test` | Unit tests for the conversion, import and sync scripts |
+| `build` | `mint validate` |
+| `links` / `links:mint` | Internal link checks |
+
+Every pull request to `main` or `release` runs Format, Lint, Tests, Build and Links.
+
 Guide sync reads the original pages and assets without modifying them. It preserves the Mintlify theme and generated API/SDK references. CI checks for guide or asset changes that have not been synced. When adding or removing a guide, update both navigation configurations and the page mapping in `migration/pages.json`.
 
-Stop the preview with Ctrl+C before `npm run validate`, then restart it. The preview and validator share generated files. With the preview running, `npm run check:preview` checks every page and asset over HTTP.
+Stop the preview with Ctrl+C before `npm run build`, then restart it. The preview and validator share generated files. With the preview running, `npm run check:preview` checks every page and asset over HTTP.
 
 `npm run links:mint` also runs Mintlify's link checker. Its pinned version reports false missing links for nested paths on Windows; use `npm run links` locally. Linux CI runs both.
 
@@ -60,7 +71,7 @@ npm run check
 
 The API import updates only Mintlify. The SDK import updates both the GitBook Markdown and Mintlify MDX from the complete TypeDoc output. Always use the SDK's `docs/generated` directory as input, rather than re-importing the compacted GitBook pages.
 
-`npm run check` verifies both sites, including matching SDK download links and hashes of the full declaration files. It rejects oversized inline SDK declarations in GitBook so future publishes do not restore the rendering problem.
+`npm run check` (through `lint`) verifies both sites, including matching SDK download links and hashes of the full declaration files. It rejects oversized inline SDK declarations in GitBook so future publishes do not restore the rendering problem.
 
 Oversized SDK types link to complete generated text files in `assets/sdk-types/`, served by GitHub. The links use `DOCS_BRANCH` when set, or the local DOCS branch. Set `DOCS_BRANCH` explicitly for detached checkouts. The publishing workflow supplies the same branch it checks out, so preview and main links stay aligned. The SDK overview remains handwritten.
 

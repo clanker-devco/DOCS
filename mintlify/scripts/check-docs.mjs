@@ -19,7 +19,7 @@ export async function markdownFiles(directory) {
   for (const entry of await fs.readdir(directory, { withFileTypes: true })) {
     if (entry.name.startsWith('.') || entry.name === 'node_modules') continue;
     const filename = path.join(directory, entry.name);
-    if (entry.isDirectory()) files.push(...await markdownFiles(filename));
+    if (entry.isDirectory()) files.push(...(await markdownFiles(filename)));
     else if (/\.mdx?$/.test(entry.name)) files.push(filename);
   }
   return files.sort();
@@ -64,12 +64,13 @@ export async function checkDocs(directory = root, compileSyntax = true) {
       const links = [];
       const slugger = new GithubSlugger();
       const tree = parser.parse(body);
-      const text = node => node.value ?? node.children?.map(text).join('') ?? '';
-      visit(tree, node => {
+      const text = (node) => node.value ?? node.children?.map(text).join('') ?? '';
+      visit(tree, (node) => {
         if (node.type === 'heading') anchors.add(slugger.slug(text(node)));
         if (['link', 'image', 'definition'].includes(node.type)) links.push(node.url);
       });
-      for (const match of body.matchAll(/<(?:a|h[1-6])\s[^>]*\bid=["']([^"']+)["']/g)) anchors.add(match[1]);
+      for (const match of body.matchAll(/<(?:a|h[1-6])\s[^>]*\bid=["']([^"']+)["']/g))
+        anchors.add(match[1]);
       pages.set(route, { anchors, links });
     } catch (error) {
       errors.push(`${route}: ${error.message}`);
@@ -93,27 +94,41 @@ export async function checkDocs(directory = root, compileSyntax = true) {
       }
       if (/^(https?:|mailto:|tel:|ipfs:|data:)/.test(url)) continue;
       const parsed = new URL(url, `https://docs.local/${route}`);
-      const destination = decodeURIComponent(parsed.pathname).replace(/^\//, '').replace(/\.mdx?$/, '') || 'index';
+      const destination =
+        decodeURIComponent(parsed.pathname)
+          .replace(/^\//, '')
+          .replace(/\.mdx?$/, '') || 'index';
       const target = pages.get(destination);
       if (!target) {
-        try { await fs.access(path.join(directory, decodeURIComponent(parsed.pathname).slice(1))); }
-        catch { errors.push(`${route}: missing link ${url}`); }
+        try {
+          await fs.access(path.join(directory, decodeURIComponent(parsed.pathname).slice(1)));
+        } catch {
+          errors.push(`${route}: missing link ${url}`);
+        }
       } else if (parsed.hash && !target.anchors.has(decodeURIComponent(parsed.hash.slice(1)))) {
         errors.push(`${route}: missing anchor ${url}`);
       }
     }
   }
-  const pageFiles = (await markdownFiles(directory)).filter(file => file.endsWith('.mdx'));
+  const pageFiles = (await markdownFiles(directory)).filter((file) => file.endsWith('.mdx'));
   for (const file of pageFiles) {
-    const route = path.relative(directory, file).replaceAll('\\', '/').replace(/\.mdx$/, '');
+    const route = path
+      .relative(directory, file)
+      .replaceAll('\\', '/')
+      .replace(/\.mdx$/, '');
     if (!routes.includes(route)) errors.push(`Page missing from navigation: ${route}`);
   }
   for (const redirect of config.redirects ?? []) {
     const destination = redirect.destination.replace(/^\//, '') || 'index';
-    if (!routes.includes(destination)) errors.push(`Redirect has no destination page: ${redirect.source} -> ${redirect.destination}`);
+    if (!routes.includes(destination))
+      errors.push(
+        `Redirect has no destination page: ${redirect.source} -> ${redirect.destination}`,
+      );
   }
   if (errors.length) throw new Error(errors.slice(0, 100).join('\n') + `\n${errors.length} errors`);
-  console.log(`Checked ${routes.length} pages: ${compileSyntax ? 'MDX, ' : ''}navigation, local links and anchors.`);
+  console.log(
+    `Checked ${routes.length} pages: ${compileSyntax ? 'MDX, ' : ''}navigation, local links and anchors.`,
+  );
   return routes.length;
 }
 

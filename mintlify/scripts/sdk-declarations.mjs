@@ -12,20 +12,24 @@ export function compactSdkMarkdown(text, { declarations, sdkRef }) {
     declarations.set(asset, full);
     edits.push({ start, end, value: `[${label}](${sdkDownloadUrl(asset, sdkRef)})` });
   };
-  visit(unified().use(remarkParse).use(remarkGfm).parse(text), 'tableCell', node => {
+  visit(unified().use(remarkParse).use(remarkGfm).parse(text), 'tableCell', (node) => {
     if (!node.children.length) return;
     const start = node.children[0].position.start.offset;
     const end = node.children.at(-1).position.end.offset;
     if (end - start > 2000) store(start, end, text.slice(start, end), 'Full type');
   });
-  visit(unified().use(remarkParse).parse(text), node => {
+  visit(unified().use(remarkParse).parse(text), (node) => {
     if (node.type !== 'code' && node.type !== 'inlineCode') return;
     const { start, end } = node.position;
-    if (edits.some(edit => start.offset >= edit.start && end.offset <= edit.end)) return;
+    if (edits.some((edit) => start.offset >= edit.start && end.offset <= edit.end)) return;
     const full = node.value.replace(/\r\n/g, '\n');
     if (node.type === 'code' && full.split('\n').length > 200) {
-      store(start.offset, end.offset, full,
-        `View full generated declaration (${full.split('\n').length.toLocaleString('en-US')} lines)`);
+      store(
+        start.offset,
+        end.offset,
+        full,
+        `View full generated declaration (${full.split('\n').length.toLocaleString('en-US')} lines)`,
+      );
     } else if (node.type === 'inlineCode' && full.length > 2000) {
       store(start.offset, end.offset, full, 'Full type');
     }

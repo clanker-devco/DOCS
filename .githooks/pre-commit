@@ -1,0 +1,7 @@
+#!/bin/sh
+# Format staged scripts and config with Prettier and re-stage them. Pages are
+# synced from GitBook or generated, so they're left as they are. Bypass with --no-verify.
+files=$(git diff --cached --name-only --diff-filter=ACMR -- 'mintlify/scripts/*.mjs' '.github/*.yml' '.vscode/*.json' '.prettierrc.json')
+[ -z "$files" ] && exit 0
+echo "$files" | xargs mintlify/node_modules/.bin/prettier --write --log-level warn || exit 1
+echo "$files" | xargs git add
