@@ -12,14 +12,14 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `q` | `string` | No | — | Free-text search query (max 100 chars). |
+| `q` | `string` | No | — | Search query (max 100 chars). A token address, pool address or v4 pool id returns that token. Text needs at least 2 letters or digits: 2 characters match a symbol exactly, 3–10 match a symbol prefix or a name substring, longer terms match either substring. A leading $ is ignored. Results are ordered by 24h volume, exact and prefix symbol matches first on the first page. |
 | `fid` | `number` | No | — | Filter by a single Farcaster FID. |
 | `fids` | `string` | No | — | Comma-separated list of Farcaster FIDs. |
 | `msgSender` | `address` | No | — | Filter by deployer wallet address. |
 | `pairAddress` | `address` | No | — | Filter by pool/pair address. |
 | `pair` | `string` | No | all | Paired token filter (e.g. "WETH"). |
 | `sort` | `"asc" | "desc"` | No | desc | Sort direction. |
-| `sortBy` | `"market-cap" | "tx-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at"` | No | — | Field to sort by. |
+| `sortBy` | `"market-cap" | "tx-h24" | "volume-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at" | "trending"` | No | — | Field to sort by. "trending" ranks active tokens (market data from the last 24h, cap of $5K+, 5+ trades, $100+ volume) by a score from 24h volume and trade count; volume beyond 3x the market cap does not count. It covers the top 300 eligible tokens, is always highest first, and falls back to plain volume order with q, fids or msgSender. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. |
 | `socialInterface` | `string` | No | — | Filter by social interface. |
 | `cursor` | `string` | No | — | Pagination cursor returned by a previous request. |
 | `startDate` | `number` | No | — | Unix timestamp — only return tokens deployed after this date. |
@@ -28,7 +28,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 | `includeUser` | `boolean` | No | false | Include deployer user data in the response. |
 | `includeMarket` | `boolean` | No | false | Include market data (price, volume) in the response. |
 | `chainId` | `number` | No | — | Chain ID (e.g. 8453 for Base). |
-| `champagne` | `boolean` | No | false | Filter for champagne tokens. |
+| `champagne` | `boolean` | No | false | Only champagne (curated) tokens. Combines with other filters such as q. Boolean flags accept true/1/yes/on; any other value is false. |
 
 **Response:** Paginated list of tokens with optional user and market data.
 

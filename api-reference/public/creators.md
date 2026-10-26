@@ -14,6 +14,7 @@ Search creators by Farcaster username, Twitter handle, or wallet address. Return
 |-----------|------|----------|---------|-------------|
 | `q` | `string` | Yes | — | Username, handle, or address. |
 | `trustedOnly` | `boolean` | No | false | Only return trusted deployers. |
+| `usersOnly` | `boolean` | No | false | Return only the matched users (no token list). Much faster; used by search boxes. |
 | `sort` | `"asc" | "desc"` | No | desc | Sort by deployment date. |
 | `platform` | `"farcaster" | "twitter"` | No | — | Platform filter. |
 | `limit` | `number` | No | 20 | Page size (1–50). |
@@ -105,6 +106,7 @@ Returns tokens deployed by accounts that a given FID follows.
 |-----------|------|----------|---------|-------------|
 | `fid` | `string` | Yes | — | Farcaster ID. |
 | `includeUser` | `boolean` | No | false | Include user data. |
+| `chainId` | `number` | No | — | Only tokens on this chain (e.g. 8453 for Base). |
 
 **Response:** Tokens and follower info.
 
