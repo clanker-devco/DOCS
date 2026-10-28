@@ -12,6 +12,8 @@ These endpoints are publicly accessible and require no authentication.
 
 - `GET /api/tokens` — Search and list Clanker tokens with filters, sorting, and cursor-based pagination.
 - `GET /api/tokens/trending` — Returns trending token pools from CoinGecko.
+- `GET /api/tokens/ohlcv` — USD OHLCV candles for one token in a pool. The response is this app’s chart contract. Codex pool bars are the default. CHART_OHLCV_SOURCE=coingecko reads CoinGecko.
+- `GET /api/tokens/chart-marks` — Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
 - `GET /api/tokens/fetch-deployed-by-fid` — Returns tokens deployed by a Farcaster FID.
 - `GET /api/tokens/fetch-deployed-by-address` — Returns tokens deployed by a wallet address.
 - `GET /api/tokens/fetch-by-pool-address` — Returns token data for a single pool address.
@@ -65,3 +67,7 @@ These endpoints are publicly accessible and require no authentication.
 ### Deployment
 
 - `POST /api/tokens/index-by-address` — Index a token by contract address. Looks up the deployment transaction on-chain. Base chain only.
+
+### Market data
+
+- `GET /api/prices` — Current ETH and BTC prices in USD from Codex. Charts, the LP simulator and presale market caps share this response.

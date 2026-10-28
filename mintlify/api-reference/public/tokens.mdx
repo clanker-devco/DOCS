@@ -78,6 +78,71 @@ Returns trending token pools from CoinGecko.
 
 ---
 
+<a id="get-apitokensohlcv"></a>
+
+### GET `/api/tokens/ohlcv`
+
+USD OHLCV candles for one token in a pool. The response is this app’s chart contract. Codex pool bars are the default. CHART_OHLCV_SOURCE=coingecko reads CoinGecko.
+
+**Authentication:** Public
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `network` | `string` | Yes | — | GeckoTerminal network id (for example "base") or "solana". |
+| `pool` | `string` | Yes | — | Pool address, 32-byte pool id, or Solana pool address. |
+| `token` | `string` | Yes | — | Token contract address or Solana mint to chart. |
+| `resolution` | `"1" \| "5" \| "15" \| "60" \| "240" \| "1D"` | Yes | — | Candle size. |
+| `to` | `number` | Yes | — | Unix timestamp in seconds, aligned to the candle size by the chart client. |
+| `countback` | `number` | Yes | — | Requested candle count from 1 to 1000. The server fetches 300 or 1000. |
+
+**Response:** Ascending candles. time is the candle open as unix seconds. On CoinGecko, noMore is true when the upstream returned fewer rows than requested. On Codex, noMore is true when the status is no_data, the pool side does not match, or there are no candles.
+
+```json
+{
+  "bars": [{ "time": 1700000000, "open": 0.1, "high": 0.2, "low": 0.05, "close": 0.15, "volume": 10 }],
+  "noMore": false
+}
+```
+
+> Closed non-empty ranges use s-maxage=600. The forming candle and empty results use s-maxage=15. A missing Codex key or upstream failure returns 503 and is not cached. An unrecognized pool returns an empty list for 15 seconds.
+
+---
+
+<a id="get-apitokenschart-marks"></a>
+
+### GET `/api/tokens/chart-marks`
+
+Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
+
+**Authentication:** Public
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `networkId` | `number` | Yes | — | EVM chain id, or 1399811149 for Solana. Unsupported ids return an empty mark list. |
+| `token` | `string` | Yes | — | Token contract address or Solana mint. |
+| `from` | `number` | Yes | — | Range start as unix seconds. |
+| `to` | `number` | Yes | — | Range end as unix seconds. |
+| `wallets` | `string` | No | — | Caller wallets, repeated or comma-separated. At most 8 are used. Ignored unless mine=1. |
+| `mine` | `"0" \| "1"` | No | — | Include marks for wallets. Defaults to 0. |
+| `dev` | `"0" \| "1"` | No | — | Include dev marks. The server loads msg_sender and the dev-buy recipient, and drops the hot deployer. Defaults to 0. |
+| `kol` | `"0" \| "1"` | No | — | Include Codex KOL marks for this token. Defaults to 0. |
+
+**Response:** Trade marks in the requested window. An upstream failure returns an empty list.
+
+```json
+{
+  "marks": [{ "id": "user:event", "time": 1700000000, "label": "B", "text": "Bought $12.00 at $0.0100", "color": "#089981", "labelFontColor": "#ffffff", "minSize": 22 }]
+}
+```
+
+> Cache-Control is private, no-store because the query can include a user wallet. Candles still come from /api/tokens/ohlcv.
+
+---
+
 <a id="get-apitokensfetch-deployed-by-fid"></a>
 
 ### GET `/api/tokens/fetch-deployed-by-fid`
