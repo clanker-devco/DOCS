@@ -52,7 +52,7 @@ Returns claimed fees for a token and fee recipient with pagination.
 |-----------|------|----------|---------|-------------|
 | `chainId` | `number` | No | 8453 | Chain ID (defaults to Base). |
 | `limit` | `number` | No | 50 | Page size (1–100). |
-| `offset` | `number` | No | 0 | Offset. |
+| `offset` | `number` | No | 0 | Offset (pages past 1000 are empty). |
 
 **Response:** Claimed fee totals and transaction hashes.
 
@@ -63,12 +63,13 @@ Returns claimed fees for a token and fee recipient with pagination.
   "chainId": 8453,
   "totalClaimed": "1500000000000000000",
   "claimCount": 3,
+  "claimCountCapped": false,
   "txHashes": ["0x..."],
   "pagination": { "limit": 50, "offset": 0, "hasMore": false }
 }
 ```
 
-> Cached for 1 minute.
+> Cached for 1 minute. claimCount is exact up to 1000; claimCountCapped is true above that.
 
 ---
 
