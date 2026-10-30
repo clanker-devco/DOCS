@@ -85,3 +85,37 @@ Returns multiple Farcaster user profiles by FIDs.
 ```
 
 ---
+
+<a id="get-apiwalletaddressbalances"></a>
+
+### GET `/api/wallet/{address}/balances`
+
+A page of a wallet's non-zero ERC-20 balances across one or more chains, for the portfolio and send widget.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Wallet address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `chainIds` | `string` | Yes | — | Comma-separated EVM chain ids, each one the site supports. One request covers them all. |
+| `cursor` | `string` | No | — | The `cursor` from the previous page. |
+
+**Response:** Token balances as raw decimal strings with their chain, and a cursor when more holdings remain. Codex lists the holdings (tokens it labels as scams are left out); amounts are read on-chain at the latest block, and zero balances are dropped. A 502 means the balances could not be read.
+
+```json
+{
+  "balances": [{ "chainId": 8453, "tokenAddress": "0x...", "balance": "1500000000000000000" }],
+  "cursor": "..."
+}
+```
+
+> Up to 100 holdings per page across all chains asked for. Cached for 15 seconds. Rate limited per IP.
+
+---
