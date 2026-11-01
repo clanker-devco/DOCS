@@ -47,7 +47,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 
 ### GET `/api/tokens/trending`
 
-Returns trending token pools from CoinGecko.
+Returns the Trending list (the homepage Trending tab), ranked from clanker.world market data.
 
 **Authentication:** Public
 
@@ -55,20 +55,20 @@ Returns trending token pools from CoinGecko.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `page` | `number` | No | 1 | Page number. |
-| `order` | `string` | No | h24_price_change_percentage_desc | Sort order (see CoinGecko order values). |
+| `page` | `number` | No | 1 | Page number, 20 tokens per page. |
+| `order` | `string` | No | h24_price_change_percentage_desc | Deprecated and ignored: the list is always the Trending ranking. |
 | `chainId` | `number` | No | — | Chain ID. |
 
-**Response:** List of trending pool addresses and their pool data.
+**Response:** Trending pools in the CoinGecko pool shape (`attributes` from clanker.world market data) and their tokens keyed by lowercase pool address.
 
 ```json
 {
-  "trending": ["0xabc...", "0xdef..."],
-  "tokens": { "0xabc...": { ... } }
+  "trending": [ { "id": "base_0xabc...", "type": "pool", "attributes": { "address": "0xabc...", "market_cap_usd": "123456", ... } } ],
+  "tokens": { "0xabc...": { "contract_address": "0x...", ... } }
 }
 ```
 
-> Cached for 5 minutes (s-maxage=300).
+> Cached for 5 minutes (s-maxage=300). Pool attributes CoinGecko had but clanker.world does not track (native prices, 5m and 15m changes, dex) are left out. Returns 503 when the ranking is unavailable.
 
 ---
 
@@ -129,7 +129,38 @@ Buy and sell marks for the token chart. Dev wallets are resolved on the server. 
 }
 ```
 
-> Cache-Control is private, no-store because the query can include a user wallet. Candles still come from /api/tokens/ohlcv.
+> Cache-Control is private, no-store because the query can include a user wallet. Dev and KOL marks are the same for every viewer and are cached on the server for 60 seconds per token and range; only the caller wallets are read per request. Candles still come from /api/tokens/ohlcv.
+
+---
+
+### GET `/api/tokens/{address}/market`
+
+A token's market numbers and holder count from its pool_market_data row, mapped as the token lists map them. The token page header polls it every 60 seconds.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `chainId` | `number` | Yes | — | Chain id of the token. |
+
+**Response:** market and holders are null when the row is missing, has no positive market cap, or is older than 20 minutes (the lists keep a 3 hour window).
+
+```json
+{
+  "market": { "marketCap": 1250000, "priceUsd": 0.00125, "volume24h": 84000, "priceChangePercent1h": 1.2, "priceChangePercent24h": -4.5, "liquidityUsd": 210000, "marketDataUpdatedAt": "2026-11-01T10:00:00.000Z" },
+  "holders": 1834
+}
+```
+
+> Cached at the CDN for 30 seconds (s-maxage=30, stale-while-revalidate=30). Invalid input returns 400 and a database error 500, neither cached. No Codex call.
 
 ---
 
@@ -224,6 +255,28 @@ Returns token data for multiple pool addresses (max 100).
   "data": {
     "0xabc...": { "contract_address": "0x...", ... }
   }
+}
+```
+
+---
+
+### POST `/api/tokens/fetch-by-addresses`
+
+Returns clanker tokens for up to 100 (token address, chain) pairs, e.g. the tokens a wallet holds.
+
+**Authentication:** Public
+
+**Body Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `tokens` | `array` | Yes | — | Array of up to 100 { address, chainId } objects. Only tokens on the given chain are returned. |
+
+**Response:** Array of matching token objects (with DB market data); addresses that are not clankers on that chain are left out.
+
+```json
+{
+  "data": [{ "contract_address": "0x...", "chain_id": 8453, ... }]
 }
 ```
 
