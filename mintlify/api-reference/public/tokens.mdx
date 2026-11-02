@@ -23,7 +23,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 | `pairAddress` | `address` | No | — | Filter by pool/pair address. |
 | `pair` | `string` | No | all | Paired token filter (e.g. "WETH"). |
 | `sort` | `"asc" \| "desc"` | No | desc | Sort direction. |
-| `sortBy` | `"market-cap" \| "tx-h24" \| "volume-h24" \| "price-percent-h24" \| "price-percent-h1" \| "deployed-at" \| "trending" \| "liquidity"` | No | — | Field to sort by. "trending" ranks active tokens (market data from the last 24h, cap of $5K+, 5+ trades, $100+ volume) by a score from 24h volume and trade count; volume beyond 3x the market cap does not count. It covers the top 300 eligible tokens, is always highest first, and falls back to plain volume order with q, fids or msgSender. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from CoinGecko), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. |
+| `sortBy` | `"market-cap" \| "tx-h24" \| "volume-h24" \| "price-percent-h24" \| "price-percent-h1" \| "deployed-at" \| "trending" \| "liquidity"` | No | — | Field to sort by. "trending" ranks active tokens (market data from the last 24h, cap of $5K+, 5+ trades, $100+ volume) by a score from 24h volume and trade count; volume beyond 3x the market cap does not count. It covers the top 300 eligible tokens, is always highest first, and falls back to plain volume order with q, fids or msgSender. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from the stored Codex snapshot), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. |
 | `socialInterface` | `string` | No | — | Filter by social interface. |
 | `cursor` | `string` | No | — | Pagination cursor returned by a previous request. |
 | `startDate` | `number` | No | — | Unix timestamp — only return tokens deployed after this date. |
@@ -65,7 +65,7 @@ Returns the Trending list (the homepage Trending tab), ranked from clanker.world
 | `order` | `string` | No | h24_price_change_percentage_desc | Deprecated and ignored: the list is always the Trending ranking. |
 | `chainId` | `number` | No | — | Chain ID. |
 
-**Response:** Trending pools in the CoinGecko pool shape (`attributes` from clanker.world market data) and their tokens keyed by lowercase pool address.
+**Response:** Trending pools in the historical pool-list shape (`attributes` from clanker.world market data) and their tokens keyed by lowercase pool address.
 
 ```json
 {
@@ -74,7 +74,7 @@ Returns the Trending list (the homepage Trending tab), ranked from clanker.world
 }
 ```
 
-> Cached for 5 minutes (s-maxage=300). Pool attributes CoinGecko had but clanker.world does not track (native prices, 5m and 15m changes, dex) are left out. Returns 503 when the ranking is unavailable.
+> Cached for 5 minutes (s-maxage=300). Attributes the old pool list had that clanker.world does not track (native prices, 5m and 15m changes, dex) are left out. Returns 503 when the ranking is unavailable.
 
 ---
 
@@ -82,7 +82,7 @@ Returns the Trending list (the homepage Trending tab), ranked from clanker.world
 
 ### GET `/api/tokens/ohlcv`
 
-USD OHLCV candles for one token in a pool. The response is this app’s chart contract. Codex pool bars are the default. CHART_OHLCV_SOURCE=coingecko reads CoinGecko.
+USD OHLCV candles for one token in a pool. The response is this app’s chart contract, read from Codex pool bars.
 
 **Authentication:** Public
 
@@ -97,7 +97,7 @@ USD OHLCV candles for one token in a pool. The response is this app’s chart co
 | `to` | `number` | Yes | — | Unix timestamp in seconds, aligned to the candle size by the chart client. |
 | `countback` | `number` | Yes | — | Requested candle count from 1 to 1000. The server fetches 300 or 1000. |
 
-**Response:** Ascending candles. time is the candle open as unix seconds. On CoinGecko, noMore is true when the upstream returned fewer rows than requested. On Codex, noMore is true when the status is no_data, the pool side does not match, or there are no candles.
+**Response:** Ascending candles. time is the candle open as unix seconds. noMore is true when Codex reports no_data, the pool side does not match, or there are no candles.
 
 ```json
 {

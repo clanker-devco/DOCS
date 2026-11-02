@@ -12,7 +12,7 @@ These endpoints are publicly accessible and require no authentication.
 
 - `GET /api/tokens` — Search and list Clanker tokens with filters, sorting, and cursor-based pagination.
 - `GET /api/tokens/trending` — Returns the Trending list (the homepage Trending tab), ranked from clanker.world market data.
-- `GET /api/tokens/ohlcv` — USD OHLCV candles for one token in a pool. The response is this app’s chart contract. Codex pool bars are the default. CHART_OHLCV_SOURCE=coingecko reads CoinGecko.
+- `GET /api/tokens/ohlcv` — USD OHLCV candles for one token in a pool. The response is this app’s chart contract, read from Codex pool bars.
 - `GET /api/tokens/chart-marks` — Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
 - `GET /api/tokens/{address}/market` — A token's market numbers and holder count from its pool_market_data row, mapped as the token lists map them. The token page header polls it every 60 seconds.
 - `GET /api/tokens/fetch-deployed-by-fid` — Returns tokens deployed by a Farcaster FID.
