@@ -49,7 +49,7 @@ These endpoints are publicly accessible and require no authentication.
 ### Airdrops
 
 - `GET /api/airdrops` — Returns airdrop claim amounts for a claimer on a given token.
-- `POST /api/airdrops` — Saves an airdrop Merkle tree for a token.
+- `POST /api/airdrops` — Saves an airdrop Merkle tree for a token. The tree must hash to merkleRoot, and merkleRoot must equal the token's airdrop root.
 - `GET /api/airdrops/allocations` — Returns all allocations for an airdrop.
 - `GET /api/airdrops/claim` — Returns Merkle proofs needed to claim airdrop allocations.
 

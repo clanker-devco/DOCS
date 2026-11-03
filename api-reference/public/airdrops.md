@@ -27,7 +27,7 @@ Returns airdrop claim amounts for a claimer on a given token.
 
 ### POST `/api/airdrops`
 
-Saves an airdrop Merkle tree for a token.
+Saves an airdrop Merkle tree for a token. The tree must hash to merkleRoot, and merkleRoot must equal the token's airdrop root.
 
 **Authentication:** Public
 
