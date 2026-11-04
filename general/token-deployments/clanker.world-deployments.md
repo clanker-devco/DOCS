@@ -2,7 +2,7 @@
 
 Create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters you can configure.
 
-On Base, the **Token type** field under **Token Settings** selects the token version: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. See [v5 Deployments](v5-deployments.md) and [v4 Deployments](v4-deployments.md).
+On Base, the **Token type** field under **Token Settings** selects the token version: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. See [Token Deployments](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
 
 ### Token Info
 

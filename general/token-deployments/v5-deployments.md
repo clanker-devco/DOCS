@@ -1,18 +1,12 @@
-# v5 Deployments
+# API Deployments
 
-Clanker v5 tokens deploy on Base, on [clanker.world/deploy](https://www.clanker.world/deploy) or with the deploy API. A v5 token has a 1 billion supply in a Uniswap v4 pool paired with ETH or USDC, and charges a buy and sell tax of 1% to 10% instead of an LP fee.
+Partners deploy Clanker v5 tokens on Base with `POST /api/tokens/deploy`. See [Token Deployments](../token-deployments.md) for how v5 tokens work, and [Deployment](../../api-reference/authenticated/deployment.md) for the full endpoint reference.
 
-See [Token Deployments](../token-deployments.md) for the overview, [Creator Rewards & Fees](../creator-rewards-and-fees.md) for how the tax is split, and [v5](../../references/core-contracts/v5.md) in Core Contracts for the contracts.
+### Request
 
-### Deploying on clanker.world
+Set `protocol: "v5"` and `tax: { buyFee, sellFee }`. The other token fields and partner authentication are the same as for v4 deployments.
 
-On [clanker.world/deploy](https://www.clanker.world/deploy), choose Base and set **Token type** to **V5**. Then set the buy and sell tax and, optionally, holder dividends, burn and the sniper fee. See [Clanker.world Deployments](clanker.world-deployments.md) for each field.
-
-### Deploying with the API
-
-Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee }`. The other token fields and partner authentication are the same as for v4 deployments. See [Deployment](../../api-reference/authenticated/deployment.md).
-
-* `buyFee` and `sellFee` give the total trade tax in percent, including the Clanker fee.
+* `buyFee` and `sellFee` give the total trade tax in percent, between 1 and 10, including the Clanker fee.
 * Optional tax fields: `dividends`, `burn`, `minimumDividendHolding`, `antiSnipeEnabled`, `integrator` and `metadataEditable`.
 * `dividends`, `burn` and the integrator `share` are percentages of the tax after the Clanker fee. Together they must not exceed 100.
 * `minimumDividendHolding` is a whole-token decimal string.
@@ -22,18 +16,14 @@ Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee 
 * A Droid launch (`agent` with `legionFundingRecipient`) needs the USDC pair.
 * Use `dryRun: true` to simulate a deployment.
 
-`GET /api/metadata/factories` returns the current v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum.
-
 The `/api/tokens/deploy/v4` route accepts v4 deployments only.
 
-### Rewards and Claims
+### Launch policy
 
-v5 creator rewards collect in the FeeEscrow, which holds one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance. Creators claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
+`GET /api/metadata/factories` returns the current v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum. See [v5](../../references/core-contracts/v5.md) in Core Contracts for each field.
 
-Holders claim dividends on clanker.world from their profile or the token page. See [Holder Dividends](../holder-dividends.md). The burn share is burned in the launched token; see [Token Burns](../token-burns.md).
+### After launch
 
-The Admin page also updates the image and metadata, verifies the token, and changes the reward recipients and admins. See [Managing a Token](../managing-a-token.md).
-
-### Verification
-
-A v5 token has no `verify()` function. To verify it, the current creator calls the factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written after launch, shows the Verified badge.
+* Rewards: see [Creator Rewards & Fees](../creator-rewards-and-fees.md).
+* Dividends and burns: see [Holder Dividends](../holder-dividends.md) and [Token Burns](../token-burns.md).
+* Metadata, reward recipients, admins and verification: see [Managing a Token](../managing-a-token.md).

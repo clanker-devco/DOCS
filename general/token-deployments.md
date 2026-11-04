@@ -1,4 +1,4 @@
-# Token Deployments
+# Overview
 
 Clanker v5 is the current version of Clanker. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
 
@@ -15,18 +15,17 @@ Clanker v5 is the current version of Clanker. Every v5 token launches with its f
 * With the sniper fee on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
 * Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
 
-See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed, and [v5 Deployments](token-deployments/v5-deployments.md) for the full v5 details.
+See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed.
 
 ### Ways to deploy
 
-* [v5 Deployments](token-deployments/v5-deployments.md): deploy a v5 token on clanker.world or with the API.
-* [Clanker.world Deployments](token-deployments/clanker.world-deployments.md): every field on the clanker.world deploy form.
-* [Farcaster Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast.
-* [Preclank Deployments](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
-* [Alternative Interface Deployments](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
-* [Deploying a Token](token-deployments/deploying-a-token.md): a quick start with the @clanker bot.
+* [clanker.world](token-deployments/clanker.world-deployments.md): every field on the clanker.world deploy form.
+* [API](token-deployments/v5-deployments.md): deploy a v5 token with the deploy API.
+* [Farcaster Bot](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast.
+* [Preclanks](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
+* [Other Interfaces](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
 
 ### Other versions
 
-* [v4 Deployments](token-deployments/v4-deployments.md): v4 tokens, with an LP fee, extensions and the sniper auction.
-* [Legacy Deployments](token-deployments/legacy-deployments.md): earlier Clanker versions.
+* [v4 Tokens](token-deployments/v4-deployments.md): v4 tokens, with an LP fee, extensions and the sniper auction.
+* [Legacy Versions](token-deployments/legacy-deployments.md): earlier Clanker versions.
