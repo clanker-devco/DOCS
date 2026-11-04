@@ -53,7 +53,7 @@ v5 rewards collect in the FeeEscrow. It holds one balance per recipient and curr
 
 Claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. In the **Claim Rewards** card, connect the reward recipient's wallet and claim. A past recipient, or an integrator, can claim its balance from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
 
-See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md) to check a balance, and [Managing a Token](managing-a-token.md) for the other Admin page tools. Contract details are in [v5](../references/core-contracts/v5.md) and addresses in [Deployed Contracts](../references/deployed-contracts.md). For deploying a v5 token, see [v5 Deployments](token-deployments/v5-deployments.md).
+See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md) to check a balance, and [Managing a Token](managing-a-token.md) for the other Admin page tools. Contract details are in [v5](../references/core-contracts/v5.md) and addresses in [Deployed Contracts](../references/deployed-contracts.md). To deploy a v5 token, see [Token Deployments](token-deployments.md).
 
 ### v4 and earlier
 

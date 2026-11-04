@@ -24,4 +24,4 @@ Connect any wallet and select **Burn now** to send the pending burn to the dead 
 
 The token fee history (`GET /api/tokens/{address}/fees`) gives the burn share of each trade and the executed burns, in the token. See [Fees](../api-reference/public/fees.md).
 
-To set a burn share on a new token, see [v5 Deployments](token-deployments/v5-deployments.md). Contract details are in [v5](../references/core-contracts/v5.md).
+To set a burn share on a new token, see [Clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md). Contract details are in [v5](../references/core-contracts/v5.md).

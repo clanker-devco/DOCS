@@ -97,7 +97,10 @@ export function rewriteUrl(url, source, pages) {
   return '/' + normalized + suffix;
 }
 
-export function convertMarkdown(input, { source, title, pages, declarations, sdkRef }) {
+export function convertMarkdown(
+  input,
+  { source, title, sidebarTitle, pages, declarations, sdkRef },
+) {
   if (/CLANKERPROTECTED\d+END/.test(input)) throw new Error('Reserved conversion marker in source');
   let text = input.replace(/\r\n/g, '\n');
   text = text.replace(
@@ -299,5 +302,6 @@ export function convertMarkdown(input, { source, title, pages, declarations, sdk
       "These docs cover token deployments, Droids, the API, the SDK and the protocol's contracts.",
     );
   }
-  return `---\ntitle: ${JSON.stringify(plain(title))}\n---\n\n${text.trim()}\n`;
+  const sidebar = sidebarTitle ? `sidebarTitle: ${JSON.stringify(plain(sidebarTitle))}\n` : '';
+  return `---\ntitle: ${JSON.stringify(plain(title))}\n${sidebar}---\n\n${text.trim()}\n`;
 }

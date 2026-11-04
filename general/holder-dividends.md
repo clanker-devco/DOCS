@@ -37,4 +37,4 @@ The dividend contract may name a different payout receiver for a wallet. The tok
 
 `GET /api/wallet/{address}/dividends` returns a wallet's dividend positions with the claimable, earned and claimed amounts. See [Users](../api-reference/public/users.md).
 
-Contract details are in [v5](../references/core-contracts/v5.md) and addresses in [Deployed Contracts](../references/deployed-contracts.md). To set up dividends on a new token, see [v5 Deployments](token-deployments/v5-deployments.md).
+Contract details are in [v5](../references/core-contracts/v5.md) and addresses in [Deployed Contracts](../references/deployed-contracts.md). To set up dividends on a new token, see [Clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md).
