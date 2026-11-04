@@ -1,20 +1,22 @@
 # ClankerHookDynamicFee
 
-The **ClankerHookDynamicFee** hook inherits from the **ClankerHook** and is used to set a dynamic fee for both the deployed token and the paired token. The math governing the dynamic fee took inspiration from Meteora's Dynamic Liquidity Market Maker's [fee model](https://docs.meteora.ag/product-overview/meteora-liquidity-pools/dlmm-overview/dynamic-fees).
+**ClankerHookDynamicFee** inherits from **ClankerHook** and applies a dynamic fee, based on pool volatility, to both the deployed token and the paired token.
 
-The goal of the dynamic fee is to charge higher fees when there is volatility is present on the pool. We measure the volatility by simulating the price impact of a swap (measured in the difference between the `beforeTick` and `afterTick`) and applying a fee based on the magnitude. The resulting fee we apply is a mixture of the tick difference, recent swaps on the pool, and safeguards to prevent bot manipulation.
+## How it works
 
-### User Controlled Configuration Variables
+The dynamic fee charges higher fees when the pool is volatile. We measure volatility by simulating the price impact of a swap (the difference between the `beforeTick` and `afterTick`) and applying a fee based on its magnitude. The resulting fee combines the tick difference, recent swaps on the pool, and safeguards against bot manipulation. The math took inspiration from the [fee model](https://docs.meteora.ag/product-overview/meteora-liquidity-pools/dlmm-overview/dynamic-fees) of Meteora's Dynamic Liquidity Market Maker.
 
-The following configuration is used to control the range and sensitivity of the dynamic fees.&#x20;
+## User-controlled configuration
 
-The fee unit is in Uniswap BPS, where `1` = 1/100th of a basis point. A fee of 1% is represented by `10_000,` and a fee of 30% by `300_000`.&#x20;
+The following configuration controls the range and sensitivity of the dynamic fee.
+
+The fee unit is Uniswap BPS, where `1` = 1/100th of a basis point. A fee of 1% is `10_000`, and a fee of 30% is `300_000`.
 
 ```solidity
 struct PoolDynamicConfigVars {
     uint24 baseFee; // the minimum LP fee to be taken on a swap
     uint24 maxLpFee; // the maximum LP fee to be taken on a swap
-    uint256 referenceTickFilterPeriod; 
+    uint256 referenceTickFilterPeriod;
     uint256 resetPeriod;
     int24 resetTickFilter;
     uint256 feeControlNumerator; // the denominator is set to 10_000_000_000
@@ -22,13 +24,13 @@ struct PoolDynamicConfigVars {
 }
 ```
 
-Users are able to tune the dynamic fees as they choose, but we do provide a set of recommended configuration values on deployments through our website and API. We also have a spreadsheet that replicates this process and can provide it upon request.
+You can tune the dynamic fee however you like, but we provide recommended configuration values for deployments through our website and API. We also have a spreadsheet that replicates this process and can share it on request.
 
-The following configuration is our current recommendation for tokens starting at a 10ETH marketcap:&#x20;
+This is our current recommendation for tokens starting at a 10 ETH market cap:
 
 ```solidity
 IClankerHookDynamicFee.PoolDynamicConfigVars({
-    baseFee: 5000,// 0.5% minimum fee
+    baseFee: 5000, // 0.5% minimum fee
     maxLpFee: 50000, // 5% max fee
     referenceTickFilterPeriod: 30 seconds,
     resetPeriod: 120 seconds,
@@ -38,22 +40,23 @@ IClankerHookDynamicFee.PoolDynamicConfigVars({
 })
 ```
 
-### Dynamic Fee Calculation
+## Dynamic fee calculation
 
-The dynamic fee is calculated by the following equation:
+The dynamic fee is calculated with this equation:
 
-<pre class="language-solidity"><code class="lang-solidity">uint24 dynamicFee = 
-<strong>  MIN(
-</strong>      (baseFee + (feeControlNumerator * (volatilityAccumulator ** 2)) / FEE_CONTROL_DENOMINATOR),
+```solidity
+uint24 dynamicFee =
+  MIN(
+      (baseFee + (feeControlNumerator * (volatilityAccumulator ** 2)) / FEE_CONTROL_DENOMINATOR),
       maxLpFee
   );
-</code></pre>
+```
 
-The `volatilityAccumulator` is a value that is updated on each swap and is calculated by the process described below.
+The `volatilityAccumulator` is updated on each swap and is calculated as described below.
 
-**Volatility Accumulator**
+### Volatility accumulator
 
-The volatility accumulator is our way of measuring the amount of volatility on the pool. It is a value that is updated on each swap and is affected by recent swaps on the pool under different time frames. We use two lagging tick values, two time periods, and a decayed version of a previous volatility accumulator to calculate a swap's volatility accumulator.
+The volatility accumulator measures the amount of volatility on the pool. It is updated on each swap and is affected by recent swaps over different time frames. A swap's volatility accumulator uses two lagging tick values, two time periods, and a decayed version of a previous volatility accumulator.
 
 The equation for the volatility accumulator is:
 
@@ -61,18 +64,26 @@ The equation for the volatility accumulator is:
 volatilityAccumulator = |afterTick - referenceTick| + prevVR;
 ```
 
-The values of `referenceTick` and `prevVR` are updated based on snapshots of pool activity captured by the lagging ticks and time periods.
+The values of `referenceTick` and `prevVR` are updated from snapshots of pool activity captured by the lagging ticks and time periods.
 
-The two lagging tick values are:
+### Lagging ticks
 
-* `referenceTick`: When the `referenceTickFilterPeriod` has passed or if a `resetPeriod` has been triggered with a failing reset condition, this tick value is updated to the `beforeTick` of a swap. This tick value is kept the same until hitting one of these update conditions.
-* `resetTick`: This tick is updated to the `beforeTick` of a swap when the `referenceTick` is updated, and is additionally updated when the `resetPeriod` has passed and a swap's `beforeTick` is at least `resetTickFilter` ticks away from the `resetTick` (a passing reset condition).
+* `referenceTick`: Updated to a swap's `beforeTick` when the `referenceTickFilterPeriod` has passed, or when a `resetPeriod` triggers with a failing reset condition. Otherwise it stays the same.
+* `resetTick`: Updated to a swap's `beforeTick` whenever the `referenceTick` is updated. It is also updated when the `resetPeriod` has passed and a swap's `beforeTick` is at least `resetTickFilter` ticks away from the `resetTick` (a passing reset condition).
 
-The two time periods and their uses are:
+### Time periods
 
-* `referenceTickFilterPeriod`: If the previous swap was less than `referenceTickFilterPeriod` seconds away, we use the recorded `referenceTick` for the dynamic fee calculation instead of the `beforeTick` of the current swap. This prevents bots from avoiding the dynamic fee by cutting their swap into smaller swaps.
-* `resetPeriod`: If a `referenceTick` has not been updated for over `resetPeriod` seconds, we want to ensure that there is true volatility happening on the pool. The goal is to prevent bots from keeping the pool's fee high by sending in micro swaps to avoid updating the `referenceTick`. If the `resetPeriod` has passed and the `beforeTick`'s difference from the recorded `resetTick` is smaller than the `resetTickFilter` (a failing reset condition), we update both the `referenceTick` and `resetTick` to the `beforeTick` of the current swap to clear out the stored volatility. If the `resetPeriod` has passed and the `beforeTick`'s difference from the recorded `resetTick` is larger than the `resetTickFilter` (a passing reset condition), we only update the `resetTick` to the `beforeTick` of the current swap and keep the `referenceTick` the same.
+* `referenceTickFilterPeriod`: If the previous swap was less than `referenceTickFilterPeriod` seconds ago, the recorded `referenceTick` is used for the fee calculation instead of the current swap's `beforeTick`. This stops bots from avoiding the dynamic fee by splitting their swap into smaller swaps.
+* `resetPeriod`: If the `referenceTick` hasn't been updated for over `resetPeriod` seconds, we check that there is real volatility on the pool. This stops bots from keeping the pool's fee high by sending micro swaps that avoid updating the `referenceTick`.
+  * If the `resetPeriod` has passed and the `beforeTick`'s difference from the recorded `resetTick` is smaller than the `resetTickFilter` (a failing reset condition), both the `referenceTick` and `resetTick` are updated to the current swap's `beforeTick`, clearing out the stored volatility.
+  * If the `resetPeriod` has passed and the difference is larger than the `resetTickFilter` (a passing reset condition), only the `resetTick` is updated to the current swap's `beforeTick`, and the `referenceTick` stays the same.
 
-Additionally, the two time periods are used to determine the `prevVR` value. The `prevVR` is used to smooth volatility over a period of time and is set to a value when the `referenceTickFilterPeriod` has passed but the `resetPeriod` has not. The value is set to the last swap's volatility accumulator multiplied by the `decayFilterBps` value. The `prevVR` is set to zero when the `resetPeriod` passes with a failed condition or if a `resetPeriod` amount of time has passed without a swap. The same `prevVR` is used as long as the `referenceTick` has not been updated.
+### Previous volatility (`prevVR`)
 
-Note: there is a slight drift between the simulated `afterTick` and the resulting `afterTick`. This is because the applied fee for the simulated swap is an estimate either reusing the previous swap fee or just the `prevVR` under some reset conditions. We deemed that this drift is acceptable for our intended outcomes.
+The two time periods also determine the `prevVR` value, which smooths volatility over time:
+
+* It is set when the `referenceTickFilterPeriod` has passed but the `resetPeriod` has not. The value is the last swap's volatility accumulator multiplied by `decayFilterBps`.
+* It is set to zero when the `resetPeriod` passes with a failing condition, or when a `resetPeriod` passes without a swap.
+* The same `prevVR` is used as long as the `referenceTick` hasn't been updated.
+
+There is a slight drift between the simulated `afterTick` and the actual `afterTick`. This is because the fee applied to the simulated swap is an estimate that reuses either the previous swap's fee or just the `prevVR` under some reset conditions. We consider this drift acceptable for the intended outcome.

@@ -2,81 +2,90 @@
 title: "Creator Rewards & Fees"
 ---
 
-### Clanker v5
+How a Clanker token's trading fees are split between the creator and Clanker, and how creators claim their rewards.
 
-A Clanker v5 token has no LP fee. Every trade in its launch pool pays a buy tax or a sell tax, and that tax funds the creator's rewards, Clanker's fee and any holder dividends, burn or integrator share the creator chose at launch.
+## Clanker v5
 
-#### Buy and sell tax
+A Clanker v5 token has no LP fee. Every trade in its launch pool pays a buy tax or a sell tax, and that tax funds Clanker's fee, the creator's rewards, and any holder dividends, burn or integrator share the creator chose at launch.
 
-The creator sets a buy tax and a sell tax at launch, each between 1% and 10% of the trade.
+### How it works
 
-#### How the tax is split
+The creator sets a buy tax and a sell tax at launch, each between 1% and 10% of the trade. Each trade's tax is split in this order:
 
 1. **Clanker fee**: Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade.
 2. **Creator share**: the rest of the tax goes to the creator's side. The creator can send part of it to:
    * [Holder Dividends](/general/holder-dividends): paid to holders above a minimum balance.
    * [Token Burns](/general/token-burns): burned in the token itself.
    * **Integrator**: a share for an integrator address.
-3. **Reward recipients**: whatever the creator does not send to dividends, burn or an integrator goes to the token's reward recipients, split by their weights.
+3. **Reward recipients**: whatever is not sent to dividends, burn or an integrator goes to the token's reward recipients, split by their reward percentages.
 
-Dividends, burn and the integrator share are percentages of the tax after the Clanker fee, and together they can be at most 100%.
-
-#### Worked examples
-
-Each example is a 1 ETH buy.
-
-| Buy tax | Tax paid | Clanker fee             | Creator share |
-| ------- | -------- | ----------------------- | ------------- |
-| 1%      | 0.01 ETH | 0.005 ETH (0.5% min)    | 0.005 ETH     |
-| 5%      | 0.05 ETH | 0.005 ETH               | 0.045 ETH     |
-| 8%      | 0.08 ETH | 0.008 ETH (10% of tax)  | 0.072 ETH     |
-| 10%     | 0.10 ETH | 0.01 ETH (1% max)       | 0.09 ETH      |
-
-At a low tax the 0.5% minimum applies, so Clanker's part of the tax is larger. From a 5% tax up, Clanker takes 10% of the tax.
-
-**Split example.** A token has a 5% sell tax and sends 50% to holder dividends. A 1,000 USDC sell pays 50 USDC of tax:
-
-* Clanker fee: 10% of the tax is 5 USDC, which is 0.5% of the trade, so Clanker takes 5 USDC.
-* Creator share: 45 USDC.
-  * Holder dividends: 50% of 45 = 22.5 USDC.
-  * Reward recipients: the remaining 22.5 USDC.
-
-#### Sniper fee
-
-If the creator turns on the sniper fee at launch, trades in the first 20 seconds after launch pay a higher total fee. It starts at 99% and falls to the normal tax by the end of the 20 seconds. All of the sniper fee goes to Clanker. The creator's own launch buy does not pay it.
-
-#### Rewards currency
+Dividends, burn and the integrator share are percentages of the creator share (the tax after the Clanker fee), and together they can be at most 100%.
 
 Rewards and dividends are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. The burn share is taken in the token itself.
 
-#### Claiming rewards
+### Sniper fee
+
+If the creator turns on the sniper fee at launch, trades in the first 20 seconds after launch pay a higher total fee. It starts at 99% and falls to the normal tax by the end of the 20 seconds. All of the sniper fee goes to Clanker. The creator's own launch buy does not pay it.
+
+### Examples
+
+How the Clanker fee changes with the tax on a 1 ETH buy:
+
+| Tax | Tax paid | Clanker fee | Rule applied              | Creator share |
+| --- | -------- | ----------- | ------------------------- | ------------- |
+| 1%  | 0.01 ETH | 0.005 ETH   | 0.5% of trade (minimum)   | 0.005 ETH     |
+| 5%  | 0.05 ETH | 0.005 ETH   | Both rules give 0.005 ETH | 0.045 ETH     |
+| 8%  | 0.08 ETH | 0.008 ETH   | 10% of tax                | 0.072 ETH     |
+| 10% | 0.10 ETH | 0.01 ETH    | 10% of tax, at the 1% cap | 0.09 ETH      |
+
+Below a 5% tax, the 0.5% minimum applies, so Clanker's part of the tax is larger. From a 5% tax up, Clanker takes 10% of the tax.
+
+How a whole tax is split: a token has a 5% sell tax and sends 50% of the creator share to holder dividends. Someone sells for 1,000 USDC.
+
+| Step              | Amount    | Calculation                                    |
+| ----------------- | --------- | ---------------------------------------------- |
+| Tax paid          | 50 USDC   | 5% of 1,000 USDC                               |
+| Clanker fee       | 5 USDC    | Larger of 10% of tax (5) and 0.5% of trade (5) |
+| Creator share     | 45 USDC   | 50 − 5                                         |
+| Holder dividends  | 22.5 USDC | 50% of 45                                      |
+| Reward recipients | 22.5 USDC | The rest of the creator share                  |
+
+### Claim rewards on clanker.world
 
 v5 rewards collect in the FeeEscrow. It holds one balance per recipient and currency for all of that recipient's v5 tokens, and a claim pays the whole balance.
 
-Claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. In the **Claim Rewards** card, connect the reward recipient's wallet and claim. A past recipient, or an integrator, can claim its balance from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
+1. Open the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`.
+2. In the **Claim Rewards** card, connect the reward recipient's wallet and claim.
 
-See [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance) to check a balance, and [Managing a Token](/general/managing-a-token) for the other Admin page tools. Contract details are in [v5](/references/core-contracts/v5) and addresses in [Deployed Contracts](/references/deployed-contracts). To deploy a v5 token, see [Token Deployments](/general/token-deployments).
+A past recipient, or an integrator, claims its balance from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
 
-### v4 and earlier
+### With the API
 
-#### Creator Rewards
+`GET /api/creator-earnings/{tokenAddress}` returns the unclaimed FeeEscrow balances of the token's current reward recipients. See [Creators](/api-reference/public/creators), and [Fees](/api-reference/public/fees) for a token's fee history.
 
-Token creators earn rewards based on trading volume of their created tokens. Upon deployment of a standard Clanker token, the full supply of the token is deposited into a single-sided Uniswap v4 LP (the "initial LP"). When traders buy and sell tokens in this pool, the initial LP accrues fee on each swap. If token holders deposit their own LPs from tokens they hold or initiate new trading pools, token creators will not earn any rewards on these positions / pools.
+### Related
 
-Creator rewards can be claimed on the Admin page of the token on [clanker.world](https://www.clanker.world/). The admin page can be found at `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin` .
+* [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance) to check a balance.
+* [Managing a Token](/general/managing-a-token) for the other Admin page tools.
+* [v5 contracts](/references/core-contracts/v5) and [Deployed Contracts](/references/deployed-contracts) for contract details and addresses.
+* [Token Deployments](/general/token-deployments) to deploy a v5 token.
 
-Please see the [FAQ](/general/faq) for detail on finding Token Info pages and collecting creator rewards.
+## v4 and earlier
 
-#### Clanker Fees
+### Creator rewards
 
-The Clanker fee is fixed at 20% of LP fees that are collected at the pool level in addition to creator LP fees.&#x20;
+Creators of older tokens earn rewards from trading volume. When a standard Clanker token is deployed, its full supply goes into a single-sided Uniswap LP position (the "initial LP"). Each swap in that pool pays an LP fee to the initial LP. Creators earn nothing from LP positions or pools that other holders add later.
 
-$$
-CreatorFee \* 0.2 = SwapFees
-$$
+Claim creator rewards on the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. Anyone can start the claim, and the rewards always go to the reward recipient. See the [FAQ](/general/faq) for more on finding your tokens and claiming.
 
-| Creator | Protocol | Total Swap Fee |
-| ------- | -------- | -------------- |
-| 1%      | 0.2%     | 1.2%           |
-| 2%      | 0.4%     | 2.4%           |
-| 3%      | 0.6%     | 3.6%           |
+### Clanker fees
+
+On v4 tokens, Clanker's fee is 20% of the creator's LP fee, charged on top of it:
+
+Total swap fee = creator LP fee + (creator LP fee × 0.2)
+
+| Creator LP fee | Clanker fee | Total swap fee |
+| -------------- | ----------- | -------------- |
+| 1%             | 0.2%        | 1.2%           |
+| 2%             | 0.4%        | 2.4%           |
+| 3%             | 0.6%        | 3.6%           |

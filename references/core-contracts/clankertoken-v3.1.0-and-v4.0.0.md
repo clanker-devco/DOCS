@@ -1,10 +1,10 @@
 # ClankerToken v3.1.0 and v4.0.0
 
-The tokens deployed by the Clanker factory are ERC20s with ERC20Permit, ERC20Votes and ERC20Burnable capabilities.
+Tokens deployed by the Clanker v3.1 and v4 factories are ERC20s with ERC20Permit, ERC20Votes and ERC20Burnable support.
 
-Tokens are deployed with an 'admin' key which is able to verify the contract, update the image, and update the metadata.
+Each token is deployed with an admin key. The admin can verify the contract, update the image and update the metadata.
 
-#### User Facing Functions:
+## Admin functions
 
 ```solidity
 // only callable by token's admin
@@ -17,23 +17,24 @@ function updateMetadata(string memory metadata_) external;
 function verify() external;
 ```
 
-## Superchain Compatibility
+## Superchain compatibility
 
-Clanker is `SuperchainERC20` compatible such that if a token is deployed on one chain, it can be re-deployed on other compatible super-chains with the same token address. The `originatingChainId` parameter is used to determine if the initial supply should be minted. If the `originatingChainId` is not the current chain, zero supply will be minted and users are expected to utilize the super-chain's brige to migrate their tokens. Tokens can only be minted with supply on the originating chain, and cannot be minted with zero supply on the originating chain.
+Clanker tokens are `SuperchainERC20` compatible. A token deployed on one chain can be redeployed on other compatible Superchain chains at the same token address.
 
-By using Foundry's `CREATE2` deployment support, it is ensured that the factory contract (Clanker) can have the same address on different chains. This is needed to have the same resulting token addresses on the different chains.
+The `originatingChainId` parameter decides whether the initial supply is minted. If `originatingChainId` is not the current chain, zero supply is minted and users bridge their tokens over with the Superchain bridge. Tokens can only be minted with supply on the originating chain, and cannot be minted with zero supply on the originating chain.
 
-Superchain documentation can be found [here](https://docs.optimism.io/stack/interop/superchain-erc20).
+The factory contract (Clanker) is deployed with Foundry's `CREATE2` support so it has the same address on each chain. This gives the same token addresses on each chain.
 
-{% hint style="info" %}
-For a token to be able to be bridged between Superchain-compatible chains, the chains must be in the same Superchain cluster. This is subject to user error if the Clanker contract is not properly initialized on the target chain, and if the target chain is not part of the same Superchain cluster.
+See the [Superchain documentation](https://docs.optimism.io/stack/interop/superchain-erc20) for more.
+
+{% hint style="warning" %}
+To bridge a token between Superchain-compatible chains, both chains must be in the same Superchain cluster. Before you bridge, check that the Clanker contract is set up on the target chain and that the target chain is in the same cluster.
 {% endhint %}
 
-The function `deployTokenZeroSupply()` can be used to deploy a token with zero supply. This is useful for tokens that are bridged to a Superchain-compatible chain:
+Use `deployTokenZeroSupply()` to deploy a token with zero supply on a chain you want to bridge it to:
 
 ```solidity
-// Use the same tokenConfig as that was used to deploy the token on the
-// originating chain with the `creatorAdmin as the `tokenAdmin`
+// Use the same tokenConfig that was used to deploy the token on the
+// originating chain, with the `creatorAdmin` as the `tokenAdmin`
 function deployTokenZeroSupply(_version_specific_parameters_) external returns (address tokenAddress) {...}
-
 ```

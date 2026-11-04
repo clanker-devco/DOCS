@@ -2,11 +2,17 @@
 title: "ClankerVault"
 ---
 
-The ClankerVault contract manages locked tokens from the Clanker contract. Only the Clanker contract can deposit tokens into the vault, and tokens can only be vaulted once. Each token has the `creatorAdmin` as the initial admin for the token. The token's address (emitted and returned from `deployToken()`) is used as the token parameter for all ClankerVault functions.
+The v3.1 **ClankerVault** contract holds the locked token supply from the Clanker contract until it unlocks for the token's admin.
 
-### User Functions
+## How it works
 
-`withdraw()`: Allows users to withdraw tokens that have reached their unlock time
+Only the Clanker contract can deposit tokens into the vault, and each token can only be vaulted once. The token's `creatorAdmin` is its initial admin. The token's address (emitted and returned from `deployToken()`) is the `token` parameter for all ClankerVault functions.
+
+## User functions
+
+### `withdraw()`
+
+Withdraws tokens that have reached their unlock time.
 
 ```solidity
 // note: will revert if not called by the token's admin
@@ -17,7 +23,9 @@ function withdraw(
 ) external {...}
 ```
 
-`editAllocationAdmin()`: Allows changing the token's admin
+### `editAllocationAdmin()`
+
+Changes the token's admin.
 
 ```solidity
 // note: will revert if not called by the token's admin

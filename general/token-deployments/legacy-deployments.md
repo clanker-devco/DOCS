@@ -1,51 +1,47 @@
-# Legacy Deployments
+# v3 Deployments
 
-## <mark style="color:orange;">v3.1.0 - Legacy</mark>
+How tokens were deployed on Clanker v3.1 and v3.0. For Clanker v5, see the [Token Deployments overview](../token-deployments.md).
 
-### Farcaster Bot Deployments (Standard)
+## v3.1.0
 
-New Clanker tokens created via the @clanker bot on Farcaster go through the following deployment process:
+### Farcaster bot deployments
 
-1. User deploys a Clanker token via @clanker on Farcaster. The user has the option to reserve up to 30% of the supply in a creator vault, which locks the token for a minimum of 30 days.
-2. A new ERC-20 token (the base token) is created with a total supply of 100 billion (100,000,000,000). The token isn't mintable after this step, so the max supply will always be 100 billion tokens.
-3. If the user requests to allocate a portion of the supply to the creator vault, that percentage of the supply is then sent to the creator vault.
-4. A new Uniswap V3 pool is initiated with the base token and quote token (WETH, by default). The entire total supply of the base token, less the portion of the supply allocated to the creator vault, is deposited into the pool as single-sided liquidity. The starting market cap is set to 10 WETH by default.
-5. The LP NFT that is created during step 3 is sent to a Clanker LP Locker. The LP Locker has no withdraw function, so LP NFTs that are deposited into it can never be withdrawn and are effectively locked forever. See [Deployed Contracts](../../references/deployed-contracts.md) for more info.
+Clanker v3.1.0 tokens created with the @clanker bot on Farcaster go through these steps:
 
-### Farcaster Bot Deployments (Creator Buy)
+1. The user deploys a token with @clanker on Farcaster. They can reserve up to 30% of the supply in a creator vault, which locks the tokens for at least 30 days.
+2. A new ERC-20 token (the base token) is created with a total supply of 100 billion (100,000,000,000). The token can't be minted after this, so the supply is fixed at 100 billion.
+3. If the user asked for a vault, that percent of the supply goes into the creator vault.
+4. A new Uniswap v3 pool is created with the base token and its quote token (WETH by default). The rest of the supply goes into the pool as single-sided liquidity, with a default starting market cap of 10 WETH.
+5. The LP NFT from step 4 goes to a Clanker LP Locker. The locker has no withdraw function, so the liquidity is locked forever. See [Deployed Contracts](../../references/deployed-contracts.md).
 
-1. User requests to deploy a token via @clanker on Farcaster **and** specifies to do a creator buy.
-2. @clanker will respond to the user with a link to a [Frame](https://docs.farcaster.xyz/developers/frames/v2/) of the clanker.world token creation page.
-3. The user can select the same options as the through the Farcaster Bot Deployments, with the addition of a creator buy. A creator buy, a.k.a. "dev buy", enables token creators to spend ETH in order to purchase tokens during the token creation transaction. There is an upper limit of 1 ETH on creator buys through the Frame and clanker.world frontend, but there is no restriction on the contract level.
+### Farcaster bot deployments with a creator buy
 
-{% hint style="warning" %}
-Creator buys are processed **after** creator vaulting. For example, if a creator designates 10% of the token supply to be set aside into the creator vault, the creator buy will be executed as the first buy against the remaining 90% of the token supply.
-{% endhint %}
-
-### Clanker.world Deployments
-
-1. User visits the create page on [clanker.world](https://www.clanker.world/).
-2. The user can select the same options as the through the Farcaster Bot Deployments, with the addition of a creator buy. A creator buy, a.k.a. "dev buy", enables token creators to spend ETH in order to purchase tokens during the token creation transaction. There is an upper limit of 1 ETH on creator buys through the Frame and clanker.world frontend, but there is no restriction on the contract level.
+1. The user asks @clanker on Farcaster to deploy a token **and** to make a creator buy.
+2. @clanker replies with a [frame](https://docs.farcaster.xyz/developers/frames/v2/) of the clanker.world deploy page.
+3. The user picks the same options as for a bot deployment, plus a creator buy. A creator buy (dev buy) lets the creator spend ETH to buy tokens in the deployment transaction. The frame and clanker.world limit a creator buy to 1 ETH; the contracts have no limit.
 
 {% hint style="warning" %}
-Creator buys are processed **after** creator vaulting. For example, if a creator designates 10% of the token supply to be set aside into the creator vault, the creator buy will be executed as the first buy against the remaining 90% of the token supply.
+Creator buys run **after** vaulting. For example, if a creator puts 10% of the supply in the vault, the creator buy is the first buy against the remaining 90%.
 {% endhint %}
 
-### Alternative Interface Deployments
+### Clanker.world deployments
 
-Alternative interfaces that deploy tokens either through the Clanker API or directly on top of Clanker contracts may set a variety of different parameters. This version of the Clanker contracts greatly expands the customizability of deployments - please refer to the documentation of each interface to better understand their deployment parameters.&#x20;
+1. The user opens the deploy page on [clanker.world](https://www.clanker.world/).
+2. The user picks the same options as for a bot deployment, plus an optional creator buy of up to 1 ETH. The contracts have no limit. As above, the creator buy runs after vaulting.
 
-This includes but is not limited to:
+### Alternative interface deployments
 
-* Creator rewards splits
+Interfaces that deploy through the Clanker API or directly on the Clanker contracts can set many other parameters. Check each interface's documentation for its options. These include, but are not limited to:
+
+* Creator reward splits
 * Market cap
 * Custom quote token pairs
 
-## <mark style="color:red;">v3.0.0 - Deprecated</mark>
+## v3.0.0
 
-New Clanker tokens go through the following deployment process:
+Clanker v3.0.0 tokens go through these steps:
 
-1. User deploys a Clanker token via @clanker on Farcaster or through a Clanker partner interface.
-2. A new ERC-20 token (the base token) is created with a total supply of 100 billion (100,000,000,000). The token isn't mintable after this step, so the max supply will always be 100 billion tokens.
-3. A new Uniswap V3 pool is initiated with the base token and quote token (WETH, by default). The entire total supply of the base token is deposited into the pool as single-sided liquidity. The starting market cap is set to 10 WETH by default.
-4. The LP NFT that is created during step 3 is sent to a Clanker LP Locker. The LP Locker has no withdraw function, so LP NFTs that are deposited into it can never be withdrawn and are effectively locked forever. See [Deployed Contracts](https://clanker.gitbook.io/clanker-documentation/references/deployed-contracts) for more info.
+1. The user deploys a token with @clanker on Farcaster or through a Clanker partner interface.
+2. A new ERC-20 token (the base token) is created with a total supply of 100 billion (100,000,000,000). The token can't be minted after this, so the supply is fixed at 100 billion.
+3. A new Uniswap v3 pool is created with the base token and its quote token (WETH by default). The whole supply goes into the pool as single-sided liquidity, with a default starting market cap of 10 WETH.
+4. The LP NFT from step 3 goes to a Clanker LP Locker. The locker has no withdraw function, so the liquidity is locked forever. See [Deployed Contracts](../../references/deployed-contracts.md).

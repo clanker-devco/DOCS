@@ -2,38 +2,35 @@
 title: "ClankerPresaleEthToCreator"
 ---
 
-Clanker's **ClankerPresaleEthToCreator** extension is a special type of presale where the raised funds go to the creator of the presale instead of being deposited into the liquidity pool.
+The **ClankerPresaleEthToCreator** extension runs a presale where the raised ETH goes to the presale's creator instead of being deposited into the liquidity pool.
 
-### Features
+This presale isn't permissionless. If your team wants to use it, reach out to the Clanker team.
 
-* **Price Discovery**: Creators can set a min and a max ETH goal to raise. The starting price of the token goes up as more people buy into the presale.
-* **Optional Allowlists**: Creators can opt to manage a merkle-root based allowlist with per-address overrides. See [**ClankerPresaleAllowlist**](/references/core-contracts/v4/extensions/clankerpresaleallowlist) for more details.
-* **Presale Tokens Lockup and Vesting**: Presale tokens must be locked up for a minimum of 7 days post token creation, with optional vesting on top. This is to help ensure smooth post-launch market dynamics.
+## Features
 
-### Fees
+* **Price discovery**: Creators set a min and a max ETH goal to raise. The token's starting price goes up as more people buy into the presale.
+* **Optional allowlists**: Creators can manage a merkle-root-based allowlist with per-address overrides. See [**ClankerPresaleAllowlist**](/references/core-contracts/v4/extensions/clankerpresaleallowlist) for details.
+* **Presale token lockup and vesting**: Presale tokens are locked for at least 7 days after token creation, with optional vesting on top. This helps keep post-launch market dynamics smooth.
 
-The Clanker team takes a 0% cut on raised funds for successful presales. All ETH raised goes directly to the creator. There is no fee for buyers on entering/exiting positions.
+## Fees
 
-<Info>
-This presale is not permissionless. If your team is interested in using this presale, please reach out to the Clanker team.
+The Clanker team takes a 0% cut of funds raised in successful presales. All ETH raised goes directly to the creator. Buyers pay no fee to enter or exit positions.
 
-</Info>
+## Creating a presale
 
-### Creating a Presale
+Presale creators provide the following to start a presale:
 
-Presale creators need to provide the following to start a presale:
-
-* **`presaleDuration`**: Maximum amount of time to run the presale for.
-* **`maxEthGoal`**: Maximum amount of ETH to raise. If this number is hit, the presale stops accepting new bids and the token can be launched immediately.
-* **`minEthGoal`**: Minimum ETH goal to hit for a presale to be considered successful. The token can be launched if this minimum is hit after the presale duration has passed or if the presale owner requests it.
-* **`deploymentConfig`**: The token to deploy once a presale hits a success condition. This is a normal Clanker v4 deployment config with all features except the DevBuy fully accessible. The presale contract needs to be the last specified extension.
+* **`presaleDuration`**: Maximum amount of time to run the presale.
+* **`maxEthGoal`**: Maximum amount of ETH to raise. If this is hit, the presale stops accepting new bids and the token can be launched immediately.
+* **`minEthGoal`**: Minimum ETH to raise for the presale to be successful. The token can be launched if this minimum is hit and the presale duration has passed, or if the presale owner requests it.
+* **`deploymentConfig`**: The token to deploy once the presale hits a success condition. This is a normal Clanker v4 deployment config with every feature except the DevBuy available. The presale contract must be the last extension specified.
 * **`presaleOwner`**: Address used to claim raised ETH and to manage the optional allowlist.
-* **`lockupDuration`**: How long to lock up presale tokens for. Minimum 7-day lockup is required.
-* **`vestingDuration`** (optional): How long to vest the presale tokens for. The vesting is linear and starts after the lockup period has ended. For example, if this is set to 10 days and the lockup duration is set to 10 days, on day 15 half of the supply would be claimable and on day 20 the token becomes fully claimable.
-* **`allowlist`** (optional): Address of the allowlist module to use to manage the presale.
-* **`allowlistInitializationData`** (optional): ABI-encoded data to pass to the allowlist module if it exists.
+* **`lockupDuration`**: How long to lock up presale tokens. A minimum 7-day lockup is required.
+* **`vestingDuration`** (optional): How long to vest the presale tokens. Vesting is linear and starts after the lockup period ends. For example, with a 10-day lockup and a 10-day vest, half of the supply is claimable on day 15 and all of it on day 20.
+* **`allowlist`** (optional): Address of the allowlist module used to manage the presale.
+* **`allowlistInitializationData`** (optional): ABI-encoded data to pass to the allowlist module, if one is set.
 
-Each created presale receives a `presaleId`.
+Each presale receives a `presaleId`.
 
 ```solidity
 function startPresale(
@@ -49,39 +46,39 @@ function startPresale(
 ) external onlyAdmin returns (uint256 presaleId);
 ```
 
-### Participating in the Presale
+## Participating in a presale
 
-#### Buying into a Presale
+### Buying into a presale
 
-Buying into a presale is tax-free and is done with the `buyIntoPresale()` function. The `msg.value` sent is used to buy into the presale. If the amount of ETH sent exceeds a presale's maximum, the sender is refunded the excess.
+Buying into a presale is fee-free and uses the `buyIntoPresale()` function. The `msg.value` sent is used to buy in. If the ETH sent exceeds the presale's maximum, the excess is refunded.
 
 ```solidity
 function buyIntoPresale(uint256 presaleId) external payable;
 ```
 
-If the presale is using an allowlist which requires buyers to prove that they're approved to buy in with a certain amount of ETH, they can use the `buyIntoPresaleWithProof()` function which forwards the proof data to the allowlist module.
+If the presale uses an allowlist that requires buyers to prove they're approved for a certain amount of ETH, use `buyIntoPresaleWithProof()`, which forwards the proof data to the allowlist module.
 
 ```solidity
 function buyIntoPresaleWithProof(uint256 presaleId, bytes calldata proof) external payable;
 ```
 
-Presale owners are able to actively change the amount of ETH a user can use to buy into the presale with. Owners are not able to revoke ETH for people who have already bought in.
+Presale owners can change the amount of ETH a user is allowed to buy in with. Owners can't revoke ETH from people who have already bought in.
 
-#### Withdrawing from a Presale
+### Withdrawing from a presale
 
-Users are able to withdraw their funds from a presale if the presale has failed or if the presale has not yet reached the maximum ETH goal.
+Users can withdraw their funds if the presale has failed, or if the presale hasn't yet reached its maximum ETH goal.
 
 ```solidity
 function withdrawFromPresale(
-    uint256 presaleId, 
-    uint256 amount, 
+    uint256 presaleId,
+    uint256 amount,
     address recipient // address to receive the refunded ETH, can be the same as the msg.sender
 ) external;
 ```
 
-### Ending a Presale
+## Ending a presale
 
-Presales can end in either token deployment (success) or with all buyers being able to withdraw their funds tax-free (failed). Presales can be ended by calling the `endPresale()` function:
+A presale ends either with a token deployment (success) or with all buyers able to withdraw their funds fee-free (failure). Presales are ended by calling `endPresale()`:
 
 ```solidity
 function endPresale(uint256 presaleId, bytes32 salt) external;
@@ -91,23 +88,23 @@ Presale tokens can be deployed in three scenarios:
 
 1. The `maxEthGoal` is hit at any point.
 2. The `minEthGoal` was hit and the `presaleDuration` has passed.
-3. The `minEthGoal` is hit and the presale owner requests it to end early.
+3. The `minEthGoal` is hit and the presale owner requests to end early.
 
-If in scenarios (1) or (2), the presale owner has a single day where they are the only entity who can deploy the token. Once this day buffer passes, anyone is able to select a salt and end the presale. If three days total have passed without anyone ending the presale, the presale is considered failed and buyers can recover their funds through the `withdrawFromPresale()` function.
+In scenarios (1) and (2), the presale owner has one day where only they can deploy the token. After that day, anyone can select a salt and end the presale. If three days pass in total without anyone ending the presale, it is considered failed and buyers can recover their funds through `withdrawFromPresale()`.
 
-### Claiming Tokens
+## Claiming
 
-#### Claiming Tokens
+### Claiming tokens
 
-Buyers of successful presales can claim their tokens through the `claimTokens()` function. The tokens will be available as the lockup and vesting durations pass.
+Buyers in successful presales claim their tokens through `claimTokens()`. Tokens become available as the lockup and vesting durations pass.
 
 ```solidity
 function claimTokens(uint256 presaleId) external;
 ```
 
-#### Claiming ETH
+### Claiming ETH
 
-The `presaleOwner` is able to claim the raised ETH funds immediately after a presale has successfully deployed a token.
+The `presaleOwner` can claim the raised ETH as soon as the presale has successfully deployed a token.
 
 ```solidity
 // only callable by the presaleOwner
