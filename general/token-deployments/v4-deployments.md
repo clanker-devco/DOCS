@@ -1,8 +1,6 @@
 # v4 Deployments
 
-{% hint style="success" %}
 Clanker v4 deployments are available across all Clanker platforms. For the current Clanker token, see [v5 Deployments](v5-deployments.md).
-{% endhint %}
 
 ### General Token Deployment Info (Clanker v4.0.0)
 

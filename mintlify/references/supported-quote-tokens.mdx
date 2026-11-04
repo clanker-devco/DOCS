@@ -2,11 +2,6 @@
 title: "Supported Quote Tokens"
 ---
 
-<Warning>
-The Starting Market Cap, denominated in the quote token, is subject to change. Please refer to this page for the latest info.
-
-</Warning>
-
 ## v5
 
 Clanker v5 tokens on Base pair with native ETH or USDC. Rewards and dividends are paid in the pair token.
@@ -16,16 +11,13 @@ Clanker v5 tokens on Base pair with native ETH or USDC. Rewards and dividends ar
 | Native ETH | Base  | 0x4200000000000000000000000000000000000006 | ~1.66 ETH                       |
 | USDC       | Base  | 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 | ~4,000 USDC                     |
 
-For the ETH pair, pass the WETH address as `pool.pairedToken` in the [deploy API](/api-reference/authenticated/deployment). The pool itself pairs with native ETH. The starting market cap comes from the quote token's starting price on the factory, `quoteConfig(quoteToken)`. See [v5](/references/core-contracts/v5).
+For the ETH pair, pass the WETH address as `pool.pairedToken` in the [deploy API](/api-reference/authenticated/deployment). The pool itself pairs with native ETH. Contract details are in [v5](/references/core-contracts/v5).
 
 ## v4
 
-<Info>
 These quote tokens are supported for deployments via the @clanker bot on Farcaster and API deployments.&#x20;
 
 Starting with release v0.3.1, users may permissionlessly interact with the Clanker token factory to deploy tokens paired with arbitrary quote tokens and that start at arbitrary market caps.
-
-</Info>
 
 
 | Token Name | Ticker | Chain | Contract Address | Approximate Starting Market Cap | Initial Tick |

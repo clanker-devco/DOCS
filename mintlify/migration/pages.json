@@ -21,7 +21,7 @@
     "source": "general/faq.md",
     "route": "general/faq",
     "oldPath": "general/faq",
-    "sourceSha256": "2dd8094cca89e27724bc2b22a1e3281e567f7e5b21cbbd053dc2e3681198a2c9"
+    "sourceSha256": "75c42fef3255dbdaecd8b9d9c77a7b48a05a9d1f94ec63bd5107460a26513cb6"
   },
   {
     "indent": 0,
@@ -37,7 +37,7 @@
     "source": "general/token-deployments/v5-deployments.md",
     "route": "general/token-deployments/v5-deployments",
     "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "329818611f8bd7f4b9d5a7ea6580dc3f9e734122ed34017f78538cc5a51392a3"
+    "sourceSha256": "1fc6fec2f1dc1e82262f7cc11ae729f0184257958f8c45c1ac3e54cebc16f407"
   },
   {
     "indent": 2,
@@ -45,7 +45,7 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "d9d018f1a2fc8b5333c2f8582137a4513ffd3e8bf9696bbe585462b719a84f35"
+    "sourceSha256": "76510c3e86aba9940949f701ff90c7b767396ba95c341604c69c719d4d92e1b5"
   },
   {
     "indent": 2,
@@ -61,7 +61,7 @@
     "source": "general/token-deployments/preclank-deployments.md",
     "route": "general/token-deployments/preclank-deployments",
     "oldPath": "general/token-deployments/preclank-deployments",
-    "sourceSha256": "e3c11fa44e23a366ac9013ff891b7aaa2693d1dc6d4887a6b4987fd02025c98f"
+    "sourceSha256": "0874aa22d47020b6a7371912e1efac8852022cba79dce4d4ed424dbc44fe749b"
   },
   {
     "indent": 2,
@@ -85,7 +85,7 @@
     "source": "general/token-deployments/v4-deployments.md",
     "route": "general/token-deployments/v4-deployments",
     "oldPath": "general/token-deployments/v4-deployments",
-    "sourceSha256": "952bb16c95e67b3eb2878db74fdf87e2f7b1d0e5bad61b0c1e02b90a55ae73eb"
+    "sourceSha256": "f4c22332182849660357eb9676b0b6320a4be0c43124f934287d9996836ab515"
   },
   {
     "indent": 2,
@@ -701,7 +701,7 @@
     "source": "references/compatible-trading-platforms.md",
     "route": "references/compatible-trading-platforms",
     "oldPath": "references/compatible-trading-platforms",
-    "sourceSha256": "12b5e55518cf5d4ef99c683132584f762e8cac6c762de8f99ddb9e02255e80be"
+    "sourceSha256": "b5d7817001726be2a5ae564e790c6e3030cec1f07f0ac45092518d29c8644869"
   },
   {
     "indent": 0,
@@ -717,7 +717,7 @@
     "source": "references/supported-quote-tokens.md",
     "route": "references/supported-quote-tokens",
     "oldPath": "references/supported-quote-tokens",
-    "sourceSha256": "8803dafb9dfcb2aef6a840e1974819f1781daebb0c3b9e34f5ec9076111b6311"
+    "sourceSha256": "367c89bcc0e9e5eeb90c40be6291f891aceae199e3afe26fa05d3351f375b570"
   },
   {
     "indent": 0,

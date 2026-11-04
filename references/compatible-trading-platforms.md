@@ -1,16 +1,10 @@
 # Compatible Trading Platforms
 
-{% hint style="info" %}
 If you are a trading platform or venue and would like to integrate with Clanker's pools, please reach out at [Contact](contact.md).
-{% endhint %}
 
 ### Clanker v4.0.0
 
-Clanker v4.0.0 deploys tokens into Uniswap v4 pools and utilizes custom Uniswap v4 hooks. Due to the complexity of Clanker's custom hooks, not all trading platforms and venues currently support trading through Clanker v4.0.0 pools. Integrations with additional trading venues are underway.
-
-{% hint style="warning" %}
-Most Telegram trading bots on Base have not yet integrated Uniswap v4 and / or Clanker's Uniswap v4 hooks.
-{% endhint %}
+Clanker v4.0.0 deploys tokens into Uniswap v4 pools and utilizes custom Uniswap v4 hooks. Due to the complexity of Clanker's custom hooks, not all trading platforms and venues currently support trading through Clanker v4.0.0 pools.
 
 Please see below for a list of known, compatible trading platforms as of `July 8, 2025`:
 

@@ -1,14 +1,10 @@
 # v5 Deployments
 
-{% hint style="success" %}
-**Live**: Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy) and through the deploy API.
-{% endhint %}
+Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy) and through the deploy API.
 
 A Clanker v5 token has a 1 billion supply in a Uniswap v4 pool paired with ETH or USDC, and charges a buy and sell tax of 1% to 10% instead of an LP fee. See [Token Deployments](../token-deployments.md) for the full overview, and [Creator Rewards and Fees](../creator-rewards-and-fees.md) for how the tax is split.
 
-{% hint style="info" %}
 `GET /api/metadata/factories` returns the live v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum.
-{% endhint %}
 
 See [v5](../../references/core-contracts/v5.md) in Core Contracts for what each contract does, and [Deployed Contracts](../../references/deployed-contracts.md) for the addresses.
 

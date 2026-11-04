@@ -76,9 +76,7 @@ For a v5 token, rewards collect in the FeeEscrow, one balance per recipient and 
 
 For v4 and earlier tokens, the claim distributes the creator rewards from the token's LP.
 
-{% hint style="info" %}
 On v4 and earlier tokens, anyone can initiate the claim process for any token. Creator rewards will then be distributed to the token creator - not the wallet initiating the claim process.
-{% endhint %}
 
 See [Managing a Token](managing-a-token.md) for everything else the Admin page does.
 

@@ -1,8 +1,6 @@
 # Clanker.world Deployments
 
-{% hint style="success" %}
-**Live**: Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy).
-{% endhint %}
+Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy).
 
 Users may create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters users can configure.
 
