@@ -11,7 +11,7 @@
   "navigation": {
     "groups": [
       {
-        "group": "Introduction",
+        "group": "Getting Started",
         "pages": [
           "index"
         ]
@@ -100,6 +100,11 @@
         "pages": [
           "sdk-reference/sdk-reference",
           "sdk-reference/core-utilities",
+          {
+            "group": "v5",
+            "tag": "Soon",
+            "pages": []
+          },
           "sdk-reference/v4",
           "sdk-reference/v3",
           "sdk-reference/extensions",

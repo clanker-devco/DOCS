@@ -19,19 +19,19 @@
 * [Holder Dividends](general/holder-dividends.md)
 * [Token Burns](general/token-burns.md)
 * [Managing a Token](general/managing-a-token.md)
-* [Clanker.world Warning Tags](general/clanker.world-warning-tags.md)
-* [Verifying the Social Context of Token Deploys](general/verifying-the-social-context-of-token-deploys.md)
+* [Warning Tags](general/clanker.world-warning-tags.md)
+* [Verifying Social Context](general/verifying-the-social-context-of-token-deploys.md)
 
 ## Droids
 
 * [Overview](droids/README.md)
-* [Droid Funding & Runway](droids/funding.md)
+* [Funding & Runway](droids/funding.md)
 * [Create a Droid](droids/create.md)
-* [Manage your Droid](droids/manage.md)
-* [Writing a Droid Voice](droids/voice.md)
-* [Droid Roadmap](droids/roadmap.md)
-* [Droid FAQ](droids/faq.md)
-* [Troubleshooting Droids](droids/troubleshooting.md)
+* [Manage a Droid](droids/manage.md)
+* [Droid Voice](droids/voice.md)
+* [Roadmap](droids/roadmap.md)
+* [FAQ](droids/faq.md)
+* [Troubleshooting](droids/troubleshooting.md)
 * [Glossary](droids/glossary.md)
 
 ## API Reference
