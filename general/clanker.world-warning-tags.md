@@ -1,74 +1,49 @@
 # Clanker.world Warning Tags
 
-### Token Warning Tags
+clanker.world adds warning tags to tokens whose launch looks unusual. This page explains what each tag means and what to check when you see one.
 
-When browsing tokens on clanker.world, you may see warning tags that indicate potential issues or unusual configurations. These warnings don't prevent tokens from being displayed, but they help users make informed decisions. The same warning tags are also provided when fetching info about specific tokens via the API.
+## How warning tags work
 
-### Warning Types
+clanker.world checks each token's launch data: its pool, pair token, starting price and liquidity positions. When something doesn't match a standard Clanker launch, the token gets a warning tag. Tagged tokens are still listed. The tags are also returned in the token's API data.
 
-#### **UNUSUAL\_TICK**
+Warning tags are automated checks. A token without tags is not guaranteed to be safe, so always do your own research before you trade.
 
-**What it means**
+## Tags at a glance
 
-The token's initial price doesn't match expected market cap thresholds or pricing standards.
+| Tag                    | Meaning                                                |
+| ---------------------- | ------------------------------------------------------ |
+| `UNUSUAL_TICK`         | The starting price doesn't match a standard launch.    |
+| `UNUSUAL_PAIR_ADDRESS` | The pair token isn't a supported quote token.          |
+| `MISSING_POOL_CONFIG`  | The pool's launch data couldn't be found.              |
+| `UNUSUAL_POSITIONS`    | The pool setup doesn't match a standard configuration. |
 
-**Why you see this**
+## `UNUSUAL_TICK`
 
-* For ETH-paired tokens: The calculated market cap is below \~1 ETH at deployment.
-* For [Supported Quote Tokens](../references/supported-quote-tokens.md): The starting tick of the pool deviates from the initial tick supported via API deployments.
+The token's starting price doesn't match what a standard deployment would set.
 
-**Should I be concerned?**
+* **v5**: the launch liquidity doesn't start at the pool's opening price, or the launch positions don't add up to the full supply.
+* **v4 and earlier, ETH pair**: the market cap at deployment is below about 1 ETH.
+* **v4 and earlier, other [Supported Quote Tokens](../references/supported-quote-tokens.md)**: the pool's starting tick is different from the one API deployments use.
 
-This may indicate an incorrectly configured deployment or unusual starting market caps. Proceed with caution and verify the token's intended pricing.
+**What to do**: the deployment may be misconfigured or start at an unusual market cap. Check the token's intended pricing before you trade.
 
-***
+## `UNUSUAL_PAIR_ADDRESS`
 
-#### **UNUSUAL\_PAIR\_ADDRESS**
+The token is paired with a token that isn't on the list of [Supported Quote Tokens](../references/supported-quote-tokens.md). For a v5 token, the pair must be native ETH or USDC on Base.
 
-**What it means**
+**What to do**: an unusual pair can mean an experimental liquidity setup. If the pair token has little liquidity on chain, you may only be able to trade the new token if you already hold the pair token. Check that the pair token is safe.
 
-The token is paired with a quote token that is not on the list of [Supported Quote Tokens](../references/supported-quote-tokens.md).
+## `MISSING_POOL_CONFIG`
 
-**Why you see this**
+clanker.world couldn't load the token's pool configuration.
 
-The token isn't paired with one of the [Supported Quote Tokens](../references/supported-quote-tokens.md).
+**What to do**: this tag is common on legacy tokens (v3.1.0 and earlier). On a v4 or v5 token, the starting market cap and liquidity setup may be unknown, so take extra care.
 
-**Should I be concerned?**
+## `UNUSUAL_POSITIONS`
 
-Unusual pairings might indicate experimental of non-standard liquidity setups. If the paired token itself doesn't have deep onchain liquidity, the new token might not be able to be traded without directly having the paired token. Proceed with caution and verify the safety of the paired token.
+The token's pool setup doesn't match a standard configuration.
 
-***
+* **v5**: the pool doesn't use the v5 hook.
+* **v4 and earlier**: the liquidity positions don't match a preset setup, such as `Standard` or `Project`.
 
-#### **MISSING\_POOL\_CONFIG**
-
-**What it means**
-
-Legacy pool configuration data is missing.
-
-**Why you see this**
-
-The token's liquidity pool data couldn't be properly retrieved.
-
-**Should I be concerned?**&#x20;
-
-These are primarily for legacy (v3.1.0 and previous) tokens. If v4.0.0+ tokens show this warning, proceed with caution as the starting market cap and liquidity configuration might not be known.
-
-***
-
-#### **UNUSUAL\_POSITIONS**
-
-**What it means**
-
-The token's liquidity positions don't match standard configurations.
-
-**Why you see this**
-
-The token's liquidity positions do not conform to either the preconfigured `Standard` or `Project` liquidity setups.
-
-**Should I be concerned?**
-
-While not necessarily dangerous, unusual positions might indicate experimental liquidity distributions or ranges that are not as straightforward. Proceed with caution - users may also validate event logs for where the initial liquidity was placed during the token creation process.
-
-***
-
-Warning tags serve as automated assessments and to not perfectly capture tokens that are "safe". Always conduct your own research before making trading decisions.
+**What to do**: this isn't necessarily dangerous, but the liquidity ranges may be experimental or less straightforward. You can check the token creation transaction's event logs to see where the initial liquidity was placed.

@@ -30,8 +30,13 @@
               "general/token-deployments/farcaster-bot-deployments",
               "general/token-deployments/preclank-deployments",
               "general/token-deployments/alternative-interface-deployments",
-              "general/token-deployments/v4-deployments",
-              "general/token-deployments/legacy-deployments"
+              {
+                "group": "Earlier Versions",
+                "pages": [
+                  "general/token-deployments/v4-deployments",
+                  "general/token-deployments/legacy-deployments"
+                ]
+              }
             ]
           },
           "general/creator-rewards-and-fees",

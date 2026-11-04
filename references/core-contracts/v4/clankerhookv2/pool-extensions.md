@@ -1,34 +1,38 @@
 # Pool Extensions
 
-Pool Extensions are a **ClankerHookV2** feature that enables users to specify custom logic to run in the hook's `afterSwap()` flow. The custom logic must reside in an external contract that implements the [`IClankerHookV2PoolExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2PoolExtension.sol) interface. The Clanker Team must approve pool extensions before they are used, feel free to reach out to us during the design process so we can give feedback. We expect most Pool Extensions to perform actions with the pool's generated fees, but the end logic is up to the token's deployer.&#x20;
+Pool Extensions are a **ClankerHookV2** feature that lets you run custom logic in the hook's `afterSwap()` flow.
 
-### Examples of Pool Extension Capabilities
+## How it works
+
+The custom logic must live in an external contract that implements the [`IClankerHookV2PoolExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2PoolExtension.sol) interface. The Clanker team must approve pool extensions before they can be used, so feel free to reach out during the design process and we'll give feedback. We expect most Pool Extensions to act on the pool's generated fees, but the logic is up to the token's deployer.
+
+## Examples of Pool Extension capabilities
 
 Pool Extensions can perform various actions, including:
 
-* **Token swapping**: Use generated fees from one of the token's specified reward recipients to purchase a different token. See our [`UniV3SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV3SwapExtension.sol) or [`UniV4SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV4SwapExtension.sol) as examples of using generated WETH fees to swap for a different token.
-* **Fee distribution**: Split the generated fees between people who stake a token on the extension contract or between people who have swapped on the pool.
+* **Token swapping**: Use the fees generated for one of the token's reward recipients to buy a different token. See our [`UniV3SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV3SwapExtension.sol) or [`UniV4SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV4SwapExtension.sol) for examples that use generated WETH fees to swap for a different token.
+* **Fee distribution**: Split the generated fees between people who stake a token on the extension contract, or between people who have swapped on the pool.
 * **Conditional fee unlocking**: Unlock the generated fees only if the pool reaches and sustains a certain market cap.
 
-These are just examples, and we'll update this list as people develop interesting implementations.
+These are just examples, and we'll update this list as people build interesting implementations.
 
-### Security Limitations
+## Security limitations
 
 For security reasons, Pool Extensions are limited in what they can do. Pool Extensions **cannot**:
 
-* **Stop a swap**: Pool Extensions cannot prevent a swap from occurring. If the Pool Extension reverts, the swap will complete normally. This is because we do not want pool extensions to break and prevent users from exiting their positions.
-* **Modify a swap**: Pool Extensions cannot modify the swap's LP fee or balance deltas. Additionally, pool extensions run after a swap completes, meaning you cannot use a pool extension to front-run swaps.
+* **Stop a swap**: If the Pool Extension reverts, the swap still completes normally. We don't want a broken pool extension to stop users from exiting their positions.
+* **Modify a swap**: Pool Extensions can't change the swap's LP fee or balance deltas. They also run after a swap completes, so you can't use one to front-run swaps.
 
-### Pool Extension Partial Swap Coverage
+## Partial swap coverage
 
-Not all swaps made on a pool will trigger the pool extension. There are two types of swaps which will not cause the pool extensions to be called out to:
+Not every swap on a pool triggers the pool extension. Two types of swaps don't call it:
 
-1. Swaps made during the token's factory level extensions. For example, the swap made during the `ClankerUniv4EthDevBuy` logic will not trigger the pool extension. This is due to the pool extenion's second initialization call, `initializePostLockerSetup()`, occurring after a token's extensions are called.&#x20;
-2. Swaps made during the hook's fee conversion process. If a LP fee needs to be converted by the [ClankerLpLockerFeeConversion](../fee-management-contracts/clankerlplockerfeeconversion.md) contract, the fee conversion swap will not trigger the pool extension. This ensures that a pool extension is only called once per user-level swap.
+1. **Swaps made during the token's factory-level extensions.** For example, the swap made by `ClankerUniv4EthDevBuy` doesn't trigger the pool extension. This is because the pool extension's second initialization call, `initializePostLockerSetup()`, happens after the token's extensions run.
+2. **Swaps made during the hook's fee conversion process.** If an LP fee needs to be converted by the [ClankerLpLockerFeeConversion](../fee-management-contracts/clankerlplockerfeeconversion.md) contract, the conversion swap doesn't trigger the pool extension. This ensures a pool extension is only called once per user-level swap.
 
-### Initialization
+## Initialization
 
-Pool Extensions must be specified during a token's deployment and cannot be modified afterward. The address of the Pool Extension and initialization data can be set on the [`IClankerHookV2.PoolInitializationData`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2.sol) struct, as shown below:
+Pool Extensions must be specified at token deployment and can't be changed afterward. Set the Pool Extension's address and initialization data on the [`IClankerHookV2.PoolInitializationData`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2.sol) struct:
 
 ```solidity
 struct PoolInitializationData {
@@ -38,9 +42,9 @@ struct PoolInitializationData {
 }
 ```
 
-#### Example Encoding
+### Example encoding
 
-Here's an example of encoding on the higher-level token deployment struct:
+Here's an example of encoding it on the higher-level token deployment struct:
 
 ```solidity
 // token deployment struct passed into deployToken()
@@ -57,11 +61,9 @@ deploymentConfig.poolConfig.poolData = abi.encode(
 );
 ```
 
-#### Initialization Functions
+### Initialization functions
 
-Two initialization functions are triggered during a Pool Extension's setup: one called during the pool's initialization function and one during the later Mev module's initialization step. The first call receives the `extensionData` from above, and the second receives the `IClankerLpLocker` address, which can be queried to retrieve information about the token's fee configuration.
-
-See the two initialization functions below:
+Two initialization functions run during a Pool Extension's setup: one during the pool's initialization, and one later during the MEV module's initialization step. The first call receives the `extensionData` from above. The second receives the `IClankerLpLocker` address, which you can query for the token's fee configuration.
 
 ```solidity
 interface IClankerHookV2PoolExtension {
@@ -82,9 +84,9 @@ interface IClankerHookV2PoolExtension {
 }
 ```
 
-### Runtime Logic
+## Runtime logic
 
-For every swap on a pool, the ClankerHookV2 implementation will attempt to run the pool's extension if one exists. Most available information about the swap is passed into the Pool Extension's `afterSwap()` implementation:
+For every swap on a pool, ClankerHookV2 tries to run the pool's extension if one exists. Most of the swap's information is passed into the Pool Extension's `afterSwap()` implementation:
 
 ```solidity
 interface IClankerHookV2PoolExtension {
@@ -99,11 +101,11 @@ interface IClankerHookV2PoolExtension {
 }
 ```
 
-#### Hook Data Support
+### Hook data support
 
-Optionally, a Pool Extension can operate on data passed into the `hookData` field of the PoolManager's `swap()` function. Not all swap routers support `hookData` today, so this information would most likely only be present for swaps coming through custom frontends or mini apps.
+A Pool Extension can optionally act on data passed into the `hookData` field of the PoolManager's `swap()` function. Not all swap routers support `hookData`, so this data will mostly come from swaps through custom frontends or mini apps.
 
-The `poolExtensionSwapData` needs to be encased in the `IClankerHookV2`'s `PoolSwapData`, which accommodates both the MEV module's and pool extension's custom data:
+The `poolExtensionSwapData` must be wrapped in `IClankerHookV2`'s `PoolSwapData`, which holds both the MEV module's and the pool extension's custom data:
 
 ```solidity
 struct PoolSwapData {
@@ -112,8 +114,10 @@ struct PoolSwapData {
 }
 ```
 
-**Important**: It is difficult to determine the identity of the swapper. The `tx.origin` can be an account abstraction entity, and the swap's normal `msg.sender` is typically a router. We recommend using the `poolExtensionSwapData` feature to pass in a swapper's identity if needed and otherwise assuming a best-effort level of identifying swappers.
+{% hint style="warning" %}
+It's hard to determine who the swapper is. The `tx.origin` can be an account abstraction entity, and the swap's `msg.sender` is usually a router. If you need the swapper's identity, pass it in with `poolExtensionSwapData`; otherwise, treat swapper identification as best effort.
+{% endhint %}
 
-### Legal Disclaimer
+## Legal disclaimer
 
-Please consult your lawyers before deployment. Clanker takes no responsibility for activities taking place in Pool Extensions.
+Please consult your lawyers before deployment. Clanker takes no responsibility for activity in Pool Extensions.

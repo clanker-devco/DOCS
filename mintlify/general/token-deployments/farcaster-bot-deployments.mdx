@@ -3,54 +3,43 @@ title: "Farcaster Bot Deployments"
 sidebarTitle: "Farcaster Bot"
 ---
 
-### Quick Start
+You can deploy a token by tagging @clanker in a cast on Farcaster. The bot launches a v4 token with Clanker's recommended fee and liquidity settings. To launch a v5 token from a cast, save a [preclank](/general/token-deployments/preclank-deployments) first.
 
-To deploy a token, tag @clanker in a cast on Farcaster[^1] and provide a token name, token ticker, and optional image / gif in the body of the cast. By default, new tokens will be paired with WETH as the quote token of the initial pool. Optionally, you can instruct Clanker to deploy a token quoted with tokens other than WETH by stating the desired quote token in the same cast. See [Supported Quote Tokens](/references/supported-quote-tokens) for a full list of quote tokens available.
+You need a Farcaster account to cast. You can sign up at [farcaster.xyz](https://farcaster.xyz/), or with [Super](https://www.supercast.xyz/) or [NewCaster](https://newcaster.org/).
 
-> *i.e. @clanker deploy a token named myNewToken with the ticker MINE paired with CLANKER*
+## Quick start
 
-Clanker will reply to the cast with one of three responses:
+Tag @clanker in a cast with a token name, a ticker and an optional image or GIF. For example:
 
-1. Upon successful deployment, Clanker will respond with a link / [frame](https://docs.farcaster.xyz/developers/frames/v2/) to the token page of the deployed token.
-2. If the request is not clear to Clanker, Clanker will respond with clarifying questions in order to determine the token name, ticker, and whether the creator wants to deploy the token.
-3. If the creator is unable to deploy a token for various reasons, Clanker will respond with the cast with the reason.
+> @clanker deploy a token named myNewToken with the ticker MINE paired with CLANKER
 
-@clanker on Farcaster deploys tokens on Base by default. To deploy a token on other supported chains, please read below for the chain's trigger phrases.
+The token is paired with WETH unless you name another quote token in the same cast. See [Supported Quote Tokens](/references/supported-quote-tokens) for the full list.
 
-### Create a Token on Base (Default)
+@clanker replies in one of three ways:
 
-New Clanker tokens created via the @clanker bot on Farcaster go through the following deployment process.
+1. **Deployed**: a link or [frame](https://docs.farcaster.xyz/developers/frames/v2/) to the new token's page.
+2. **Needs more info**: questions to confirm the token name, the ticker and that you want to deploy.
+3. **Can't deploy**: the reason the token can't be deployed.
 
-1. User asks @clanker on Farcaster to deploy a token. The user has the option to:
-   1. Specify to reserve a portion of the supply in a vault. The maximum amount to vault is 30% and the default is 30% if not specified.
-   2. Specify how long, in days, to lock the tokens in the vault for. The minimum vault time is 31 days and the default is 31 days if not specified.
-2. A new ERC-20 token (the base token) is created with a total supply of 100 billion (100,000,000,000). The token isn't mintable after this step, so the max supply will always be 100 billion tokens.
-3. If the user requests to allocate a portion of the supply to the creator vault, that percentage of the supply is then sent to the creator vault.
-4. A new Uniswap V4 pool is initiated with the base token and quote token (WETH, by default). The entire total supply of the token, less the portion of the supply allocated to the vault, is deposited into the pool as single-sided liquidity. The starting market cap is set to 10 WETH.
-5. The LP NFTs that are created during step 4 are sent to a Clanker LP Locker. The LP Locker has no withdraw function, so LP NFTs that are deposited into it can never be withdrawn and are effectively locked forever. See [Deployed Contracts](/references/deployed-contracts) and [Audits](/references/audits) for more info.
+## How it works
 
-<Info>
+The bot deploys on Base by default. Each deployment goes through these steps:
 
-* Farcaster bot deployments create tokens in pools with Clanker's recommended fee and liquidity configurations.
-* Users will receive 80% of LP fees as creator rewards for Farcaster bot deployments.
+1. You ask @clanker to deploy a token. You can also ask it to:
+   1. Reserve part of the supply in a vault. The maximum and the default are 30%.
+   2. Lock the vault for a number of days. The minimum and the default are 31 days.
+2. A new ERC-20 token is created with a total supply of 100 billion (100,000,000,000). The token can't be minted after this, so the supply is fixed.
+3. If you asked for a vault, that percent of the supply goes into the creator vault.
+4. A new Uniswap v4 pool is created with the token and its quote token (WETH by default). The rest of the supply goes into the pool as single-sided liquidity, with a starting market cap of 10 WETH.
+5. The LP NFTs from step 4 go to a Clanker LP Locker. The locker has no withdraw function, so the liquidity is locked forever. See [Deployed Contracts](/references/deployed-contracts) and [Audits](/references/audits).
 
-</Info>
+As the creator, you receive 80% of the LP fees as creator rewards.
 
-### Create a Token on Arbitrum
+## Other chains
 
-Mention any of the following phrases (not case sensitive) in your cast in addition to following the default deployment instructions to deploy a token on Arbitrum:
+To deploy on another chain, follow the steps above and add one of that chain's trigger phrases to your cast. Phrases are not case sensitive.
 
-* arbitrum
-* garbitrum
-* arbitrugm
-
-### Create a Token on Monad Testnet
-
-Mention any of the following phrases (not case sensitive) in your cast in addition to following the default deployment instructions to deploy a token on Monad Testnet:
-
-* monad
-* gmonad
-
-[^1]: Don't have a Farcaster account? You can sign up at [farcaster.xyz](https://farcaster.xyz/)!\
-    \
-    Alternatively, you can also visit our friends at [Super](https://www.supercast.xyz/) and [NewCaster](https://newcaster.org/) to create a Farcaster account.
+| Chain         | Trigger phrases                      |
+| ------------- | ------------------------------------ |
+| Arbitrum      | `arbitrum`, `garbitrum`, `arbitrugm` |
+| Monad Testnet | `monad`, `gmonad`                    |

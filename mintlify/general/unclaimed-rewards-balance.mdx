@@ -2,45 +2,111 @@
 title: "Unclaimed Rewards Balance"
 ---
 
-If you've deployed a token with Clanker that has been traded at least once, you have earned rewards.
+Once a token you deployed with Clanker has been traded at least once, it has earned rewards. This page shows how to check what you can claim.
 
-### Clanker v5
+## Clanker v5
 
-v5 rewards collect in the FeeEscrow, one balance per recipient and currency. Each balance includes the rewards of all v5 tokens that pay that wallet, because one claim pays all of it.
+### How it works
 
-**On clanker.world**
+v5 rewards collect in the FeeEscrow, one balance per recipient and currency (ETH or USDC). A recipient's balance includes the rewards of all v5 tokens that pay that wallet, and one claim pays all of it, so claiming on one token also clears the balance shown on the recipient's other v5 tokens.
+
+### Example
+
+A wallet is the reward recipient of two ETH-paired v5 tokens. Token A has earned 0.3 ETH and token B 0.2 ETH since the last claim.
+
+| Step                          | Amount  | Calculation |
+| ----------------------------- | ------- | ----------- |
+| Balance shown on either token | 0.5 ETH | 0.3 + 0.2   |
+| Paid by one claim             | 0.5 ETH | All of it   |
+| Balance after the claim       | 0 ETH   | On both     |
+
+### Check on clanker.world
 
 1. Open the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`.
-2. The **Claim Rewards** card shows the unclaimed balance of the selected reward recipient, in the pair token (ETH or USDC).
-3. A past recipient keeps its unclaimed balance. Connect that wallet and check the **Tax Fees** card on your [clanker.world profile](https://www.clanker.world/profile).
+2. The **Claim Rewards** card shows the unclaimed balance of the selected reward recipient, in the pair token.
 
-**With the API**
+A past recipient keeps its unclaimed balance. Connect that wallet and check the **Tax Fees** card on your [clanker.world profile](https://www.clanker.world/profile).
+
+### With the API
 
 `GET /api/creator-earnings/{tokenAddress}` returns the unclaimed FeeEscrow balances of the token's current reward recipients. See [Creators](/api-reference/public/creators).
 
-### v4 and earlier
+### Related
 
-You can check the balance of unclaimed rewards that you've accrued by looking up the balance of `Unclaimed Fees` on the initial LP of your token.
+* [Creator Rewards & Fees](/general/creator-rewards-and-fees) for how rewards are earned and claimed.
+* [Managing a Token](/general/managing-a-token) for the Admin page.
 
-1. Go to your token's page on [https://www.clanker.world/clanker](https://www.clanker.world/clanker) and select `BaseScan`
+## v4 and earlier
 
-   ![unclaimed rewards step 1](/assets/unclaimed-rewards-step-1.png)
-2. Click on the contract address for the token's contract
+The token page on clanker.world shows an estimate of unclaimed rewards near the bottom. For a token whose initial LP is a Uniswap v3 position, you can also check the `Uncollected fees` of that position on chain:
 
-   ![unclaimed rewards step 2](/assets/unclaimed-rewards-step-2.png)
-3. Click on the contract creation transaction
+<Steps>
 
-   ![unclaimed rewards step 3](/assets/unclaimed-rewards-step-3.png)
-4. Obtain the `Token ID` for the LP
+<Step title="Open the token on BaseScan">
 
-   ![unclaimed rewards step 4](/assets/unclaimed-rewards-step-4.png)
-5. Visit [`https://app.uniswap.org/positions/v3/base/[YOUR TOKEN ID HERE]`](https://app.uniswap.org/positions/v3/base/1119330) and replace the bracketed section with your `Token ID` from the previous step.&#x20;
-6. 40% of the `Uncollected fees` is the current unclaimed rewards balance that token creators can claim. Please note that the dollar values of the rewards is an estimate and will fluctuate along with the prices of the underlying tokens in the pool, $CLANKER and $WETH in this case.\
-   \
-   Using $CLANKER as an example, the creator could claim:\
-   \
-   148.28 $CLANKER \* 40% = **\~59.312 $CLANKER** in creator rewards\
-   3.73 $WETH \* 40% = **\~1.492 $WETH** in creator rewards
 
-   ![unclaimed rewards step 6](/assets/unclaimed-rewards-step-6.png)
-7. Please see [FAQ](/general/faq) for detail on claiming creator rewards.
+Go to your token's page on [clanker.world](https://www.clanker.world/) and select `BaseScan`.
+
+![unclaimed rewards step 1](/assets/unclaimed-rewards-step-1.png)
+
+</Step>
+
+
+<Step title="Open the token contract">
+
+
+Click the contract address of the token.
+
+![unclaimed rewards step 2](/assets/unclaimed-rewards-step-2.png)
+
+</Step>
+
+
+<Step title="Open the creation transaction">
+
+
+Click the contract creation transaction.
+
+![unclaimed rewards step 3](/assets/unclaimed-rewards-step-3.png)
+
+</Step>
+
+
+<Step title="Find the LP token ID">
+
+
+Note the `Token ID` of the LP position.
+
+![unclaimed rewards step 4](/assets/unclaimed-rewards-step-4.png)
+
+</Step>
+
+
+<Step title="Open the position on Uniswap">
+
+
+Visit `https://app.uniswap.org/positions/v3/base/YOUR_TOKEN_ID`, with your `Token ID` in place of `YOUR_TOKEN_ID` (for example, [this position](https://app.uniswap.org/positions/v3/base/1119330)).
+
+</Step>
+
+
+<Step title="Work out the creator's part">
+
+
+40% of the `Uncollected fees` is the creator's unclaimed rewards. Dollar values are estimates and move with the prices of the two tokens in the pool.
+
+![unclaimed rewards step 6](/assets/unclaimed-rewards-step-6.png)
+
+</Step>
+
+
+</Steps>
+
+For the $CLANKER position in the screenshot:
+
+| Token    | Uncollected fees | Creator's part (40%) |
+| -------- | ---------------- | -------------------- |
+| $CLANKER | 148.28           | \~59.312             |
+| $WETH    | 3.73             | \~1.492              |
+
+See the [FAQ](/general/faq) for claiming creator rewards.

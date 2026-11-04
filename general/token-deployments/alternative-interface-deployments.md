@@ -1,13 +1,21 @@
 # Alternative Interface Deployments
 
-Alternative interfaces that deploy tokens through the Clanker SDK have additional customizability and may set a variety of different parameters. Please refer to the documentation of each interface to better understand their deployment parameters.
+Other apps built on Clanker can deploy tokens for you. They use the Clanker SDK, the [deploy API](v5-deployments.md) or the Clanker contracts directly.
 
-This includes but is not limited to custom:
+## How it works
 
-* Creator rewards splits
+An interface can set deployment parameters that the clanker.world form and the @clanker bot don't offer, or set them in its own way. Check each interface's documentation for the options it supports.
+
+## What an interface can customize
+
+These include, but are not limited to:
+
+* Creator reward splits
 * Starting market cap
 * Quote token pairs
-* Liquidity curves via placing multiple LP positions
-* Vaulting
+* Liquidity curves, by placing multiple LP positions
+* Vaults
 * Airdrops
-* Creator Buy / Dev Buy
+* Creator buy (dev buy)
+
+Vaults, airdrops and custom liquidity positions apply to v4 tokens. See [v4 Deployments](v4-deployments.md).

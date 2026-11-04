@@ -1,71 +1,81 @@
 # Clanker.world Deployments
 
-Create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters you can configure.
+You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. This page walks through each field on that form.
 
-On Base, the **Token type** field under **Token Settings** selects the token version: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. See [Token Deployments](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
+## How it works
 
-### Token Info
+1. Open the [deploy page](https://www.clanker.world/deploy) and connect a wallet.
+2. Fill in the token info: network, name, symbol, image and optional metadata.
+3. On Base, choose the **Token type** under **Token Settings**: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. The form shows the settings for that type.
+4. Set the options you want, then deploy and confirm the transaction in your wallet.
+
+For how each version works, see the [Token Deployments overview](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
+
+## Token Info
+
+These fields are the same for both token types.
 
 {% stepper %}
 {% step %}
 
-#### Basic Token Info
+### Basic info
 
-*Required, minimum metadata for token creation.*
+*Required.*
 
 * Network (chain)
 * Name
-* Symbol / ticker
+* Symbol (ticker)
 * Image
-  {% endstep %}
+{% endstep %}
 
 {% step %}
 
-#### Token Metadata
+### Metadata
 
-*Optional, additional onchain metadata fields. They stay editable after launch, except on a v5 token with **Editable metadata** off.*
+*Optional. Metadata stays editable after launch, except on a v5 token with **Editable metadata** off.*
 
 * Description
 * Telegram link
 * Website link
 * X (Twitter) link
 * Farcaster link
-  {% endstep %}
-
+{% endstep %}
 {% endstepper %}
 
-### v5 Parameters
+## v5 Parameters
+
+With **Token type** set to **V5**, the form shows these settings.
 
 {% stepper %}
 {% step %}
 
-#### Tax
+### Tax
 
 *Required. Each rate must be between 1% and 10%.*
 
-* **Buy tax**, charged on each buy. It includes the Clanker fee.
-* **Sell tax**, charged on each sell. It includes the Clanker fee.
+* **Buy tax**: charged on each buy, including the Clanker fee.
+* **Sell tax**: charged on each sell, including the Clanker fee.
 
 The form shows how each trade is split between Clanker, creator funds, holder dividends and burn.
 {% endstep %}
 
 {% step %}
 
-#### Tax Allocation
+### Tax allocation
 
-*Optional. How the tax is shared after the Clanker fee. Defaults to 100% creator funds.*
+*Optional. Splits the tax left after the Clanker fee. Defaults to 100% creator funds.*
 
-* **Creator funds**, the rest of the tax, paid to the reward recipients.
-* **Holder dividends**, percent of the tax paid to holders. See [Holder Dividends](../holder-dividends.md).
-  * **Minimum dividend holding**, the balance a wallet needs to earn dividends (at least 10,000 tokens).
-* **Burn allocation**, percent of the tax burned in the launched token. See [Token Burns](../token-burns.md).
+* **Creator funds**: the rest of the tax, paid to the reward recipients.
+* **Holder dividends**: the percent paid to holders. See [Holder Dividends](../holder-dividends.md).
+  * **Minimum dividend holding**: the balance a wallet needs to earn dividends (at least 10,000 tokens).
+* **Burn allocation**: the percent burned in the launched token. See [Token Burns](../token-burns.md).
 
 Holder dividends and burn allocation together must not exceed 100%.
 {% endstep %}
 
 {% step %}
 
-#### Sniper Tax
+### Sniper tax
 
 *Optional, on or off.*
 
@@ -74,106 +84,111 @@ When on, trades in the first 20 seconds after launch pay a total fee that starts
 
 {% step %}
 
-#### Editable Metadata
+### Editable metadata
 
 *Optional, on or off.*
 
-When on, the creator can change the image and metadata after launch, and verify the token. When off, the image and metadata stay as they are at launch.
+When on, the creator can change the image and metadata after launch, and verify the token. When off, the image and metadata stay as they were at launch.
 {% endstep %}
 
 {% step %}
 
-#### Rewards
+### Rewards
 
-*Optional, set additional reward recipients for the creator funds. Defaults to 100% to the connected wallet.*
+*Optional. Defaults to 100% to the connected wallet.*
 
-For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
+Add reward recipients to split the creator funds. For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 {% endstep %}
 
 {% step %}
 
-#### Pool
+### Pool
 
-*Optional, choose the pair token.*
+*Optional. Defaults to ETH.*
 
-* **Pair**, ETH or USDC. The factory sets the starting price, and the form shows the starting market cap.
+* **Pair**: ETH or USDC. The factory sets the starting price, and the form shows the starting market cap.
 {% endstep %}
 
 {% step %}
 
-#### Creator Buy (Dev Buy)
+### Creator buy (dev buy)
 
-*Optional, spend ETH to make the first buy at launch.*
+*Optional. Spend ETH to make the first buy at launch.*
 
-* **ETH amount**, the ETH to spend. With a USDC pair, the launch changes the ETH to USDC first, then buys the token.
-* **Maximum slippage**, above 0% and below 50%. If the buy gets fewer tokens than this allows, the whole launch reverts.
+* **ETH amount**: the ETH to spend. With a USDC pair, the launch swaps the ETH to USDC first, then buys the token.
+* **Maximum slippage**: above 0% and below 50%. If the buy gets fewer tokens than this allows, the whole launch reverts.
 {% endstep %}
 {% endstepper %}
 
-Vaults and airdrops are part of v4 only. A v5 token can also be saved as a preclank; see [Preclank Deployments](preclank-deployments.md).
+Vaults and airdrops are v4 only. You can also save a v5 token as a preclank and launch it later with a cast; see [Preclank Deployments](preclank-deployments.md).
 
-### v4 Parameters
+## v4 Parameters
 
-With **Token type** set to **V4**, the form shows the v4 fee, pool and extension settings below. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
+With **Token type** set to **V4**, the form shows these settings. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
 
 {% stepper %}
 {% step %}
 
-#### Fee Configuration
+### Fees
 
-*Optional, preset fee configurations for the initial token pool. Defaults to a dynamic fee.*
+*Optional. Defaults to a static 1% fee.*
 
-* `Recommended`, fixed % base fee + variable fee based on the pool's volatility
-* `Legacy`, fixed % fees on trades
-  {% endstep %}
-
-{% step %}
-
-#### Reward Recipients
-
-*Optional, set additional reward recipients for trading fees from the pool. Defaults to 100% of rewards going to the User's connected wallet, accrued in the paired token.*
-
-For each Reward Recipient, the following must be set:
-
-* **Admin Address**, address that has the ability to override the current Reward Recipient to a new address.
-* **Reward Percentage**, percentage of total rewards allocated to the Reward Recipient.
-* **Reward Type**, type of tokens that the user will receive as rewards. The token creator may configure this in the token creation process, but the Token Admin may change this at any time post-deployment.
-  * `Both`, accrue rewards in both the newly created Clanker token and the token it is paired against
-  * `Clanker`, accrue rewards entirely in the newly created Clanker token
-  * `Paired`, accrue rewards entirely in the paired token (typically $WETH)
-    {% endstep %}
+* **Type**:
+  * `Static`: a fixed fee on trades, with a tier of 1%, 2% or 3%.
+  * `Dynamic 3%`: a fee that changes with the pool's volatility, up to 3%.
+* **Sniper tax**: how many seconds the sniper tax lasts after launch (1 to 120, default 15). The tax falls from 80% to 5% over that time.
+{% endstep %}
 
 {% step %}
 
-#### Pool Configuration
+### Reward recipients
 
-*Optional, choose from a preset liquidity configuration. Defaults to the `Standard` pool type.*
+*Optional. Defaults to 100% to the connected wallet, paid in the pair token.*
 
-* **Pool Type**, preset liquidity configurations (via LP position placements)
-  * `Recommended`, optimized liquidity layout utilizing multiple LP positions. The current starting market cap for this configuration is fixed at `10 ETH`.
-  * `Legacy`, all liquidity is placed in one LP position with a configurable starting market cap.
-* **Starting Market Cap in ETH**, configure the starting market cap for `Standard` pools
-  {% endstep %}
+For each recipient, set:
 
-{% step %}
-
-#### Creator Vault
-
-*Optional, set aside tokens into a vault with configurable lockup and vesting periods. Defaults to a 30 day lockup with instant vesting.*
-
-* **Vault Percentage**, percent of total token supply to allocate to the vault.&#x20;
-  * The token creator wallet is the default beneficiary of the tokens; however, the token creator may set a new beneficiary post-deployment.
-* **Lockup Period**, day when the lockup ends and vesting begins. There is a 7 day minimum that is enforced at the contract level.
-* **Vesting Period**, day when vesting ends. Vesting occurs linearly between the Lockup Period and Vesting Period.&#x20;
-  * Once vesting begins, anyone can call the function on the vault to distribute the tokens. Irrespective of who calls the distribution function, the tokens will be sent to the current beneficiary (the token creator by default, unless changed post-deployment).
-    {% endstep %}
+* **Admin address**: the address that can change this recipient to a new address.
+* **Reward percentage**: the share of total rewards for this recipient.
+* **Reward type**: the token the recipient is paid in. The creator sets it at launch, and the recipient's admin can change it at any time after.
+  * `Both`: rewards in both the new token and its pair token.
+  * `Clanker`: rewards only in the new token.
+  * `Paired`: rewards only in the pair token (usually WETH).
+{% endstep %}
 
 {% step %}
 
-#### Creator Buy (Dev Buy)
+### Pool
 
-*Optional, spend ETH to guarantee the first swap on the newly created token.*
+*Optional. Choose the pair token and a preset liquidity layout. Defaults to `Project 10`.*
 
-There are no upper / lower limits to the amount of ETH that may be used for a Creator Buy.
+* **Pool type**:
+  * `Project 10`: the recommended layout across multiple LP positions, with a fixed starting market cap of 10 ETH. With a USDC pair, it is called `Project`.
+  * `Project 20`: the same layout with a fixed starting market cap of 20 ETH. ETH pairs only.
+  * `Legacy`: all liquidity in one LP position, with a starting market cap you set.
+* **Starting market cap**: the starting market cap in the pair token, for `Legacy` pools.
+{% endstep %}
+
+{% step %}
+
+### Creator vault
+
+*Optional. Set aside tokens in a vault with a lockup and vesting period. Defaults to a 30-day lockup with instant vesting.*
+
+* **Vault percentage**: the percent of total supply placed in the vault.
+  * The creator wallet is the default beneficiary. The creator can set a new beneficiary after launch.
+* **Lockup period**: when the lockup ends and vesting begins. The contract enforces a 7-day minimum.
+* **Vesting period**: when vesting ends. Tokens vest linearly between the end of the lockup and the end of vesting.
+  * Once vesting begins, anyone can call the vault to release the tokens. They always go to the current beneficiary.
+{% endstep %}
+
+{% step %}
+
+### Creator buy (dev buy)
+
+*Optional. Spend ETH to make the first buy at launch. ETH pairs only.*
+
+There is no upper or lower limit on the ETH amount.
 {% endstep %}
 {% endstepper %}
+
+The v4 form also has airdrop settings and the same **Preclank** option at the bottom of the form.

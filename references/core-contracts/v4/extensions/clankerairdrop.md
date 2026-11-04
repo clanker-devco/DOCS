@@ -1,12 +1,18 @@
 # ClankerAirdrop
 
-The **ClankerAirdrop** extension will allow a deployer to airdrop a portion of the token supply via a merkle root. To claim tokens, the recipient must have a leaf in the merkle root. The tokens can be configured with an initial `lockupDuration` and a follow-up `vestingDuration`. The tokens will be inaccessible until the `lockupDuration` passes and then will start a linear vest after the `lockupDuration` ends. The airdrop has a minimum lockup duration of 1 day and has no required vesting duration.
+The **ClankerAirdrop** extension lets a deployer airdrop a portion of the token supply to recipients listed in a merkle root.
 
-Anyone is able to trigger the `claim()` function to transfer funds from the airdrop to the recipient's address.
+## How it works
 
-For example, if a deployer wants to lock the airdropped tokens for 30 days and have all tokens available 60 days post-unlock, they would set the `lockupDuration` to 30 days and the `vestingDuration` to 30 days. At 45 days post-deployment, half of the airdropped token supply would be accessible.
+To claim tokens, the recipient must have a leaf in the merkle root. The tokens can be configured with an initial `lockupDuration` and a follow-up `vestingDuration`. The tokens are inaccessible until the `lockupDuration` passes, then vest linearly. The airdrop has a minimum lockup duration of 1 day and no required vesting duration.
 
-The **ClankerAirdrop**'s extension data is in the form of:
+Anyone can call the `claim()` function to transfer tokens from the airdrop to the recipient's address.
+
+For example, if a deployer wants to lock the airdropped tokens for 30 days and have all tokens available 60 days after deployment, they would set the `lockupDuration` to 30 days and the `vestingDuration` to 30 days. At 45 days after deployment, half of the airdropped supply would be accessible.
+
+## Extension data
+
+The **ClankerAirdrop** extension data has this form:
 
 ```solidity
 struct AirdropExtensionData {
@@ -16,11 +22,13 @@ struct AirdropExtensionData {
 }
 ```
 
-The airdrop expects leaves to be in abi-encoded format of: `(address recipient, uint256 amount)`. The **OpenZeppelin** MerkleProof library is used to verify the proof against the merkle root, with a JavaScript package available [here](https://github.com/OpenZeppelin/merkle-tree).
+The airdrop expects leaves in the ABI-encoded format `(address recipient, uint256 amount)`. The **OpenZeppelin** MerkleProof library verifies proofs against the merkle root, and a JavaScript package is available on [GitHub](https://github.com/OpenZeppelin/merkle-tree).
 
-Note: this extension does not verify on-chain that the merkle root's leaves add up to the total supply of the token. It is the responsibility of the deployer to ensure that the merkle root is valid. If the recipient is granted tokens in multiple leaves, the amount of tokens they are able to claim will be the maximum of the granted amounts.
+{% hint style="warning" %}
+This extension doesn't verify on-chain that the merkle root's leaves add up to the total supply of the token. The deployer is responsible for making sure the merkle root is valid. If a recipient is granted tokens in multiple leaves, they can claim the maximum of the granted amounts.
+{% endhint %}
 
-**User Facing Functions:**
+## User-facing functions
 
 ```solidity
 // callable by anyone, transfers the available tokens to the recipient

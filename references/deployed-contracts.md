@@ -1,5 +1,7 @@
 # Deployed Contracts
 
+Addresses of the Clanker contracts on each chain, grouped by version. Clanker v5 is live on Base. See [Core Contracts](core-contracts.md) for what each contract does.
+
 ## Mainnet Deployments
 
 ### Base: 8453
@@ -8,7 +10,7 @@
 
 <summary>v5</summary>
 
-| Contract              | Contract Address                           |
+| Contract              | Address                                    |
 | --------------------- | ------------------------------------------ |
 | Factory               | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
 | Hook                  | 0x5E320eA6278107968C119942E57d876c5F922AcC |
@@ -23,7 +25,7 @@
 
 <summary>v4.1.0</summary>
 
-| Contract                      | Contract Address                           |
+| Contract                      | Address                                    |
 | ----------------------------- | ------------------------------------------ |
 | ClankerHookDynamicFeeV2       | 0xd60D6B218116cFd801E28F78d011a203D2b068Cc |
 | ClankerHookStaticFeeV2        | 0xb429d62f8f3bFFb98CdB9569533eA23bF0Ba28CC |
@@ -38,7 +40,7 @@
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xE85A59c628F7d27878ACeB4bf3b35733630083a9 |
 | ClankerFeeLocker             | 0xF3622742b1E446D92e45E22923Ef11C2fcD55D68 |
@@ -59,7 +61,7 @@
 
 <summary>v3.1.0</summary>
 
-| Contract     | Contract Address                           |
+| Contract     | Address                                    |
 | ------------ | ------------------------------------------ |
 | Clanker      | 0x2A787b2362021cC3eEa3C24C4748a6cD5B687382 |
 | LpLockerv2   | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
@@ -71,7 +73,7 @@
 
 <summary>v3.0.0</summary>
 
-| Contract       | Contract Address                           |
+| Contract       | Address                                    |
 | -------------- | ------------------------------------------ |
 | Clanker        | 0x375C15db32D28cEcdcAB5C03Ab889bf15cbD2c5E |
 | ClankerPreSale | 0x71cDc0bDF30F5601fb0ac80Cf1d20B771342C035 |
@@ -83,7 +85,7 @@
 
 <summary>v2.0.0</summary>
 
-| Contract   | Contract Address                           |
+| Contract   | Address                                    |
 | ---------- | ------------------------------------------ |
 | Clanker    | 0x732560fa1d1A76350b1A500155BA978031B53833 |
 | LPLockerv2 | 0x618A9840691334eE8d24445a4AdA4284Bf42417D |
@@ -94,7 +96,7 @@
 
 <summary>v1.0.0</summary>
 
-| Contract      | Contract Address                           |
+| Contract      | Address                                    |
 | ------------- | ------------------------------------------ |
 | Clanker       | 0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1 |
 | LockerFactory | 0x18db5Fce22bE8814B7E31FBDA2f6488d607A1172 |
@@ -105,7 +107,7 @@
 
 <summary>v0.0.0</summary>
 
-| Contract          | Contract Address                           |
+| Contract          | Address                                    |
 | ----------------- | ------------------------------------------ |
 | SocialDexDeployer | 0x250c9FB2b411B48273f69879007803790A6AeA47 |
 | LockerFactory     | 0x515d45F06EdD179565aa2796388417ED65E88939 |
@@ -118,7 +120,7 @@
 
 <summary>v4.1.0</summary>
 
-| Contract         | Contract Address                           |
+| Contract         | Address                                    |
 | ---------------- | ------------------------------------------ |
 | ClankerAirdropV2 | 0x8Cb6e0216e98A7ACF622DC2dD6a39F1b4FF37014 |
 
@@ -128,7 +130,7 @@
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xEb9D2A726Edffc887a574dC7f46b3a3638E8E44f |
 | ClankerFeeLocker             | 0x92C0DCbAba17b0F5f3a7537dA82c0F80520e4dF6 |
@@ -148,7 +150,7 @@
 
 <summary>v4.1.0</summary>
 
-| Contract         | Contract Address                           |
+| Contract         | Address                                    |
 | ---------------- | ------------------------------------------ |
 | ClankerAirdropV2 | 0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2 |
 
@@ -158,7 +160,7 @@
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xE85A59c628F7d27878ACeB4bf3b35733630083a9 |
 | ClankerFeeLocker             | 0x1d5A0F0BD3eA07F78FC14577f053de7A3FEc35B2 |
@@ -174,13 +176,13 @@
 
 </details>
 
-### Mainnet: 1
+### Ethereum: 1
 
 <details>
 
 <summary>v4.1.0</summary>
 
-| Contract         | Contract Address                           |
+| Contract         | Address                                    |
 | ---------------- | ------------------------------------------ |
 | ClankerAirdropV2 | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
 
@@ -190,7 +192,7 @@
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0x6C8599779B03B00AAaE63C6378830919Abb75473 |
 | ClankerFeeLocker             | 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441 |
@@ -206,13 +208,13 @@
 
 </details>
 
-## Binance: 97
+### BNB Chain: 56
 
 <details>
 
 <summary>v4.1.0</summary>
 
-| Contract         | Contract Address                           |
+| Contract         | Address                                    |
 | ---------------- | ------------------------------------------ |
 | ClankerAirdropV2 | 0xBB0f069b995e0205cD5F92C84a1dF056a3F47900 |
 
@@ -222,7 +224,7 @@
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xea30438E0B5f99096cb05A8Da63be55A6A298F6a |
 | ClankerFeeLocker             | 0x67D04Ae42F03D9b63dE0E6F2d82bB186A0306bBb |
@@ -238,13 +240,13 @@
 
 </details>
 
-## Monad: 143
+### Monad: 143
 
 <details>
 
 <summary>v4.1.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                                    |
 | ---------------------------- | ---------------------------------------------------------- |
 | Clanker                      | 0xF9a0C289Eab6B571c6247094a853810987E5B26D                 |
 | ClankerFeeLocker             | 0xDe51a86D3b6EC9ac4756115D3744335Aa2c30144                 |
@@ -260,7 +262,7 @@
 
 </details>
 
-## Solana
+### Solana
 
 Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token on Solana.
 
@@ -272,7 +274,7 @@ Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token o
 
 <summary>v4.1.0</summary>
 
-| Contract                      | Contract Address                           |
+| Contract                      | Address                                    |
 | ----------------------------- | ------------------------------------------ |
 | ClankerHookDynamicFeeV2       | 0xBF4983dC0f2F8FE78C5cf8Fc621f294A993728Cc |
 | ClankerHookStaticFeeV2        | 0x11b51DBC2f7F683b81CeDa83DC0078D57bA328cc |
@@ -287,7 +289,7 @@ Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token o
 
 <summary>v4.0.0</summary>
 
-| Contract                     | Contract Address                           |
+| Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xE85A59c628F7d27878ACeB4bf3b35733630083a9 |
 | ClankerFeeLocker             | 0x42A95190B4088C88Dd904d930c79deC1158bF09D |
@@ -308,7 +310,7 @@ Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token o
 
 <summary>v3.1.0</summary>
 
-| Contract     | Contract Address                           |
+| Contract     | Address                                    |
 | ------------ | ------------------------------------------ |
 | Clanker      | 0x2A787b2362021cC3eEa3C24C4748a6cD5B687382 |
 | LpLockerv2   | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
@@ -322,7 +324,7 @@ Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token o
 
 <summary>v3.1.0</summary>
 
-| Contract     | Contract Address                           |
+| Contract     | Address                                    |
 | ------------ | ------------------------------------------ |
 | Clanker      | 0xA0C65813DD1Cde7092922a57548Ec1eD25994318 |
 | LpLockerv2   | 0xcd89C55d36097a64f777066A6cc8F2c31B7541F7 |

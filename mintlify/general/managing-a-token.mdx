@@ -2,32 +2,49 @@
 title: "Managing a Token"
 ---
 
-Every Clanker token has an Admin page on clanker.world:
+Every Clanker token has an Admin page on clanker.world where you claim rewards and manage the token:
 
 `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`
 
 Anyone can open it. To make changes, connect the wallet that holds the right role. A card you can't use shows a lock line that names who can.
 
-### Clanker v5
+## Clanker v5
+
+### Who can do what
 
 On a v5 token, admin power belongs to the **current creator**. Each reward recipient also has a **reward admin**, who manages that recipient slot.
 
-#### Claim rewards
+| Card                        | Who can use it                                                   |
+| --------------------------- | ---------------------------------------------------------------- |
+| **Claim Rewards**           | The reward recipient                                             |
+| **Update reward recipient** | The slot's reward admin, or the current creator for its own slot |
+| **Update reward admin**     | The slot's reward admin                                          |
+| **Creator rights**          | The current creator, then the new creator to accept              |
+| Image and metadata cards    | The current creator                                              |
+| **Verify Token**            | The current creator                                              |
+| **Post Announcement**       | The current creator                                              |
+
+### Claim rewards
 
 The **Claim Rewards** card claims the selected recipient's FeeEscrow balance. Connect the reward recipient's wallet. The balance includes the rewards of all v5 tokens that pay that wallet, and a claim pays all of it in the pair token (ETH or USDC). **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](/general/creator-rewards-and-fees).
 
-#### Change reward recipients and admins
+### Change reward recipients and admins
 
 * **Update reward recipient**: the reward admin of a slot changes where that slot's rewards go. The creator's own slot is moved by the current creator.
 * **Update reward admin**: the reward admin of a slot hands that role to another wallet.
 
 Unclaimed rewards stay with the old recipient, which can still claim them from its [profile](https://www.clanker.world/profile).
 
-#### Transfer creator rights
+### Transfer creator rights
 
-The **Creator rights** card moves the creator role to another wallet in two steps: the current creator proposes the new creator, and the new creator accepts in a second transaction. The current creator can cancel a pending transfer. Accepting also moves the creator's reward recipient. To change only the recipient, use **Update reward recipient**.
+The **Creator rights** card moves the creator role to another wallet in two steps:
 
-#### Update image and metadata
+1. The current creator proposes the new creator.
+2. The new creator accepts in a second transaction.
+
+The current creator can cancel a pending transfer. Accepting also moves the creator's reward recipient. To change only the recipient, use **Update reward recipient**.
+
+### Update image and metadata
 
 If the token was launched with editable metadata (the default), the current creator can:
 
@@ -37,21 +54,28 @@ If the token was launched with editable metadata (the default), the current crea
 
 A token launched without editable metadata can't change these, and can't be verified.
 
-#### Verify the token
+### Verify the token
 
-The **Verify Token** card gives the token the Verified badge on clanker.world. The current creator calls the factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written by the current creator after launch, counts. A value set at launch does not.
+The **Verify Token** card gives the token the Verified badge on clanker.world. It calls the factory's `updateTokenExtraMetadata(token, "verified", "true")` from the current creator's wallet. Only the exact value `true`, written by the current creator after launch, counts. A value set at launch does not.
 
-#### Post announcements
+### Post announcements
 
-The **Post Announcement** card posts a short update, with an optional link, to the token page. Only the current creator can post. Announcements are stored on chain in the Announcement Registry, and can't be edited or deleted. Holders see them in the **Announcements** card on the token page, and `GET /api/tokens/{address}/announcements` returns them (see [Tokens](/api-reference/public/tokens)).
+The **Post Announcement** card posts a short update, with an optional link, to the token page. Announcements are stored on chain in the Announcement Registry and can't be edited or deleted. Holders see them in the **Announcements** card on the token page.
 
-#### Bulk distribute
+### Bulk distribute
 
 **Bulk Distribute** sends the token to many wallets at once.
 
-Contract details are in [v5](/references/core-contracts/v5) and addresses in [Deployed Contracts](/references/deployed-contracts).
+### With the API
 
-### v4 and earlier
+`GET /api/tokens/{address}/announcements` returns a token's announcements (see [Tokens](/api-reference/public/tokens)), and `GET /api/creator-earnings/{tokenAddress}` returns its recipients' unclaimed rewards (see [Creators](/api-reference/public/creators)).
+
+### Related
+
+* [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance) to check a balance.
+* [v5 contracts](/references/core-contracts/v5) and [Deployed Contracts](/references/deployed-contracts) for contract details and addresses.
+
+## v4 and earlier
 
 The same Admin page manages older tokens. Depending on the version, it lets you:
 

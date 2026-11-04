@@ -5,7 +5,7 @@
     "source": "README.md",
     "route": "index",
     "oldPath": "readme",
-    "sourceSha256": "3c4cadd8a0b6c6c777b152e1cc23bf13e2afcc45e0206a72aac2ced67d8d5258"
+    "sourceSha256": "a9d198d2b958ca51ee42f9a13b2071719d755720679299abd4ff889b9dc398af"
   },
   {
     "indent": 1,
@@ -13,7 +13,7 @@
     "source": "general/educational-resources.md",
     "route": "general/educational-resources",
     "oldPath": "general/educational-resources",
-    "sourceSha256": "ac93f644de310ecb031d7bc8e9dfa3241b3b5c5b80cb848e452c6989d349bb79"
+    "sourceSha256": "fccafe77846cf620e541d10ec496914155e9446e7ee4012d527a159d15ac8557"
   },
   {
     "indent": 0,
@@ -21,7 +21,7 @@
     "source": "general/faq.md",
     "route": "general/faq",
     "oldPath": "general/faq",
-    "sourceSha256": "d229894b8812498bbcaaa7b84930efa3880fae060eada96be0a21b09ed4570a2"
+    "sourceSha256": "9f17d8fb016cc7d7b10e1b0660a36c8e88af77966845a70ac7876e59462a2cc4"
   },
   {
     "indent": 0,
@@ -29,7 +29,7 @@
     "source": "general/token-deployments.md",
     "route": "general/token-deployments",
     "oldPath": "general/token-deployments",
-    "sourceSha256": "2179167e8092154b0c42dadbe3fa6db928b402647d1566f0554aef280810fc53"
+    "sourceSha256": "1e0dac7d4c29b93ddd0b740bb6791c879af121ffbb927a1d55fb575079b611c6"
   },
   {
     "indent": 2,
@@ -37,7 +37,7 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "85a5e2e8c1ae89dae9e46d4de6616593a7b5591a5debbbbf125b563dbbfd906f",
+    "sourceSha256": "c2373bc039d640d8c1a97fb245241dfbb2a165939009a0fea9a6212a31942f87",
     "sidebarTitle": "clanker.world"
   },
   {
@@ -46,7 +46,7 @@
     "source": "general/token-deployments/v5-deployments.md",
     "route": "general/token-deployments/v5-deployments",
     "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "c6152fec6e43e05416c359a2c4405f4438ead9b295e4789d5924989b8957b5d6",
+    "sourceSha256": "50270303d0f1f3f915aaab24be8e1f5df7d1d83470a5deb53a94e06945b207a8",
     "sidebarTitle": "API"
   },
   {
@@ -55,7 +55,7 @@
     "source": "general/token-deployments/farcaster-bot-deployments.md",
     "route": "general/token-deployments/farcaster-bot-deployments",
     "oldPath": "general/token-deployments/farcaster-bot-deployments",
-    "sourceSha256": "2284daf985f5b0cd3d90d09d4a4be725c6dc2ab7e6279cf087fa20f91d2613c1",
+    "sourceSha256": "53d3d8cbd0a64962c52d086aaacbf6b9202f8a8daae655ba9671a2357ea70a7c",
     "sidebarTitle": "Farcaster Bot"
   },
   {
@@ -64,7 +64,7 @@
     "source": "general/token-deployments/preclank-deployments.md",
     "route": "general/token-deployments/preclank-deployments",
     "oldPath": "general/token-deployments/preclank-deployments",
-    "sourceSha256": "2db5a1636148618f99286bca3f20b5d97c557558da8a5e77d4eff66e61aadac0",
+    "sourceSha256": "be1d868e200ec99ee94b93ed10be4f1565a9c777fedbbec5141bffaa445a484e",
     "sidebarTitle": "Preclanks"
   },
   {
@@ -73,7 +73,7 @@
     "source": "general/token-deployments/alternative-interface-deployments.md",
     "route": "general/token-deployments/alternative-interface-deployments",
     "oldPath": "general/token-deployments/alternative-interface-deployments",
-    "sourceSha256": "1cb6ec72fd44a1e1198809dc42ffc0366495a323020c1e53e83a0b80b085f301",
+    "sourceSha256": "09c1e45cbe9c9635b207e022fb82b09bf9db0be4210ad8cd63dc6f203578e588",
     "sidebarTitle": "Other Interfaces"
   },
   {
@@ -82,17 +82,17 @@
     "source": "general/token-deployments/v4-deployments.md",
     "route": "general/token-deployments/v4-deployments",
     "oldPath": "general/token-deployments/v4-deployments",
-    "sourceSha256": "1bfec7d8458a3cb6c6765893b7e92c8760bc4b046f4f66ded4b10fbec14bad85",
-    "sidebarTitle": "v4 Tokens"
+    "sourceSha256": "fa1d80712f03ea07620f53c8deffd0ddda37077f696dc977310d0a5210234c51",
+    "sidebarTitle": "v4"
   },
   {
     "indent": 2,
-    "title": "Legacy Deployments",
+    "title": "v3 Deployments",
     "source": "general/token-deployments/legacy-deployments.md",
     "route": "general/token-deployments/legacy-deployments",
     "oldPath": "general/token-deployments/legacy-deployments",
-    "sourceSha256": "9fb1a61eda1aacdfc2d4848c2e8dfe25a7cff2c39e762ed605251a57b554fdcb",
-    "sidebarTitle": "Legacy Versions"
+    "sourceSha256": "e1269fcffe39369de7f38a66005ae93e06756d42fa3dd80d02ebb9fb8e61fc55",
+    "sidebarTitle": "v3"
   },
   {
     "indent": 0,
@@ -100,7 +100,7 @@
     "source": "general/creator-rewards-and-fees.md",
     "route": "general/creator-rewards-and-fees",
     "oldPath": "general/creator-rewards-and-fees",
-    "sourceSha256": "3e2f0160457d40a348890e4bdeff257dd1458211deca42f6bb505daf0ca26d21"
+    "sourceSha256": "fbe74f5377b9af7420df909a9498487c4342a0f8378b42ac3c770b400753ad3a"
   },
   {
     "indent": 0,
@@ -108,7 +108,7 @@
     "source": "general/unclaimed-rewards-balance.md",
     "route": "general/unclaimed-rewards-balance",
     "oldPath": "general/unclaimed-rewards-balance",
-    "sourceSha256": "6ce04180f271b6d26d677f7fcd26fa7cafa456e76f7b76a5fdc0eb12632c6e04"
+    "sourceSha256": "3f5dc02daf7e7f4758d27598066e40fe50f1777ddcc7548b46bb973b112bd228"
   },
   {
     "indent": 0,
@@ -116,7 +116,7 @@
     "source": "general/holder-dividends.md",
     "route": "general/holder-dividends",
     "oldPath": "general/holder-dividends",
-    "sourceSha256": "301ecf038f37109e6f6b9ec7a129e15bf5656811381816142c3c64783617944b"
+    "sourceSha256": "f8229b4049a2c85186467e7f6f4c57764ed468ed3bc01f526383c259433c1754"
   },
   {
     "indent": 0,
@@ -124,7 +124,7 @@
     "source": "general/token-burns.md",
     "route": "general/token-burns",
     "oldPath": "general/token-burns",
-    "sourceSha256": "507c0a071d86a027922db6d3e6a3fb7cde03bcf779c65e9b2178ebb17b2e769d"
+    "sourceSha256": "7d815b61721154433a510200518a8680d80286f7fb60714b3961878b40226069"
   },
   {
     "indent": 0,
@@ -132,7 +132,7 @@
     "source": "general/managing-a-token.md",
     "route": "general/managing-a-token",
     "oldPath": "general/managing-a-token",
-    "sourceSha256": "81dfeff2b2f20a71cd111e0b54bd20f494a71544f640e8a5dd491e1fa7e63e4f"
+    "sourceSha256": "c1634300b906849e448ae52f149d47743113da0a4a2ded38dea15d0bf526e929"
   },
   {
     "indent": 0,
@@ -140,7 +140,7 @@
     "source": "general/clanker.world-warning-tags.md",
     "route": "general/clanker.world-warning-tags",
     "oldPath": "general/clanker.world-warning-tags",
-    "sourceSha256": "aedb68e5e8490859ae9c2ea6b02d808a2fb36cc1319efffb1dc88e90aa73b49f",
+    "sourceSha256": "4673c48ca6c0596c48d22f65496e751561763d02bd68df43b382fd02e637e5d3",
     "sidebarTitle": "Warning Tags"
   },
   {
@@ -149,7 +149,7 @@
     "source": "general/verifying-the-social-context-of-token-deploys.md",
     "route": "general/verifying-the-social-context-of-token-deploys",
     "oldPath": "general/verifying-the-social-context-of-token-deploys",
-    "sourceSha256": "0cca57b0c1d002f646901cd651fec40a3b53883b596bc6e1829ca97032713b49",
+    "sourceSha256": "788bb6ceca1217ca86322e56a6a37bdffd2581b5faa3c18c2df94fc2fd9c60d8",
     "sidebarTitle": "Verifying Social Context"
   },
   {
@@ -158,7 +158,7 @@
     "source": "droids/README.md",
     "route": "droids/droids",
     "oldPath": "droids/droids",
-    "sourceSha256": "2240c21a8efbdadb8cbee447fb81df1a8fd6b4faf66c6ccb985b7c69492f7142"
+    "sourceSha256": "f52c5da2218922efd14095cfcaa4be4e4600c7567422ee2ae98ac3eddfee42c2"
   },
   {
     "indent": 0,
@@ -166,7 +166,7 @@
     "source": "droids/funding.md",
     "route": "droids/funding",
     "oldPath": "droids/funding",
-    "sourceSha256": "d54e1a834b533f441c09cf0431960745d5d9017aab931045eef97992adf60927",
+    "sourceSha256": "793288eaa9b947fd995bbc50ab4ac2228b345d40eb9883ab8bc6701c50b1cccc",
     "sidebarTitle": "Funding & Runway"
   },
   {
@@ -175,7 +175,7 @@
     "source": "droids/create.md",
     "route": "droids/create",
     "oldPath": "droids/create",
-    "sourceSha256": "386db55d6d76cfac7d2fedcdf177d99fc5bfe776043af5b9fe92047a51203033",
+    "sourceSha256": "f7a16e83eb77ce79e250ca72d57156e88dc5716003e93a61d08a42ab9f7fdfa5",
     "sidebarTitle": "Create a Droid"
   },
   {
@@ -184,7 +184,7 @@
     "source": "droids/manage.md",
     "route": "droids/manage",
     "oldPath": "droids/manage",
-    "sourceSha256": "d3b7aaaf2250ad053efef31d2c3c7c15d12b448627590c6934cefca0deb48c74",
+    "sourceSha256": "5f5f88b10d4fc9bbc0f0f90d344f5800a720d23e716898519246a84ca2bdd80a",
     "sidebarTitle": "Manage a Droid"
   },
   {
@@ -193,7 +193,7 @@
     "source": "droids/voice.md",
     "route": "droids/voice",
     "oldPath": "droids/voice",
-    "sourceSha256": "60223c5e2fe97b657be1aa28056021de95d1f7489efc15f6e570a55d680b214e",
+    "sourceSha256": "6b80b7e3b44554a178f5b488539b056c12937f5e6bb67a3201b9a3d88105e471",
     "sidebarTitle": "Droid Voice"
   },
   {
@@ -202,7 +202,7 @@
     "source": "droids/roadmap.md",
     "route": "droids/roadmap",
     "oldPath": "droids/roadmap",
-    "sourceSha256": "f88e37d3b1fa3d60753f3b0a08025ca33d7f8fd1462bed3e83af316273f9055d",
+    "sourceSha256": "6a2431039ffb159f01f37fa1a6da8894762112cc9658656465cc1db0ae8c1073",
     "sidebarTitle": "Roadmap"
   },
   {
@@ -211,7 +211,7 @@
     "source": "droids/faq.md",
     "route": "droids/faq",
     "oldPath": "droids/faq",
-    "sourceSha256": "e4152b0dcea3499f387048b2a402bbe7b6f6d545599a7ae8c001882239801f2a",
+    "sourceSha256": "ebaef6cbc169ef4581ee697ed3766ffe1b8876c3c82111cc559acebaef2ab6d2",
     "sidebarTitle": "FAQ"
   },
   {
@@ -220,7 +220,7 @@
     "source": "droids/troubleshooting.md",
     "route": "droids/troubleshooting",
     "oldPath": "droids/troubleshooting",
-    "sourceSha256": "4c4258fc0bfe26af622f3f07d4b7e42977bc2119aaae48d5f0038a3a3da79fa5",
+    "sourceSha256": "64fba5e11b6d0c8a30e1c56578b5cbd3eaf18f0b6b7d28478a301199ebe79276",
     "sidebarTitle": "Troubleshooting"
   },
   {
@@ -229,7 +229,7 @@
     "source": "droids/glossary.md",
     "route": "droids/glossary",
     "oldPath": "droids/glossary",
-    "sourceSha256": "b6e4a02b4e1daa7f594a4c8b91c977968548ac1d27b407d0976c2d55fd5eed42"
+    "sourceSha256": "364d2568548689debeff22b3a215bcf1cf2a58dce60d7fa59de213cdb6f05c73"
   },
   {
     "indent": 1,
@@ -432,7 +432,7 @@
     "source": "references/core-contracts.md",
     "route": "references/core-contracts",
     "oldPath": "references/core-contracts",
-    "sourceSha256": "67e84e3f30d220eac7cc4cd39542743648dca2ddf32a64739558c250568133ef"
+    "sourceSha256": "551d38f83b24f0cc533fe8034ebd3287e73f56d2bccebfb6683fe27b599fd764"
   },
   {
     "indent": 2,
@@ -440,7 +440,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "2ca484eaff6d7f079352a4d041f430961ec969c65144bd41b0725542f34f4e41"
+    "sourceSha256": "97ebd57bcb7c27535a5d3c73a92522357990596520f47943d3551c5152479845"
   },
   {
     "indent": 2,
@@ -448,7 +448,7 @@
     "source": "references/core-contracts/v4.md",
     "route": "references/core-contracts/v4",
     "oldPath": "references/core-contracts/v4",
-    "sourceSha256": "51df38452685bcdbad4d19fa9fa93bf4bfc6087e6695c98dbcce09872d5bf001"
+    "sourceSha256": "c9a04a414d56581cbe660575452fb9e101edccf7ddce790edb26af7040f8cbcf"
   },
   {
     "indent": 4,
@@ -456,7 +456,7 @@
     "source": "references/core-contracts/v4/deployment-config.md",
     "route": "references/core-contracts/v4/deployment-config",
     "oldPath": "references/core-contracts/v4/deployment-config",
-    "sourceSha256": "71e50934e6f86f62b5bc0979b131e26bed1063cce400e31850046acfaf983a82"
+    "sourceSha256": "39f4d7d8d69103d49e61323856ee9c6e1fba8d94cdffe44e06503d68b15ac4fa"
   },
   {
     "indent": 4,
@@ -464,7 +464,7 @@
     "source": "references/core-contracts/v4/fee-management-contracts.md",
     "route": "references/core-contracts/v4/fee-management-contracts",
     "oldPath": "references/core-contracts/v4/fee-management-contracts",
-    "sourceSha256": "0f018a92987024b09b26a346404a9fdf8423389fad3a31aa5a43b8f04b86d3c5"
+    "sourceSha256": "fccf74b5b5076651512cda73d39a6130675bcf3a7eca9f7e1617821d20fee488"
   },
   {
     "indent": 6,
@@ -472,7 +472,7 @@
     "source": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker.md",
     "route": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker",
     "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerfeelocker",
-    "sourceSha256": "76b2e4234582b1ab47b05e16fa91f380e5ecbdcc073c24fa5bdd7933836303c1"
+    "sourceSha256": "f909eb9d04986dfc4395515980ee2145c9ad8af31c020e2e9ddfb1e20ccd8177"
   },
   {
     "indent": 6,
@@ -480,7 +480,7 @@
     "source": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated.md",
     "route": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated",
     "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerlplockermultiple-deprecated",
-    "sourceSha256": "d36c460cd84902d73a72c2fa3201af8599517f4b81339c07cc4f34d0d35a07e9"
+    "sourceSha256": "5d53312bce6e8bc94267e9c6756217a9427cf9b5f22ca46ded68ecf4ecff4689"
   },
   {
     "indent": 6,
@@ -488,7 +488,7 @@
     "source": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion.md",
     "route": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion",
     "oldPath": "references/core-contracts/v4/fee-management-contracts/clankerlplockerfeeconversion",
-    "sourceSha256": "f595cb2c37ed387047d160b037662197eb2cd3c27e45acac29eb1decd25f4e24"
+    "sourceSha256": "4420fd3d8a1acdf48f96853a41ab9c4f1ac76962d7ca00dbfd147ae568f5b671"
   },
   {
     "indent": 4,
@@ -496,7 +496,7 @@
     "source": "references/core-contracts/v4/extensions.md",
     "route": "references/core-contracts/v4/extensions",
     "oldPath": "references/core-contracts/v4/extensions",
-    "sourceSha256": "41bf395fff25a59dfad7f2856c33b68f1573cfc2d89ed9fbc5e02387bae5d65a"
+    "sourceSha256": "7a8c2d57695e21efc7c96e044679d1334bbb5894f4c251913a6b435e94ff43a2"
   },
   {
     "indent": 6,
@@ -504,7 +504,7 @@
     "source": "references/core-contracts/v4/extensions/clankervault.md",
     "route": "references/core-contracts/v4/extensions/clankervault",
     "oldPath": "references/core-contracts/v4/extensions/clankervault",
-    "sourceSha256": "2146a5393a77ecb51ec74feeadf389b8c6994cec4feb9ff8e06603b47a7e5dfc"
+    "sourceSha256": "014e8ae8251cca322461b23f102e942b1410d1313cce44b2a7da2f2b5911a534"
   },
   {
     "indent": 6,
@@ -512,7 +512,7 @@
     "source": "references/core-contracts/v4/extensions/clankerairdrop.md",
     "route": "references/core-contracts/v4/extensions/clankerairdrop",
     "oldPath": "references/core-contracts/v4/extensions/clankerairdrop",
-    "sourceSha256": "97c3bf5326e06da102d18211152fe789e095925ad26c6c046b4682fbeeab2a53"
+    "sourceSha256": "dcb67f34749de56889435a46da12e3112c2ef43ba6b04f617fcbd392713062d8"
   },
   {
     "indent": 6,
@@ -520,7 +520,7 @@
     "source": "references/core-contracts/v4/extensions/clankerairdropv2.md",
     "route": "references/core-contracts/v4/extensions/clankerairdropv2",
     "oldPath": "references/core-contracts/v4/extensions/clankerairdropv2",
-    "sourceSha256": "2baae843dda774e82733557bd920a7fe3f4fee7798f4c8950324229d995f5452"
+    "sourceSha256": "337b0aa6d3a3d5f335c5cbd257fbda28820be8ecd699250c6d9cb407ca577d1b"
   },
   {
     "indent": 6,
@@ -528,7 +528,7 @@
     "source": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy.md",
     "route": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy",
     "oldPath": "references/core-contracts/v4/extensions/clankeruniv4ethdevbuy",
-    "sourceSha256": "6d3e0600d51a0351baf21b16473ebd5142a3b7e05e7ad197438d560012985d94"
+    "sourceSha256": "0f1a5231dfddadeff5191ed92cc841004fe6bc8cf86fca56fef6e4b9b37cdb5f"
   },
   {
     "indent": 6,
@@ -536,7 +536,7 @@
     "source": "references/core-contracts/v4/extensions/clankerpresaleethtocreator.md",
     "route": "references/core-contracts/v4/extensions/clankerpresaleethtocreator",
     "oldPath": "references/core-contracts/v4/extensions/clankerpresaleethtocreator",
-    "sourceSha256": "424f5d08458fc3dd812fd0c4e4d099928e7743041a14b11019145d8b1ae23ba9"
+    "sourceSha256": "18cd9fac96da8cb59077b47220bdc02bc328bbe5d282b323ef711b4884a8e9b1"
   },
   {
     "indent": 6,
@@ -544,7 +544,7 @@
     "source": "references/core-contracts/v4/extensions/clankerpresaleallowlist.md",
     "route": "references/core-contracts/v4/extensions/clankerpresaleallowlist",
     "oldPath": "references/core-contracts/v4/extensions/clankerpresaleallowlist",
-    "sourceSha256": "b2d08a3607cbc305b43bbc90c24266eeb2f9f18204d14515ea233cbed67c9add"
+    "sourceSha256": "ea6717f3b1eb4e20ecb4deb02ad0008dfa5d73567a62071a8e256843e2b7c83f"
   },
   {
     "indent": 4,
@@ -552,7 +552,7 @@
     "source": "references/core-contracts/v4/clankerhook.md",
     "route": "references/core-contracts/v4/clankerhook",
     "oldPath": "references/core-contracts/v4/clankerhook",
-    "sourceSha256": "c6196a2d8a103ec7f88f355db12b7c7cb7785801e1799a3dd72e249f6680e8ae"
+    "sourceSha256": "7f6faffcddbaad4f4e9089c0dd9e59106695c27c1d35113d50ca2a19586c0a80"
   },
   {
     "indent": 6,
@@ -560,7 +560,7 @@
     "source": "references/core-contracts/v4/clankerhook/clankerhookstaticfee.md",
     "route": "references/core-contracts/v4/clankerhook/clankerhookstaticfee",
     "oldPath": "references/core-contracts/v4/clankerhook/clankerhookstaticfee",
-    "sourceSha256": "01db442af7a5a4ca97e02c683cdd6c2888edac18197d53e190dd7b0eb9b47561"
+    "sourceSha256": "09fbbdcc296472afb9c52dbd32e23ad5210954abcf09c0b853477d13405c1753"
   },
   {
     "indent": 6,
@@ -568,7 +568,7 @@
     "source": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee.md",
     "route": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee",
     "oldPath": "references/core-contracts/v4/clankerhook/clankerhookdynamicfee",
-    "sourceSha256": "e4f34e6175db82dae1220c2c916ad7fd71251b1747f99d9a35fe3590821ecbe8"
+    "sourceSha256": "11be3b88b6145ad6bd606053023e2172755d42fe372cf2a87b1ee6ecf786f131"
   },
   {
     "indent": 4,
@@ -576,7 +576,7 @@
     "source": "references/core-contracts/v4/clankerhookv2.md",
     "route": "references/core-contracts/v4/clankerhookv2",
     "oldPath": "references/core-contracts/v4/clankerhookv2",
-    "sourceSha256": "3e201a3f38fd966680529d0977b486526ba0604322313608788a25762b6d927c"
+    "sourceSha256": "f3f1679403aee0b5c2fc48b4bd2826e172c620cce6e5a3f99db1504627f3e6be"
   },
   {
     "indent": 6,
@@ -584,7 +584,7 @@
     "source": "references/core-contracts/v4/clankerhookv2/pool-extensions.md",
     "route": "references/core-contracts/v4/clankerhookv2/pool-extensions",
     "oldPath": "references/core-contracts/v4/clankerhookv2/pool-extensions",
-    "sourceSha256": "946a8b2d5f1bc2ff5485b36cc43416c379c59a8a2d916b5e457c21846e185576"
+    "sourceSha256": "68cd34e96d3e2419e727af04d883bfeec9892b2b8efe7a301b9b71cf22b61989"
   },
   {
     "indent": 6,
@@ -592,7 +592,7 @@
     "source": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2.md",
     "route": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2",
     "oldPath": "references/core-contracts/v4/clankerhookv2/clankerhookstaticfeev2",
-    "sourceSha256": "aab58d8194f758e788b3ebba484ef4904f2b19876e442c27d88d483ba03474be"
+    "sourceSha256": "cc1bae8d80a4c7108022b8351e2cddcbbd426c822b09ac1724cfe186a25396ce"
   },
   {
     "indent": 6,
@@ -600,7 +600,7 @@
     "source": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2.md",
     "route": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2",
     "oldPath": "references/core-contracts/v4/clankerhookv2/clankerhookdynamicfeev2",
-    "sourceSha256": "97e171152b568ca5910f1039113ad16d2f73466aed9ba28e78827e8f78a115c4"
+    "sourceSha256": "a1df8b55bf8e2bf62f46097cfeebec5f5311bfac95ebc4cedf3f08f645b376d6"
   },
   {
     "indent": 4,
@@ -608,7 +608,7 @@
     "source": "references/core-contracts/v4/mev-modules.md",
     "route": "references/core-contracts/v4/mev-modules",
     "oldPath": "references/core-contracts/v4/mev-modules",
-    "sourceSha256": "292aa6c6b59efd14b5742685283cc996ad583463fde86f91cd0890120cf4658f"
+    "sourceSha256": "7f79bcf77bd99c34466261dcb2a74161b44e1d33966f4d06653a0f962e6e7f05"
   },
   {
     "indent": 6,
@@ -616,7 +616,7 @@
     "source": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay.md",
     "route": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay",
     "oldPath": "references/core-contracts/v4/mev-modules/clankermevmodule2blockdelay",
-    "sourceSha256": "d6ebadfb93d5fa1901fb5f4a5df8d8b4e879a028bc963d468ed9062adccc0bb9"
+    "sourceSha256": "0b0701abf20c4b3ba13ce4908ddf27e75a7642b6b89b1703bf9b41dac880bb16"
   },
   {
     "indent": 6,
@@ -624,7 +624,7 @@
     "source": "references/core-contracts/v4/mev-modules/clankersniperauctionv0.md",
     "route": "references/core-contracts/v4/mev-modules/clankersniperauctionv0",
     "oldPath": "references/core-contracts/v4/mev-modules/clankersniperauctionv0",
-    "sourceSha256": "fa493b90a91e963d239c40c4abf100a2ee0808bb12a8c374bce076bdb08a3f5b"
+    "sourceSha256": "1904b2c7a5a6807b893475ff4e4b6d3bc4e3cd9b451514a218ae18e1add41d77"
   },
   {
     "indent": 6,
@@ -632,7 +632,7 @@
     "source": "references/core-contracts/v4/mev-modules/clankermevdescendingfees.md",
     "route": "references/core-contracts/v4/mev-modules/clankermevdescendingfees",
     "oldPath": "references/core-contracts/v4/mev-modules/clankermevdescendingfees",
-    "sourceSha256": "bde7f96971cbe050213f434d90116d4a65bb554a5050bd6ea5f7c3a451b77a8f"
+    "sourceSha256": "89cac324a68341e747cee968815dd7664250023efef612b20e1ad65f199c2465"
   },
   {
     "indent": 6,
@@ -640,7 +640,7 @@
     "source": "references/core-contracts/v4/mev-modules/clankersniperauctionv2.md",
     "route": "references/core-contracts/v4/mev-modules/clankersniperauctionv2",
     "oldPath": "references/core-contracts/v4/mev-modules/clankersniperauctionv2",
-    "sourceSha256": "5fdea692be20eb65541eb7090f995c7a39539f24ed3b30e77500b586f2689f90"
+    "sourceSha256": "f1ac2e62a4a82c80196e96a4600766dca7d26f194e6abdd69c0016cc1c89721a"
   },
   {
     "indent": 4,
@@ -648,7 +648,7 @@
     "source": "references/core-contracts/v4/administrative-permissions.md",
     "route": "references/core-contracts/v4/administrative-permissions",
     "oldPath": "references/core-contracts/v4/administrative-permissions",
-    "sourceSha256": "2b6e8fac574e4741a47306523d5d321646ff9b5de00975906018d8ee826eb208"
+    "sourceSha256": "49fdea124514909003e9674c98a2b7010f4b734d7a384dc94fecccffd2cac67f"
   },
   {
     "indent": 2,
@@ -656,7 +656,7 @@
     "source": "references/core-contracts/v3.1.md",
     "route": "references/core-contracts/v3.1",
     "oldPath": "references/core-contracts/v3.1",
-    "sourceSha256": "a80b9b28ac63b0dcc3719111eca91d9688bee8660375ec9ae0f29977c035a397"
+    "sourceSha256": "aa3b857bec7ae454b0a4cf1ca4336e644323de5a3f01158613689a21706fcc57"
   },
   {
     "indent": 4,
@@ -664,7 +664,7 @@
     "source": "references/core-contracts/v3.1/clanker-direct-contract-deployments.md",
     "route": "references/core-contracts/v3.1/clanker-direct-contract-deployments",
     "oldPath": "references/core-contracts/v3.1/clanker-direct-contract-deployments",
-    "sourceSha256": "7c554d41d9128a743093d7bb12a7e336cb12686ba92ca30de7480843c3955c65"
+    "sourceSha256": "625c28b412e1f7e3e664d50d9d992a84f52d499310d77cb4de05dc3bc569ba07"
   },
   {
     "indent": 4,
@@ -672,7 +672,7 @@
     "source": "references/core-contracts/v3.1/lplockerv2.md",
     "route": "references/core-contracts/v3.1/lplockerv2",
     "oldPath": "references/core-contracts/v3.1/lplockerv2",
-    "sourceSha256": "07248c753aa792603a0504e04641a580650e3d4b980ada9c60b304eb8b41286a"
+    "sourceSha256": "897ddfc0d176082fcb7ef24c323b20272ffee8e872ac4735c7b179bd64e877a2"
   },
   {
     "indent": 4,
@@ -680,7 +680,7 @@
     "source": "references/core-contracts/v3.1/clankervault.md",
     "route": "references/core-contracts/v3.1/clankervault",
     "oldPath": "references/core-contracts/v3.1/clankervault",
-    "sourceSha256": "a97de2f770c95d620c9ee2f17503acea581d57a473c829601d117eb85fc2620d"
+    "sourceSha256": "953e4c20f5413281a9bfcd0ddaac76577d06600d279a3c809e12698845d24211"
   },
   {
     "indent": 2,
@@ -688,7 +688,7 @@
     "source": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0.md",
     "route": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0",
     "oldPath": "references/core-contracts/clankertoken-v3.1.0-and-v4.0.0",
-    "sourceSha256": "037f661ae34fbdd8dcbb78168ca47f3265cf38094f0ed413e6266e1ade1d3266"
+    "sourceSha256": "86dcc6319b8e07848a4025c2d8fd448c6c1078c6732379871380b6d6f8528a9d"
   },
   {
     "indent": 0,
@@ -696,7 +696,7 @@
     "source": "references/brand-assets.md",
     "route": "references/brand-assets",
     "oldPath": "references/brand-assets",
-    "sourceSha256": "078558678371a6642b673451165e9c3cad06ab3a8b529253bfce2cb7f24f5268"
+    "sourceSha256": "dab6a2d4c6dec8f013e912dec3c4167561b699505bbda77a1c55aaccd4f22050"
   },
   {
     "indent": 0,
@@ -704,7 +704,7 @@
     "source": "references/audits.md",
     "route": "references/audits",
     "oldPath": "references/audits",
-    "sourceSha256": "ca8c19e95c604245a63651bc77c7937578086890f37bcb62f2927071bd2355e2"
+    "sourceSha256": "3b855bb79d0b3cf603db5e0f9c8517b2db33f4fc1f71eb69f6fa287262f264e8"
   },
   {
     "indent": 0,
@@ -712,7 +712,7 @@
     "source": "references/compatible-trading-platforms.md",
     "route": "references/compatible-trading-platforms",
     "oldPath": "references/compatible-trading-platforms",
-    "sourceSha256": "b5d7817001726be2a5ae564e790c6e3030cec1f07f0ac45092518d29c8644869"
+    "sourceSha256": "64c37f4fd3828a6cbb93c0dda79f005458aa3529c9f2add10a761c19ed6240f5"
   },
   {
     "indent": 0,
@@ -720,7 +720,7 @@
     "source": "references/deployed-contracts.md",
     "route": "references/deployed-contracts",
     "oldPath": "references/deployed-contracts",
-    "sourceSha256": "041e2910ffdf65761c7098afd5405d370fb3ee2a6e713c82c46447437ebbfc98"
+    "sourceSha256": "c292c9a830fe175c481f7d9e23c06c22899cd86dc6c7692952877a247262f62b"
   },
   {
     "indent": 0,
@@ -728,7 +728,7 @@
     "source": "references/supported-quote-tokens.md",
     "route": "references/supported-quote-tokens",
     "oldPath": "references/supported-quote-tokens",
-    "sourceSha256": "367c89bcc0e9e5eeb90c40be6291f891aceae199e3afe26fa05d3351f375b570"
+    "sourceSha256": "77b75c27795f90bd36589cee42ce4499aa3e08bdc251bf6057fc0f5b57451f49"
   },
   {
     "indent": 0,
@@ -736,7 +736,7 @@
     "source": "references/core-team.md",
     "route": "references/core-team",
     "oldPath": "references/core-team",
-    "sourceSha256": "34ccf9840f10f9386eb8ff9d036faab3f4cc3ec1daf467dcd94b54a7d1c3bcc4"
+    "sourceSha256": "510d6070e4ab1285d613c7e0135a4ee43c1a29460dfc1e5a90ba21381208a9b7"
   },
   {
     "indent": 0,
@@ -744,6 +744,6 @@
     "source": "references/contact.md",
     "route": "references/contact",
     "oldPath": "references/contact",
-    "sourceSha256": "bae15c9bb7bbc9f8cbce81410a184267b4b4cf7e98221621afbc1f1abec19a26"
+    "sourceSha256": "e51fd2892344434a9fab6b5d962ec0667f9769fe9c596f27ded673a599928ecb"
   }
 ]
