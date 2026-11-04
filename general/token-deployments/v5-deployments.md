@@ -114,8 +114,6 @@ With `dryRun: true`, nothing is deployed. The response gives `"message": "Dryrun
 | `rewards[].allocation`   | Percent of the creator rewards for this recipient.                                                                                                     |
 | `rewards[].rewardsToken` | Leave unset or use `"Paired"`. v5 rewards are paid in the pair token.                                                                                  |
 
-For a [droid](../../droids/README.md) launch, add `agent` and `legionFundingRecipient`. A droid launch needs the USDC pair.
-
 v5 does not accept v4 `fees`, other `pool` settings, `vault`, `airdrop` or `poolExtension`. A request that includes them returns a 400 error.
 
 ## Launch policy

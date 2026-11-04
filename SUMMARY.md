@@ -2,10 +2,8 @@
 
 * [Introduction](README.md)
 
-## General
+## Tokens
 
-* [Educational Resources](general/educational-resources.md)
-* [FAQ](general/faq.md)
 * [Token Deployments](general/token-deployments.md)
   * [clanker.world](general/token-deployments/clanker.world-deployments.md)
   * [API](general/token-deployments/v5-deployments.md)
@@ -19,20 +17,11 @@
 * [Holder Dividends](general/holder-dividends.md)
 * [Token Burns](general/token-burns.md)
 * [Managing a Token](general/managing-a-token.md)
+
+## Safety
+
 * [Warning Tags](general/clanker.world-warning-tags.md)
 * [Verifying Social Context](general/verifying-the-social-context-of-token-deploys.md)
-
-## Droids
-
-* [Overview](droids/README.md)
-* [Funding & Runway](droids/funding.md)
-* [Create a Droid](droids/create.md)
-* [Manage a Droid](droids/manage.md)
-* [Droid Voice](droids/voice.md)
-* [Roadmap](droids/roadmap.md)
-* [FAQ](droids/faq.md)
-* [Troubleshooting](droids/troubleshooting.md)
-* [Glossary](droids/glossary.md)
 
 ## API Reference
 
@@ -106,3 +95,8 @@
 * [Supported Quote Tokens](references/supported-quote-tokens.md)
 * [Core Team](references/core-team.md)
 * [Contact](references/contact.md)
+
+## Resources
+
+* [Educational Resources](general/educational-resources.md)
+* [FAQ](general/faq.md)

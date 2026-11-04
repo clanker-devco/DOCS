@@ -5,7 +5,7 @@
     "source": "README.md",
     "route": "index",
     "oldPath": "readme",
-    "sourceSha256": "a9d198d2b958ca51ee42f9a13b2071719d755720679299abd4ff889b9dc398af"
+    "sourceSha256": "a074661e8f88cf96e0ed8532a2f4a89149a0a4698ef9b88878bb3076a4cf56a9"
   },
   {
     "indent": 1,
@@ -46,7 +46,7 @@
     "source": "general/token-deployments/v5-deployments.md",
     "route": "general/token-deployments/v5-deployments",
     "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "50270303d0f1f3f915aaab24be8e1f5df7d1d83470a5deb53a94e06945b207a8",
+    "sourceSha256": "671d566e05f709af49bcd0eff07b072eeee345ea7516498b3e7ed02c02764c62",
     "sidebarTitle": "API"
   },
   {
@@ -151,85 +151,6 @@
     "oldPath": "general/verifying-the-social-context-of-token-deploys",
     "sourceSha256": "788bb6ceca1217ca86322e56a6a37bdffd2581b5faa3c18c2df94fc2fd9c60d8",
     "sidebarTitle": "Verifying Social Context"
-  },
-  {
-    "indent": 1,
-    "title": "Overview",
-    "source": "droids/README.md",
-    "route": "droids/droids",
-    "oldPath": "droids/droids",
-    "sourceSha256": "f52c5da2218922efd14095cfcaa4be4e4600c7567422ee2ae98ac3eddfee42c2"
-  },
-  {
-    "indent": 0,
-    "title": "Droid Funding & Runway",
-    "source": "droids/funding.md",
-    "route": "droids/funding",
-    "oldPath": "droids/funding",
-    "sourceSha256": "793288eaa9b947fd995bbc50ab4ac2228b345d40eb9883ab8bc6701c50b1cccc",
-    "sidebarTitle": "Funding & Runway"
-  },
-  {
-    "indent": 0,
-    "title": "Create a Droid",
-    "source": "droids/create.md",
-    "route": "droids/create",
-    "oldPath": "droids/create",
-    "sourceSha256": "f7a16e83eb77ce79e250ca72d57156e88dc5716003e93a61d08a42ab9f7fdfa5",
-    "sidebarTitle": "Create a Droid"
-  },
-  {
-    "indent": 0,
-    "title": "Manage your Droid",
-    "source": "droids/manage.md",
-    "route": "droids/manage",
-    "oldPath": "droids/manage",
-    "sourceSha256": "5f5f88b10d4fc9bbc0f0f90d344f5800a720d23e716898519246a84ca2bdd80a",
-    "sidebarTitle": "Manage a Droid"
-  },
-  {
-    "indent": 0,
-    "title": "Writing a Droid Voice",
-    "source": "droids/voice.md",
-    "route": "droids/voice",
-    "oldPath": "droids/voice",
-    "sourceSha256": "6b80b7e3b44554a178f5b488539b056c12937f5e6bb67a3201b9a3d88105e471",
-    "sidebarTitle": "Droid Voice"
-  },
-  {
-    "indent": 0,
-    "title": "Droid Roadmap",
-    "source": "droids/roadmap.md",
-    "route": "droids/roadmap",
-    "oldPath": "droids/roadmap",
-    "sourceSha256": "6a2431039ffb159f01f37fa1a6da8894762112cc9658656465cc1db0ae8c1073",
-    "sidebarTitle": "Roadmap"
-  },
-  {
-    "indent": 0,
-    "title": "Droid FAQ",
-    "source": "droids/faq.md",
-    "route": "droids/faq",
-    "oldPath": "droids/faq",
-    "sourceSha256": "ebaef6cbc169ef4581ee697ed3766ffe1b8876c3c82111cc559acebaef2ab6d2",
-    "sidebarTitle": "FAQ"
-  },
-  {
-    "indent": 0,
-    "title": "Troubleshooting Droids",
-    "source": "droids/troubleshooting.md",
-    "route": "droids/troubleshooting",
-    "oldPath": "droids/troubleshooting",
-    "sourceSha256": "64fba5e11b6d0c8a30e1c56578b5cbd3eaf18f0b6b7d28478a301199ebe79276",
-    "sidebarTitle": "Troubleshooting"
-  },
-  {
-    "indent": 0,
-    "title": "Glossary",
-    "source": "droids/glossary.md",
-    "route": "droids/glossary",
-    "oldPath": "droids/glossary",
-    "sourceSha256": "364d2568548689debeff22b3a215bcf1cf2a58dce60d7fa59de213cdb6f05c73"
   },
   {
     "indent": 1,
