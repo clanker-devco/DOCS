@@ -1,14 +1,14 @@
 # Clanker.world Deployments
 
 {% hint style="success" %}
-**Live**: The below outlines instructions for deployments on Clanker v4.0.0 that are now live at [clanker.world/deploy](https://www.clanker.world/deploy).
+**Live**: Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy).
 {% endhint %}
 
-{% hint style="info" %}
-On Base, the **Token type** field also offers **V5**, a token with a buy and sell tax. See [v5 Deployments](v5-deployments.md).
-{% endhint %}
+Users may create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters users can configure.
 
-Users may create Clanker tokens using the clanker.world [token creation page](https://www.clanker.world/deploy) and connecting a wallet. The section below outlines the parameters are able to be configured by users.
+On Base, the **Token type** field under **Token Settings** selects the token version: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. See [v5 Deployments](v5-deployments.md) and [v4 Deployments](v4-deployments.md).
+
+### Token Info
 
 {% stepper %}
 {% step %}
@@ -30,7 +30,7 @@ Required, minimum metadata for token creation.
 #### Token Metadata
 
 {% hint style="info" %}
-Optional, additional metadata fields that are both onchain and mutable.
+Optional, additional onchain metadata fields. They stay editable after launch, except on a v5 token with **Editable metadata** off.
 {% endhint %}
 
 * Description
@@ -40,6 +40,105 @@ Optional, additional metadata fields that are both onchain and mutable.
 * Farcaster link
   {% endstep %}
 
+{% endstepper %}
+
+### v5 Parameters
+
+{% stepper %}
+{% step %}
+
+#### Tax
+
+{% hint style="info" %}
+Required. Each rate must be between 1% and 10%.
+{% endhint %}
+
+* **Buy tax**, charged on each buy. It includes the Clanker fee.
+* **Sell tax**, charged on each sell. It includes the Clanker fee.
+
+The form shows how each trade is split between Clanker, creator funds, holder dividends and burn.
+{% endstep %}
+
+{% step %}
+
+#### Tax Allocation
+
+{% hint style="info" %}
+Optional. How the tax is shared after the Clanker fee. Defaults to 100% creator funds.
+{% endhint %}
+
+* **Creator funds**, the rest of the tax, paid to the reward recipients.
+* **Holder dividends**, percent of the tax paid to holders. See [Holder Dividends](../holder-dividends.md).
+  * **Minimum dividend holding**, the balance a wallet needs to earn dividends (at least 10,000 tokens).
+* **Burn allocation**, percent of the tax burned in the launched token. See [Token Burns](../token-burns.md).
+
+Holder dividends and burn allocation together must not exceed 100%.
+{% endstep %}
+
+{% step %}
+
+#### Sniper Tax
+
+{% hint style="info" %}
+Optional, on or off.
+{% endhint %}
+
+When on, trades in the first 20 seconds after launch pay a total fee that starts at 99% and falls to the buy and sell tax. All of the sniper tax goes to Clanker. When off, the buy and sell tax apply from the first trade.
+{% endstep %}
+
+{% step %}
+
+#### Editable Metadata
+
+{% hint style="info" %}
+Optional, on or off.
+{% endhint %}
+
+When on, the creator can change the image and metadata after launch, and verify the token. When off, the image and metadata stay as they are at launch.
+{% endstep %}
+
+{% step %}
+
+#### Rewards
+
+{% hint style="info" %}
+Optional, set additional reward recipients for the creator funds. Defaults to 100% to the connected wallet.
+{% endhint %}
+
+For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards and Fees](../creator-rewards-and-fees.md).
+{% endstep %}
+
+{% step %}
+
+#### Pool
+
+{% hint style="info" %}
+Optional, choose the pair token.
+{% endhint %}
+
+* **Pair**, ETH or USDC. The Factory sets the starting price, and the form shows the starting market cap.
+{% endstep %}
+
+{% step %}
+
+#### Creator Buy (Dev Buy)
+
+{% hint style="info" %}
+Optional, spend ETH to make the first buy at launch.
+{% endhint %}
+
+* **ETH amount**, the ETH to spend. With a USDC pair, the launch changes the ETH to USDC first, then buys the token.
+* **Maximum slippage**, above 0% and below 50%. If the buy gets fewer tokens than this allows, the whole launch reverts.
+{% endstep %}
+{% endstepper %}
+
+Vaults and airdrops are part of v4 only. A v5 token can also be saved as a preclank; see [Preclank Deployments](preclank-deployments.md).
+
+### v4 Parameters
+
+With **Token type** set to **V4**, the form shows the v4 fee, pool and extension settings below. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
+
+{% stepper %}
 {% step %}
 
 #### Fee Configuration

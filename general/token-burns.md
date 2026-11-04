@@ -1,0 +1,27 @@
+# Token Burns
+
+A Clanker v5 token can burn part of its trading tax. The creator chooses the burn share at launch, as a percentage of the tax after the Clanker fee.
+
+### How the burn share works
+
+1. A trade pays the buy or sell tax. Clanker takes its fee first (see [Creator Rewards & Fees](creator-rewards-and-fees.md)).
+2. The burn share of the remaining tax is taken in the token itself, not in the pair token. On a buy, it comes off the tokens the buyer receives.
+3. The tokens are added to the token's **Pending Burn**, held in the FeeEscrow for the dead address (`0x000000000000000000000000000000000000dEaD`).
+4. Any wallet can send the pending burn to the dead address. Once sent, those tokens are out of circulation for good.
+
+For example, on a token with a 5% tax and a 20% burn share, a 1,000 USDC buy pays 50 USDC of tax. Clanker takes 5 USDC, and 20% of the remaining 45 USDC, worth 9 USDC, is burned in the token.
+
+### Burning on clanker.world
+
+The token page shows a **Burn** card with:
+
+* **Pending Burn**: tokens from trades that are waiting to be burned.
+* **Total Burned**: the balance of the dead address. It also counts any other transfers to that address.
+
+Connect any wallet and select **Burn now** to send the pending burn to the dead address.
+
+### With the API
+
+The token fee history (`GET /api/tokens/{address}/fees`) gives the burn share of each trade and the executed burns, in the token. See [Fees](../api-reference/public/fees.md).
+
+To set a burn share on a new token, see [v5 Deployments](token-deployments/v5-deployments.md). Contract details are in [v5](../references/core-contracts/v5.md).

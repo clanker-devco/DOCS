@@ -1,0 +1,65 @@
+---
+title: "Managing a Token"
+---
+
+Every Clanker token has an Admin page on clanker.world:
+
+`https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`
+
+Anyone can open it. To make changes, connect the wallet that holds the right role. A card you can't use shows a lock line that names who can.
+
+### Clanker v5
+
+On a v5 token, admin power belongs to the **current creator**. Each reward recipient also has a **reward admin**, who manages that recipient slot.
+
+#### Claim rewards
+
+The **Claim Rewards** card claims the selected recipient's FeeEscrow balance. Connect the reward recipient's wallet. The balance includes the rewards of all v5 tokens that pay that wallet, and a claim pays all of it in the pair token (ETH or USDC). **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](/general/creator-rewards-and-fees).
+
+#### Change reward recipients and admins
+
+* **Update reward recipient**: the reward admin of a slot changes where that slot's rewards go. The creator's own slot is moved by the current creator.
+* **Update reward admin**: the reward admin of a slot hands that role to another wallet.
+
+Unclaimed rewards stay with the old recipient, which can still claim them from its [profile](https://www.clanker.world/profile).
+
+#### Transfer creator rights
+
+The **Creator rights** card moves the creator role to another wallet in two steps: the current creator proposes the new creator, and the new creator accepts in a second transaction. The current creator can cancel a pending transfer. Accepting also moves the creator's reward recipient. To change only the recipient, use **Update reward recipient**.
+
+#### Update image and metadata
+
+If the token was launched with editable metadata (the default), the current creator can:
+
+* change the token image (**Update Token Image**),
+* change the description and social links (**Update Metadata**),
+* change the name, symbol and contract URI (**Rename Token**).
+
+A token launched without editable metadata can't change these, and can't be verified.
+
+#### Verify the token
+
+The **Verify Token** card gives the token the Verified badge on clanker.world. The current creator calls the factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written by the current creator after launch, counts. A value set at launch does not.
+
+#### Post announcements
+
+The **Post Announcement** card posts a short update, with an optional link, to the token page. Only the current creator can post. Announcements are stored on chain in the Announcement Registry, and can't be edited or deleted. Holders see them in the **Announcements** card on the token page, and `GET /api/tokens/{address}/announcements` returns them (see [Tokens](/api-reference/public/tokens)).
+
+#### Bulk distribute
+
+**Bulk Distribute** sends the token to many wallets at once.
+
+Contract details are in [v5](/references/core-contracts/v5) and addresses in [Deployed Contracts](/references/deployed-contracts).
+
+### v4 and earlier
+
+The same Admin page manages older tokens. Depending on the version, it lets you:
+
+* claim creator rewards,
+* view the current rewards info and update the reward admin (v4),
+* update the reward recipient (v2 and later),
+* update the token image and metadata, verify the token and claim vaulted tokens (v3.1 and v4),
+* set a new token admin (v3.1),
+* claim airdrops and bulk distribute.
+
+See the [FAQ](/general/faq) for claiming rewards on older tokens.

@@ -25,16 +25,20 @@
             "group": "Token Deployments",
             "root": "general/token-deployments",
             "pages": [
-              "general/token-deployments/farcaster-bot-deployments",
+              "general/token-deployments/v5-deployments",
               "general/token-deployments/clanker.world-deployments",
+              "general/token-deployments/farcaster-bot-deployments",
               "general/token-deployments/preclank-deployments",
               "general/token-deployments/alternative-interface-deployments",
               "general/token-deployments/deploying-a-token",
-              "general/token-deployments/v5-deployments",
+              "general/token-deployments/v4-deployments",
               "general/token-deployments/legacy-deployments"
             ]
           },
           "general/creator-rewards-and-fees",
+          "general/holder-dividends",
+          "general/token-burns",
+          "general/managing-a-token",
           "general/clanker.world-warning-tags",
           "general/unclaimed-rewards-balance",
           "general/verifying-the-social-context-of-token-deploys"

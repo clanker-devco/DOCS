@@ -30,19 +30,57 @@ You can click on any frame that Clanker responds with (go to `Casts + Replies` o
 
 </details>
 
+### Clanker v5
+
+<details>
+
+<summary>What is a v5 token?</summary>
+
+Clanker v5 is the current Clanker token version, live on Base. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Creator Rewards & Fees](creator-rewards-and-fees.md) and [v5 Deployments](token-deployments/v5-deployments.md).
+
+</details>
+
+<details>
+
+<summary>How much does Clanker take from a v5 token's tax?</summary>
+
+Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade. At a 5% tax, Clanker takes 0.5% of the trade and the creator's side gets 4.5%. If the sniper fee is on, trades in the first 20 seconds after launch also pay a sniper fee, which goes to Clanker. See [Creator Rewards & Fees](creator-rewards-and-fees.md).
+
+</details>
+
+<details>
+
+<summary>How do holder dividends work?</summary>
+
+If a v5 token pays dividends, part of every trade's tax goes to holders who hold at least the token's minimum balance (at least 10,000 tokens). Dividends are paid in the pair token, ETH or USDC. Holders claim on clanker.world from the token page or from their profile, where **Claim all** claims many tokens in one transaction. See [Holder Dividends](holder-dividends.md).
+
+</details>
+
+<details>
+
+<summary>How do token burns work?</summary>
+
+If a v5 token has a burn share, part of every trade's tax is taken in the token and added to a pending burn. Any wallet can send it to the dead address with **Burn now** on the token page. See [Token Burns](token-burns.md).
+
+</details>
+
 ### Creator Rewards
 
 <details>
 
 <summary>How do I claim creator rewards?</summary>
 
-Visit the token admin page `https://www.clanker.world/clanker/[TOKEN CONTRACT ADDRESS]/admin` , connect a wallet, and select `Claim Rewards`. This will prompt you to execute a transaction that will distribute creator rewards.
+Visit the token admin page `https://www.clanker.world/clanker/[TOKEN CONTRACT ADDRESS]/admin`, connect the reward recipient's wallet, and claim in the **Claim Rewards** card.
+
+For a v5 token, rewards collect in the FeeEscrow, one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance in the pair token (ETH or USDC). A past recipient can claim its balance from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
+
+For v4 and earlier tokens, the claim distributes the creator rewards from the token's LP.
 
 {% hint style="info" %}
-Anyone can initiate the claim process for any token. Creator rewards will then be distributed to the token creator - not the wallet initiating the claim process.
+On v4 and earlier tokens, anyone can initiate the claim process for any token. Creator rewards will then be distributed to the token creator - not the wallet initiating the claim process.
 {% endhint %}
 
-For a v5 token, rewards collect in the FeeEscrow, and the Admin page claims the whole balance of the recipient. See [v5 Deployments](token-deployments/v5-deployments.md).
+See [Managing a Token](managing-a-token.md) for everything else the Admin page does.
 
 </details>
 
@@ -60,7 +98,11 @@ Unclaimed rewards represent the current balance of unclaimed rewards, not a 30 d
 
 <summary>How can I check the balance of unclaimed rewards for a token?</summary>
 
-Visit the bottom of the token info page to see an estimate of unclaimed rewards.
+For a v5 token, the **Claim Rewards** card on the token's Admin page shows the unclaimed FeeEscrow balance of the selected recipient, and `GET /api/creator-earnings/{tokenAddress}` returns the balances of all current recipients. That balance includes the rewards of all v5 tokens that pay the wallet.
+
+For v4 and earlier tokens, visit the bottom of the token info page to see an estimate of unclaimed rewards.
+
+See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md).
 
 </details>
 
@@ -68,13 +110,17 @@ Visit the bottom of the token info page to see an estimate of unclaimed rewards.
 
 <summary>Why is my unclaimed rewards balance lower than expected?</summary>
 
-Anyone can initiate the payout of creator rewards, so you might have already received creator rewards for tokens you deployed even without claiming the rewards yourself.
+For a v5 token, one FeeEscrow claim pays the rewards of all your v5 tokens, so claiming on one token also clears the balance shown on your other v5 tokens.
+
+For v4 and earlier tokens, anyone can initiate the payout of creator rewards, so you might have already received creator rewards for tokens you deployed even without claiming the rewards yourself.
 
 </details>
 
 <details>
 
 <summary>How can I determine the wallet address that creator rewards will be sent to?</summary>
+
+The token's Admin page lists each reward recipient, its admin and its share under **Current Rewards Info** (v4 and v5). A reward admin can change its recipient with **Update reward recipient**.
 
 For tokens created directly through interaction with the @clanker bot on Farcaster, the address set as the initial recipient for creator rewards is either:
 

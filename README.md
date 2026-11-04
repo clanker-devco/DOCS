@@ -2,6 +2,19 @@
 
 Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
 
+## Clanker v5
+
+Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a buy and sell tax instead of an LP fee, and the tax can pay creator rewards, holder dividends, a burn and an integrator.
+
+- [Token Deployments](general/token-deployments.md) — Ways to deploy a Clanker token
+- [v5 Deployments](general/token-deployments/v5-deployments.md) — How v5 tokens work and how to deploy one
+- [Creator Rewards & Fees](general/creator-rewards-and-fees.md) — How the tax is split and how rewards are claimed
+- [Holder Dividends](general/holder-dividends.md) — How holders earn and claim dividends
+- [Managing a Token](general/managing-a-token.md) — Metadata, reward recipients and admins after launch
+- [v5 Contracts](references/core-contracts/v5.md) — Contract reference, launch policy and permissions
+- [Deployed Contracts](references/deployed-contracts.md) — Contract addresses for every version and chain
+- [Deployment API](api-reference/authenticated/deployment.md) — Deploy a v5 token with the API
+
 ## Droids
 
 A Droid is an AI agent that ships with your token — own Farcaster account, personality you design, compute funded by the token itself via a carve-out of its LP rewards.

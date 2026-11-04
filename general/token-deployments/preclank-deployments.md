@@ -1,10 +1,10 @@
 # Preclank Deployments
 
 {% hint style="success" %}
-**Live**: The below outlines instructions for deployments on Clanker v4.0.0 that are now live at [clanker.world/deploy](https://www.clanker.world/deploy).
+**Live**: Preclanks are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy) for both v5 and v4 tokens.
 {% endhint %}
 
-Users may create Clanker tokens using the clanker.world [token creation page](https://www.clanker.world/deploy) and connecting a wallet. The section below outlines the parameters are able to be configured by users.
+A preclank saves a token configuration on the clanker.world [token creation page](https://www.clanker.world/deploy) with a trigger phrase. The token deploys when you cast the trigger phrase and tag @clanker on Farcaster.
 
 {% stepper %}
 {% step %}
@@ -29,7 +29,7 @@ Visit the clanker.world [token creation page](https://www.clanker.world/deploy),
 For more info on token creation parameters, please refer to [Clanker.world Deployments](clanker.world-deployments.md).
 
 {% hint style="info" %}
-Creator Buy (Dev Buy) features are not yet supported for preclank deployments but are on the short-term roadmap.
+Creator Buy (Dev Buy) is not available for preclank deployments. A v5 preclank launches with the tax settings saved on the form.
 {% endhint %}
 {% endstep %}
 
