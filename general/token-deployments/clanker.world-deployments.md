@@ -11,9 +11,7 @@ On Base, the **Token type** field under **Token Settings** selects the token ver
 
 #### Basic Token Info
 
-{% hint style="info" %}
-Required, minimum metadata for token creation.
-{% endhint %}
+*Required, minimum metadata for token creation.*
 
 * Network (chain)
 * Name
@@ -25,9 +23,7 @@ Required, minimum metadata for token creation.
 
 #### Token Metadata
 
-{% hint style="info" %}
-Optional, additional onchain metadata fields. They stay editable after launch, except on a v5 token with **Editable metadata** off.
-{% endhint %}
+*Optional, additional onchain metadata fields. They stay editable after launch, except on a v5 token with **Editable metadata** off.*
 
 * Description
 * Telegram link
@@ -45,9 +41,7 @@ Optional, additional onchain metadata fields. They stay editable after launch, e
 
 #### Tax
 
-{% hint style="info" %}
-Required. Each rate must be between 1% and 10%.
-{% endhint %}
+*Required. Each rate must be between 1% and 10%.*
 
 * **Buy tax**, charged on each buy. It includes the Clanker fee.
 * **Sell tax**, charged on each sell. It includes the Clanker fee.
@@ -59,9 +53,7 @@ The form shows how each trade is split between Clanker, creator funds, holder di
 
 #### Tax Allocation
 
-{% hint style="info" %}
-Optional. How the tax is shared after the Clanker fee. Defaults to 100% creator funds.
-{% endhint %}
+*Optional. How the tax is shared after the Clanker fee. Defaults to 100% creator funds.*
 
 * **Creator funds**, the rest of the tax, paid to the reward recipients.
 * **Holder dividends**, percent of the tax paid to holders. See [Holder Dividends](../holder-dividends.md).
@@ -75,9 +67,7 @@ Holder dividends and burn allocation together must not exceed 100%.
 
 #### Sniper Tax
 
-{% hint style="info" %}
-Optional, on or off.
-{% endhint %}
+*Optional, on or off.*
 
 When on, trades in the first 20 seconds after launch pay a total fee that starts at 99% and falls to the buy and sell tax. All of the sniper tax goes to Clanker. When off, the buy and sell tax apply from the first trade.
 {% endstep %}
@@ -86,9 +76,7 @@ When on, trades in the first 20 seconds after launch pay a total fee that starts
 
 #### Editable Metadata
 
-{% hint style="info" %}
-Optional, on or off.
-{% endhint %}
+*Optional, on or off.*
 
 When on, the creator can change the image and metadata after launch, and verify the token. When off, the image and metadata stay as they are at launch.
 {% endstep %}
@@ -97,9 +85,7 @@ When on, the creator can change the image and metadata after launch, and verify 
 
 #### Rewards
 
-{% hint style="info" %}
-Optional, set additional reward recipients for the creator funds. Defaults to 100% to the connected wallet.
-{% endhint %}
+*Optional, set additional reward recipients for the creator funds. Defaults to 100% to the connected wallet.*
 
 For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 {% endstep %}
@@ -108,9 +94,7 @@ For each recipient, set the admin address, the recipient address and its reward 
 
 #### Pool
 
-{% hint style="info" %}
-Optional, choose the pair token.
-{% endhint %}
+*Optional, choose the pair token.*
 
 * **Pair**, ETH or USDC. The factory sets the starting price, and the form shows the starting market cap.
 {% endstep %}
@@ -119,9 +103,7 @@ Optional, choose the pair token.
 
 #### Creator Buy (Dev Buy)
 
-{% hint style="info" %}
-Optional, spend ETH to make the first buy at launch.
-{% endhint %}
+*Optional, spend ETH to make the first buy at launch.*
 
 * **ETH amount**, the ETH to spend. With a USDC pair, the launch changes the ETH to USDC first, then buys the token.
 * **Maximum slippage**, above 0% and below 50%. If the buy gets fewer tokens than this allows, the whole launch reverts.
@@ -139,9 +121,7 @@ With **Token type** set to **V4**, the form shows the v4 fee, pool and extension
 
 #### Fee Configuration
 
-{% hint style="info" %}
-Optional, preset fee configurations for the initial token pool. Defaults to a dynamic fee.
-{% endhint %}
+*Optional, preset fee configurations for the initial token pool. Defaults to a dynamic fee.*
 
 * `Recommended`, fixed % base fee + variable fee based on the pool's volatility
 * `Legacy`, fixed % fees on trades
@@ -151,9 +131,7 @@ Optional, preset fee configurations for the initial token pool. Defaults to a dy
 
 #### Reward Recipients
 
-{% hint style="info" %}
-Optional, set additional reward recipients for trading fees from the pool. Defaults to 100% of rewards going to the User's connected wallet, accrued in the paired token.
-{% endhint %}
+*Optional, set additional reward recipients for trading fees from the pool. Defaults to 100% of rewards going to the User's connected wallet, accrued in the paired token.*
 
 For each Reward Recipient, the following must be set:
 
@@ -169,9 +147,7 @@ For each Reward Recipient, the following must be set:
 
 #### Pool Configuration
 
-{% hint style="info" %}
-Optional, choose from a preset liquidity configuration. Defaults to the `Standard` pool type.
-{% endhint %}
+*Optional, choose from a preset liquidity configuration. Defaults to the `Standard` pool type.*
 
 * **Pool Type**, preset liquidity configurations (via LP position placements)
   * `Recommended`, optimized liquidity layout utilizing multiple LP positions. The current starting market cap for this configuration is fixed at `10 ETH`.
@@ -183,9 +159,7 @@ Optional, choose from a preset liquidity configuration. Defaults to the `Standar
 
 #### Creator Vault
 
-{% hint style="info" %}
-Optional, set aside tokens into a vault with configurable lockup and vesting periods. Defaults to a 30 day lockup with instant vesting.
-{% endhint %}
+*Optional, set aside tokens into a vault with configurable lockup and vesting periods. Defaults to a 30 day lockup with instant vesting.*
 
 * **Vault Percentage**, percent of total token supply to allocate to the vault.&#x20;
   * The token creator wallet is the default beneficiary of the tokens; however, the token creator may set a new beneficiary post-deployment.
@@ -198,9 +172,7 @@ Optional, set aside tokens into a vault with configurable lockup and vesting per
 
 #### Creator Buy (Dev Buy)
 
-{% hint style="info" %}
-Optional, spend ETH to guarantee the first swap on the newly created token.
-{% endhint %}
+*Optional, spend ETH to guarantee the first swap on the newly created token.*
 
 There are no upper / lower limits to the amount of ETH that may be used for a Creator Buy.
 {% endstep %}
