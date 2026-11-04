@@ -1,12 +1,18 @@
 # ClankerLpLockerFeeConversion
 
-The **ClankerLpLockerFeeConversion** contract is used to manage who is receiving the LP fees for a token's deployment liquidity and in which token a recipient's fees accumulate in. The LP is split between the list of reward recipients specified in the `LockerConfig` struct, with the split being specified in the `rewardBps` array. Fee recipients can choose to accumulate their fees in: the deployed token, the paired token, or, both tokens.
+**ClankerLpLockerFeeConversion** manages who receives the LP fees from a token's deployment liquidity, and in which token each recipient's fees accumulate.
 
-The `rewardAdmin` is able to update the `rewardRecipient` and the `feePreference` for their array position (and also update themselves). The `rewardBps` array is not changeable post deployment.
+## How it works
 
-See the [Deployment Config](../deployment-config.md)'s `IClanker.LockerConfig` section for how to configure Clanker lockers.
+The LP fees are split between the reward recipients specified in the `LockerConfig` struct, using the split in the `rewardBps` array. Each fee recipient chooses to accumulate their fees in the deployed token, the paired token, or both.
 
-The `feePreferences`  are set through the `LockerConfig.lockerdata` field, with the following struct expected as input:
+The `rewardAdmin` can update the `rewardRecipient` and the `feePreference` for their array position, and can also update themselves. The `rewardBps` array can't be changed after deployment.
+
+See the `LockerConfig` section of [Deployment Config](../deployment-config.md) for how to configure Clanker lockers.
+
+## Setting fee preferences
+
+Fee preferences are set through the `LockerConfig.lockerData` field, which expects this struct:
 
 ```solidity
 // IClankerLpLockerFeeConversion.sol
@@ -21,12 +27,13 @@ struct LpFeeConversionInfo {
 }
 ```
 
-Solidity snippet of example encoding:
+Example encoding:
 
-<pre class="language-solidity"><code class="lang-solidity">// example of how to encode:
-<strong>IClanker.DeploymentConfig memory exampleConfig;
-</strong><strong>
-</strong>IClankerLpLockerFeeConversion.FeeIn[] memory feeIn =
+```solidity
+// example of how to encode:
+IClanker.DeploymentConfig memory exampleConfig;
+
+IClankerLpLockerFeeConversion.FeeIn[] memory feeIn =
     new IClankerLpLockerFeeConversion.FeeIn[](3);
 feeIn[0] = IClankerLpLockerFeeConversion.FeeIn.Paired;
 feeIn[1] = IClankerLpLockerFeeConversion.FeeIn.Clanker;
@@ -34,13 +41,13 @@ feeIn[2] = IClankerLpLockerFeeConversion.FeeIn.Both;
 
 exampleConfig.lockerConfig.lockerData =
     abi.encode(IClankerLpLockerFeeConversion.LpFeeConversionInfo({feePreference: feeIn}));
-</code></pre>
+```
 
-User Facing Functions:
+## User-facing functions
 
 ```solidity
 // callable by the index's recipient admin, updates the reward admin for the reward index
-// 
+//
 // note: the 'token' parameter is the deployed token's address
 function updateRewardAdmin(address token, uint256 rewardIndex, address newAdmin) external;
 

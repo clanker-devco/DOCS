@@ -1,51 +1,53 @@
 # Preclank Deployments
 
-A preclank saves a token configuration on the clanker.world [token creation page](https://www.clanker.world/deploy) with a trigger phrase. The token deploys when you cast the trigger phrase and tag @clanker on Farcaster. Preclanks work for v5 and v4 tokens on Base.
+A preclank lets you set up a token on clanker.world now and launch it later from Farcaster. Preclanks work for v5 and v4 tokens on Base.
+
+## How it works
+
+You save a token configuration on the clanker.world [deploy page](https://www.clanker.world/deploy) together with a trigger phrase. When you cast that phrase and tag @clanker, the bot deploys the token with your saved settings. A v5 preclank launches with the tax settings saved on the form and stays active for 7 days.
+
+## Create and launch a preclank
 
 {% stepper %}
 {% step %}
 
-#### Sign in to clanker.world with a Farcaster account
+### Sign in with Farcaster
 
-Press Connect on the top right hand side of the page. If you are already signed in with another method, select the dropdown and disconnect.
-
-Then, on the Privy sign in modal, select Farcaster to sign in with Farcaster.
+Select **Connect** at the top right of clanker.world. If you are already signed in another way, open the dropdown and disconnect first. Then select **Farcaster** in the sign-in window.
 
 {% hint style="warning" %}
-You will not be able to save / use your preclank if you do not sign in using Farcaster.
+You can only save and use a preclank when you sign in with Farcaster.
 {% endhint %}
 {% endstep %}
 
 {% step %}
 
-#### Configure the token creation parameters
+### Set up the token
 
-Visit the clanker.world [token creation page](https://www.clanker.world/deploy), connect a wallet, and configure the token deployment. The default rewards recipient and creator vault beneficiary will be set to the wallet that is connected to the token creation page, not the primary Farcaster wallet of the account that triggers the preclank.
+On the [deploy page](https://www.clanker.world/deploy), connect a wallet and fill in the token settings. See [Clanker.world Deployments](clanker.world-deployments.md) for each field.
 
-For more info on token creation parameters, please refer to [Clanker.world Deployments](clanker.world-deployments.md).
-
-Creator Buy (Dev Buy) is not available for preclank deployments. A v5 preclank launches with the tax settings saved on the form.
+The default reward recipient and vault beneficiary are the wallet connected to the deploy page, not the main wallet of the Farcaster account that casts the trigger phrase. Creator buy (dev buy) is not available for preclanks.
 {% endstep %}
 
 {% step %}
 
-#### Enable the `Preclank` toggle at the bottom of the form
+### Save the preclank
 
-Toggle on `Preclank` at the bottom of the token creation page after populating desired token configuration. Then, add a trigger phrase to the input field.
+Turn on the `Preclank` toggle at the bottom of the form and enter a trigger phrase. Then select the `Preclank` button to save the configuration and phrase.
 
-Press the `Preclank` button to save the token configuration + trigger phrase. To view your saved preclanks, select `Manage Preclanks` at the top of the token creation page.
+To see your saved preclanks, select `Manage Preclanks` at the top of the deploy page.
 {% endstep %}
 
 {% step %}
 
-#### Deploy the token with the preclank configuration
+### Cast to launch
 
-To deploy a token with the preclank configuration, create a cast on Farcaster with your trigger phrase somewhere in the cast **and** tag @clanker.
+Create a cast on Farcaster that includes your trigger phrase **and** tags @clanker.
 
-{% hint style="info" %}
-Trigger phrases are case sensitive and must be entered exactly as they are saved.
+{% hint style="warning" %}
+Trigger phrases are case sensitive. Enter the phrase exactly as you saved it.
 {% endhint %}
 
-@clanker will deploy a token with the preclank configuration and respond with a link to the token info page for the newly created token.
+@clanker deploys the token with your saved configuration and replies with a link to the new token's page.
 {% endstep %}
 {% endstepper %}

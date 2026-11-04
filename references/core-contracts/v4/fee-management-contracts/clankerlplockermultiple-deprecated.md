@@ -1,22 +1,24 @@
 # ClankerLpLockerMultiple \[Deprecated]
 
-{% hint style="info" %}
-Note: This locker has been deprecated in favor of [ClankerLpLockerFeeConversion](clankerlplockerfeeconversion.md)\
-\
-All tokens deployed with the ClankerLpLockerMultiple will continue to function but no new deployments will be allowed.
+**ClankerLpLockerMultiple** is the original v4 LP locker, which splits the LP fees from a token's deployment liquidity between its reward recipients.
+
+{% hint style="warning" %}
+This locker has been deprecated in favor of [ClankerLpLockerFeeConversion](clankerlplockerfeeconversion.md). Tokens deployed with ClankerLpLockerMultiple keep working, but no new deployments can use it.
 {% endhint %}
 
-The **ClankerLpLockerMultiple** contract is used to manage who is receiving the LP fees for a token's deployment liquidity. The LP is split between the list of reward recipients specified in the `LockerConfig` struct, with the split being specified in the `rewardBps` array.
+## How it works
 
-The `rewardAdmin` is able to update the `rewardRecipient` for their array position (and also update themselves). The `rewardBps` array is not changeable post deployment.
+The LP fees are split between the reward recipients specified in the `LockerConfig` struct, using the split in the `rewardBps` array.
 
-See the [Deployment Config](../deployment-config.md)'s `LockerConfig` section for how to configure Clanker lockers.
+The `rewardAdmin` can update the `rewardRecipient` for their array position, and can also update themselves. The `rewardBps` array can't be changed after deployment.
 
-User Facing Functions:
+See the `LockerConfig` section of [Deployment Config](../deployment-config.md) for how to configure Clanker lockers.
+
+## User-facing functions
 
 ```solidity
 // callable by the index's recipient admin, updates the reward admin for the reward index
-// 
+//
 // note: the 'token' parameter is the deployed token's address
 function updateRewardAdmin(address token, uint256 rewardIndex, address newAdmin) external;
 

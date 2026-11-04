@@ -2,21 +2,27 @@
 title: "ClankerHook"
 ---
 
-The **ClankerHook** contract is the abstract base contract that our other hooks inherit from.
+**ClankerHook** is the abstract base contract that the v4.0 Clanker hooks inherit from.
 
-The **ClankerHook** contract itself facilitates:
+## What it does
 
-* Automatic fee collection of the initial LP position's fees. Fees are collected by the **IClankerLpLocker** contracts and are routed to the [**ClankerFeeLocker**](/references/core-contracts/v4/fee-management-contracts/clankerfeelocker) contract for users to claim.
+ClankerHook handles:
+
+* Automatic collection of the initial LP position's fees. The **IClankerLpLocker** contracts collect the fees and route them to the [**ClankerFeeLocker**](/references/core-contracts/v4/fee-management-contracts/clankerfeelocker) contract for users to claim.
 * Collection of a DEX-level protocol fee, separate from the creator LP fees, always in the paired token.
-* Triggering of a pool's `MevModule` until it is disabled or expired. Mev Modules can run for up to 2 mintues max.
+* Triggering the pool's `MevModule` until it is disabled or expires. MEV modules can run for up to 2 minutes.
 
-Note: both of the fee collection mechanisms lag by a swap, so the fees collected in a swap are the fees from the previous swap. This is because a swap's fees are only sent into the `PoolManager` contract after the swap has completed.
+Both fee collection mechanisms lag by one swap, so the fees collected in a swap are the fees from the previous swap. This is because a swap's fees are only sent into the `PoolManager` contract after the swap completes.
 
-v4.0.0's initial release introduces two different fee hook types: `ClankerHookStaticFee` and `ClankerHookDynamicFee`. For both hooks, the protocol's DEX fee is always taken in the paired token and will always be 20% of the active LP fee.
+## Fees
 
-The maximum LP fee is 30% of a swap. It is NOT recommended to set the fee this high if it is desired for the token to work with every router; fees that high should be reserved for esoteric use cases only.
+The initial v4.0.0 release has two fee hook types: [`ClankerHookStaticFee`](/references/core-contracts/v4/clankerhook/clankerhookstaticfee) and [`ClankerHookDynamicFee`](/references/core-contracts/v4/clankerhook/clankerhookdynamicfee). For both hooks, the protocol's DEX fee is always taken in the paired token and is always 20% of the active LP fee.
 
-Clanker's hooks allow for deployment of pools not created by the factory via an 'open' version of the initialization pathway. Pools created via this method do not have automatic LP fee claiming or mev module operations. Note: this function will revert if called with the `clanker` address set to `WETH`. We only collect the protocol's fee on the paired token and would prefer it to be `WETH` when possible.
+The maximum LP fee is 30% of a swap. We do NOT recommend setting the fee this high if you want the token to work with every router. Fees that high should be reserved for esoteric use cases.
+
+## Open pool initialization
+
+Clanker's hooks also allow pools not created by the factory, through an "open" initialization pathway. Pools created this way don't get automatic LP fee claiming or MEV module operations. This function reverts if called with the `clanker` address set to `WETH`, because the protocol fee is only collected on the paired token and we prefer that to be `WETH` when possible.
 
 ```solidity
 // callable by anyone

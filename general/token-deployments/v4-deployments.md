@@ -1,21 +1,41 @@
 # v4 Deployments
 
-Clanker v4 tokens have an LP fee, optional extensions and a sniper auction at launch. For Clanker v5, see [Token Deployments](../token-deployments.md).
+Clanker v4 tokens charge an LP fee on trades, support optional extensions and use an MEV module to protect the launch. For Clanker v5, see the [Token Deployments overview](../token-deployments.md).
 
-### General Token Deployment Info (Clanker v4.0.0)
+## How a v4 token works
 
 <figure><img src="../../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>
 
-* ERC-20 tokens with a total supply of 100 billion tokens.
-  * Tokens are not mintable post-deployment, so the max supply will always be 100 billion.
-  * Tokens are burnable using the `burn()` function on the token contract.
-* Up to 90% of the total supply may be allocated to Clanker extensions. Extensions allow for token creators to allocate tokens for uses other than supplying liquidity in the new token's Uniswap v4 pool. The current list of extensions:
-  * Vault: lock up / vest tokens for a configurable period of time (7 day minimum lockup).
-  * Creator Buy / Dev Buy: spend ETH to execute a token swap within the deployment transaction, allowing for token creators to guarantee that they are able to make the first purchase of tokens from the initial pool.
-  * Airdrop: airdrop tokens to a list of recipients to then claim with configurable lockup / vesting periods (1 day minimum lockup).
-* The remaining tokens (up to 100% of the total supply if no extensions are used) are then allocated to up to 7 liquidity positions and placed into a Uniswap v4 pool for trading.
-* When a new token is created, there's a brief "auction period" before normal trading opens to everyone. This auction is designed to capture value from MEV bots (sophisticated trading bots that try to profit from new token launches) and redirect some of the value back to the token's creator.
-  * Normal trading starts after 5 rounds of the auction have completed (roughly 22 seconds post token deployment) or immediately after a round of the auction that has no bidders. The maximum delay before normal trading can start is at block *n+11*.
-  * For additional detail, please refer to the [ClankerSniperAuctionV0](../../references/core-contracts/v4/mev-modules/clankersniperauctionv0.md) documentation.
+The details below describe Clanker v4.0.0.
 
-See [Clanker.world Deployments](clanker.world-deployments.md#v4-parameters) for the v4 fields on the deploy form.
+### Supply
+
+* Each token is an ERC-20 with a total supply of 100 billion tokens.
+* Tokens can't be minted after deployment, so the supply is fixed at 100 billion.
+* Holders can burn tokens with the `burn()` function on the token contract.
+
+### Extensions
+
+Up to 90% of the total supply can go to Clanker extensions, which use tokens for something other than pool liquidity:
+
+* **Vault**: lock and vest tokens for a set period (7-day minimum lockup).
+* **Creator buy (dev buy)**: spend ETH to buy tokens in the deployment transaction, so the creator makes the first purchase from the pool.
+* **Airdrop**: send tokens to a list of recipients, who claim them after a set lockup and vesting period (1-day minimum lockup).
+
+### Liquidity
+
+The remaining tokens (up to 100% of the supply if no extensions are used) are split across up to 7 liquidity positions in a Uniswap v4 pool.
+
+### Sniper auction
+
+A v4.0.0 token opens with a short auction before normal trading starts. The auction captures value from MEV bots (trading bots that try to profit from new launches) and sends part of it back to the token's creator.
+
+* Normal trading starts after 5 auction rounds (about 22 seconds after deployment), or right after a round with no bidders.
+* Normal trading starts by block *n+11* at the latest.
+* For details, see [ClankerSniperAuctionV0](../../references/core-contracts/v4/mev-modules/clankersniperauctionv0.md).
+
+v4 tokens deployed from the clanker.world form use a sniper tax instead, which falls over the first seconds of trading. See [ClankerMevDescendingFees](../../references/core-contracts/v4/mev-modules/clankermevdescendingfees.md) and [Clanker.world Deployments](clanker.world-deployments.md#v4-parameters).
+
+## Deploying a v4 token
+
+See [Clanker.world Deployments](clanker.world-deployments.md#v4-parameters) for the v4 fields on the deploy form. The [Farcaster bot](farcaster-bot-deployments.md) also deploys v4 tokens.

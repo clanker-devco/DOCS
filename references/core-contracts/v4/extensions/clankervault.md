@@ -1,12 +1,20 @@
 # ClankerVault
 
-The **ClankerVault** extension allows a deployer to vault a portion of the token supply for a single admin. The tokens can be configured with an initial `lockupDuration` and an optional `vestingDuration`. The tokens will be inaccessible until the `lockupDuration` passes and then will start a linear vest after the `lockupDuration` ends. The vault has a minimum lockup duration of 7 days and has no required vesting duration.
+The **ClankerVault** extension lets a deployer lock a portion of the token supply for a single admin, with an optional linear vest.
 
-For example, if a deployer wants to vault 10% of the token supply for 30 days and have all tokens available 60 days post-unlock, they would set the lockupDuration to 30 days and the vestingDuration to 30 days. At 45 days post-deployment, half of the vaulted token supply would be accessible.
+## How it works
 
-Anyone is able to trigger the `claim()` function to transfer funds from the vault to the admin's address. This means it's okay if the admin is a contract.
+The vault can be configured with an initial `lockupDuration` and an optional `vestingDuration`. The tokens are inaccessible until the `lockupDuration` passes, then vest linearly. The vault has a minimum lockup duration of 7 days and no required vesting duration.
 
-The **ClankerVault**'s extension data is in the form of:
+For example, if a deployer wants to vault 10% of the token supply for 30 days and have all tokens available 60 days after deployment, they would set the `lockupDuration` to 30 days and the `vestingDuration` to 30 days. At 45 days after deployment, half of the vaulted supply would be accessible.
+
+Anyone can call the `claim()` function to transfer tokens from the vault to the admin's address, so it's fine for the admin to be a contract.
+
+In this version, only one vault extension is allowed per deployment.
+
+## Extension data
+
+The **ClankerVault** extension data has this form:
 
 ```solidity
 struct VaultExtensionData {
@@ -16,9 +24,7 @@ struct VaultExtensionData {
 }
 ```
 
-In this version, only a single vault extension is allowed per deployment.
-
-**User Facing Functions:**
+## User-facing functions
 
 ```solidity
 // callable by anyone, transfers the available tokens to the `admin`

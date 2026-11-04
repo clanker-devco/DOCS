@@ -4,63 +4,72 @@ title: "Introduction"
 
 Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. These docs cover token deployments, Droids, the API, the SDK and the protocol's contracts.
 
+You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker on Farcaster, through the API, or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
+
 ## Clanker v5
 
-Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a buy and sell tax instead of an LP fee, and the tax can pay creator rewards, holder dividends, a burn and an integrator.
+Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
 
-- [Token Deployments](/general/token-deployments) — How v5 tokens work and the ways to deploy one
-- [API Deployments](/general/token-deployments/v5-deployments) — Deploy a v5 token with the API
-- [Creator Rewards & Fees](/general/creator-rewards-and-fees) — How the tax is split and how rewards are claimed
-- [Holder Dividends](/general/holder-dividends) — How holders earn and claim dividends
-- [Managing a Token](/general/managing-a-token) — Metadata, reward recipients and admins after launch
-- [v5 Contracts](/references/core-contracts/v5) — Contract reference, launch policy and permissions
-- [Deployed Contracts](/references/deployed-contracts) — Contract addresses for every version and chain
-- [Deployment API](/api-reference/authenticated/deployment) — Full deploy endpoint reference
+You can launch a v5 token on clanker.world or with the [deploy API](/general/token-deployments/v5-deployments). The [v5 contracts](/references/core-contracts/v5) page covers the contracts, launch policy and permissions.
+
+## Token Deployments
+
+Start with [Token Deployments](/general/token-deployments). It explains how a v5 token works and where you can deploy one: [clanker.world](/general/token-deployments/clanker.world-deployments), the [API](/general/token-deployments/v5-deployments), the [Farcaster bot](/general/token-deployments/farcaster-bot-deployments), [Preclanks](/general/token-deployments/preclank-deployments) and [other interfaces](/general/token-deployments/alternative-interface-deployments). Earlier versions are covered in [v4](/general/token-deployments/v4-deployments) and [v3](/general/token-deployments/legacy-deployments).
+
+## Rewards
+
+- [Creator Rewards & Fees](/general/creator-rewards-and-fees): how fees or tax are split and how you claim rewards.
+- [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance): how to check what you can claim.
+- [Holder Dividends](/general/holder-dividends): how v5 holders earn and claim dividends.
+- [Token Burns](/general/token-burns): how a v5 token burns part of its tax.
+- [Managing a Token](/general/managing-a-token): metadata, reward recipients and admins after launch.
 
 ## Droids
 
-A Droid is an AI agent that ships with your token — own Farcaster account, personality you design, compute funded by the token itself via a carve-out of its LP rewards.
+A droid is an AI agent that ships with your token. It has its own Farcaster account, casts and replies in a personality you write, and pays for its own compute from a share of the token's creator rewards.
 
-- [Droids Overview](/droids/droids) — What a Droid is and the two ways to create one
-- [Droid Funding & Runway](/droids/funding) — How a droid pays for its own compute
-- [Create a Droid](/droids/create) — Launch a droid with a token (or standalone)
-- [Manage your Droid](/droids/manage) — The Droid panel and chat flow
-- [Writing a Droid Voice](/droids/voice) — Designing a personality worth tagging
-- [Droid FAQ](/droids/faq) and [Troubleshooting](/droids/troubleshooting)
+Start with the [Droids Overview](/droids/droids), then follow the guide through [Funding & Runway](/droids/funding), [Create a Droid](/droids/create), [Manage a Droid](/droids/manage) and [Droid Voice](/droids/voice).
 
 ## API Reference
 
 The Clanker REST API is available at `https://www.clanker.world/api`.
 
-| Auth Method | Header | Description |
-|-------------|--------|-------------|
-| Public | None | No authentication required |
-| Partner API Key | `x-api-key: <key>` | Issued per-partner by the Clanker team |
-| User Auth | `Authorization: Bearer <token>` | Farcaster or Privy authentication |
+| Auth method     | Header                          | Description                            |
+| --------------- | ------------------------------- | -------------------------------------- |
+| Public          | None                            | No authentication required             |
+| Partner API key | `x-api-key: <key>`              | Issued per partner by the Clanker team |
+| User auth       | `Authorization: Bearer <token>` | Farcaster or Privy authentication      |
 
-- [Public API](/api-reference/public) — Token search, trending, users, presales, airdrops, market data
-- [Authenticated API](/api-reference/authenticated) — Partner endpoints for tokens, deployment, fees
-- [User API](/api-reference/user) — Preclank management, UI token saves
+- [Public API](/api-reference/public): token search, trending, users, presales, airdrops and market data.
+- [Authenticated API](/api-reference/authenticated): partner endpoints for tokens, deployment and fees.
+- [User API](/api-reference/user): Preclank management and saved tokens.
 
 ## SDK Reference
 
-The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain.
+The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain. It covers v4 tokens today, and v5 support is coming soon. To launch a v5 token now, use clanker.world or the [deploy API](/general/token-deployments/v5-deployments).
 
 ```bash
 npm install clanker-sdk
 ```
 
-- [Core Utilities](/sdk-reference/core-utilities) — Types, constants, vanity address, merkle tree helpers
-- [V4 Clanker Class](/sdk-reference/v4) — Deploy, claim rewards, update metadata (current version)
-- [V3 Clanker Class](/sdk-reference/v3) — V3 token deployment and management
-- [V4 Extensions](/sdk-reference/extensions) — Airdrops, presales, allowlist management
-- [Legacy Fee Claims](/sdk-reference/legacyfeeclaims) — Fee claims for V0–V3.1 tokens
+- [Core Utilities](/sdk-reference/core-utilities): types, constants, vanity addresses and Merkle tree helpers.
+- [V4 Clanker Class](/sdk-reference/v4): deploy tokens, claim rewards and update metadata.
+- [V3 Clanker Class](/sdk-reference/v3): v3 token deployment and management.
+- [V4 Extensions](/sdk-reference/extensions): airdrops, presales and allowlist management.
+- [Legacy Fee Claims](/sdk-reference/legacyfeeclaims): fee claims for v0 to v3.1 tokens.
+
+## References
+
+- [Core Contracts](/references/core-contracts): contract reference for v5, v4 and v3.1.
+- [Deployed Contracts](/references/deployed-contracts): contract addresses for every version and chain.
+- [Supported Quote Tokens](/references/supported-quote-tokens): the tokens a Clanker token can be paired with.
+- [Audits](/references/audits), [Brand Assets](/references/brand-assets), [Compatible Trading Platforms](/references/compatible-trading-platforms) and [Contact](/references/contact).
 
 ## Contributing
 
-Documentation is auto-generated from source code:
+The API and SDK sections are generated from source code:
 
-- **API docs** are generated from [`clanker.world/docs/api-registry.ts`](https://github.com/clanker-devco/clanker.world/blob/main/docs/api-registry.ts) — update the registry to change API documentation
-- **SDK docs** are generated via [TypeDoc](https://typedoc.org/) from JSDoc comments in [`clanker-sdk/src/`](https://github.com/clanker-devco/clanker-sdk/tree/main/src) — update JSDoc in source to change SDK documentation
+- **API docs** come from [`clanker.world/docs/api-registry.ts`](https://github.com/clanker-devco/clanker.world/blob/main/docs/api-registry.ts). Update the registry to change the API documentation.
+- **SDK docs** are generated with [TypeDoc](https://typedoc.org/) from JSDoc comments in [`clanker-sdk/src/`](https://github.com/clanker-devco/clanker-sdk/tree/main/src). Update the JSDoc in source to change the SDK documentation.
 
-Both repos have GitHub Actions that regenerate and push docs here on every merge to `main`.
+Both repos have GitHub Actions that regenerate the docs and push them here on every merge to `main`.

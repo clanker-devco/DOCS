@@ -1,8 +1,10 @@
 # Clanker (Direct Contract Deployments)
 
-## Deploying a Token
+The v3.1 **Clanker** contract deploys a token, creates its Uniswap v3 pool, and places single-sided liquidity in one call to `deployToken()`.
 
-Tokens are deployed through the Clanker contract using the `deployToken` function:
+## Deploying a token
+
+Tokens are deployed through the Clanker contract's `deployToken` function:
 
 ```solidity
 /**
@@ -54,61 +56,69 @@ function deployToken(DeploymentConfig tokenConfig) external payable {...}
 function deployTokenWithCustomTeamRewardRecipient(DeploymentConfig tokenConfig, address teamRewardRecipient) external payable {...}
 ```
 
-### Rewards Configuration
+## Rewards configuration
 
-Rewards deployed through the launchpad are split as follows:
+Rewards for tokens deployed through the Clanker contract are split as follows:
 
-* 20% to Clanker
-* Up to 80% to the Creator (set with the `creatorReward` parameter)
-* Remaining to the Interface (can be 0%)
+* 20% to Clanker.
+* Up to 80% to the creator (set with the `creatorReward` parameter).
+* The remainder to the interface (can be 0%).
 
 Four addresses must be specified for token deployment:
 
-* `creatorAdmin`: The address that will manage the creator's locked token supply, creator's portion of the trading fee rewards, the token's metadata, and the receiver of the initial supply purchase (the "creator buy")
-* `creatorRewardRecipient`: The address that will initially receive the creator's portion of the trading fee rewards
-* `interfaceAdmin`: The address that will manage the interface's trading fee rewards
-* `interfaceRewardRecipient`: The address that will initially receive the interface's portion of the trading fee rewards
+| Parameter                  | Description                                                                                                                                                                           |
+| -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `creatorAdmin`             | Manages the creator's locked token supply, the creator's portion of the trading fee rewards, and the token's metadata. Also receives the initial supply purchase (the "creator buy"). |
+| `creatorRewardRecipient`   | Initially receives the creator's portion of the trading fee rewards.                                                                                                                  |
+| `interfaceAdmin`           | Manages the interface's trading fee rewards.                                                                                                                                          |
+| `interfaceRewardRecipient` | Initially receives the interface's portion of the trading fee rewards.                                                                                                                |
 
-### Token Configuration
+## Token configuration
 
-The following parameters are required for token creation:
+These parameters are required for token creation:
 
-* `name`: Token name
-* `symbol`: Token symbol
-* `image`: Token image
-* `metadata`: Token metadata (`creatorAdmin` can update this)
-* `context`: Additional token context containing information about who deployed the token (immutable)
-* `salt`: Address salt value to allow for token address customization
-* `originatingChainId`: Chain ID where the token's supply is deployed
+| Parameter            | Description                                                                         |
+| -------------------- | ----------------------------------------------------------------------------------- |
+| `name`               | Token name.                                                                         |
+| `symbol`             | Token symbol.                                                                       |
+| `image`              | Token image.                                                                        |
+| `metadata`           | Token metadata (`creatorAdmin` can update this).                                    |
+| `context`            | Additional token context with information about who deployed the token (immutable). |
+| `salt`               | Address salt value that allows token address customization.                         |
+| `originatingChainId` | Chain ID where the token's supply is deployed.                                      |
 
-{% hint style="info" %}
-Tokens will be deployed with a fixed supply of 100,000,000,000.
-{% endhint %}
+Tokens are deployed with a fixed supply of 100,000,000,000.
 
-### Vault Configuration (Optional)
+## Vault configuration (optional)
 
-Users can lock a portion of the token supply in a vault with these parameters:
+You can lock a portion of the token supply in a vault with these parameters:
 
-* `vaultDuration`: Lock duration (minimum 30 days)
-* `vaultPercentage`: Percentage of supply to lock (maximum 30%)
+| Parameter         | Description                                 |
+| ----------------- | ------------------------------------------- |
+| `vaultDuration`   | Lock duration (minimum 30 days).            |
+| `vaultPercentage` | Percentage of supply to lock (maximum 30%). |
 
-The `creatorAdmin` address will have administrative control over the locked tokens in the ClankerVault contract.
+The `creatorAdmin` address has administrative control over the locked tokens in the [ClankerVault](clankervault.md) contract.
 
-### Pool Configuration
+## Pool configuration
 
-After token creation, a 1% fee tiered Uniswap V3 Pool is deployed. The remaining non-vaulted token supply is then added as a single-sided liquidity position. Required parameters:
+After the token is created, a Uniswap v3 pool with a 1% fee tier is deployed. The remaining non-vaulted token supply is then added as a single-sided liquidity position. Required parameters:
 
-* `tickIfToken0IsNewToken`: Initial token price in the pool
-* `pairedToken`: Token to pair with the new token
+| Parameter                | Description                       |
+| ------------------------ | --------------------------------- |
+| `tickIfToken0IsNewToken` | Initial token price in the pool.  |
+| `pairedToken`            | Token to pair with the new token. |
 
-The liquidity position's NFT is transferred to the LpLockerv2 contract, where each fee-receiving entity has control over who receives their portion of the trading fees.
+The liquidity position's NFT is transferred to the [LpLockerv2](lplockerv2.md) contract, where each fee-receiving entity controls who receives their portion of the trading fees.
 
-### Initial Swap Configuration (Optional)
+## Initial swap configuration (optional)
 
-Users can perform an initial swap (a creator buy) using ETH (sent via `msg.value`). For non-WETH paired tokens, the contract first internally swaps ETH to the paired token (ETH -> pairedToken -> new token). Required parameters:
+You can make an initial swap (a creator buy) using ETH sent via `msg.value`. For non-WETH paired tokens, the contract first swaps the ETH to the paired token internally (ETH -> pairedToken -> new token). Required parameters:
 
-* `msg.value`: ETH amount for the swap
-* `pairedTokenSwapAmountOutMinimum`: Minimum amount of paired tokens to receive if ETH is not the paired token
-* `pairedTokenPoolFee`: Pool fee for the ETH -> pairedToken swap
+| Parameter                         | Description                                                               |
+| --------------------------------- | ------------------------------------------------------------------------- |
+| `msg.value`                       | ETH amount for the swap.                                                  |
+| `pairedTokenSwapAmountOutMinimum` | Minimum amount of paired tokens to receive if ETH isn't the paired token. |
+| `pairedTokenPoolFee`              | Pool fee for the ETH -> pairedToken swap.                                 |
 
-The `creatorAdmin` address receives the new tokens purchased with the ETH sent.
+The `creatorAdmin` address receives the new tokens bought with the ETH sent.

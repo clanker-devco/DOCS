@@ -1,31 +1,43 @@
 # Overview
 
-Clanker v5 is the current version of Clanker. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
+Clanker v5 is the current version of Clanker. Here's how a v5 token works, what creators can do after launch, and where you can deploy one.
 
-### General Token Deployment Info (Clanker v5)
+## How a v5 token works
 
-* ERC-20 tokens with a total supply of 1 billion tokens.
-* The full supply is placed into a Uniswap v4 pool paired with ETH or USDC. The liquidity can never be removed.
-* There is no LP fee. Each trade pays a buy tax or a sell tax, each set by the creator between 1% and 10%.
-* Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade. The rest of the tax is the creator share.
-* The creator can send part of the creator share to:
-  * **Holder dividends**: paid to every holder above a minimum balance that the creator sets (at least 10,000 tokens).
-  * **Burn**: burned in the launched token.
-  * **Integrator**: a share for an integrator address.
-* With the sniper fee on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
-* Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
+Every v5 token launches with its full supply in a Uniswap v4 pool. Instead of an LP fee, each trade pays a buy or sell tax, and the creator chooses how their share of that tax is used.
+
+* **Supply**: an ERC-20 token with a total supply of 1 billion tokens.
+* **Liquidity**: the full supply goes into a Uniswap v4 pool paired with ETH or USDC. The liquidity can never be removed.
+* **Tax**: each trade pays a buy tax or a sell tax. The creator sets each rate between 1% and 10%.
+* **Clanker fee**: Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade. The rest of the tax is the creator share.
+* **Sniper fee**: when it is on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
+* **Rewards currency**: rewards are paid in the pair token (native ETH for an ETH pair, USDC for a USDC pair).
+
+### Where the creator share goes
+
+By default, the creator share goes to the creator's reward recipients. The creator can send part of it to:
+
+* **Holder dividends**: paid to every holder above a minimum balance that the creator sets (at least 10,000 tokens). See [Holder Dividends](holder-dividends.md).
+* **Burn**: taken in the launched token and burned. See [Token Burns](token-burns.md).
+* **Integrator**: a share for an integrator address, set through the [API](token-deployments/v5-deployments.md).
 
 See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed.
 
-### Ways to deploy
+### After launch
 
-* [clanker.world](token-deployments/clanker.world-deployments.md): every field on the clanker.world deploy form.
-* [API](token-deployments/v5-deployments.md): deploy a v5 token with the deploy API.
-* [Farcaster Bot](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast.
+The creator manages a v5 token from its Admin page on clanker.world: claim rewards, change reward recipients, update the image and metadata, verify the token, transfer creator rights and post announcements to holders. See [Managing a Token](managing-a-token.md).
+
+## Ways to deploy
+
+* [clanker.world](token-deployments/clanker.world-deployments.md): fill in the deploy form on clanker.world.
+* [API](token-deployments/v5-deployments.md): deploy a v5 token with the partner deploy API.
+* [Farcaster Bot](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast. A cast launches a v4 token; to launch a v5 token from a cast, use a preclank.
 * [Preclanks](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
 * [Other Interfaces](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
 
-### Other versions
+## Earlier versions
 
-* [v4 Tokens](token-deployments/v4-deployments.md): v4 tokens, with an LP fee, extensions and the sniper auction.
-* [Legacy Versions](token-deployments/legacy-deployments.md): earlier Clanker versions.
+Tokens launched on earlier versions keep working on their own contracts.
+
+* [v4](token-deployments/v4-deployments.md): an LP fee instead of a tax, with extensions and MEV protection at launch.
+* [v3](token-deployments/legacy-deployments.md): v3.1 and v3.0 tokens.

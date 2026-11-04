@@ -2,19 +2,23 @@
 title: "ClankerHookStaticFee"
 ---
 
-The **ClankerHookStaticFee** hook inherits from the **ClankerHook** and is used to set a static fee for both the deployed token and the paired token. The fees are able to be different from each other and have a max of 30%.
+**ClankerHookStaticFee** inherits from **ClankerHook** and applies a fixed fee to both the deployed token and the paired token.
 
-The fee unit is in Uniswap BPS, where `1` = 1/100th of a basis point. A fee of 1% is represented by `10_000,` and a fee of 30% by `300_000`.&#x20;
+## Configuration
 
-The expected `PoolConfig.poolData` is in the form of:
+The two fees can differ from each other, and each has a maximum of 30%.
+
+The fee unit is Uniswap BPS, where `1` = 1/100th of a basis point. A fee of 1% is `10_000`, and a fee of 30% is `300_000`.
+
+The expected `PoolConfig.poolData` is:
 
 ```solidity
 struct PoolStaticConfigVars {
     // the fee taken on the deployed token when it's the input token
-    uint24 clankerFee; 
+    uint24 clankerFee;
     // the fee taken on the paired token when it's the input token
     uint24 pairedFee;
 }
 ```
 
-These fees are not changeable post deployment.
+These fees can't be changed after deployment.

@@ -1,47 +1,41 @@
 # Administrative Permissions
 
-Clanker as a whole aims to be permissionless where possible and is committed to decentralization. All of our contracts currently either have no owner or are owned by Clanker's team multisig. Any 'admin' role can be assumed to be controlled by either Clanker multisigs or EOAs. None of the contracts are upgradeable.
+This page lists the admin roles on the Clanker v4 contracts and what each role can do.
 
-#### Clanker.sol
+Clanker aims to be permissionless where possible and is committed to decentralization. All of our contracts either have no owner or are owned by Clanker's team multisig. Any "admin" role can be assumed to be controlled by Clanker multisigs or EOAs. None of the contracts are upgradeable.
 
-Role: `Owner`
+## Clanker.sol
 
-Permissions:
+### Owner
 
-* Add/remove admins via `setAdmin()`.
-* Initialize the contract with `teamFeeRecipient` addresses, can only be done once.
+* Add or remove admins via `setAdmin()`.
+* Initialize the contract with `teamFeeRecipient` addresses. This can only be done once.
 * Pause supplied token deployments with `setDeprecated()`.
 * Change the `teamFeeRecipient` via `setTeamFeeRecipient()`.
-* All of admin's capabilities
+* Everything the admin role can do.
 
-Role: `Admin`
-
-Permissions:
+### Admin
 
 * Claim protocol fees to `teamFeeRecipient` via `claimTeamFees()`.
-* Enable/disable hooks via `setHook()`.
-* Enable/disable extensions via `setExtension()`.
-* Enable/disable mev modules via `setMevModule()`.
-* Enable/disable lockers via `setLocker()`.
+* Enable or disable hooks via `setHook()`.
+* Enable or disable extensions via `setExtension()`.
+* Enable or disable MEV modules via `setMevModule()`.
+* Enable or disable lockers via `setLocker()`.
 
-#### ClankerLpLockerMultiple.sol, ClankerLpLockerFeeConversion.sol
+## ClankerLpLockerMultiple.sol, ClankerLpLockerFeeConversion.sol
 
-Role: `Owner`
-
-Permissions:
+### Owner
 
 * Withdraw ETH sent to the contract by accident via `withdrawEth()`.
 * Withdraw ERC20s sent to the contract by accident via `withdrawERC20()`.
 
-#### ClankerFeeLocker.sol
+## ClankerFeeLocker.sol
 
-Role: `Owner`
+### Owner
 
-Permissions:
+* Add depositors via `addDepositor()`.
 
-* Add additional depositors via `addDepositor()`.
-
-#### No Administrative Permissions
+## No Administrative Permissions
 
 Clanker has no administrative abilities on the following contracts:
 

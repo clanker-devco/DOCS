@@ -1,10 +1,16 @@
 # LpLockerv2
 
-The LpLockerv2 contract manages trading fees from the Clanker contract, with a 20/80 split between Clanker and token's interface / creator. Only the Clanker contract can deposit new liquidity position NFTs. The `tokenId` parameter is the token's associated liquidity position NFT ID (emitted and returned from `deployToken()`).
+The v3.1 **LpLockerv2** contract holds each token's liquidity position NFT and splits its trading fees between Clanker and the token's creator and interface.
 
-### User Functions
+## How it works
 
-`updateCreatorRewardAdmin()`: Allows creator NFT admin to change the admin for their token
+Fees are split 20/80 between Clanker and the token's interface and creator. Only the Clanker contract can deposit new liquidity position NFTs. The `tokenId` parameter is the ID of the token's liquidity position NFT (emitted and returned from `deployToken()`).
+
+## User functions
+
+### `updateCreatorRewardAdmin()`
+
+Lets the creator's admin change the creator admin for their token.
 
 ```solidity
 // note: will revert if not called by the token's admin
@@ -14,9 +20,11 @@ function updateCreatorRewardAdmin(
 ) public {...}
 ```
 
-A similar function exists for the interface's reward recipient, `updateInterfaceRewardAdmin()`.
+A similar function exists for the interface's admin: `updateInterfaceRewardAdmin()`.
 
-`updateCreatorRewardRecipient()`: Allows creator NFT admin to update the reward recipient for their token
+### `updateCreatorRewardRecipient()`
+
+Lets the creator's admin update the reward recipient for their token.
 
 ```solidity
 // note: will revert if not called by the token's admin
@@ -26,15 +34,17 @@ function updateCreatorRewardRecipient(
 ) public {...}
 ```
 
-A similar function exists for the interface's reward recipient, `updateInterfaceRewardRecipient()`.
+A similar function exists for the interface's reward recipient: `updateInterfaceRewardRecipient()`.
 
-`claimRewards()`: Allows any address to claim accumulated trading fees
+### `claimRewards()`
 
-```
+Lets any address claim the accumulated trading fees.
+
+```solidity
 // note: callable by anyone
 function claimRewards(
     uint256 tokenId  // Token ID for claiming rewards
 ) public {...}
 ```
 
-Claimed rewards are distributed with 20% going to Clanker and 80% split between the creator and the interface. If the reward recipient is set to the zero address for non-Clanker rewards, the Clanker receives all fees.
+Claimed rewards are distributed with 20% going to Clanker and 80% split between the creator and the interface. If the reward recipient for non-Clanker rewards is set to the zero address, Clanker receives all fees.

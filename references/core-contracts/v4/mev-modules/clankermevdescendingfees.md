@@ -1,20 +1,24 @@
 # ClankerMevDescendingFees
 
-**ClankerMevDescendingFees** is a Mev module designed to impose higher fees on snipers. Deployers are able to specify a starting LP fee (up to 80%), an ending fee, and a time to descend (up to 2 minutes). Clanker's initial recommended configuration will start effective fees at 80% and descend to 5% over 30 seconds, after which the pool's normal fee behavior will commence. For the motivation behind these choices, see our [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
+**ClankerMevDescendingFees** is a MEV module that charges snipers higher fees by starting the LP fee high and lowering it over a short period after launch.
 
-The fees decay following the formula: `fee = endingFee + feeRange * (timeDecay / timeToDecay)²`.
+## How it works
 
-Swaps are able to start in the second after deployment.&#x20;
+Deployers specify a starting LP fee (up to 80%), an ending fee, and a time to descend (up to 2 minutes). Clanker's initial recommended configuration starts effective fees at 80% and descends to 5% over 30 seconds, after which the pool's normal fee behavior starts. For the reasoning behind these choices, see our [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
+
+The fee decays following the formula `fee = endingFee + feeRange * (timeDecay / timeToDecay)²`.
+
+Swaps can start in the second after deployment.
 
 <figure><img src="../../../../.gitbook/assets/mev-descending-fees-1.png" alt=""><figcaption></figcaption></figure>
 
-The fee applied to the swap is the LP's fee plus Clanker's additional 20% fee. Clanker's default starting market cap is $40k USD, and with the proposed starting fee of 80%, we're setting the starting price for snipers at a market cap of $200k.
+The fee applied to a swap is the LP fee plus Clanker's additional 20% fee. Clanker's default starting market cap is $40k USD, so with the proposed starting fee of 80%, snipers start at an effective market cap of $200k.
 
 <figure><img src="../../../../.gitbook/assets/mev-descending-fees-2.png" alt=""><figcaption></figcaption></figure>
 
-### Initialization
+## Initialization
 
-Token deployers can configure the fee parameters with the following struct:
+Token deployers configure the fee parameters with this struct:
 
 ```solidity
 struct FeeConfig {
@@ -24,7 +28,7 @@ struct FeeConfig {
 }
 ```
 
-This config is set on the deployment struct as follows:
+Set this config on the deployment struct as follows:
 
 ```solidity
 address clankerMevDescendingFees; // address of the deployed MEV module

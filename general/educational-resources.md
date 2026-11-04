@@ -1,65 +1,67 @@
 # Educational Resources
 
-{% hint style="info" %}
-As a general rule of thumb: whenever you launch a token, it's important to set clear expectations with your community, traders, and teammates. Underpromise and overdeliver. Steer clear of promising future profits and consult professional legal advice.
-{% endhint %}
+Guides and tools to help you plan a launch: how to choose a pair token, video walkthroughs, and the LP position simulator.
 
-## Token Pairings
+Whenever you launch a token, set clear expectations with your community, traders and teammates. Underpromise and overdeliver, never promise future profits, and get professional legal advice.
 
-Clanker tokens can be paired with any ERC-20, although we suggest using a token with deep liquidity for optimal trading. Here's an example of deploying a clanker paired with another clanker token: <https://github.com/clanker-devco/clanker-sdk/blob/main/examples/v4/customPair.ts>
+## Choosing a pair token
 
-#### Pairing with USDC
+Every Clanker token trades against a pair token. A Clanker v5 token pairs with ETH or USDC. A v4 token can pair with any ERC-20, though a token with deep liquidity trades best. See this [example of a v4 token paired with another Clanker token](https://github.com/clanker-devco/clanker-sdk/blob/main/examples/v4/customPair.ts).
 
-PROS:&#x20;
+### USDC
 
-* token price won't fluctuate in dollar value based on the price of the underlying asset
-* cleaner in dashboards, analytics, marketing, and usually people refer to coin market caps in dollar amounts
-* taxes
+Pros:
 
-CONS:&#x20;
+* The token's price doesn't move with the price of the pair token.
+* Dashboards, analytics and marketing read more cleanly, since market caps are usually quoted in dollars.
+* Easier tax reporting, since values are already in dollars.
 
-* swaps can require multiple pool hops (eth=>USDC=>TOKEN) which can increase txn fees per swap
-* on some chains, a stablecoin may have shallower liquidity compared to the wrapped native token
-* isolates the non-USDC familiar users and countries whose primary currency isn't USD&#x20;
+Cons:
 
-#### Pairing with WETH (or wrapped native gas token)
+* Swaps can need more than one pool hop (ETH → USDC → token), which can raise the fee per swap.
+* On some chains, a stablecoin has less liquidity than the wrapped native token.
+* Less familiar to users whose main currency isn't the US dollar.
 
-PROS:
+### WETH (or another wrapped native token)
 
-* dexes pick up WETH pools easier in general
-* best composability with DEX aggregators, lending protocols, trading bots WETH&#x20;
+Pros:
 
-CONS:
+* DEXs generally pick up WETH pools more easily.
+* Best composability with DEX aggregators, lending protocols and trading bots.
 
-* double volatility (token/eth x eth/usd)
-* market cap is seldomly referred to in WETH terms
-* price charts can be misleading as the default y-axis is usually dollar based (see attached images)&#x20;
+Cons:
 
-### When to use USDC or WETH?
+* Double volatility (token/ETH × ETH/USD).
+* Market caps are seldom quoted in WETH.
+* Price charts can mislead, since their y-axis is usually in dollars.
 
-Use USDC for consumer app tokens, stable yield / RWAs, treasury protocols, and maybe governance tokens use WETH for defi-native projects / infra tokens, memes, speculative tokens that are built to bounce up and down
+### Which to choose
 
-## Episode 1: Clanker 101
+Use USDC for consumer app tokens, stable-yield and treasury projects, and possibly governance tokens. Use WETH for DeFi-native and infrastructure tokens, memes, and speculative tokens.
 
-Full episode [HERE](https://x.com/lindaxie/status/1983625447608086843) which covers:
+## Videos
 
-1. what is Clanker?&#x20;
-2. how to launch a token
-3. fees + token management + adding liquidity
-4. deployment configurations (static vs dynamic fee, reward recipients, creator vault, dev buy, airdrops)
-5. best practices + more!&#x20;
+### Episode 1: Clanker 101
 
-## Episode 2: LP Management
+[Watch the full episode](https://x.com/lindaxie/status/1983625447608086843). It covers:
 
-Full episode [HERE](https://x.com/lindaxie/status/2000997037802971363) which covers:
+1. what Clanker is,
+2. how to launch a token,
+3. fees, token management and adding liquidity,
+4. deployment settings (static vs dynamic fee, reward recipients, creator vault, dev buy, airdrops),
+5. best practices.
 
-* LP fundamentals, strategies & tradeoffs
-* common LP mistakes
-* starting market cap
-* sniper tax mechanics
-* Clanker LP position simulator
-* walkthrough of adding & removing liquidity
+### Episode 2: LP Management
 
-## LP position simulator:
+[Watch the full episode](https://x.com/lindaxie/status/2000997037802971363). It covers:
 
-* Simulate LP positions, market cap changes based on buys and sells, and simulate supply purchased through dev buys at various starting market caps: <https://clanker.world/lp-simulator>
+* LP fundamentals, strategies and tradeoffs,
+* common LP mistakes,
+* starting market cap,
+* sniper tax mechanics,
+* the Clanker LP position simulator,
+* a walkthrough of adding and removing liquidity.
+
+## LP position simulator
+
+The [LP position simulator](https://clanker.world/lp-simulator) lets you simulate LP positions, see how market cap changes with buys and sells, and see how much supply a dev buy gets at different starting market caps.
