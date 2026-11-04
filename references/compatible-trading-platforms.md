@@ -1,10 +1,26 @@
 # Compatible Trading Platforms
 
-This page lists the trading platforms known to support Clanker pools. If you run a trading platform or venue and want to integrate with Clanker's pools, [contact us](contact.md).
+This page lists the trading platforms known to support Clanker pools, starting with Clanker v5. If you run a trading platform or venue and want to integrate with Clanker's pools, [contact us](contact.md).
+
+## Clanker v5
+
+Clanker v5 tokens trade in Uniswap v4 pools on Base that use the Clanker v5 hook. Every trade pays the token's buy or sell tax.
+
+### Trading platforms and frontends
+
+* clanker.world
+* GMGN
+* Uniswap
+
+### Wallets
+
+* Rainbow
+* Rabby
+* Coinbase Wallet
 
 ## Clanker v4.0.0
 
-Clanker v4.0.0 deploys tokens into Uniswap v4 pools with custom Uniswap v4 hooks. Because of these custom hooks, not every trading platform or venue supports trading through Clanker v4.0.0 pools.
+Clanker v4.0.0 deploys tokens into Uniswap v4 pools with custom Uniswap v4 hooks. Because of these custom hooks, not every trading platform or venue supports trading through Clanker v4.0.0 pools. Many Telegram trading bots on Base don't support Uniswap v4 pools or Clanker's Uniswap v4 hooks.
 
 Known compatible trading platforms as of July 8, 2025:
 

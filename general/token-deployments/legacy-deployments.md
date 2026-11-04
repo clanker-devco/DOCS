@@ -2,7 +2,7 @@
 
 How tokens were deployed on Clanker v3.1 and v3.0. For Clanker v5, see the [Token Deployments overview](../token-deployments.md).
 
-## v3.1.0
+## v3.1.0 (legacy)
 
 ### Farcaster bot deployments
 
@@ -31,13 +31,13 @@ Creator buys run **after** vaulting. For example, if a creator puts 10% of the s
 
 ### Alternative interface deployments
 
-Interfaces that deploy through the Clanker API or directly on the Clanker contracts can set many other parameters. Check each interface's documentation for its options. These include, but are not limited to:
+Interfaces that deploy through the Clanker API or directly on the Clanker contracts can set many other parameters, since v3.1 greatly expanded what a deployment can customize. Check each interface's documentation for its options. These include, but are not limited to:
 
 * Creator reward splits
 * Market cap
 * Custom quote token pairs
 
-## v3.0.0
+## v3.0.0 (deprecated)
 
 Clanker v3.0.0 tokens go through these steps:
 
