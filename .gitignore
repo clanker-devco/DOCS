@@ -2,3 +2,5 @@ node_modules/
 .mintlify/
 .validation/
 *.log
+
+.worktrees/

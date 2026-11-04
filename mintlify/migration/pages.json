@@ -73,6 +73,14 @@
   },
   {
     "indent": 2,
+    "title": "V5 Launches",
+    "source": "general/token-deployments/v5-launches.md",
+    "route": "general/token-deployments/v5-launches",
+    "oldPath": "general/token-deployments/v5-launches",
+    "sourceSha256": "ea2d80e3cf7f02eab58cd66d82ca59ba531f826144cf8aabb3ab5dc9c44c0bdd"
+  },
+  {
+    "indent": 2,
     "title": "Legacy Deployments",
     "source": "general/token-deployments/legacy-deployments.md",
     "route": "general/token-deployments/legacy-deployments",
