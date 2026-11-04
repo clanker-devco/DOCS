@@ -8,6 +8,10 @@ Creator rewards can be claimed on the Admin page of the token on [clanker.world]
 
 Please see the [FAQ](faq.md) for detail on finding Token Info pages and collecting creator rewards.
 
+{% hint style="info" %}
+**V5 tokens** have no LP fee. They charge a buy and sell tax, and Clanker takes the larger of 10% of the tax and 0.5% of the trade, at most 1% of the trade. V5 rewards collect in the FeeEscrow and are claimed on the same Admin page. See [V5 Deployments](token-deployments/v5-deployments.md).
+{% endhint %}
+
 #### Clanker Fees
 
 The Clanker fee is fixed at 20% of LP fees that are collected at the pool level in addition to creator LP fees.&#x20;

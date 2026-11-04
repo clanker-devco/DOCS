@@ -30,7 +30,7 @@
               "general/token-deployments/preclank-deployments",
               "general/token-deployments/alternative-interface-deployments",
               "general/token-deployments/deploying-a-token",
-              "general/token-deployments/v5-launches",
+              "general/token-deployments/v5-deployments",
               "general/token-deployments/legacy-deployments"
             ]
           },
@@ -208,6 +208,10 @@
     ]
   },
   "redirects": [
+    {
+      "source": "/general/token-deployments/v5-launches",
+      "destination": "/general/token-deployments/v5-deployments"
+    },
     {
       "source": "/readme",
       "destination": "/index"

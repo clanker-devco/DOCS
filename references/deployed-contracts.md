@@ -6,16 +6,16 @@
 
 <details>
 
-<summary>v5 (V5 launches)</summary>
+<summary>v5</summary>
 
-| Contract                     | Contract Address                           |
-| ---------------------------- | ------------------------------------------ |
-| ClankerV5Factory             | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
-| ClankerV5Hook                | 0x5E320eA6278107968C119942E57d876c5F922AcC |
-| ClankerV5FeeEscrow           | 0x5dd237d1f716C65426CCd2FAe82B95109825FA61 |
-| ClankerV5ClaimHelper         | 0xe896454E417400a9d7766497764e4dEBf91534BD |
-| ClankerV5AnnouncementRegistry | 0x1B417526da9737cA99956e32cdfB674d6C9f097a |
-| ClankerV5DividendDeployer    | 0xaaC0069616eF93337BC73BEB38CD54B883d4521e |
+| Contract              | Contract Address                           |
+| --------------------- | ------------------------------------------ |
+| Factory               | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
+| Hook                  | 0x5E320eA6278107968C119942E57d876c5F922AcC |
+| FeeEscrow             | 0x5dd237d1f716C65426CCd2FAe82B95109825FA61 |
+| Claim Helper          | 0xe896454E417400a9d7766497764e4dEBf91534BD |
+| Announcement Registry | 0x1B417526da9737cA99956e32cdfB674d6C9f097a |
+| Dividend Deployer     | 0xaaC0069616eF93337BC73BEB38CD54B883d4521e |
 
 </details>
 
