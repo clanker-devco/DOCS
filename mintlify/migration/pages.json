@@ -91,7 +91,7 @@
     "source": "general/token-deployments/legacy-deployments.md",
     "route": "general/token-deployments/legacy-deployments",
     "oldPath": "general/token-deployments/legacy-deployments",
-    "sourceSha256": "e1269fcffe39369de7f38a66005ae93e06756d42fa3dd80d02ebb9fb8e61fc55",
+    "sourceSha256": "2611d93ed8d5d4c2fd8eb59a1e37cddfd8886b5cb5429099cad3cc0bf06a322f",
     "sidebarTitle": "v3"
   },
   {
@@ -149,7 +149,7 @@
     "source": "general/verifying-the-social-context-of-token-deploys.md",
     "route": "general/verifying-the-social-context-of-token-deploys",
     "oldPath": "general/verifying-the-social-context-of-token-deploys",
-    "sourceSha256": "788bb6ceca1217ca86322e56a6a37bdffd2581b5faa3c18c2df94fc2fd9c60d8",
+    "sourceSha256": "616ef914cee97879fe26735c9f9df73b778adbc377c3e9660f8489905cbd7ca8",
     "sidebarTitle": "Verifying Social Context"
   },
   {
@@ -633,7 +633,7 @@
     "source": "references/compatible-trading-platforms.md",
     "route": "references/compatible-trading-platforms",
     "oldPath": "references/compatible-trading-platforms",
-    "sourceSha256": "64c37f4fd3828a6cbb93c0dda79f005458aa3529c9f2add10a761c19ed6240f5"
+    "sourceSha256": "e19e02a16f9d8e5ef8b133600a770c8da18250c2a7f851d8e5695714f263c028"
   },
   {
     "indent": 0,
