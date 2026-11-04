@@ -155,7 +155,7 @@ async function isFarcasterVerifiedDeploy({
 * A `false` result does **not** mean the token is a fraud.
 * An X match is weaker than a Farcaster match. For an X deploy, open its deployment context to see the post that triggered it, and check the X account for impersonation.
 
-Tokens are speculative. Always do your own research. This is not financial advice.
+If your app shows the trust status, show standard disclaimers next to it: tokens are speculative, users should do their own research, and this is not financial advice.
 
 ## Show your Farcaster account as creator
 
