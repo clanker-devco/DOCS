@@ -96,8 +96,11 @@ export async function importGenerated(kind, input, directory = root, options = {
       });
     }
   } else {
+    // Hand-written SDK pages (not generated) stay in the sidebar after each import.
+    const handWritten = group.pages.filter((route) => route === 'sdk-reference/v5');
     group.pages = [
       routeFor(prefix + 'README.md', pages),
+      ...handWritten,
       ...incoming.map(({ page }) => page.route),
     ];
   }
