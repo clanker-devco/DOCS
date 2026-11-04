@@ -140,7 +140,8 @@
     "source": "general/clanker.world-warning-tags.md",
     "route": "general/clanker.world-warning-tags",
     "oldPath": "general/clanker.world-warning-tags",
-    "sourceSha256": "aedb68e5e8490859ae9c2ea6b02d808a2fb36cc1319efffb1dc88e90aa73b49f"
+    "sourceSha256": "aedb68e5e8490859ae9c2ea6b02d808a2fb36cc1319efffb1dc88e90aa73b49f",
+    "sidebarTitle": "Warning Tags"
   },
   {
     "indent": 0,
@@ -148,7 +149,8 @@
     "source": "general/verifying-the-social-context-of-token-deploys.md",
     "route": "general/verifying-the-social-context-of-token-deploys",
     "oldPath": "general/verifying-the-social-context-of-token-deploys",
-    "sourceSha256": "0cca57b0c1d002f646901cd651fec40a3b53883b596bc6e1829ca97032713b49"
+    "sourceSha256": "0cca57b0c1d002f646901cd651fec40a3b53883b596bc6e1829ca97032713b49",
+    "sidebarTitle": "Verifying Social Context"
   },
   {
     "indent": 1,
@@ -164,7 +166,8 @@
     "source": "droids/funding.md",
     "route": "droids/funding",
     "oldPath": "droids/funding",
-    "sourceSha256": "d54e1a834b533f441c09cf0431960745d5d9017aab931045eef97992adf60927"
+    "sourceSha256": "d54e1a834b533f441c09cf0431960745d5d9017aab931045eef97992adf60927",
+    "sidebarTitle": "Funding & Runway"
   },
   {
     "indent": 0,
@@ -172,7 +175,8 @@
     "source": "droids/create.md",
     "route": "droids/create",
     "oldPath": "droids/create",
-    "sourceSha256": "386db55d6d76cfac7d2fedcdf177d99fc5bfe776043af5b9fe92047a51203033"
+    "sourceSha256": "386db55d6d76cfac7d2fedcdf177d99fc5bfe776043af5b9fe92047a51203033",
+    "sidebarTitle": "Create a Droid"
   },
   {
     "indent": 0,
@@ -180,7 +184,8 @@
     "source": "droids/manage.md",
     "route": "droids/manage",
     "oldPath": "droids/manage",
-    "sourceSha256": "d3b7aaaf2250ad053efef31d2c3c7c15d12b448627590c6934cefca0deb48c74"
+    "sourceSha256": "d3b7aaaf2250ad053efef31d2c3c7c15d12b448627590c6934cefca0deb48c74",
+    "sidebarTitle": "Manage a Droid"
   },
   {
     "indent": 0,
@@ -188,7 +193,8 @@
     "source": "droids/voice.md",
     "route": "droids/voice",
     "oldPath": "droids/voice",
-    "sourceSha256": "60223c5e2fe97b657be1aa28056021de95d1f7489efc15f6e570a55d680b214e"
+    "sourceSha256": "60223c5e2fe97b657be1aa28056021de95d1f7489efc15f6e570a55d680b214e",
+    "sidebarTitle": "Droid Voice"
   },
   {
     "indent": 0,
@@ -196,7 +202,8 @@
     "source": "droids/roadmap.md",
     "route": "droids/roadmap",
     "oldPath": "droids/roadmap",
-    "sourceSha256": "f88e37d3b1fa3d60753f3b0a08025ca33d7f8fd1462bed3e83af316273f9055d"
+    "sourceSha256": "f88e37d3b1fa3d60753f3b0a08025ca33d7f8fd1462bed3e83af316273f9055d",
+    "sidebarTitle": "Roadmap"
   },
   {
     "indent": 0,
@@ -204,7 +211,8 @@
     "source": "droids/faq.md",
     "route": "droids/faq",
     "oldPath": "droids/faq",
-    "sourceSha256": "e4152b0dcea3499f387048b2a402bbe7b6f6d545599a7ae8c001882239801f2a"
+    "sourceSha256": "e4152b0dcea3499f387048b2a402bbe7b6f6d545599a7ae8c001882239801f2a",
+    "sidebarTitle": "FAQ"
   },
   {
     "indent": 0,
@@ -212,7 +220,8 @@
     "source": "droids/troubleshooting.md",
     "route": "droids/troubleshooting",
     "oldPath": "droids/troubleshooting",
-    "sourceSha256": "4c4258fc0bfe26af622f3f07d4b7e42977bc2119aaae48d5f0038a3a3da79fa5"
+    "sourceSha256": "4c4258fc0bfe26af622f3f07d4b7e42977bc2119aaae48d5f0038a3a3da79fa5",
+    "sidebarTitle": "Troubleshooting"
   },
   {
     "indent": 0,
@@ -388,7 +397,8 @@
     "source": "sdk-reference/v4.md",
     "route": "sdk-reference/v4",
     "oldPath": "sdk-reference/v4",
-    "sourceSha256": "c352ac6c02428a3080ec3421f07ca322eb6cfd0b959e3a643cf48ee9f291191f"
+    "sourceSha256": "c352ac6c02428a3080ec3421f07ca322eb6cfd0b959e3a643cf48ee9f291191f",
+    "sidebarTitle": "v4 Clanker Class"
   },
   {
     "indent": 0,
@@ -396,7 +406,8 @@
     "source": "sdk-reference/v3.md",
     "route": "sdk-reference/v3",
     "oldPath": "sdk-reference/v3",
-    "sourceSha256": "02a606edf2a8fec5dd3f738aa3f39d9f9af880cf332bd922c7d86dfa285f0a9c"
+    "sourceSha256": "02a606edf2a8fec5dd3f738aa3f39d9f9af880cf332bd922c7d86dfa285f0a9c",
+    "sidebarTitle": "v3 Clanker Class"
   },
   {
     "indent": 0,
@@ -404,7 +415,8 @@
     "source": "sdk-reference/v4/extensions.md",
     "route": "sdk-reference/extensions",
     "oldPath": "sdk-reference/extensions",
-    "sourceSha256": "bbd80a3832f6baa040a906433e87648c49cc70e89e2acf6e5708a5bbff5f4464"
+    "sourceSha256": "bbd80a3832f6baa040a906433e87648c49cc70e89e2acf6e5708a5bbff5f4464",
+    "sidebarTitle": "v4 Extensions"
   },
   {
     "indent": 0,
