@@ -10,23 +10,17 @@ Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a
 
 You can launch a v5 token on clanker.world or with the [deploy API](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
 
-## Token Deployments
+## Tokens
 
 Start with [Token Deployments](general/token-deployments.md). It explains how a v5 token works and where you can deploy one: [clanker.world](general/token-deployments/clanker.world-deployments.md), the [API](general/token-deployments/v5-deployments.md), the [Farcaster bot](general/token-deployments/farcaster-bot-deployments.md), [Preclanks](general/token-deployments/preclank-deployments.md) and [other interfaces](general/token-deployments/alternative-interface-deployments.md). Earlier versions are covered in [v4](general/token-deployments/v4-deployments.md) and [v3](general/token-deployments/legacy-deployments.md).
 
-## Rewards
+After launch:
 
 - [Creator Rewards & Fees](general/creator-rewards-and-fees.md): how fees or tax are split and how you claim rewards.
 - [Unclaimed Rewards Balance](general/unclaimed-rewards-balance.md): how to check what you can claim.
 - [Holder Dividends](general/holder-dividends.md): how v5 holders earn and claim dividends.
 - [Token Burns](general/token-burns.md): how a v5 token burns part of its tax.
 - [Managing a Token](general/managing-a-token.md): metadata, reward recipients and admins after launch.
-
-## Droids
-
-A droid is an AI agent that ships with your token. It has its own Farcaster account, casts and replies in a personality you write, and pays for its own compute from a share of the token's creator rewards.
-
-Start with the [Droids Overview](droids/README.md), then follow the guide through [Funding & Runway](droids/funding.md), [Create a Droid](droids/create.md), [Manage a Droid](droids/manage.md) and [Droid Voice](droids/voice.md).
 
 ## API Reference
 
@@ -62,6 +56,16 @@ npm install clanker-sdk
 - [Deployed Contracts](references/deployed-contracts.md): contract addresses for every version and chain.
 - [Supported Quote Tokens](references/supported-quote-tokens.md): the tokens a Clanker token can be paired with.
 - [Audits](references/audits.md), [Brand Assets](references/brand-assets.md), [Compatible Trading Platforms](references/compatible-trading-platforms.md) and [Contact](references/contact.md).
+
+## Safety
+
+- [Warning Tags](general/clanker.world-warning-tags.md): what the warning tags on clanker.world token pages mean.
+- [Verifying Social Context](general/verifying-the-social-context-of-token-deploys.md): how to check who launched a token.
+
+## Resources
+
+- [Educational Resources](general/educational-resources.md): pair-token guidance, videos and the LP position simulator.
+- [FAQ](general/faq.md): answers to common questions.
 
 ## Contributing
 
