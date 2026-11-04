@@ -99,12 +99,8 @@
         "group": "SDK Reference",
         "pages": [
           "sdk-reference/sdk-reference",
+          "sdk-reference/v5",
           "sdk-reference/core-utilities",
-          {
-            "group": "v5",
-            "tag": "Soon",
-            "pages": []
-          },
           "sdk-reference/v4",
           "sdk-reference/v3",
           "sdk-reference/extensions",
