@@ -2,6 +2,10 @@
 
 If you've deployed a token with Clanker that has been traded at least once, you have earned rewards.
 
+{% hint style="info" %}
+For a v5 token, the unclaimed balance shows on the token's Admin page on clanker.world, and `GET /api/creator-earnings/{tokenAddress}` returns it. The steps below are for older tokens.
+{% endhint %}
+
 You can check the balance of unclaimed rewards that you've accrued by looking up the balance of `Unclaimed Fees` on the initial LP of your token.
 
 1. Go to your token's page on <https://www.clanker.world/clanker> and select `BaseScan`

@@ -4,6 +4,10 @@
 **Live**: The below outlines instructions for deployments on Clanker v4.0.0 that are now available across all Clanker platforms.
 {% endhint %}
 
+{% hint style="info" %}
+**Clanker v5** deployments, with a buy and sell tax instead of an LP fee, are live on Base. See [v5 Deployments](token-deployments/v5-deployments.md).
+{% endhint %}
+
 ### General Token Deployment Info (Clanker v4.0.0)
 
 <figure><img src="../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>

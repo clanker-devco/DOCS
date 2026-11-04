@@ -12,7 +12,7 @@
   * [Preclank Deployments](general/token-deployments/preclank-deployments.md)
   * [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
   * [Deploying a Token](general/token-deployments/deploying-a-token.md)
-  * [V5 Launches](general/token-deployments/v5-launches.md)
+  * [V5 Deployments](general/token-deployments/v5-deployments.md)
   * [Legacy Deployments](general/token-deployments/legacy-deployments.md)
 * [Creator Rewards & Fees](general/creator-rewards-and-fees.md)
 * [Clanker.world Warning Tags](general/clanker.world-warning-tags.md)
@@ -64,6 +64,7 @@
 ## References
 
 * [Core Contracts](references/core-contracts.md)
+  * [v5](references/core-contracts/v5.md)
   * [v4](references/core-contracts/v4.md)
     * [Deployment Config](references/core-contracts/v4/deployment-config.md)
     * [Fee Management Contracts](references/core-contracts/v4/fee-management-contracts.md)
