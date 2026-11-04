@@ -299,7 +299,7 @@ export function convertMarkdown(
   if (source === 'README.md') {
     text = text.replace(
       /This repository is the source for the \[Clanker Gitbook documentation\]\(\/index\) and is auto-generated from the SDK and API\./,
-      "These docs cover token deployments, Droids, the API, the SDK and the protocol's contracts.",
+      "These docs cover token deployments, rewards, the API, the SDK and the protocol's contracts.",
     );
   }
   const sidebar = sidebarTitle ? `sidebarTitle: ${JSON.stringify(plain(sidebarTitle))}\n` : '';

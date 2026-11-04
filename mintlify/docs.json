@@ -17,10 +17,8 @@
         ]
       },
       {
-        "group": "General",
+        "group": "Tokens",
         "pages": [
-          "general/educational-resources",
-          "general/faq",
           {
             "group": "Token Deployments",
             "root": "general/token-deployments",
@@ -43,23 +41,14 @@
           "general/unclaimed-rewards-balance",
           "general/holder-dividends",
           "general/token-burns",
-          "general/managing-a-token",
-          "general/clanker.world-warning-tags",
-          "general/verifying-the-social-context-of-token-deploys"
+          "general/managing-a-token"
         ]
       },
       {
-        "group": "Droids",
+        "group": "Safety",
         "pages": [
-          "droids/droids",
-          "droids/funding",
-          "droids/create",
-          "droids/manage",
-          "droids/voice",
-          "droids/roadmap",
-          "droids/faq",
-          "droids/troubleshooting",
-          "droids/glossary"
+          "general/clanker.world-warning-tags",
+          "general/verifying-the-social-context-of-token-deploys"
         ]
       },
       {
@@ -196,6 +185,13 @@
           "references/core-team",
           "references/contact"
         ]
+      },
+      {
+        "group": "Resources",
+        "pages": [
+          "general/educational-resources",
+          "general/faq"
+        ]
       }
     ]
   },
@@ -219,6 +215,10 @@
   },
   "redirects": [
     {
+      "source": "/droids/:slug*",
+      "destination": "/general/token-deployments"
+    },
+    {
       "source": "/general/token-deployments/deploying-a-token",
       "destination": "/general/token-deployments/farcaster-bot-deployments"
     },
@@ -241,10 +241,6 @@
     {
       "source": "/README",
       "destination": "/index"
-    },
-    {
-      "source": "/droids/README",
-      "destination": "/droids/droids"
     },
     {
       "source": "/api-reference/README",
