@@ -36,7 +36,7 @@ You can click on any frame that Clanker responds with (go to `Casts + Replies` o
 
 <summary>What is a v5 token?</summary>
 
-Clanker v5 is the current Clanker token version, live on Base. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Creator Rewards & Fees](creator-rewards-and-fees.md) and [v5 Deployments](token-deployments/v5-deployments.md).
+Clanker v5 is the current version of Clanker, live on Base. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Creator Rewards & Fees](creator-rewards-and-fees.md) and [v5 Deployments](token-deployments/v5-deployments.md).
 
 </details>
 

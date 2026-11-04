@@ -1,6 +1,6 @@
 # v4 Deployments
 
-Clanker v4 deployments are available across all Clanker platforms. For the current Clanker token, see [v5 Deployments](v5-deployments.md).
+Clanker v4 tokens have an LP fee, optional extensions and a sniper auction at launch. For Clanker v5, see [v5 Deployments](v5-deployments.md).
 
 ### General Token Deployment Info (Clanker v4.0.0)
 

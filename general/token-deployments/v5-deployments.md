@@ -1,12 +1,8 @@
 # v5 Deployments
 
-Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy) and through the deploy API.
+Clanker v5 tokens deploy on Base, on [clanker.world/deploy](https://www.clanker.world/deploy) or with the deploy API. A v5 token has a 1 billion supply in a Uniswap v4 pool paired with ETH or USDC, and charges a buy and sell tax of 1% to 10% instead of an LP fee.
 
-A Clanker v5 token has a 1 billion supply in a Uniswap v4 pool paired with ETH or USDC, and charges a buy and sell tax of 1% to 10% instead of an LP fee. See [Token Deployments](../token-deployments.md) for the full overview, and [Creator Rewards and Fees](../creator-rewards-and-fees.md) for how the tax is split.
-
-`GET /api/metadata/factories` returns the live v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum.
-
-See [v5](../../references/core-contracts/v5.md) in Core Contracts for what each contract does, and [Deployed Contracts](../../references/deployed-contracts.md) for the addresses.
+See [Token Deployments](../token-deployments.md) for the overview, [Creator Rewards & Fees](../creator-rewards-and-fees.md) for how the tax is split, and [v5](../../references/core-contracts/v5.md) in Core Contracts for the contracts.
 
 ### Deploying on clanker.world
 
@@ -26,11 +22,13 @@ Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee 
 * A Droid launch (`agent` with `legionFundingRecipient`) needs the USDC pair.
 * Use `dryRun: true` to simulate a deployment.
 
+`GET /api/metadata/factories` returns the current v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum.
+
 The `/api/tokens/deploy/v4` route accepts v4 deployments only.
 
 ### Rewards and Claims
 
-v5 creator rewards collect in the FeeEscrow, which holds one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance. Creators claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. See [Creator Rewards and Fees](../creator-rewards-and-fees.md).
+v5 creator rewards collect in the FeeEscrow, which holds one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance. Creators claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 
 Holders claim dividends on clanker.world from their profile or the token page. See [Holder Dividends](../holder-dividends.md). The burn share is burned in the launched token; see [Token Burns](../token-burns.md).
 
@@ -38,4 +36,4 @@ The Admin page also updates the image and metadata, verifies the token, and chan
 
 ### Verification
 
-A v5 token has no `verify()` function. To verify it, the current creator calls the Factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written after launch, shows the Verified badge.
+A v5 token has no `verify()` function. To verify it, the current creator calls the factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written after launch, shows the Verified badge.

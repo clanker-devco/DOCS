@@ -21,7 +21,7 @@
     "source": "general/faq.md",
     "route": "general/faq",
     "oldPath": "general/faq",
-    "sourceSha256": "75c42fef3255dbdaecd8b9d9c77a7b48a05a9d1f94ec63bd5107460a26513cb6"
+    "sourceSha256": "9b7ed33943668630db4848bbd8fca586e2b115dd6a3a1893e70918cde53e61be"
   },
   {
     "indent": 0,
@@ -29,7 +29,7 @@
     "source": "general/token-deployments.md",
     "route": "general/token-deployments",
     "oldPath": "general/token-deployments",
-    "sourceSha256": "729a2dd93979a290f03c1ba6c0f8d3a3856daa7d3d2e7e955a8dd1f9ea29e11f"
+    "sourceSha256": "267d471d2a789553e793367c03efbf97250b10b27e105b49996506d5d1f1dda3"
   },
   {
     "indent": 2,
@@ -37,7 +37,7 @@
     "source": "general/token-deployments/v5-deployments.md",
     "route": "general/token-deployments/v5-deployments",
     "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "1fc6fec2f1dc1e82262f7cc11ae729f0184257958f8c45c1ac3e54cebc16f407"
+    "sourceSha256": "5cd89d90b8786640d96906fae2caf9bc9d26c3235239cea98e1ea22a01c0ec30"
   },
   {
     "indent": 2,
@@ -45,7 +45,7 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "76510c3e86aba9940949f701ff90c7b767396ba95c341604c69c719d4d92e1b5"
+    "sourceSha256": "59f2ba1a3dd51a0a48ee4f577119d7e894ec61ba9f9b98d2a0682418196049e7"
   },
   {
     "indent": 2,
@@ -61,7 +61,7 @@
     "source": "general/token-deployments/preclank-deployments.md",
     "route": "general/token-deployments/preclank-deployments",
     "oldPath": "general/token-deployments/preclank-deployments",
-    "sourceSha256": "0874aa22d47020b6a7371912e1efac8852022cba79dce4d4ed424dbc44fe749b"
+    "sourceSha256": "2db5a1636148618f99286bca3f20b5d97c557558da8a5e77d4eff66e61aadac0"
   },
   {
     "indent": 2,
@@ -85,7 +85,7 @@
     "source": "general/token-deployments/v4-deployments.md",
     "route": "general/token-deployments/v4-deployments",
     "oldPath": "general/token-deployments/v4-deployments",
-    "sourceSha256": "f4c22332182849660357eb9676b0b6320a4be0c43124f934287d9996836ab515"
+    "sourceSha256": "e1918797ff993efa4e30030d5cd449f4425793fc17d0157268f0abf20bb13188"
   },
   {
     "indent": 2,

@@ -1,6 +1,6 @@
 # Token Deployments
 
-Clanker v5 is the current Clanker token. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
+Clanker v5 is the current version of Clanker. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
 
 ### General Token Deployment Info (Clanker v5)
 
@@ -15,7 +15,7 @@ Clanker v5 is the current Clanker token. Every v5 token launches with its full s
 * With the sniper fee on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
 * Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
 
-See [Creator Rewards and Fees](creator-rewards-and-fees.md) for how the tax is split and claimed, and [v5 Deployments](token-deployments/v5-deployments.md) for the full v5 details.
+See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed, and [v5 Deployments](token-deployments/v5-deployments.md) for the full v5 details.
 
 ### Ways to deploy
 

@@ -1,8 +1,6 @@
 # Clanker.world Deployments
 
-Clanker v5 deployments are live on Base at [clanker.world/deploy](https://www.clanker.world/deploy).
-
-Users may create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters users can configure.
+Create Clanker tokens on the clanker.world [token creation page](https://www.clanker.world/deploy) by connecting a wallet. The sections below outline the parameters you can configure.
 
 On Base, the **Token type** field under **Token Settings** selects the token version: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. See [v5 Deployments](v5-deployments.md) and [v4 Deployments](v4-deployments.md).
 
@@ -103,7 +101,7 @@ When on, the creator can change the image and metadata after launch, and verify 
 Optional, set additional reward recipients for the creator funds. Defaults to 100% to the connected wallet.
 {% endhint %}
 
-For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards and Fees](../creator-rewards-and-fees.md).
+For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 {% endstep %}
 
 {% step %}
@@ -114,7 +112,7 @@ For each recipient, set the admin address, the recipient address and its reward 
 Optional, choose the pair token.
 {% endhint %}
 
-* **Pair**, ETH or USDC. The Factory sets the starting price, and the form shows the starting market cap.
+* **Pair**, ETH or USDC. The factory sets the starting price, and the form shows the starting market cap.
 {% endstep %}
 
 {% step %}
