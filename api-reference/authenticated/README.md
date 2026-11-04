@@ -17,11 +17,11 @@ These endpoints require a partner API key passed via the `x-api-key` header. Con
 ### Fees
 
 - `GET /api/get-lp-info/{address}` — Returns LP info for a token: pool address, locker, NFT ID, liquidity locked percentage.
-- `GET /api/get-claimed-fees/{tokenAddress}/{feeRecipient}` — Returns claimed fees for a token and fee recipient with pagination.
+- `GET /api/get-claimed-fees/{tokenAddress}/{feeRecipient}` — Returns claimed fees for a token and fee recipient with pagination. For a V5 token, totalClaimed is this token's part of the recipient's FeeEscrow claims, and txHashes lists the claims that paid out fees from this token. A FeeEscrow claim pays the whole balance in the paired currency, so each claim covers the credits since the previous claim.
 - `GET /api/get-claim-info` — Returns claim info (locker address, LP NFT ID) for a token. Supports v0–v3.1 tokens.
 
 ### Deployment
 
-- `POST /api/tokens/deploy` — Deploy a new Clanker token. Supports v4 deployment with rewards, fees, vault, airdrop, and presale configuration.
+- `POST /api/tokens/deploy` — Deploy a new Clanker token. Supports v4 deployment with rewards, fees, vault, airdrop, and presale configuration. Defaults to v4. Select protocol: v5 for a configured V5 factory.
 - `POST /api/tokens/deploy/v4` — Alias for POST /api/tokens/deploy (same handler).
 - `POST /api/tokens/index` — Triggers token indexing by transaction hash. Use after deploying a token outside the API.

@@ -37,6 +37,6 @@ Ranked droid leaderboard rows for a given interval. Public projection covers tok
 }
 ```
 
-> Admin status is granted either by an `admin_session` cookie (set on this domain via `POST /api/admin/verify`) or by a verified Privy/Farcaster `Authorization` header. Public responses are cached at the CDN with `Cache-Control: public, s-maxage=30, stale-while-revalidate=60` and `Vary: Cookie` so an anonymous cache entry is not served to a later cookie-bearing admin request. Admin responses include the `score` object and switch to `Cache-Control: private, no-store` so admin-only fields never sit in a shared CDN.
+> Admin status is granted either by a signed, 24-hour `admin_session` cookie (set on this domain via `POST /api/admin/verify`) or by a verified Privy/Farcaster `Authorization` header. Public responses are cached at the CDN with `Cache-Control: public, s-maxage=30, stale-while-revalidate=60` and `Vary: Cookie` so an anonymous cache entry is not served to a later cookie-bearing admin request. Admin responses include the `score` object and switch to `Cache-Control: private, no-store` so admin-only fields never sit in a shared CDN.
 
 ---

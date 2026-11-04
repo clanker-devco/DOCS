@@ -12,6 +12,7 @@
   * [Preclank Deployments](general/token-deployments/preclank-deployments.md)
   * [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
   * [Deploying a Token](general/token-deployments/deploying-a-token.md)
+  * [V5 Launches](general/token-deployments/v5-launches.md)
   * [Legacy Deployments](general/token-deployments/legacy-deployments.md)
 * [Creator Rewards & Fees](general/creator-rewards-and-fees.md)
 * [Clanker.world Warning Tags](general/clanker.world-warning-tags.md)
