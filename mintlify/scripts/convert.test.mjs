@@ -174,3 +174,13 @@ test('SDK duplicate headings preserve TypeDoc fragment links', async () => {
   assert.ok(output.includes('<h3 id="clankers-1">'));
   await validatePage(output, 'SDK anchors');
 });
+
+test('a page can set a shorter sidebar title', () => {
+  const output = convertMarkdown('# API Deployments\n\nBody', {
+    source: 'general/token-deployments/v5-deployments.md',
+    title: 'API Deployments',
+    sidebarTitle: 'API',
+    pages,
+  });
+  assert.ok(output.startsWith('---\ntitle: "API Deployments"\nsidebarTitle: "API"\n---\n'));
+});

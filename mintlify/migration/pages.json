@@ -5,7 +5,7 @@
     "source": "README.md",
     "route": "index",
     "oldPath": "readme",
-    "sourceSha256": "3244602a8f0de4a09b30f80d5212a9c02c43592fa4c972445b2649af80e4abfc"
+    "sourceSha256": "3c4cadd8a0b6c6c777b152e1cc23bf13e2afcc45e0206a72aac2ced67d8d5258"
   },
   {
     "indent": 1,
@@ -21,7 +21,7 @@
     "source": "general/faq.md",
     "route": "general/faq",
     "oldPath": "general/faq",
-    "sourceSha256": "9b7ed33943668630db4848bbd8fca586e2b115dd6a3a1893e70918cde53e61be"
+    "sourceSha256": "d229894b8812498bbcaaa7b84930efa3880fae060eada96be0a21b09ed4570a2"
   },
   {
     "indent": 0,
@@ -29,15 +29,7 @@
     "source": "general/token-deployments.md",
     "route": "general/token-deployments",
     "oldPath": "general/token-deployments",
-    "sourceSha256": "267d471d2a789553e793367c03efbf97250b10b27e105b49996506d5d1f1dda3"
-  },
-  {
-    "indent": 2,
-    "title": "v5 Deployments",
-    "source": "general/token-deployments/v5-deployments.md",
-    "route": "general/token-deployments/v5-deployments",
-    "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "5cd89d90b8786640d96906fae2caf9bc9d26c3235239cea98e1ea22a01c0ec30"
+    "sourceSha256": "0833d932b030c1dd34542a85e796aed71b4020ddd69a2d37a7744b4597245e6c"
   },
   {
     "indent": 2,
@@ -45,7 +37,17 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "73776892ed4a5051c9599430d3d8633f8a98ed99701953f640acdf84637e9dda"
+    "sourceSha256": "85a5e2e8c1ae89dae9e46d4de6616593a7b5591a5debbbbf125b563dbbfd906f",
+    "sidebarTitle": "clanker.world"
+  },
+  {
+    "indent": 2,
+    "title": "API Deployments",
+    "source": "general/token-deployments/v5-deployments.md",
+    "route": "general/token-deployments/v5-deployments",
+    "oldPath": "general/token-deployments/v5-deployments",
+    "sourceSha256": "c6152fec6e43e05416c359a2c4405f4438ead9b295e4789d5924989b8957b5d6",
+    "sidebarTitle": "API"
   },
   {
     "indent": 2,
@@ -53,7 +55,8 @@
     "source": "general/token-deployments/farcaster-bot-deployments.md",
     "route": "general/token-deployments/farcaster-bot-deployments",
     "oldPath": "general/token-deployments/farcaster-bot-deployments",
-    "sourceSha256": "e4815651b60e41c5028d4ec30bd8756d3bb80a1d310712e331b9dce57ba8eee7"
+    "sourceSha256": "2284daf985f5b0cd3d90d09d4a4be725c6dc2ab7e6279cf087fa20f91d2613c1",
+    "sidebarTitle": "Farcaster Bot"
   },
   {
     "indent": 2,
@@ -61,7 +64,8 @@
     "source": "general/token-deployments/preclank-deployments.md",
     "route": "general/token-deployments/preclank-deployments",
     "oldPath": "general/token-deployments/preclank-deployments",
-    "sourceSha256": "2db5a1636148618f99286bca3f20b5d97c557558da8a5e77d4eff66e61aadac0"
+    "sourceSha256": "2db5a1636148618f99286bca3f20b5d97c557558da8a5e77d4eff66e61aadac0",
+    "sidebarTitle": "Preclanks"
   },
   {
     "indent": 2,
@@ -69,15 +73,8 @@
     "source": "general/token-deployments/alternative-interface-deployments.md",
     "route": "general/token-deployments/alternative-interface-deployments",
     "oldPath": "general/token-deployments/alternative-interface-deployments",
-    "sourceSha256": "1cb6ec72fd44a1e1198809dc42ffc0366495a323020c1e53e83a0b80b085f301"
-  },
-  {
-    "indent": 2,
-    "title": "Deploying a Token",
-    "source": "general/token-deployments/deploying-a-token.md",
-    "route": "general/token-deployments/deploying-a-token",
-    "oldPath": "general/token-deployments/deploying-a-token",
-    "sourceSha256": "4e521cd765c447b0eb8a9699068614c132df36c49a95d89e85d8630ec7fe94cf"
+    "sourceSha256": "1cb6ec72fd44a1e1198809dc42ffc0366495a323020c1e53e83a0b80b085f301",
+    "sidebarTitle": "Other Interfaces"
   },
   {
     "indent": 2,
@@ -85,7 +82,8 @@
     "source": "general/token-deployments/v4-deployments.md",
     "route": "general/token-deployments/v4-deployments",
     "oldPath": "general/token-deployments/v4-deployments",
-    "sourceSha256": "e1918797ff993efa4e30030d5cd449f4425793fc17d0157268f0abf20bb13188"
+    "sourceSha256": "1bfec7d8458a3cb6c6765893b7e92c8760bc4b046f4f66ded4b10fbec14bad85",
+    "sidebarTitle": "v4 Tokens"
   },
   {
     "indent": 2,
@@ -93,7 +91,8 @@
     "source": "general/token-deployments/legacy-deployments.md",
     "route": "general/token-deployments/legacy-deployments",
     "oldPath": "general/token-deployments/legacy-deployments",
-    "sourceSha256": "9fb1a61eda1aacdfc2d4848c2e8dfe25a7cff2c39e762ed605251a57b554fdcb"
+    "sourceSha256": "9fb1a61eda1aacdfc2d4848c2e8dfe25a7cff2c39e762ed605251a57b554fdcb",
+    "sidebarTitle": "Legacy Versions"
   },
   {
     "indent": 0,
@@ -101,7 +100,15 @@
     "source": "general/creator-rewards-and-fees.md",
     "route": "general/creator-rewards-and-fees",
     "oldPath": "general/creator-rewards-and-fees",
-    "sourceSha256": "aeb8712ac429d880ad2d288ab6d9324fe1e43f302c878765cb2b23ab07c32249"
+    "sourceSha256": "3e2f0160457d40a348890e4bdeff257dd1458211deca42f6bb505daf0ca26d21"
+  },
+  {
+    "indent": 0,
+    "title": "Unclaimed Rewards Balance",
+    "source": "general/unclaimed-rewards-balance.md",
+    "route": "general/unclaimed-rewards-balance",
+    "oldPath": "general/unclaimed-rewards-balance",
+    "sourceSha256": "6ce04180f271b6d26d677f7fcd26fa7cafa456e76f7b76a5fdc0eb12632c6e04"
   },
   {
     "indent": 0,
@@ -109,7 +116,7 @@
     "source": "general/holder-dividends.md",
     "route": "general/holder-dividends",
     "oldPath": "general/holder-dividends",
-    "sourceSha256": "4d2aec5105bc06af47f63594ff3339c1c92e0fb76b0a4eb8017710e740bc9797"
+    "sourceSha256": "301ecf038f37109e6f6b9ec7a129e15bf5656811381816142c3c64783617944b"
   },
   {
     "indent": 0,
@@ -117,7 +124,7 @@
     "source": "general/token-burns.md",
     "route": "general/token-burns",
     "oldPath": "general/token-burns",
-    "sourceSha256": "d8fc765ca83508be447c7eb6896ec677e58360c677c9cd5a5cc4e4bfe0b04295"
+    "sourceSha256": "507c0a071d86a027922db6d3e6a3fb7cde03bcf779c65e9b2178ebb17b2e769d"
   },
   {
     "indent": 0,
@@ -134,14 +141,6 @@
     "route": "general/clanker.world-warning-tags",
     "oldPath": "general/clanker.world-warning-tags",
     "sourceSha256": "aedb68e5e8490859ae9c2ea6b02d808a2fb36cc1319efffb1dc88e90aa73b49f"
-  },
-  {
-    "indent": 0,
-    "title": "Unclaimed Rewards Balance",
-    "source": "general/unclaimed-rewards-balance.md",
-    "route": "general/unclaimed-rewards-balance",
-    "oldPath": "general/unclaimed-rewards-balance",
-    "sourceSha256": "6ce04180f271b6d26d677f7fcd26fa7cafa456e76f7b76a5fdc0eb12632c6e04"
   },
   {
     "indent": 0,
@@ -429,7 +428,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "a40a4283a32347cfcbef7540634d6be31f77660cc7fe906f39090e4a6a5d1cba"
+    "sourceSha256": "2ca484eaff6d7f079352a4d041f430961ec969c65144bd41b0725542f34f4e41"
   },
   {
     "indent": 2,

@@ -1,20 +1,15 @@
 ---
-title: "v5 Deployments"
+title: "API Deployments"
+sidebarTitle: "API"
 ---
 
-Clanker v5 tokens deploy on Base, on [clanker.world/deploy](https://www.clanker.world/deploy) or with the deploy API. A v5 token has a 1 billion supply in a Uniswap v4 pool paired with ETH or USDC, and charges a buy and sell tax of 1% to 10% instead of an LP fee.
+Partners deploy Clanker v5 tokens on Base with `POST /api/tokens/deploy`. See [Token Deployments](/general/token-deployments) for how v5 tokens work, and [Deployment](/api-reference/authenticated/deployment) for the full endpoint reference.
 
-See [Token Deployments](/general/token-deployments) for the overview, [Creator Rewards & Fees](/general/creator-rewards-and-fees) for how the tax is split, and [v5](/references/core-contracts/v5) in Core Contracts for the contracts.
+### Request
 
-### Deploying on clanker.world
+Set `protocol: "v5"` and `tax: { buyFee, sellFee }`. The other token fields and partner authentication are the same as for v4 deployments.
 
-On [clanker.world/deploy](https://www.clanker.world/deploy), choose Base and set **Token type** to **V5**. Then set the buy and sell tax and, optionally, holder dividends, burn and the sniper fee. See [Clanker.world Deployments](/general/token-deployments/clanker.world-deployments) for each field.
-
-### Deploying with the API
-
-Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee }`. The other token fields and partner authentication are the same as for v4 deployments. See [Deployment](/api-reference/authenticated/deployment).
-
-* `buyFee` and `sellFee` give the total trade tax in percent, including the Clanker fee.
+* `buyFee` and `sellFee` give the total trade tax in percent, between 1 and 10, including the Clanker fee.
 * Optional tax fields: `dividends`, `burn`, `minimumDividendHolding`, `antiSnipeEnabled`, `integrator` and `metadataEditable`.
 * `dividends`, `burn` and the integrator `share` are percentages of the tax after the Clanker fee. Together they must not exceed 100.
 * `minimumDividendHolding` is a whole-token decimal string.
@@ -24,18 +19,14 @@ Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee 
 * A Droid launch (`agent` with `legionFundingRecipient`) needs the USDC pair.
 * Use `dryRun: true` to simulate a deployment.
 
-`GET /api/metadata/factories` returns the current v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum.
-
 The `/api/tokens/deploy/v4` route accepts v4 deployments only.
 
-### Rewards and Claims
+### Launch policy
 
-v5 creator rewards collect in the FeeEscrow, which holds one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance. Creators claim on the token's Admin page on [clanker.world](https://www.clanker.world/): `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. See [Creator Rewards & Fees](/general/creator-rewards-and-fees).
+`GET /api/metadata/factories` returns the current v5 launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum. See [v5](/references/core-contracts/v5) in Core Contracts for each field.
 
-Holders claim dividends on clanker.world from their profile or the token page. See [Holder Dividends](/general/holder-dividends). The burn share is burned in the launched token; see [Token Burns](/general/token-burns).
+### After launch
 
-The Admin page also updates the image and metadata, verifies the token, and changes the reward recipients and admins. See [Managing a Token](/general/managing-a-token).
-
-### Verification
-
-A v5 token has no `verify()` function. To verify it, the current creator calls the factory's `updateTokenExtraMetadata(token, "verified", "true")`. Only the exact value `true`, written after launch, shows the Verified badge.
+* Rewards: see [Creator Rewards & Fees](/general/creator-rewards-and-fees).
+* Dividends and burns: see [Holder Dividends](/general/holder-dividends) and [Token Burns](/general/token-burns).
+* Metadata, reward recipients, admins and verification: see [Managing a Token](/general/managing-a-token).
