@@ -18,6 +18,10 @@ Use `POST /api/tokens/deploy` with `protocol: "v5"` and `tax: { buyFee, sellFee 
 
 The `/api/tokens/deploy/v4` route accepts v4 launches only.
 
+## Contracts
+
+V5 launches run on Base. The factory, hook, FeeEscrow and the other V5 contracts are listed under v5 in [Deployed Contracts](/references/deployed-contracts).
+
 ## Launch policy
 
 `GET /api/metadata/factories` returns the current V5 policy: `launchCreationEnabled`, the rate bounds, the protocol fee, the sniper tax and the minimum dividend holding.
