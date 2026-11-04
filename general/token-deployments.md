@@ -1,4 +1,4 @@
-# Token Deployments
+# Overview
 
 Clanker v5 is the current version of Clanker. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
 
