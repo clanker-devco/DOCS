@@ -1,5 +1,7 @@
 # Core Contracts
 
+Clanker v5 is the current version of the Clanker contracts. Tokens deployed with v4 and earlier versions keep working on their own contracts, documented below.
+
 {% content-ref url="core-contracts/v5.md" %}
 [v5](core-contracts/v5.md)
 {% endcontent-ref %}

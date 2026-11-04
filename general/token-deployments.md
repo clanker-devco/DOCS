@@ -1,29 +1,32 @@
 # Token Deployments
 
-{% hint style="success" %}
-**Live**: The below outlines instructions for deployments on Clanker v4.0.0 that are now available across all Clanker platforms.
-{% endhint %}
+Clanker v5 is the current version of Clanker. Every v5 token launches with its full supply in a Uniswap v4 pool, and it charges a buy and sell tax on each trade instead of an LP fee. The creator chooses how their share of the tax is used: creator rewards, holder dividends or a burn.
 
-{% hint style="info" %}
-**Clanker v5** deployments, with a buy and sell tax instead of an LP fee, are live on Base. See [v5 Deployments](token-deployments/v5-deployments.md).
-{% endhint %}
+### General Token Deployment Info (Clanker v5)
 
-### General Token Deployment Info (Clanker v4.0.0)
+* ERC-20 tokens with a total supply of 1 billion tokens.
+* The full supply is placed into a Uniswap v4 pool paired with ETH or USDC. The liquidity can never be removed.
+* There is no LP fee. Each trade pays a buy tax or a sell tax, each set by the creator between 1% and 10%.
+* Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade. The rest of the tax is the creator share.
+* The creator can send part of the creator share to:
+  * **Holder dividends**: paid to every holder above a minimum balance that the creator sets (at least 10,000 tokens).
+  * **Burn**: burned in the launched token.
+  * **Integrator**: a share for an integrator address.
+* With the sniper fee on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
+* Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
 
-<figure><img src="../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>
+See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed, and [v5 Deployments](token-deployments/v5-deployments.md) for the full v5 details.
 
-* ERC-20 tokens with a total supply of 100 billion tokens.
-  * Tokens are not mintable post-deployment, so the max supply will always be 100 billion.
-  * Tokens are burnable using the `burn()` function on the token contract.
-* Up to 90% of the total supply may be allocated to Clanker extensions. Extensions allow for token creators to allocate tokens for uses other than supplying liquidity in the new token's Uniswap v4 pool. The current list of extensions:
-  * Vault: lock up / vest tokens for a configurable period of time (7 day minimum lockup).
-  * Creator Buy / Dev Buy: spend ETH to execute a token swap within the deployment transaction, allowing for token creators to guarantee that they are able to make the first purchase of tokens from the initial pool.
-  * Airdrop: airdrop tokens to a list of recipients to then claim with configurable lockup / vesting periods (1 day minimum lockup).
-* The remaining tokens (up to 100% of the total supply if no extensions are used) are then allocated to up to 7 liquidity positions and placed into a Uniswap v4 pool for trading.
-* When a new token is created, there's a brief "auction period" before normal trading opens to everyone. This auction is designed to capture value from MEV bots (sophisticated trading bots that try to profit from new token launches) and redirect some of the value back to the token's creator.
-  * Normal trading starts after 5 rounds of the auction have completed (roughly 22 seconds post token deployment) or immediately after a round of the auction that has no bidders. The maximum delay before normal trading can start is at block *n+11*.
-  * For additional detail, please refer to the [ClankerSniperAuctionV0](../references/core-contracts/v4/mev-modules/clankersniperauctionv0.md) documentation.
+### Ways to deploy
 
-{% hint style="info" %}
-The Airdrop extension contract is live and will soon be supported on the clanker.world UI.
-{% endhint %}
+* [v5 Deployments](token-deployments/v5-deployments.md): deploy a v5 token on clanker.world or with the API.
+* [Clanker.world Deployments](token-deployments/clanker.world-deployments.md): every field on the clanker.world deploy form.
+* [Farcaster Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast.
+* [Preclank Deployments](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
+* [Alternative Interface Deployments](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
+* [Deploying a Token](token-deployments/deploying-a-token.md): a quick start with the @clanker bot.
+
+### Other versions
+
+* [v4 Deployments](token-deployments/v4-deployments.md): v4 tokens, with an LP fee, extensions and the sniper auction.
+* [Legacy Deployments](token-deployments/legacy-deployments.md): earlier Clanker versions.
