@@ -110,6 +110,7 @@
             "group": "Core Contracts",
             "root": "references/core-contracts",
             "pages": [
+              "references/core-contracts/v5",
               {
                 "group": "v4",
                 "root": "references/core-contracts/v4",

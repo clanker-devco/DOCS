@@ -7,7 +7,7 @@ Starting with release v0.3.1, users may permissionlessly interact with the Clank
 {% endhint %}
 
 {% hint style="info" %}
-V5 deployments pair with native ETH or USDC only. See [V5 Deployments](../general/token-deployments/v5-deployments.md).
+v5 deployments pair with native ETH or USDC only. See [v5 Deployments](../general/token-deployments/v5-deployments.md).
 {% endhint %}
 
 {% hint style="warning" %}

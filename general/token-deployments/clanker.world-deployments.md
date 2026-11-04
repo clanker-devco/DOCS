@@ -4,6 +4,10 @@
 **Live**: The below outlines instructions for deployments on Clanker v4.0.0 that are now live at [clanker.world/deploy](https://www.clanker.world/deploy).
 {% endhint %}
 
+{% hint style="info" %}
+On Base, the **Token type** field also offers **V5**, a token with a buy and sell tax. See [v5 Deployments](v5-deployments.md).
+{% endhint %}
+
 Users may create Clanker tokens using the clanker.world [token creation page](https://www.clanker.world/deploy) and connecting a wallet. The section below outlines the parameters are able to be configured by users.
 
 {% stepper %}

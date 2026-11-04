@@ -42,6 +42,8 @@ Visit the token admin page `https://www.clanker.world/clanker/[TOKEN CONTRACT AD
 Anyone can initiate the claim process for any token. Creator rewards will then be distributed to the token creator - not the wallet initiating the claim process.
 {% endhint %}
 
+For a v5 token, rewards collect in the FeeEscrow, and the Admin page claims the whole balance of the recipient. See [v5 Deployments](token-deployments/v5-deployments.md).
+
 </details>
 
 <details>

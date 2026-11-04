@@ -64,6 +64,7 @@
 ## References
 
 * [Core Contracts](references/core-contracts.md)
+  * [v5](references/core-contracts/v5.md)
   * [v4](references/core-contracts/v4.md)
     * [Deployment Config](references/core-contracts/v4/deployment-config.md)
     * [Fee Management Contracts](references/core-contracts/v4/fee-management-contracts.md)

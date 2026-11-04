@@ -1,0 +1,16 @@
+---
+title: "v5"
+---
+
+Clanker v5 deploys tokens that charge a buy and sell tax instead of an LP fee. The tax can pay holder dividends, burn part of the supply and share fees with an integrator. Clanker v5 is live on Base. See [v5 Deployments](/general/token-deployments/v5-deployments) for how v5 tokens work.
+
+## Contracts
+
+* **Factory**: deploys v5 tokens and their pools, and holds the launch policy (tax bounds, Clanker fee, sniper fee and dividend minimum). Creators also update a token's metadata through the factory, with `updateTokenExtraMetadata`.
+* **Hook**: the Uniswap v4 hook of every v5 pool. It charges the buy and sell tax on each trade and splits it between Clanker, the reward recipients, dividends, burn and the integrator. It holds the launch liquidity, which no code path can remove.
+* **FeeEscrow**: holds the rewards of each recipient, one balance per currency for all of that recipient's v5 tokens. A claim pays the whole balance.
+* **Dividend Deployer**: deploys the dividend contract of a v5 token that pays holder dividends.
+* **Dividend Claim Helper**: claims a holder's dividends from up to 64 v5 tokens in one transaction.
+* **Announcement Registry**: stores the announcements that a v5 token's creator posts to holders.
+
+The addresses are listed under v5 in [Deployed Contracts](/references/deployed-contracts).

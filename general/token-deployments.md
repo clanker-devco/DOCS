@@ -5,7 +5,7 @@
 {% endhint %}
 
 {% hint style="info" %}
-**Clanker V5** deployments, with a buy and sell tax instead of an LP fee, are live on Base. See [V5 Deployments](token-deployments/v5-deployments.md).
+**Clanker v5** deployments, with a buy and sell tax instead of an LP fee, are live on Base. See [v5 Deployments](token-deployments/v5-deployments.md).
 {% endhint %}
 
 ### General Token Deployment Info (Clanker v4.0.0)

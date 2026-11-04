@@ -73,11 +73,11 @@
   },
   {
     "indent": 2,
-    "title": "V5 Deployments",
+    "title": "v5 Deployments",
     "source": "general/token-deployments/v5-deployments.md",
     "route": "general/token-deployments/v5-deployments",
     "oldPath": "general/token-deployments/v5-deployments",
-    "sourceSha256": "44401e4709e79f70714f51823dc4238cd29dd86f2ba2ceec40502ee626307af8"
+    "sourceSha256": "75ce0a921d63c15f07020a923353ac89b21e6a60eed3fa505cc49eb48abe9cfb"
   },
   {
     "indent": 2,
@@ -390,6 +390,14 @@
     "route": "references/core-contracts",
     "oldPath": "references/core-contracts",
     "sourceSha256": "dec503158e72e53472314373b7fbc0c5680862cc8d20113c80cd6585de35ddba"
+  },
+  {
+    "indent": 2,
+    "title": "v5",
+    "source": "references/core-contracts/v5.md",
+    "route": "references/core-contracts/v5",
+    "oldPath": "references/core-contracts/v5",
+    "sourceSha256": "1036a94c42fe6d571f75428b06ccf2e423bb0567a0e23147bc79645de6c0fb87"
   },
   {
     "indent": 2,
