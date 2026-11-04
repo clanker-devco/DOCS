@@ -6,6 +6,10 @@ These quote tokens are supported for deployments via the @clanker bot on Farcast
 Starting with release v0.3.1, users may permissionlessly interact with the Clanker token factory to deploy tokens paired with arbitrary quote tokens and that start at arbitrary market caps.
 {% endhint %}
 
+{% hint style="info" %}
+v5 deployments pair with native ETH or USDC only. See [v5 Deployments](../general/token-deployments/v5-deployments.md).
+{% endhint %}
+
 {% hint style="warning" %}
 The Starting Market Cap, denominated in the quote token, is subject to change. Please refer to this page for the latest info.
 {% endhint %}

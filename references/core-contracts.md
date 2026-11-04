@@ -1,5 +1,9 @@
 # Core Contracts
 
+{% content-ref url="core-contracts/v5.md" %}
+[v5](core-contracts/v5.md)
+{% endcontent-ref %}
+
 {% content-ref url="/pages/fOTIabyVqIakp48nyHnV" %}
 [v4](core-contracts/v4.md)
 {% endcontent-ref %}
