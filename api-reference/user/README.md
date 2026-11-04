@@ -9,6 +9,7 @@ These endpoints require user authentication via Farcaster JWT or Privy token in 
 ### Preclanks
 
 - `POST /api/preclank/v4` — Create a preclank (pending token configuration) for v4 deployment. Validates and simulates the deployment.
+- `POST /api/preclank/tax` — Create a V5 preclank. The bot launches it through the V5 factory when the creator casts the keyword. The server builds the launch once to check it.
 - `GET /api/preclank/pending` — Returns all pending preclanks for the authenticated user.
 - `DELETE /api/preclank/{id}` — Soft-deletes a preclank owned by the authenticated user.
 

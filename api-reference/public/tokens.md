@@ -17,9 +17,10 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 | `fids` | `string` | No | — | Comma-separated list of Farcaster FIDs. |
 | `msgSender` | `address` | No | — | Filter by deployer wallet address. |
 | `pairAddress` | `address` | No | — | Filter by pool/pair address. |
-| `pair` | `string` | No | all | Paired token filter (e.g. "WETH"). |
+| `pair` | `string` | No | all | Paired token filter (e.g. "WETH"). "ETH" selects tokens paired with native ETH (V5 pools). The `pair` field of a native-ETH token is "ETH". |
+| `type` | `"all" | "standard" | "tax"` | No | all | Token type filter: "tax" returns only V5 tokens (V5 factory launches) and "standard" returns every other Clanker token. Solana tokens show only with "all". |
 | `sort` | `"asc" | "desc"` | No | desc | Sort direction. |
-| `sortBy` | `"market-cap" | "tx-h24" | "volume-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at" | "trending" | "liquidity"` | No | — | Field to sort by. "trending" ranks active tokens (market data from the last 24h, cap of $5K+, 5+ trades, $100+ volume) by a score from 24h volume and trade count; volume beyond 3x the market cap does not count. It covers the top 300 eligible tokens, is always highest first, and falls back to plain volume order with q, fids or msgSender. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from the stored Codex snapshot), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. |
+| `sortBy` | `"market-cap" | "tx-h24" | "volume-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at" | "trending" | "liquidity"` | No | — | Field to sort by. "trending" ranks tokens that can trend (market data from the last 3h, cap of $5K+, 5+ trades, $100+ volume, not 0%-fee) by a 0-100 score from 24h volume, liquidity, unique traders and trades, 1h momentum and top-wallet concentration; volume beyond 3x the market cap does not count. The score is recomputed every minute and is always highest first; tokens without a score yet follow by 24h volume. With q, fids or msgSender it orders the matches the same way without the activity floor. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from the stored Codex snapshot), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. |
 | `socialInterface` | `string` | No | — | Filter by social interface. |
 | `cursor` | `string` | No | — | Pagination cursor returned by a previous request. |
 | `startDate` | `number` | No | — | Unix timestamp — only return tokens deployed after this date. |
@@ -47,7 +48,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 
 ### GET `/api/tokens/trending`
 
-Returns the Trending list (the homepage Trending tab), ranked from clanker.world market data.
+Returns the Trending list (the homepage Trending tab), ranked every minute from clanker.world market data. Cached for 15 seconds.
 
 **Authentication:** Public
 
@@ -297,6 +298,7 @@ Search tokens by query or FIDs.
 | `q` | `string` | No | — | Search query. |
 | `fids` | `string` | No | — | Comma-separated FIDs. |
 | `cursor` | `string` | No | — | Pagination cursor. |
+| `type` | `"all" | "standard" | "tax"` | No | all | Token type filter: "tax" returns only V5 tokens and "standard" returns every other Clanker token. |
 
 **Response:** Paginated token list (fixed limit of 5).
 
@@ -317,5 +319,38 @@ Search tokens by query or FIDs.
 Estimate uncollected rewards for a pool.
 
 **Authentication:** Public
+
+> availableRewards() reads the v4 FeeLocker. clanker-sdk has no V5 support yet. For a V5 token, GET /api/creator-earnings/{tokenAddress} gives the unclaimed FeeEscrow balances, and the token admin page claims them.
+
+---
+
+### GET `/api/tokens/{address}/announcements`
+
+The creator announcements of a V5 token, newest first, from the V5 announcement registry (the factory's `announcementRegistry()`). Other token types return an empty list.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Response:** Up to 50 announcements. `timestamp` is the block time in seconds. `uri` is the link that the creator posted, and can be empty.
+
+```json
+{
+  "announcements": [{
+    "id": "0x...",
+    "creator": "0x...",
+    "description": "Listing next week.",
+    "uri": "https://...",
+    "txHash": "0x...",
+    "timestamp": 1793500000
+  }]
+}
+```
+
+> Cached for 1 minute. A 502 means the registry logs could not be read: the read stops after 22 seconds, and a history of more than 2,000 log ranges (about 15 months on Base) is not read. The server keeps a failed read for up to 1 minute (a too-long history for hours), so retry after the Retry-After time. Rate limited per IP.
 
 ---

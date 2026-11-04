@@ -29,13 +29,13 @@ Returns LP info for a token: pool address, locker, NFT ID, liquidity locked perc
 }
 ```
 
-> Cached for 2 minutes.
+> Cached for 2 minutes. For a V5 token, lockerAddress is the V5 hook, which holds the seed positions, and no code path can remove them. amountDepositedIntoLP is the launch supply from the Launched event, and lpNftId is 0, as for v4.
 
 ---
 
 ### GET `/api/get-claimed-fees/{tokenAddress}/{feeRecipient}`
 
-Returns claimed fees for a token and fee recipient with pagination.
+Returns claimed fees for a token and fee recipient with pagination. For a V5 token, totalClaimed is this token's part of the recipient's FeeEscrow claims, and txHashes lists the claims that paid out fees from this token. A FeeEscrow claim pays the whole balance in the paired currency, so each claim covers the credits since the previous claim.
 
 **Authentication:** Partner API Key (`x-api-key` header)
 
@@ -69,7 +69,7 @@ Returns claimed fees for a token and fee recipient with pagination.
 }
 ```
 
-> Cached for 1 minute. claimCount is exact up to 1000; claimCountCapped is true above that.
+> Cached for 1 minute. claimCount is exact up to 1000; claimCountCapped is true above that. For a V5 token, a 503 with Retry-After means that the claim history was not read in time (retry: the server caches the finished log blocks, so the next request reads less) or that it is longer than 2,000 log ranges (about 15 months on Base).
 
 ---
 

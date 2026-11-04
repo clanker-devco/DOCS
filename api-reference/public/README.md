@@ -9,7 +9,7 @@ These endpoints are publicly accessible and require no authentication.
 ### Tokens
 
 - `GET /api/tokens` — Search and list Clanker tokens with filters, sorting, and cursor-based pagination.
-- `GET /api/tokens/trending` — Returns the Trending list (the homepage Trending tab), ranked from clanker.world market data.
+- `GET /api/tokens/trending` — Returns the Trending list (the homepage Trending tab), ranked every minute from clanker.world market data. Cached for 15 seconds.
 - `GET /api/tokens/ohlcv` — USD OHLCV candles for one token in a pool. The response is this app’s chart contract, read from Codex pool bars.
 - `GET /api/tokens/chart-marks` — Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
 - `GET /api/tokens/{address}/market` — A token's market numbers and holder count from its pool_market_data row, mapped as the token lists map them. The token page header polls it every 60 seconds.
@@ -20,6 +20,12 @@ These endpoints are publicly accessible and require no authentication.
 - `POST /api/tokens/fetch-by-addresses` — Returns clanker tokens for up to 100 (token address, chain) pairs, e.g. the tokens a wallet holds.
 - `GET /api/tokens/search` — Search tokens by query or FIDs. *(deprecated)*
 - `GET /api/tokens/estimate-rewards-by-pool-address` — Estimate uncollected rewards for a pool. *(deprecated)*
+- `GET /api/tokens/{address}/announcements` — The creator announcements of a V5 token, newest first, from the V5 announcement registry (the factory's `announcementRegistry()`). Other token types return an empty list.
+
+### Fees
+
+- `GET /api/tokens/{address}/fees` — The fee history of a token: the fee configuration, each swap with its fees (up to 200), the totals, and the claimed and unclaimed amounts of each fee recipient.
+- `GET /api/get-estimated-uncollected-fees/{address}` — Estimate uncollected fees for a position. *(deprecated)*
 
 ### Users
 
@@ -28,6 +34,7 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/get-user-by-name` — Returns a Farcaster user profile by username.
 - `GET /api/get-multiple-users-by-fid` — Returns multiple Farcaster user profiles by FIDs.
 - `GET /api/wallet/{address}/balances` — A page of a wallet's non-zero ERC-20 balances across one or more chains, for the portfolio and send widget.
+- `GET /api/wallet/{address}/dividends` — The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract.
 
 ### Creators
 
@@ -54,16 +61,12 @@ These endpoints are publicly accessible and require no authentication.
 ### Market Data
 
 - `GET /api/marketcap` — Returns the market cap for a token calculated from its Uniswap V3 pool.
-- `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator.
-- `GET /api/metadata/factories` — Returns Clanker factory contract addresses and event selectors.
+- `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator. Aggregators do not route Clanker V5 pools, so for a V5 token the route quotes the V5 pool with the Uniswap v4 Quoter and returns a SwapX transaction. When SwapX has no quote, a V5 token falls back to the aggregators with a default slippage of 5%. The route accepts an aggregator quote only when its minimum output is not less than the minimum of the V5 pool route (Uniswap v4 Quoter). Without a V5 pool quote, a V5 token gets 404.
+- `GET /api/metadata/factories` — Returns Clanker factory contract addresses and event selectors. The row of a V5 factory has `events.launched` (the Launched event) instead of `events.tokenCreated`, and `taxPolicy`, the current V5 policy of the factory.
 
 ### Legion
 
 - `GET /api/droid/leaderboard` — Ranked droid leaderboard rows for a given interval. Public projection covers token, runs, actions, cast metrics, creator, and last-active fields. The composite `score` object (composite, components, washConfidence, washFlags) is admin-only and omitted from non-admin responses.
-
-### Fees
-
-- `GET /api/get-estimated-uncollected-fees/{address}` — Estimate uncollected fees for a position. *(deprecated)*
 
 ### Deployment
 

@@ -51,7 +51,7 @@ Returns creator fee earnings for a token.
 |-----------|------|----------|---------|-------------|
 | `chainId` | `number` | No | 8453 | Chain ID (defaults to Base). |
 
-**Response:** Total WETH and per-recipient breakdown. source "available" means unclaimed fees read from the v4 fee locker; "claimed" means the fallback, which sums fees already claimed.
+**Response:** Total WETH and per-recipient breakdown. source "available" means unclaimed fees read from the v4 fee locker; "claimed" means the fallback, which sums fees already claimed. For a V5 token, the amounts are the unclaimed FeeEscrow balances of the live fee slot recipients. Each balance includes the fees of all V5 tokens that pay the wallet, because one claim pays all of it. wethAddress and currency then name the FeeEscrow currency: the zero address for native ETH, or the USDC address. recipients gives the live fee slots ({ recipient, admin, bps }) when they could be read. When the FeeEscrow read fails, totalWethClaimed is null and claimsByRecipient is empty.
 
 ```json
 {
@@ -65,7 +65,7 @@ Returns creator fee earnings for a token.
 }
 ```
 
-> Cached for 1 hour.
+> Cached for 1 hour. Only a V5 token has the currency field: { address, symbol, decimals }, and the recipients field. A response with a null totalWethClaimed is not cached.
 
 ---
 
