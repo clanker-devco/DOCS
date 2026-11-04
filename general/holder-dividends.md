@@ -1,0 +1,40 @@
+# Holder Dividends
+
+A Clanker v5 token can pay part of its trading tax to the people who hold it. The creator chooses the dividend share at launch, and every trade in the token's launch pool adds to the holders' dividends.
+
+### How dividends work
+
+1. A trade pays the buy or sell tax. Clanker takes its fee first (see [Creator Rewards & Fees](creator-rewards-and-fees.md)).
+2. The dividend share of the remaining tax goes to the token's dividend contract.
+3. The dividend contract splits it between eligible holders by their token balance.
+4. Each holder's share is recorded as earned dividends, which the holder can claim at any time.
+
+For example, on a token with a 5% tax and a 50% dividend share, a 1,000 USDC trade pays 50 USDC of tax. Clanker takes 5 USDC, and 22.5 USDC goes to holder dividends. A holder with 2% of the eligible tokens earns 0.45 USDC from that trade.
+
+Dividends are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
+
+### Who is eligible
+
+* **Holder minimum**: a wallet must hold at least the minimum balance that the creator set at launch. The minimum is at least 10,000 tokens. Below it, the wallet earns no new dividends until it holds enough again.
+* **Earned dividends stay earned**: selling or transferring tokens does not remove dividends that the wallet already earned. A wallet that sold its tokens can still claim them.
+* **Excluded addresses**: an address that the dividend contract excludes earns no dividends and cannot claim them. The token page shows when a wallet is excluded.
+* **No eligible holders**: if no holder qualifies when a trade's dividend share is recorded, that share goes to Clanker.
+
+The token page shows the holder minimum and whether your wallet earns dividends from new trades.
+
+### Claiming dividends
+
+Claim on [clanker.world](https://www.clanker.world/) from either place:
+
+* **Token page**: the **Holder dividends** card shows your claimable, earned and claimed amounts. Connect your wallet and select **Claim dividends**.
+* **Profile**: the **Tax Dividends** card on your [profile](https://www.clanker.world/profile) lists the v5 tokens you hold and sold v5 tokens with unpaid dividends. **Claim all** claims up to 20 tokens in one transaction. Claim again for the rest. If a sold token is not in the list, claim on its token page.
+
+The **Dividend Claim Helper** contract claims a holder's dividends from up to 64 v5 tokens in one transaction, and pays only the wallet that sends it. Holders and apps can call it directly.
+
+The dividend contract may name a different payout receiver for a wallet. The token page shows it when it differs from your wallet.
+
+### With the API
+
+`GET /api/wallet/{address}/dividends` returns a wallet's dividend positions with the claimable, earned and claimed amounts. See [Users](../api-reference/public/users.md).
+
+Contract details are in [v5](../references/core-contracts/v5.md) and addresses in [Deployed Contracts](../references/deployed-contracts.md). To set up dividends on a new token, see [v5 Deployments](token-deployments/v5-deployments.md).

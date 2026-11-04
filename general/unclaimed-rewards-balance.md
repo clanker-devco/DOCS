@@ -2,9 +2,21 @@
 
 If you've deployed a token with Clanker that has been traded at least once, you have earned rewards.
 
-{% hint style="info" %}
-For a v5 token, the unclaimed balance shows on the token's Admin page on clanker.world, and `GET /api/creator-earnings/{tokenAddress}` returns it. The steps below are for older tokens.
-{% endhint %}
+### Clanker v5
+
+v5 rewards collect in the FeeEscrow, one balance per recipient and currency. Each balance includes the rewards of all v5 tokens that pay that wallet, because one claim pays all of it.
+
+**On clanker.world**
+
+1. Open the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`.
+2. The **Claim Rewards** card shows the unclaimed balance of the selected reward recipient, in the pair token (ETH or USDC).
+3. A past recipient keeps its unclaimed balance. Connect that wallet and check the **Tax Fees** card on your [clanker.world profile](https://www.clanker.world/profile).
+
+**With the API**
+
+`GET /api/creator-earnings/{tokenAddress}` returns the unclaimed FeeEscrow balances of the token's current reward recipients. See [Creators](../api-reference/public/creators.md).
+
+### v4 and earlier
 
 You can check the balance of unclaimed rewards that you've accrued by looking up the balance of `Unclaimed Fees` on the initial LP of your token.
 
