@@ -10,14 +10,19 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 
 <summary>v5</summary>
 
-| Contract              | Address                                    |
-| --------------------- | ------------------------------------------ |
-| Factory               | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
-| Hook                  | 0x5E320eA6278107968C119942E57d876c5F922AcC |
-| FeeEscrow             | 0x5dd237d1f716C65426CCd2FAe82B95109825FA61 |
-| Dividend Deployer     | 0xaaC0069616eF93337BC73BEB38CD54B883d4521e |
-| Dividend Claim Helper | 0xe896454E417400a9d7766497764e4dEBf91534BD |
-| Announcement Registry | 0x1B417526da9737cA99956e32cdfB674d6C9f097a |
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
+| Hook                    | 0x5E320eA6278107968C119942E57d876c5F922AcC |
+| FeeEscrow               | 0x5dd237d1f716C65426CCd2FAe82B95109825FA61 |
+| Dividend Deployer       | 0xaaC0069616eF93337BC73BEB38CD54B883d4521e |
+| Dividend Claim Helper   | 0xe896454E417400a9d7766497764e4dEBf91534BD |
+| Announcement Registry   | 0x1B417526da9737cA99956e32cdfB674d6C9f097a |
+| Launch Validation       | 0x830feA2a841318876b0496181aBD006C6A145033 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0x5C65823dC5eaf0C37205F73213fC2f73D359DA4d |
+| Token Deployer          | 0xc25FfE6374EdcCb5bFCcA3b9684046a426AbCE6A |
+| Dividend Implementation | 0x4C9C5D7Eb2D8092903262b15B720DFCc8d07E78f |
 
 </details>
 
