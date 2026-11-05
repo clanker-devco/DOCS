@@ -10,6 +10,8 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 
 <summary>v5</summary>
 
+Deployed on October 31, 2026. First block: 53,331,367.
+
 | Contract                | Address                                    |
 | ----------------------- | ------------------------------------------ |
 | Factory                 | 0x572e88D3cD7f23E4241EB6ceDD96667271bF09A0 |
@@ -23,6 +25,24 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 | Launch Buy Adapter      | 0x5C65823dC5eaf0C37205F73213fC2f73D359DA4d |
 | Token Deployer          | 0xc25FfE6374EdcCb5bFCcA3b9684046a426AbCE6A |
 | Dividend Implementation | 0x4C9C5D7Eb2D8092903262b15B720DFCc8d07E78f |
+
+</details>
+
+<details>
+
+<summary>Uniswap v4 and pair tokens</summary>
+
+Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deployments](https://docs.uniswap.org/contracts/v4/deployments) list. Native ETH is the zero address in a v5 pool.
+
+| Contract         | Address                                    |
+| ---------------- | ------------------------------------------ |
+| PoolManager      | 0x498581fF718922c3f8e6A244956aF099B2652b2b |
+| Quoter           | 0xE1A6C5803e3c44368b171BD680c7D32dfc92CA47 |
+| StateView        | 0xA3c0c9b65baD0b08107Aa264b0f3dB444b867A71 |
+| Universal Router | 0x6fF5693b99212Da76ad316178A184AB56D299b43 |
+| Permit2          | 0x000000000022D473030F116dDEE9F6B43aC78BA3 |
+| WETH             | 0x4200000000000000000000000000000000000006 |
+| USDC             | 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 |
 
 </details>
 

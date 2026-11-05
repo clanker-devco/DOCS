@@ -361,7 +361,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "a80665c1a9199a9f002699799d74aca70520fa3a83af7269c8ca0537b695b596",
+    "sourceSha256": "974690b58b92cf1fe435d4495c8c7d788b7f4871b0fc31cd2e796f8b8c21b7c5",
     "sidebarTitle": "v5"
   },
   {
@@ -644,7 +644,7 @@
     "source": "references/deployed-contracts.md",
     "route": "references/deployed-contracts",
     "oldPath": "references/deployed-contracts",
-    "sourceSha256": "a36591748e61b2e9fb70d06d8f271c39c5407aef561ba2eb6e78c0aca5e06572"
+    "sourceSha256": "698f9efb902371d49ed175d1f438da7d0c67dfdf326305f5a0006a870e4b8428"
   },
   {
     "indent": 0,
