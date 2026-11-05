@@ -13,3 +13,15 @@ img[src*='/assets/clanker-color-'] {
 td:has(img[src*='/assets/clanker-color-']) {
   cursor: pointer;
 }
+
+[data-copy-hex]:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}
+
+td[data-copy-status]::after {
+  content: attr(data-copy-status);
+  margin-left: 0.5em;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
