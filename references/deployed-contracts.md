@@ -50,7 +50,6 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 | ClankerUniv4EthDevBuy        | 0x1331f0788F9c08C8F38D52c7a1152250A9dE00be |
 | ClankerMevBlockDelay         | 0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2 |
 | ClankerSniperAuctionV0       | 0xFdc013ce003980889cFfd66b0c8329545ae1d1E8 |
-| ClankerSniperUtilV0          | 0x8806169969aE96bfaaDb3eFd4B10785BEEb321b3 |
 | ClankerHookDynamicFee        | 0x34a45c6B61876d739400Bd71228CbcbD4F53E8cC |
 | ClankerHookStaticFee         | 0xDd5EeaFf7BD481AD55Db083062b13a3cdf0A68CC |
 | ClankerLpLocker              | 0x29d17C1A8D851d7d4cA97FAe97AcAdb398D9cCE0 |
@@ -200,11 +199,9 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 | ClankerVault                 | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
 | ClankerAirdrop               | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
 | ClankerUniv4EthDevBuy        | 0x70aDdc06fE89a5cF9E533aea8D025dB06795e492 |
-| ClankerMevBlockDelay         | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
+| ClankerMevDescendingFees     | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
 | ClankerHookDynamicFee        | Not supported                              |
 | ClankerHookStaticFee         | 0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc |
-| ClankerSniperAuctionV0       | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
-| ClankerSniperUtilV0          | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
 
 </details>
 
@@ -232,7 +229,7 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 | ClankerVault                 | 0x15ee8382DBd8Fb991F653B59CA11bf504a07372D |
 | ClankerAirdrop               | 0xBB0f069b995e0205cD5F92C84a1dF056a3F47900 |
 | ClankerUniv4EthDevBuy        | 0x302989E1cA167B6E78f9711e5a08d1BD555DdAc4 |
-| ClankerMevBlockDelay         | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
+| ClankerMevDescendingFees     | 0xEE2940CC010820B7F22DF627e081d707693989a6 |
 | ClankerHookDynamicFee        | 0x011a8ed40095F2D7E9c19125B8254b19678D68Cc |
 | ClankerHookStaticFee         | 0xC5d309026BCAb6630888d51CE21154AD2f4828cC |
 | ClankerSniperAuctionV2       | 0xec1310cf227a2D671176000aE0849DE6417b175a |
@@ -249,8 +246,8 @@ The Clanker contract addresses on each chain are listed below, grouped by versio
 | Contract                     | Address                                    |
 | ---------------------------- | ------------------------------------------ |
 | Clanker                      | 0xF9a0C289Eab6B571c6247094a853810987E5B26D |
-| ClankerFeeLocker             | 0xDe51a86D3b6EC9ac4756115D3744335Aa2c30144 |
-| ClankerLpLockerFeeConversion | 0x46B77BaCFd712D79131F1AD7611794869483C353 |
+| ClankerLpLockerFeeConversion | 0xDe51a86D3b6EC9ac4756115D3744335Aa2c30144 |
+| ClankerFeeLocker             | 0x46B77BaCFd712D79131F1AD7611794869483C353 |
 | ClankerVault                 | 0xe7D402A5BEd94E5c49Ac0639E80f784D06E2D397 |
 | ClankerAirdrop               | 0x654E7221fa51d4359ded21D524E3AfF18e93A507 |
 | ClankerUniv4EthDevBuy        | 0x8790d79283eB941c719b616CfD0Ef116D13C7683 |
