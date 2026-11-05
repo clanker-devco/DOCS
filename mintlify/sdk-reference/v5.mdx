@@ -1,9 +1,156 @@
 ---
 title: "v5"
 sidebarTitle: "v5"
-tag: "Soon"
 ---
 
-Clanker v5 is live on [clanker.world](https://www.clanker.world/deploy) and through the [deploy API](/general/token-deployments/v5-deployments). v5 support in clanker-sdk is coming soon.
+`clanker-sdk/v5` launches and manages Clanker v5 tokens. It uses the v4 method names, token fields and result format where the v5 contracts support them.
 
-Until then, the [v4 Clanker Class](/sdk-reference/v4) covers v4 tokens, and v5 tokens are managed from the token's [Admin page](/general/managing-a-token) on clanker.world.
+v3 and v4 launches are closed. The [v4 Clanker Class](/sdk-reference/v4) and the [v3 Clanker Class](/sdk-reference/v3) manage existing tokens only.
+
+## Installation
+
+```bash
+npm install clanker-sdk viem
+```
+
+The v5 client is in `clanker-sdk` 5.0.0 and later. It requires viem 2.49.3 or later.
+
+## Launch a token
+
+```typescript
+import { Clanker } from "clanker-sdk/v5";
+import {
+  createPublicClient,
+  createWalletClient,
+  http,
+  type PublicClient,
+} from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { base } from "viem/chains";
+
+const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+const publicClient = createPublicClient({
+  chain: base,
+  transport: http(),
+}) as PublicClient;
+const wallet = createWalletClient({ account, chain: base, transport: http() });
+
+const clanker = new Clanker({ wallet, publicClient });
+
+const { txHash, waitForTransaction, error } = await clanker.deploy({
+  name: "My Token",
+  symbol: "TKN",
+  image: "ipfs://...",
+  buyFee: 2,
+  sellFee: 2,
+  devBuy: { ethAmount: "0.01" },
+});
+if (error) throw error;
+
+const result = await waitForTransaction();
+if (result.error) throw result.error;
+console.log(result.address, result.poolId);
+```
+
+`wallet` and `publicClient` must use the same chain. `deploy` returns `txHash`, `expectedAddress` and `waitForTransaction`, and also `transferTxHash` or `error` when they apply. A failure before the send returns `{ error }`.
+
+<Warning>
+If a result has both a `txHash` and an `error`, the launch can exist. Check the transaction before you call `deploy` again, because a second call launches a second token.
+
+</Warning>
+
+`getDeployTransaction(token, { account })` builds the launch transaction without sending it.
+
+## Token fields
+
+### Token
+
+| Parameter    | Description                                                         |
+| ------------ | ------------------------------------------------------------------- |
+| `name`       | Token name. Required.                                               |
+| `symbol`     | Token symbol. Required.                                             |
+| `image`      | Token image URL.                                                    |
+| `metadata`   | `{ description, socialMediaUrls, auditUrls }`, the same as v4.      |
+| `context`    | Launch context, the same as v4. Defaults to `{ interface: "SDK" }`. |
+| `tokenAdmin` | Creator of the token. Defaults to the caller.                       |
+
+### Tax
+
+| Parameter    | Description                                                                                                                            |
+| ------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `buyFee`     | Total buy tax in percent, including the Clanker fee. Defaults to 1. Must be within the launch policy bounds.                           |
+| `sellFee`    | Total sell tax in percent, including the Clanker fee. Defaults to 1. Same bounds as `buyFee`.                                          |
+| `dividends`  | `{ share, minimumHolding }`: `share` percent of the tax after the Clanker fee goes to holders. `minimumHolding` uses token base units. |
+| `burn`       | Percent of the tax after the Clanker fee burned in the launched token. Defaults to 0.                                                  |
+| `integrator` | `{ address, share }`: gives an integrator `share` percent of the tax after the Clanker fee.                                            |
+
+`dividends.share`, `burn` and the integrator `share` together must not exceed 100. The rest of the tax after the Clanker fee goes to the reward recipients.
+
+### Pool, rewards and creator buy
+
+| Parameter          | Description                                                                                                                         |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `pool.pairedToken` | Quote token. Defaults to the native coin, and `"WETH"` also means the native coin. On Arc, both mean USDC.                          |
+| `rewards`          | `{ recipients }`: one to seven `{ admin, recipient, bps }` entries. The bps must add up to 10000. Defaults to 100% to `tokenAdmin`. |
+| `devBuy`           | Creator buy: `{ ethAmount, recipient, minAmountOut, poolKey, routeData }`. Only `ethAmount` is required.                            |
+
+v5 does not accept v4 `fee`, `fees`, `salt`, `vault`, `airdrop`, `presale`, `sniperFees`, other `pool` settings, `locker` or `poolExtension`, or the `Both` and `Clanker` reward tokens.
+
+## Creator buy
+
+* The SDK picks the route for the native quote and for the stable quote of each chain. Another quote needs `devBuy.routeData` or the `buildBuyRoute` option.
+* The SDK simulates the launch and sets the minimum output 5% below the quote. Set `devBuySlippagePercent` in the second argument of `deploy` to change it.
+* The contract sends the bought tokens to the caller. If `devBuy.recipient` or `tokenAdmin` is another address, `deploy` sends them in a second transaction and returns `transferTxHash`.
+
+## Chains
+
+| Chain           | Chain ID | Quote tokens | Creator buy   |
+| --------------- | -------- | ------------ | ------------- |
+| Base            | 8453     | ETH, USDC    | ETH or USDC   |
+| BNB Chain       | 56       | BNB, USDC    | BNB or USDC   |
+| Monad           | 143      | MON, USDC    | MON or USDC   |
+| Robinhood Chain | 4663     | ETH, USDG    | ETH or USDG   |
+| X Layer         | 196      | OKB, USDC    | OKB or USDC   |
+| Arc             | 5042     | USDC         | USDC          |
+| Ethereum        | 1        | ETH, USDC    | Not available |
+| Arbitrum        | 42161    | ETH, USDC    | Not available |
+| Unichain        | 130      | ETH, USDC    | Not available |
+
+A launch works only when the factory on that chain is open. A closed factory returns `Launches are not open on chain <id>.` On Arc, the native coin is USDC. Ethereum, Arbitrum and Unichain have no creator buy, so a launch with `devBuy` returns an error there.
+
+## Manage a token
+
+The v5 client keeps the v4 method names. Each write returns `{ txHash, error }`.
+
+```typescript
+await clanker.claimRewards({ token, rewardRecipient });
+await clanker.availableRewards({ token, rewardRecipient });
+await clanker.getTokenRewards({ token });
+await clanker.updateRewardRecipient({ token, rewardIndex: 0n, newRecipient });
+await clanker.updateRewardAdmin({ token, rewardIndex: 1n, newAdmin });
+await clanker.updateImage({ token, newImage: "ipfs://..." });
+await clanker.updateMetadata({
+  token,
+  metadata: JSON.stringify({ description: "New" }),
+});
+```
+
+* A claim pays the recipient's whole balance in one currency, across all pools.
+* The admin of the creator slot follows creator rights. Use `proposeCreatorRightsTransfer` to change it.
+* Holders withdraw dividends with `dividendOf(token)`, `withdrawableDividends({ dividend, holder })` and `withdrawDividends({ dividend })`.
+
+## CLI
+
+```bash
+npx clanker-sdk deploy --name "My Token" --symbol "TKN" --chain base \
+  --buy-fee 2 --sell-fee 2
+```
+
+`clanker-sdk deploy` launches v5 tokens only. Without a name or symbol, it asks for each option. The `rewards` and `token` commands pick v4 or v5 for each token.
+
+## Related
+
+* Full v5 SDK reference: see [`docs/v5.md`](https://github.com/clanker-devco/clanker-sdk/blob/main/docs/v5.md) in the clanker-sdk repository.
+* Taxes, rewards and dividends: see [Creator Rewards & Fees](/general/creator-rewards-and-fees) and [Holder Dividends](/general/holder-dividends).
+* Launches without the SDK: see [API Deployments](/general/token-deployments/v5-deployments).
+* The Admin page: see [Managing a Token](/general/managing-a-token).
