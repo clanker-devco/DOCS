@@ -83,3 +83,4 @@ The API and SDK sections are generated from source code:
 - **SDK docs** are generated with [TypeDoc](https://typedoc.org/) from JSDoc comments in [`clanker-sdk/src/`](https://github.com/clanker-devco/clanker-sdk/tree/main/src). Update the JSDoc in source to change the SDK documentation.
 
 Both repos have GitHub Actions that regenerate the docs and push them here on every merge to `main`.
+
