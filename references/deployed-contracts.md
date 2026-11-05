@@ -1,6 +1,10 @@
 # Deployed Contracts
 
-The Clanker contract addresses on each chain are listed below, grouped by version. Clanker v5 is live on Base. See [Core Contracts](core-contracts.md) for what each contract does.
+The Clanker contract addresses appear below, grouped by chain and version. See [Core Contracts](core-contracts.md) for what each contract does.
+
+Clanker v5 launches are open on Base. The v5 contracts are also deployed on BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Launches on those chains are closed.
+
+Some v5 contracts use the same address on different chains. Identify each deployment by its chain ID and address.
 
 ## Mainnets
 
@@ -234,6 +238,28 @@ Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deploy
 
 <details>
 
+<summary>v5</summary>
+
+Deployed on November 5, 2026. First block: 131,799,151.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0xA8F0c64D5E5CF05379c13263EbdD03e8A835EACC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+<details>
+
 <summary>v4.1.0</summary>
 
 | Contract         | Address                                    |
@@ -266,6 +292,28 @@ Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deploy
 
 <details>
 
+<summary>v5</summary>
+
+Deployed on November 5, 2026. First block: 119,585,470.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0x58E0cE0ba45002DFF608e2f04C0B88075eD4aAcC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+<details>
+
 <summary>v4.1.0</summary>
 
 | Contract                     | Address                                    |
@@ -280,6 +328,78 @@ Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deploy
 | ClankerHookDynamicFee        | Not supported                              |
 | ClankerHookStaticFee         | 0x94F802a9EFE4dd542FdBd77a25D9e69A6dC828Cc |
 | ClankerMevDescendingFees     | 0x3231D1ddfdC4Ad585cF1939FfEcd9c88b338Dbf2 |
+
+</details>
+
+### Robinhood Chain: 4663
+
+<details>
+
+<summary>v5</summary>
+
+Deployed on November 5, 2026. First block: 106,650,212.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0x565189a6780D1a50FC1792F64db8e4881119AaCC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+### X Layer: 196
+
+<details>
+
+<summary>v5</summary>
+
+Deployed on November 5, 2026. First block: 75,104,509.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0x9A935223eabd30b00fA680a5F3F8e7485e26aacC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+### Arc: 5042
+
+<details>
+
+<summary>v5</summary>
+
+Deployed on November 5, 2026. First block: 29,652,403.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0x565189a6780D1a50FC1792F64db8e4881119AaCC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
 
 </details>
 
