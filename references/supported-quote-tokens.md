@@ -4,11 +4,7 @@ The quote token, also called the pair token, is the token a Clanker token is pai
 
 ## Clanker v5
 
-Clanker v5 tokens use a quote token registered with their chain's factory. Rewards and dividends use the pair token.
-
-### Base: 8453
-
-Clanker v5 tokens pair with native ETH or USDC on Base.
+Clanker v5 tokens pair with native ETH or USDC on Base. Rewards and dividends are paid in the pair token.
 
 | Token           | Address                                    | Starting market cap | Initial tick |
 | --------------- | ------------------------------------------ | ------------------- | ------------ |
@@ -16,17 +12,6 @@ Clanker v5 tokens pair with native ETH or USDC on Base.
 | USD Coin (USDC) | 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913 | 4,000 USDC          | -400600      |
 
 For the ETH pair, pass the WETH address as `pool.pairedToken` when you deploy through the API. See [API Deployments](../general/token-deployments/v5-deployments.md) and the [Deployment](../api-reference/authenticated/deployment.md) endpoint reference. The pool itself pairs with native ETH. Contract details are in the [v5 contracts](core-contracts/v5.md).
-
-### Elysium: 99901
-
-The Elysium factory accepts native HYPE and USDC as quote tokens. The zero address identifies native HYPE in the pool and in direct factory calls.
-
-| Token       | Address                                    | Decimals |
-| ----------- | ------------------------------------------ | -------- |
-| Native HYPE | 0x0000000000000000000000000000000000000000 | 18       |
-| USDC        | 0xb47c4c8f73f009cc0c0d3f92b388d13e293f0b65 | 6        |
-
-Launches are open on chain. clanker.world and the deployment API do not yet support Elysium. See [Deployed Contracts](deployed-contracts.md#elysium-99901) for its factory and related contracts.
 
 ## Clanker v4 and earlier
 

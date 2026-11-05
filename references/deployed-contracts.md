@@ -409,7 +409,7 @@ Deployed on November 5, 2026. First block: 29,652,403.
 
 <summary>v5</summary>
 
-Deployed on November 4, 2026. First block: 419,724. The factory accepts launches on chain. clanker.world and the deployment API do not yet support Elysium.
+Deployed on November 4, 2026. First block: 419,724.
 
 | Contract                | Address                                    |
 | ----------------------- | ------------------------------------------ |

@@ -29,7 +29,7 @@ The token's starting price doesn't match what a standard deployment would set.
 
 ## `UNUSUAL_PAIR_ADDRESS`
 
-The token is paired with a token that isn't on the list of [Supported Quote Tokens](../references/supported-quote-tokens.md). On Base, a v5 token's pair must be native ETH or USDC.
+The token is paired with a token that isn't on the list of [Supported Quote Tokens](../references/supported-quote-tokens.md). For a v5 token, the pair must be native ETH or USDC on Base.
 
 **What to do**: an unusual pair can mean an experimental liquidity setup. If the pair token has little liquidity on chain, you may only be able to trade the new token if you already hold the pair token. Check that the pair token is safe.
 

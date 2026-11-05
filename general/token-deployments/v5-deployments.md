@@ -2,8 +2,6 @@
 
 With a partner API key, you can deploy Clanker v5 tokens on Base through `POST /api/tokens/deploy`. The example request and field tables below cover every v5 field. For how v5 tokens work, see [Token Deployments](../token-deployments.md). For the full endpoint reference, see [Deployment](../../api-reference/authenticated/deployment.md).
 
-Elysium launches are open on chain, but the deployment API does not yet support Elysium. Use `chainId: 8453` for the Base API flow below. See [Deployed Contracts](../../references/deployed-contracts.md) for each chain's contract addresses and status.
-
 ## How it works
 
 1. Send a `POST` request to `https://www.clanker.world/api/tokens/deploy` with your partner API key in the `x-api-key` header.

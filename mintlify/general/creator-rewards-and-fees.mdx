@@ -21,7 +21,7 @@ The creator sets a buy tax and a sell tax at launch, each between 1% and 10% of 
 
 Dividends, burn and the integrator share are percentages of the creator share (the tax after the Clanker fee), and together they can be at most 100%.
 
-Rewards and dividends use the pair token: native ETH or USDC on Base, native HYPE or USDC on Elysium. The burn share uses the launched token itself.
+Rewards and dividends are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. The burn share is taken in the token itself.
 
 ### Sniper fee
 
@@ -52,9 +52,7 @@ How a whole tax is split: a token has a 5% sell tax and sends 50% of the creator
 
 ### Claim rewards on clanker.world
 
-Elysium is not yet available in clanker.world. Use Elysium's [FeeEscrow](/references/core-contracts/v5#feeescrow) for direct contract claims.
-
-Each chain's FeeEscrow holds v5 rewards. It keeps one balance per recipient and currency for all v5 tokens that pay that recipient on that chain. A claim pays the whole balance in one currency on that chain.
+v5 rewards collect in the FeeEscrow. It holds one balance per recipient and currency for all of that recipient's v5 tokens, and a claim pays the whole balance.
 
 1. Open the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`.
 2. In the **Claim Rewards** card, connect the reward recipient's wallet and claim.

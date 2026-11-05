@@ -21,4 +21,4 @@ For v4 tokens, an interface can also set:
 * Vaults
 * Airdrops
 
-A v5 token has a 1 billion supply in one pool with a [quote token registered on its chain](../../references/supported-quote-tokens.md). The factory sets the starting price. Check each interface's chain support before a launch. See [API Deployments](v5-deployments.md) for the Base API fields and [v4 Deployments](v4-deployments.md) for v4.
+A v5 token always has a 1 billion supply in one pool paired with ETH or USDC, with a starting price set by the factory. See [API Deployments](v5-deployments.md) for the v5 fields and [v4 Deployments](v4-deployments.md) for v4.

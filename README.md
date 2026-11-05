@@ -6,9 +6,9 @@ You can launch a token from [clanker.world](https://www.clanker.world), by taggi
 
 ## Clanker v5
 
-Clanker v5 is the current version of Clanker. Launches are open on chain on Base and Elysium. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
+Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
 
-You can launch a v5 token on Base through clanker.world or the API. Elysium is not yet available in clanker.world or the deployment API. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md) and [API Deployments](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions. [Deployed Contracts](references/deployed-contracts.md) lists each chain's addresses and launch status.
+You can launch a v5 token on clanker.world or through the API. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md) and [API Deployments](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
 
 ## Tokens
 

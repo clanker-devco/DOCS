@@ -9,7 +9,7 @@ A Clanker v5 token can pay part of its trading tax to the people who hold it. Th
 3. The dividend contract splits it between eligible holders by their token balance.
 4. Each holder's share is recorded as earned dividends, which the holder can claim at any time.
 
-Dividends use the pair token: native ETH or USDC on Base, native HYPE or USDC on Elysium. See [Supported Quote Tokens](../references/supported-quote-tokens.md) for the addresses.
+Dividends are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair.
 
 ### Who is eligible
 
@@ -34,8 +34,6 @@ A token has a 5% tax and a 50% dividend share. Someone trades 1,000 USDC, and yo
 
 ## Claim on clanker.world
 
-Elysium is not yet available in clanker.world. Use Elysium's [Dividend Claim Helper](../references/core-contracts/v5.md#dividend-claim-helper) for direct contract claims.
-
 Claim on [clanker.world](https://www.clanker.world/) from either place:
 
 * **Token page**: the **Holder dividends** card shows your claimable, earned and claimed amounts. Connect your wallet and select **Claim dividends**.
@@ -45,7 +43,7 @@ The dividend contract may name a different payout receiver for a wallet. The tok
 
 ### Claim from many tokens in one transaction
 
-The **Dividend Claim Helper** contract claims a holder's dividends from up to 64 v5 tokens on the same chain in one transaction. It pays only the wallet that sends the transaction. Holders and apps can call it directly.
+The **Dividend Claim Helper** contract claims a holder's dividends from up to 64 v5 tokens in one transaction, and pays only the wallet that sends it. Holders and apps can call it directly.
 
 ## With the API
 
