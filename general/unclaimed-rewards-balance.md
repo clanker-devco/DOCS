@@ -1,16 +1,18 @@
 # Unclaimed Rewards Balance
 
-Once a token you deployed with Clanker has been traded at least once, it has earned rewards. You can check what you can claim on clanker.world, through the API or, for older tokens, on chain.
+After a trade in a Clanker token's launch pool, its reward recipients earn rewards. On supported app chains, clanker.world and the API show the unclaimed balances. You can also read balances from the contracts on each chain.
 
 ## Clanker v5
 
+Elysium is not yet available in clanker.world. Read its [FeeEscrow](../references/core-contracts/v5.md#feeescrow) with `owed(recipient, currency)` to check a balance directly.
+
 ### How it works
 
-v5 rewards collect in the FeeEscrow, one balance per recipient and currency (ETH or USDC). A recipient's balance includes the rewards of all v5 tokens that pay that wallet, and one claim pays all of it, so claiming on one token also clears the balance shown on the recipient's other v5 tokens.
+Each chain's FeeEscrow holds one balance per recipient and currency. The currency is the pair token: ETH or USDC on Base, HYPE or USDC on Elysium. A claim pays all rewards in that balance. It also clears the balance shown for other tokens that pay that recipient in the same currency on the same chain.
 
 ### Example
 
-A wallet is the reward recipient of two ETH-paired v5 tokens. Token A has earned 0.3 ETH and token B 0.2 ETH since the last claim.
+A wallet is the reward recipient of two ETH-paired v5 tokens on Base. Token A has earned 0.3 ETH and token B 0.2 ETH since the last claim.
 
 | Step                          | Amount  | Calculation            |
 | ----------------------------- | ------- | ---------------------- |

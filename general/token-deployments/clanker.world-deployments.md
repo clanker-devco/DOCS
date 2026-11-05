@@ -2,6 +2,8 @@
 
 You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. The form starts with token info that every token needs, then shows the parameters for the token type you choose.
 
+The v5 form supports Base. Elysium launches are open on chain, but Elysium is not yet available in clanker.world. See [Deployed Contracts](../../references/deployed-contracts.md) for the status of each chain.
+
 ## How it works
 
 1. Open the [deploy page](https://www.clanker.world/deploy) and connect a wallet.

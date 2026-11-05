@@ -8,7 +8,7 @@ The questions below cover Clanker tokens, fees, rewards and Farcaster accounts.
 
 <summary>What is a v5 token?</summary>
 
-Clanker v5 is the current version of Clanker, live on Base. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Token Deployments](token-deployments.md) and [Creator Rewards & Fees](creator-rewards-and-fees.md).
+Clanker v5 is the current version of Clanker. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Token Deployments](token-deployments.md) and [Creator Rewards & Fees](creator-rewards-and-fees.md).
 
 </details>
 
@@ -24,7 +24,7 @@ Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1%
 
 <summary>How do holder dividends work?</summary>
 
-If a v5 token pays dividends, part of every trade's tax goes to holders who hold at least the token's minimum balance (at least 10,000 tokens). Dividends are paid in the pair token, ETH or USDC. Holders claim on clanker.world from the token page or from their profile, where **Claim all** claims many tokens in one transaction. See [Holder Dividends](holder-dividends.md).
+If a v5 token pays dividends, part of every trade's tax goes to holders who hold at least the token's minimum balance (at least 10,000 tokens). Dividends use the pair token: ETH or USDC on Base, HYPE or USDC on Elysium. On Base, holders claim on clanker.world from the token page or from their profile. **Claim all** claims many tokens in one transaction. See [Holder Dividends](holder-dividends.md).
 
 </details>
 
@@ -42,7 +42,7 @@ If a v5 token has a burn share, part of every trade's tax is taken in the token 
 
 <summary>Which chains does Clanker support?</summary>
 
-Clanker v5 runs on Base. v4 is also deployed on Arbitrum One, Unichain, Ethereum, BNB Chain and Monad. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
+Clanker v5 launches are open on chain on Base and Elysium. clanker.world and the deployment API support Base; they do not yet support Elysium. v4 is also deployed on Arbitrum One, Unichain, Ethereum, BNB Chain and Monad. See [Deployed Contracts](../references/deployed-contracts.md) for every chain, contract and launch status.
 
 </details>
 
@@ -65,7 +65,7 @@ On [clanker.world](https://www.clanker.world/):
 
 Open the token's Admin page, `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`, connect the reward recipient's wallet and claim in the **Claim Rewards** card.
 
-* **v5**: a claim pays the recipient's whole FeeEscrow balance across its v5 tokens (see [Unclaimed Rewards Balance](unclaimed-rewards-balance.md)). A past recipient claims from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
+* **v5**: a claim pays the recipient's whole FeeEscrow balance in one currency on one chain (see [Unclaimed Rewards Balance](unclaimed-rewards-balance.md)). A past recipient claims from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
 * **v4 and earlier**: the claim pays out the creator rewards from the token's LP. Anyone can start it, and the rewards always go to the reward recipient, not to the wallet that started the claim.
 
 See [Managing a Token](managing-a-token.md) for everything else the Admin page does.
@@ -97,7 +97,7 @@ See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md).
 
 <summary>Why is my unclaimed rewards balance lower than expected?</summary>
 
-* **v5**: one FeeEscrow claim pays the rewards of all your v5 tokens, so claiming on one token also clears the balance shown on your other v5 tokens.
+* **v5**: one FeeEscrow claim pays your whole balance in one currency on one chain. It also clears the balance shown for other tokens that share that currency and chain.
 * **v4 and earlier**: anyone can start the payout of creator rewards, so you may already have received rewards without claiming them yourself.
 
 </details>

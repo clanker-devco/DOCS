@@ -4,7 +4,9 @@ Trading platforms, aggregators and wallets known to support Clanker pools are li
 
 ## Clanker v5
 
-Clanker v5 tokens trade in Uniswap v4 pools that use their chain's Clanker v5 hook. Every trade pays the token's buy or sell tax. Clanker v5 launches are open on Base. The platform list below applies to Base.
+Clanker v5 tokens trade in Uniswap v4 pools that use their chain's Clanker v5 hook. Every trade pays the token's buy or sell tax. Clanker v5 launches are open on chain on Base and Elysium. See [Deployed Contracts](deployed-contracts.md) for each chain's hook.
+
+The platform list below applies to Base. Elysium is not yet available in clanker.world. A platform must support Elysium and its v5 hook to trade these pools.
 
 Known compatible trading platforms as of November 2026:
 

@@ -2,13 +2,15 @@
 title: "Managing a Token"
 ---
 
-Every Clanker token has an Admin page on clanker.world where you claim rewards and manage the token:
+On supported chains, clanker.world gives each token an Admin page for rewards and token settings:
 
 `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`
 
 Anyone can open it. To make changes, connect the wallet that holds the right role. A card you can't use shows a lock line that names who can.
 
 ## Clanker v5
+
+Elysium is not yet available in clanker.world. See [v5 contracts](/references/core-contracts/v5) for direct contract functions and [Deployed Contracts](/references/deployed-contracts#elysium-99901) for Elysium's addresses.
 
 ### Who can do what
 
@@ -27,7 +29,7 @@ On a v5 token, admin power belongs to the **current creator**. Each reward recip
 
 ### Claim rewards
 
-The **Claim Rewards** card claims the selected recipient's whole FeeEscrow balance, across all v5 tokens that pay that wallet, in the pair token (see [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance)). Connect the reward recipient's wallet to claim. **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](/general/creator-rewards-and-fees).
+The **Claim Rewards** card claims the selected recipient's whole FeeEscrow balance in the pair token on the selected chain. The balance includes rewards from every v5 token that pays that recipient in the same currency on that chain. See [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance). Connect the reward recipient's wallet to claim. **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](/general/creator-rewards-and-fees).
 
 ### Change reward recipients and admins
 

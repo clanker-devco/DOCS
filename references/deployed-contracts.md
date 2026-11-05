@@ -2,7 +2,7 @@
 
 The Clanker contract addresses appear below, grouped by chain and version. See [Core Contracts](core-contracts.md) for what each contract does.
 
-Clanker v5 launches are open on Base. The v5 contracts are also deployed on BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Launches on those chains are closed.
+Clanker v5 launches are open on chain on Base and Elysium. Elysium is not yet available in clanker.world or the deployment API. The v5 contracts are also deployed on BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Launches on those five chains are closed.
 
 Some v5 contracts use the same address on different chains. Identify each deployment by its chain ID and address.
 
@@ -398,6 +398,30 @@ Deployed on November 5, 2026. First block: 29,652,403.
 | Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
 | Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
 | Launch Buy Adapter      | 0xB23DCEC5F77abC6185c6a1535F1662A37e578689 |
+| Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
+| Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+### Elysium: 99901
+
+<details>
+
+<summary>v5</summary>
+
+Deployed on November 4, 2026. First block: 419,724. The factory accepts launches on chain. clanker.world and the deployment API do not yet support Elysium.
+
+| Contract                | Address                                    |
+| ----------------------- | ------------------------------------------ |
+| Factory                 | 0xcA111dcdd2cE924c3378d6514fDCbC46217bcA16 |
+| Hook                    | 0x3eA9581a32a396F69b177B65b91149Cf887BEACC |
+| FeeEscrow               | 0xFBB6e837A2eA96d6b4beb4788c2749Cf34A997e7 |
+| Dividend Deployer       | 0xffe2627E9b89E1eD4a777488c8597a3912c46723 |
+| Dividend Claim Helper   | 0xdb525d50c70b9303115bA19503761756136d2B49 |
+| Announcement Registry   | 0x2D75afC0Cdf502E4381dC0B23327BFeD358bA43A |
+| Launch Validation       | 0xCB4530728c259a0f23193f5C13c2061b46fe4288 |
+| Launch Operations       | 0x533179dF1316420a83C20e6bd6EC092Ae82aa967 |
+| Launch Buy Adapter      | 0x41345A5f3fe6a6be3e595b409Dbe10499B282569 |
 | Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
 | Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
 
