@@ -7,7 +7,7 @@
     "light": "#C9B2F7",
     "dark": "#8A63D2"
   },
-  "favicon": "/assets/clanker-logo.png",
+  "favicon": "/assets/favicon.ico",
   "navigation": {
     "groups": [
       {
