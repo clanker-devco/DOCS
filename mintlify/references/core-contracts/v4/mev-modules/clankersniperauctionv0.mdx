@@ -15,7 +15,7 @@ These contracts are part of the setup:
 
 ## How it works
 
-The auction relies on Base using priority ordering, which places transactions with higher gas fees first. Each time the auction resets, the module records the gas price and uses an inflated version as the auction's starting gas price. The WETH payment is a multiple of the difference between the winning transaction's gas price and the inflated gas price. The inflated gas price, next auction block, and current auction round can be read from the contract and are easy to replicate off-chain.
+The auction relies on Base using priority ordering, which places transactions with higher gas fees first. Each time the auction resets, the module records the gas price and uses an inflated version as the auction's starting gas price. The WETH payment is a multiple of the difference between the winning transaction's gas price and the inflated gas price. The inflated gas price, next auction block and current auction round can be read from the contract and are easy to replicate off-chain.
 
 Auction payments are split 80/20 between the token's reward recipients and the Clanker factory.
 
@@ -67,17 +67,17 @@ event SetPaymentPerGasUnit(uint256 oldPaymentPerGasUnit, uint256 newPaymentPerGa
 
 A pool is deployed in block 1 with a base fee of 10 gwei. The first auction round happens in block 3 with a starting auction gas price of 12 gwei. Three snipers try to snipe:
 
-* **Sniper A** sets their transaction gas price to 13 gwei, approves a WETH payment of 0.0001 ether, and lands in block 3.
-* **Sniper B** sets their transaction gas price to 15 gwei, approves a WETH payment of 0.0003 ether, and lands in block 3.
-* **Sniper C** sets their transaction gas price to 17 gwei, approves a WETH payment of 0.0005 ether, and lands in block 4.
+* **Sniper A** sets their transaction gas price to 13 gwei, approves a WETH payment of 0.0001 ether and lands in block 3.
+* **Sniper B** sets their transaction gas price to 15 gwei, approves a WETH payment of 0.0003 ether and lands in block 3.
+* **Sniper C** sets their transaction gas price to 17 gwei, approves a WETH payment of 0.0005 ether and lands in block 4.
 
 **Result:** Sniper B wins, because Sniper C landed in the wrong block. The auction module uses block 3's actual gas price of 11 gwei to set round 2's starting gas price to 13 gwei, with bids accepted in block 5.
 
-The first auction parameters set by the Clanker team put 2 blocks between deployment and the first auction, and 2 blocks between subsequent auctions. These may change once we have more data on the auction's performance.
+The first auction parameters set by the Clanker team put 2 blocks between deployment and the first auction, and 2 blocks between subsequent auctions. These may change as Clanker gathers more data on the auction's performance.
 
 ## ClankerSniperUtilV0 contract
 
-The `ClankerSniperUtilV0` contract is a shared utility for snipers to bid in auctions, and a user-facing example of how bidding works. It handles approval spending, round management, and encoding the auction swap's hook data. Snipers are welcome to rewrite and redeploy the utility themselves, since it's auxiliary to the auction.
+The `ClankerSniperUtilV0` contract is a shared utility for snipers to bid in auctions, and a user-facing example of how bidding works. It handles approval spending, round management and encoding the auction swap's hook data. Snipers are welcome to rewrite and redeploy the utility themselves, since it's auxiliary to the auction.
 
 ### Example usage
 
@@ -121,20 +121,19 @@ uint256 round = sniperAuction.round(poolKey.toId());
 uint256 txGasPrice = sniperUtil.getTxGasPriceForBidAmount(gasPeg, bidAmount);
 
 // bid in auction
-// NOTE: you need to land this in the correct block with the correct gas price,
-// this will be the hardest part of using the auction until we can get
-// bundle support on Base, please complain on twitter to the Flashbot / Base people
-// that we want transactions to be able to specify which block they land in :(
+// NOTE: you need to land this in the correct block with the correct gas price.
+// This is the hardest part of using the auction, because transactions on Base
+// can't specify which block they land in.
 sniperUtil.bidInAuction{value: bidAmount}(swapParams, round);
 ```
 
 ## Approving `ClankerSniperAuctionV0` to spend WETH
 
 <Warning>
-We do NOT recommend approving `ClankerSniperAuctionV0` to spend WETH unless an auxiliary contract handles the approval and reverts if the bid doesn't win. For example, if an EOA approves the auction contract to spend WETH, anyone can spend that EOA's WETH by passing the EOA's address as the `auctionData` parameter to `ClankerSniperAuctionV0::beforeSwap`. The `ClankerSniperUtilV0` contract shows how to handle this safely.
+Clanker does not recommend approving `ClankerSniperAuctionV0` to spend WETH unless an auxiliary contract handles the approval and reverts if the bid doesn't win. For example, if an EOA approves the auction contract to spend WETH, anyone can spend that EOA's WETH by passing the EOA's address as the `auctionData` parameter to `ClankerSniperAuctionV0::beforeSwap`. The `ClankerSniperUtilV0` contract shows how to handle this safely.
 
 </Warning>
 
 ## Disclaimer
 
-Clanker reserves the right to upgrade to other auction versions depending on how V0 is used, and to change V0's configuration. We'll give advance warning of upgrades, but we may change the number of blocks between auctions and the payment multiplier.
+Clanker reserves the right to upgrade to other auction versions depending on how V0 is used, and to change V0's configuration. Clanker gives advance warning of upgrades, but may change the number of blocks between auctions and the payment multiplier.

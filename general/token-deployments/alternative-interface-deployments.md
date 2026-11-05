@@ -1,6 +1,6 @@
 # Alternative Interface Deployments
 
-Other apps built on Clanker can deploy tokens for you. They use the Clanker SDK, the [deploy API](v5-deployments.md) or the Clanker contracts directly.
+Other apps built on Clanker can deploy tokens for you. They use the Clanker SDK, the Clanker API (see [API Deployments](v5-deployments.md)) or the Clanker contracts directly.
 
 ## How it works
 
@@ -11,11 +11,14 @@ An interface can set deployment parameters that the clanker.world form and the @
 These include, but are not limited to:
 
 * Creator reward splits
+* Creator buy (dev buy)
+
+For v4 tokens, an interface can also set:
+
 * Starting market cap
-* Quote token pairs
+* Pair token (see [Supported Quote Tokens](../../references/supported-quote-tokens.md))
 * Liquidity curves, by placing multiple LP positions
 * Vaults
 * Airdrops
-* Creator buy (dev buy)
 
-Vaults, airdrops and custom liquidity positions apply to v4 tokens. See [v4 Deployments](v4-deployments.md).
+A v5 token always has a 1 billion supply in one pool paired with ETH or USDC, with a starting price set by the factory. See [API Deployments](v5-deployments.md) for the v5 fields and [v4 Deployments](v4-deployments.md) for v4.

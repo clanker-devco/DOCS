@@ -1,6 +1,6 @@
-# Clanker.world Deployments
+# clanker.world Deployments
 
-You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. This page walks through each field on that form.
+You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. The form starts with token info that every token needs, then shows the parameters for the token type you choose.
 
 ## How it works
 
@@ -9,9 +9,9 @@ You can create a token on the clanker.world [deploy page](https://www.clanker.wo
 3. On Base, choose the **Token type** under **Token Settings**: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. The form shows the settings for that type.
 4. Set the options you want, then deploy and confirm the transaction in your wallet.
 
-For how each version works, see the [Token Deployments overview](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
+For how each version works, see [Token Deployments](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
 
-## Token Info
+## Token info
 
 These fields are the same for both token types.
 
@@ -42,7 +42,7 @@ These fields are the same for both token types.
 {% endstep %}
 {% endstepper %}
 
-## v5 Parameters
+## Clanker v5 parameters
 
 With **Token type** set to **V5**, the form shows these settings.
 
@@ -56,16 +56,16 @@ With **Token type** set to **V5**, the form shows these settings.
 * **Buy tax**: charged on each buy, including the Clanker fee.
 * **Sell tax**: charged on each sell, including the Clanker fee.
 
-The form shows how each trade is split between Clanker, creator funds, holder dividends and burn.
+The form shows how each trade is split between Clanker, **Creator funds**, holder dividends and burn.
 {% endstep %}
 
 {% step %}
 
 ### Tax allocation
 
-*Optional. Splits the tax left after the Clanker fee. Defaults to 100% creator funds.*
+*Optional. Splits the creator share (the tax left after the Clanker fee). Defaults to 100% **Creator funds**.*
 
-* **Creator funds**: the rest of the tax, paid to the reward recipients.
+* **Creator funds**: the part of the creator share left after holder dividends and burn, paid to the reward recipients.
 * **Holder dividends**: the percent paid to holders. See [Holder Dividends](../holder-dividends.md).
   * **Minimum dividend holding**: the balance a wallet needs to earn dividends (at least 10,000 tokens).
 * **Burn allocation**: the percent burned in the launched token. See [Token Burns](../token-burns.md).
@@ -75,29 +75,29 @@ Holder dividends and burn allocation together must not exceed 100%.
 
 {% step %}
 
-### Sniper tax
+### Sniper fee
 
-*Optional, on or off.*
+*Optional, on or off (the **Sniper tax** toggle). Defaults to on.*
 
-When on, trades in the first 20 seconds after launch pay a total fee that starts at 99% and falls to the buy and sell tax. All of the sniper tax goes to Clanker. When off, the buy and sell tax apply from the first trade.
+When on, trades in the first 20 seconds after launch pay a total fee that starts at 99% and falls to the buy and sell tax. All of the sniper fee goes to Clanker. When off, the buy and sell tax apply from the first trade.
 {% endstep %}
 
 {% step %}
 
 ### Editable metadata
 
-*Optional, on or off.*
+*Optional, on or off. Defaults to on.*
 
 When on, the creator can change the image and metadata after launch, and verify the token. When off, the image and metadata stay as they were at launch.
 {% endstep %}
 
 {% step %}
 
-### Rewards
+### Reward recipients
 
 *Optional. Defaults to 100% to the connected wallet.*
 
-Add reward recipients to split the creator funds. For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
+Add reward recipients to split the **Creator funds**. For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 {% endstep %}
 
 {% step %}
@@ -120,9 +120,9 @@ Add reward recipients to split the creator funds. For each recipient, set the ad
 {% endstep %}
 {% endstepper %}
 
-Vaults and airdrops are v4 only. You can also save a v5 token as a preclank and launch it later with a cast; see [Preclank Deployments](preclank-deployments.md).
+Vaults and airdrops are v4 only. You can also save a v5 token as a preclank with the **Preclank** option at the bottom of the form and launch it later with a cast. See [Preclank Deployments](preclank-deployments.md).
 
-## v4 Parameters
+## Clanker v4 parameters
 
 With **Token type** set to **V4**, the form shows these settings. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
 
@@ -148,6 +148,7 @@ With **Token type** set to **V4**, the form shows these settings. See [v4 Deploy
 For each recipient, set:
 
 * **Admin address**: the address that can change this recipient to a new address.
+* **Recipient address**: the address that receives the rewards.
 * **Reward percentage**: the share of total rewards for this recipient.
 * **Reward type**: the token the recipient is paid in. The creator sets it at launch, and the recipient's admin can change it at any time after.
   * `Both`: rewards in both the new token and its pair token.
@@ -192,3 +193,11 @@ There is no upper or lower limit on the ETH amount.
 {% endstepper %}
 
 The v4 form also has airdrop settings and the same **Preclank** option at the bottom of the form.
+
+## Related
+
+* [Token Deployments](../token-deployments.md)
+* [v4 Deployments](v4-deployments.md)
+* [Preclank Deployments](preclank-deployments.md)
+* [Creator Rewards & Fees](../creator-rewards-and-fees.md)
+* [Managing a Token](../managing-a-token.md)

@@ -10,7 +10,7 @@ Tag @clanker in a cast with a token name, a ticker and an optional image or GIF.
 
 > @clanker deploy a token named myNewToken with the ticker MINE paired with CLANKER
 
-The token is paired with WETH unless you name another quote token in the same cast. See [Supported Quote Tokens](../../references/supported-quote-tokens.md) for the full list.
+The token is paired with WETH unless you name another pair token in the same cast. See [Supported Quote Tokens](../../references/supported-quote-tokens.md) for the full list.
 
 @clanker replies in one of three ways:
 
@@ -24,19 +24,28 @@ The bot deploys on Base by default. Each deployment goes through these steps:
 
 1. You ask @clanker to deploy a token. You can also ask it to:
    1. Reserve part of the supply in a vault. The maximum and the default are 30%.
-   2. Lock the vault for a number of days. The minimum and the default are 31 days.
+   2. Lock the vault for a number of days. The bot's default and minimum lockup is 31 days. For the contract limits, see [v4 Deployments](v4-deployments.md).
 2. A new ERC-20 token is created with a total supply of 100 billion (100,000,000,000). The token can't be minted after this, so the supply is fixed.
 3. If you asked for a vault, that percent of the supply goes into the creator vault.
-4. A new Uniswap v4 pool is created with the token and its quote token (WETH by default). The rest of the supply goes into the pool as single-sided liquidity, with a starting market cap of 10 WETH.
+4. A new Uniswap v4 pool is created with the token and its pair token (WETH by default). The rest of the supply goes into the pool as single-sided liquidity, with a starting market cap of 10 WETH.
 5. The LP NFTs from step 4 go to a Clanker LP Locker. The locker has no withdraw function, so the liquidity is locked forever. See [Deployed Contracts](../../references/deployed-contracts.md) and [Audits](../../references/audits.md).
 
-As the creator, you receive 80% of the LP fees as creator rewards.
+As the creator, you earn rewards from the pool's LP fees. See [Creator Rewards & Fees](../creator-rewards-and-fees.md) for how the fees are split and claimed.
 
 ## Other chains
 
 To deploy on another chain, follow the steps above and add one of that chain's trigger phrases to your cast. Phrases are not case sensitive.
 
-| Chain         | Trigger phrases                      |
-| ------------- | ------------------------------------ |
-| Arbitrum      | `arbitrum`, `garbitrum`, `arbitrugm` |
-| Monad Testnet | `monad`, `gmonad`                    |
+| Chain           | Trigger phrases          |
+| --------------- | ------------------------ |
+| Monad (143)     | `monad`, `mon`           |
+| BNB Chain (56)  | `bsc`, `bnb`, `binance`  |
+
+On BNB Chain the default pair token is USDT, and each account can deploy one token per day. The bot doesn't deploy on the other chains listed in [Deployed Contracts](../../references/deployed-contracts.md).
+
+## Related
+
+* [Preclank Deployments](preclank-deployments.md)
+* [v4 Deployments](v4-deployments.md)
+* [Creator Rewards & Fees](../creator-rewards-and-fees.md)
+* [Supported Quote Tokens](../../references/supported-quote-tokens.md)

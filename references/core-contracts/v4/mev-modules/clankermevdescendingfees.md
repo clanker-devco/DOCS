@@ -4,7 +4,7 @@
 
 ## How it works
 
-Deployers specify a starting LP fee (up to 80%), an ending fee, and a time to descend (up to 2 minutes). Clanker's initial recommended configuration starts effective fees at 80% and descends to 5% over 30 seconds, after which the pool's normal fee behavior starts. For the reasoning behind these choices, see our [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
+Deployers specify a starting LP fee (up to 80%), an ending fee and a time to descend (up to 2 minutes). Clanker's original recommended configuration starts effective fees at 80% and descends to 5% over 30 seconds, after which the pool's normal fee behavior starts. The clanker.world form's default is 80% to 5% over 15 seconds. For the reasoning behind these choices, see the Clanker [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
 
 The fee decays following the formula `fee = endingFee + feeRange * (timeDecay / timeToDecay)²`.
 
@@ -12,7 +12,7 @@ Swaps can start in the second after deployment.
 
 <figure><img src="../../../../.gitbook/assets/mev-descending-fees-1.png" alt=""><figcaption></figcaption></figure>
 
-The fee applied to a swap is the LP fee plus Clanker's additional 20% fee. Clanker's default starting market cap is $40k USD, so with the proposed starting fee of 80%, snipers start at an effective market cap of $200k.
+The fee applied to a swap is the LP fee plus Clanker's additional 20% fee. Clanker's default starting market cap is 10 WETH (about $40k when written), so with the proposed starting fee of 80%, snipers start at an effective market cap of about $200k.
 
 <figure><img src="../../../../.gitbook/assets/mev-descending-fees-2.png" alt=""><figcaption></figcaption></figure>
 

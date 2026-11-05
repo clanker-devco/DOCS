@@ -51,5 +51,5 @@ The **Dividend Claim Helper** contract claims a holder's dividends from up to 64
 
 ## Related
 
-* [Clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md) to set up dividends on a new token.
+* [clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md) to set up dividends on a new token.
 * [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.

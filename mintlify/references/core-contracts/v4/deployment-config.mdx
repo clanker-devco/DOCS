@@ -2,7 +2,7 @@
 title: "Deployment Config"
 ---
 
-This page describes the `DeploymentConfig` struct you pass to the Clanker v4 factory's `deployToken()` function.
+The `DeploymentConfig` struct holds everything you pass to the Clanker v4 factory's `deployToken()` function to launch a token.
 
 ## Token deployment
 
@@ -73,7 +73,7 @@ struct MevModuleConfig {
 }
 ```
 
-## Token Config
+## Token config
 
 These parameters are required for token creation:
 
@@ -90,7 +90,7 @@ These parameters are required for token creation:
 
 Supply is set to 100 billion tokens with 18 decimals.
 
-## Pool Config
+## Pool config
 
 These parameters are required for pool creation:
 
@@ -102,7 +102,7 @@ These parameters are required for pool creation:
 | `tickSpacing`           | The tick spacing to use for the pool.                                                                                                                                                             |
 | `poolData`              | Additional pool data, specific to the hook being used.                                                                                                                                            |
 
-## Locker Config
+## Locker config
 
 In v4, lockers manage the placement of liquidity positions and the distribution of LP fees to reward recipients. Locker contracts collect the fees and route them to the ClankerFeeLocker contract for users to claim.
 
@@ -121,15 +121,15 @@ These parameters are required to set up the liquidity locker:
 
 ### Rewards
 
-Rewards are a tuple of `rewardAdmin`, `rewardRecipient`, and `rewardBps`. The `rewardRecipient` receives the trading fees in the ClankerFeeLocker and can be updated by the `rewardAdmin`. The `rewardBps` is the recipient's portion of fees, out of 10,000. The total reward basis points must equal 10,000. The reward BPS split can't be changed after token deployment, and a maximum of 7 reward recipients are allowed per deployment.
+Rewards are a tuple of `rewardAdmin`, `rewardRecipient` and `rewardBps`. The `rewardRecipient` receives the trading fees in the ClankerFeeLocker and can be updated by the `rewardAdmin`. The `rewardBps` is the recipient's portion of fees, out of 10,000. The total reward basis points must equal 10,000. The reward BPS split can't be changed after token deployment, and a maximum of 7 reward recipients are allowed per deployment.
 
 ### Liquidity positions
 
-Liquidity positions are a tuple of `tickLower`, `tickUpper`, and `positionBps`. The `tickLower` is a position's lower tick and the `tickUpper` is its upper tick. Both assume the deployed token is `token0`, like the pool's starting tick. The `positionBps` array determines how the pool's token allocation is split among positions.
+Liquidity positions are a tuple of `tickLower`, `tickUpper` and `positionBps`. The `tickLower` is a position's lower tick and the `tickUpper` is its upper tick. Both assume the deployed token is `token0`, like the pool's starting tick. The `positionBps` array determines how the pool's token allocation is split among positions.
 
 All tick ranges must be equal to or higher than the `tickIfToken0IsClanker` value, but are otherwise only constrained by normal tick rules. Positions don't have to be contiguous and can overlap.
 
-## Extension Config
+## Extension config
 
 Extensions are contracts that add functionality to the token deployment process. See [Extensions](/references/core-contracts/v4/extensions) for more.
 
@@ -144,7 +144,7 @@ These parameters are required for each extension:
 
 If the `msg.value` passed into `deployToken()` doesn't match the sum of the extensions' `msgValue`, the deployment reverts. Up to 90% of the token supply can be allocated to extensions.
 
-## MEV Module Config
+## MEV module config
 
 These parameters are required for the MEV module:
 

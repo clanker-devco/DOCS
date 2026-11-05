@@ -6,7 +6,7 @@ Extensions are contracts that add functionality to the Clanker v4 token deployme
 
 ## How extensions work
 
-During deployment, an extension can request a portion of the token's supply and an amount of ETH via `msg.value`, and can take actions on the token's deployed pool. For example, extension code can add unlocked liquidity to the pool, distribute tokens, or make swaps on the deployed pool.
+During deployment, an extension can request a portion of the token's supply and an amount of ETH via `msg.value`, and can take actions on the token's deployed pool. For example, extension code can add unlocked liquidity to the pool, distribute tokens or make swaps on the deployed pool.
 
 The supply requested by extensions is taken from the amount that would otherwise go into the pool's initial liquidity positions. Up to 90% of the token supply can be allocated to extensions. The ETH requested by all extensions must sum to the `msg.value` passed into `deployToken()`.
 
@@ -23,4 +23,4 @@ struct ExtensionConfig {
 }
 ```
 
-Extensions must be allowlisted by the Clanker team before they can be used on the factory, and we reserve the right to remove extensions.
+Extensions must be allowlisted by the Clanker team before they can be used on the factory, and Clanker reserves the right to remove extensions.

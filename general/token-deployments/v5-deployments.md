@@ -1,6 +1,6 @@
 # API Deployments
 
-With a partner API key, you can deploy Clanker v5 tokens on Base through `POST /api/tokens/deploy`. This guide walks through a v5 request and each field it takes. For how v5 tokens work, see the [Token Deployments overview](../token-deployments.md). For the full endpoint reference, see [Deployment](../../api-reference/authenticated/deployment.md).
+With a partner API key, you can deploy Clanker v5 tokens on Base through `POST /api/tokens/deploy`. The example request and field tables below cover every v5 field. For how v5 tokens work, see [Token Deployments](../token-deployments.md). For the full endpoint reference, see [Deployment](../../api-reference/authenticated/deployment.md).
 
 ## How it works
 
@@ -118,9 +118,9 @@ v5 does not accept v4 `fees`, other `pool` settings, `vault`, `airdrop` or `pool
 
 ## Launch policy
 
-`GET /api/metadata/factories` lists each Clanker factory. The v5 factory's `taxPolicy` field gives the current launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum. When `taxPolicy.launchCreationEnabled` is `false`, a deploy returns a 400 error. See [v5](../../references/core-contracts/v5.md) in Core Contracts for each field.
+`GET /api/metadata/factories` lists each Clanker factory. The v5 factory's `taxPolicy` field gives the current launch policy: tax bounds, Clanker fee, sniper fee and dividend minimum. When `taxPolicy.launchCreationEnabled` is `false`, a deploy returns a 400 error. See [Launch policy](../../references/core-contracts/v5.md#launch-policy) in the [v5 contracts](../../references/core-contracts/v5.md) for each field.
 
-## After launch
+## Related
 
 * Rewards: see [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 * Dividends and burns: see [Holder Dividends](../holder-dividends.md) and [Token Burns](../token-burns.md).

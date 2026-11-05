@@ -1,6 +1,6 @@
 # FAQ
 
-Short answers to common questions about Clanker tokens, fees and rewards.
+The questions below cover Clanker tokens, fees, rewards and Farcaster accounts.
 
 ## Clanker v5
 
@@ -40,20 +40,20 @@ If a v5 token has a burn share, part of every trade's tax is taken in the token 
 
 <details>
 
-<summary>What networks / chains does Clanker support?</summary>
+<summary>Which chains does Clanker support?</summary>
 
-See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
+Clanker v5 runs on Base. v4 is also deployed on Arbitrum One, Unichain, Ethereum, BNB Chain and Monad. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
 
 </details>
 
 <details>
 
-<summary>How can I find the Token Info page for a Clanker token that I deployed?</summary>
+<summary>How can I find the token page for a Clanker token that I deployed?</summary>
 
 On [clanker.world](https://www.clanker.world/):
 
-1. Search the [token list](https://www.clanker.world/clankers) by token name, ticker, or the creator's Farcaster username.
-2. Or connect your wallet, open your [profile](https://www.clanker.world/profile), and select **View my tokens** in the **My tokens** card.
+1. Search the [token list](https://www.clanker.world/clankers) by token name, ticker or the creator's Farcaster username.
+2. Or connect your wallet, open your [profile](https://www.clanker.world/profile) and select **View my tokens** in the **My tokens** card.
 
 </details>
 
@@ -63,9 +63,9 @@ On [clanker.world](https://www.clanker.world/):
 
 <summary>How do I claim creator rewards?</summary>
 
-Open the token's Admin page, `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`, connect the reward recipient's wallet, and claim in the **Claim Rewards** card.
+Open the token's Admin page, `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`, connect the reward recipient's wallet and claim in the **Claim Rewards** card.
 
-* **v5**: rewards collect in the FeeEscrow, one balance per recipient and currency for all of that recipient's v5 tokens. A claim pays the whole balance in the pair token (ETH or USDC). A past recipient claims its balance from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
+* **v5**: a claim pays the recipient's whole FeeEscrow balance across its v5 tokens (see [Unclaimed Rewards Balance](unclaimed-rewards-balance.md)). A past recipient claims from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
 * **v4 and earlier**: the claim pays out the creator rewards from the token's LP. Anyone can start it, and the rewards always go to the reward recipient, not to the wallet that started the claim.
 
 See [Managing a Token](managing-a-token.md) for everything else the Admin page does.
@@ -74,9 +74,9 @@ See [Managing a Token](managing-a-token.md) for everything else the Admin page d
 
 <details>
 
-<summary>What does Creator Earnings on the clanker.world Token Info page mean?</summary>
+<summary>What does Creator Earnings on the clanker.world token page mean?</summary>
 
-Creator Earnings is an **estimate** of the rewards a creator earned in the past 30 days. It may not match the current market value of the tokens in those rewards.
+**Creator Earnings** is an **estimate** of the rewards a creator earned in the past 30 days. It may not match the current market value of the tokens in those rewards.
 
 The unclaimed rewards figure is different: it is the current unclaimed balance, not a 30-day estimate.
 
@@ -86,8 +86,8 @@ The unclaimed rewards figure is different: it is the current unclaimed balance, 
 
 <summary>How can I check the balance of unclaimed rewards for a token?</summary>
 
-* **v5**: the **Claim Rewards** card on the token's Admin page shows the selected recipient's unclaimed FeeEscrow balance, and `GET /api/creator-earnings/{tokenAddress}` returns the balances of all current recipients. Each balance includes the rewards of all v5 tokens that pay that wallet.
-* **v4 and earlier**: the bottom of the token page shows an estimate of unclaimed rewards.
+* **v5 and v4**: select **Check Claimable Fees** in the **Claim Rewards** card on the token's Admin page. For v5, `GET /api/creator-earnings/{tokenAddress}` returns the FeeEscrow balances of all current recipients.
+* **v3.1 and earlier**: the bottom of the token page shows an estimate of unclaimed rewards.
 
 See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md).
 
@@ -108,7 +108,7 @@ See [Unclaimed Rewards Balance](unclaimed-rewards-balance.md).
 
 The token's Admin page lists each reward recipient, its admin and its share under **Current Rewards Info** (v4 and v5). A reward admin can change its recipient with **Update reward recipient**.
 
-For tokens created by replying to the @clanker bot on Farcaster, the first reward recipient is:
+For tokens created by replying to @clanker on Farcaster, the first reward recipient is:
 
 1. your latest Farcaster verified address, or
 2. your Farcaster custody address, if you have no verified address.
@@ -119,7 +119,7 @@ To find these addresses, see [How do I find my Farcaster verified address / cust
 
 <details>
 
-<summary>How do I claim fees for a token deployed from X and move smart wallet balances to another account?</summary>
+<summary>How do I claim rewards for a token deployed from X and move smart wallet balances to another account?</summary>
 
 Watch the walkthrough video: <https://x.com/JackDishman/status/2021651772016931161>
 
@@ -131,11 +131,11 @@ Watch the walkthrough video: <https://x.com/JackDishman/status/20216517720169311
 
 <summary>How do I find my Farcaster verified address / custody address / FID?</summary>
 
-1. In the Farcaster app on desktop, go to your `Profile`, press the vertical ellipsis button on the top right, and select `About`. On mobile, select the `Information` icon on the top right of your `Profile`.
+1. In the Farcaster app on desktop, go to your **Profile**, press the vertical ellipsis button on the top right and select **About**. On mobile, select the **Information** icon on the top right of your **Profile**.
 
 <figure><img src="../.gitbook/assets/faq-about-screenshot.png" alt=""><figcaption></figcaption></figure>
 
-2. If you have connected an Ethereum wallet, your verified address is the bottom one in the list of `Connected Ethereum Wallets`. In the example below, only one wallet is connected, so that is the verified address.
+2. If you have connected an Ethereum wallet, your verified address is the bottom one in the list of **Connected Ethereum Wallets**. In the example below, only one wallet is connected, so that is the verified address.
 
 <figure><img src="../.gitbook/assets/faq-connected-wallets.png" alt=""><figcaption></figcaption></figure>
 

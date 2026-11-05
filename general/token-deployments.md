@@ -1,6 +1,6 @@
 # Overview
 
-Clanker v5 is the current version of Clanker. Here's how a v5 token works, what creators can do after launch, and where you can deploy one.
+Clanker v5 is the current version of Clanker. Every v5 token launches with a buy and sell tax that pays the creator, and you can deploy one from clanker.world, through the API or with a cast.
 
 ## How a v5 token works
 
@@ -19,7 +19,7 @@ By default, the creator share goes to the creator's reward recipients. The creat
 
 * **Holder dividends**: paid to every holder above a minimum balance that the creator sets (at least 10,000 tokens). See [Holder Dividends](holder-dividends.md).
 * **Burn**: taken in the launched token and burned. See [Token Burns](token-burns.md).
-* **Integrator**: a share for an integrator address, set through the [API](token-deployments/v5-deployments.md).
+* **Integrator**: a share for an integrator address, set through the API. See [API Deployments](token-deployments/v5-deployments.md).
 
 See [Creator Rewards & Fees](creator-rewards-and-fees.md) for how the tax is split and claimed.
 
@@ -29,15 +29,15 @@ The creator manages a v5 token from its Admin page on clanker.world: claim rewar
 
 ## Ways to deploy
 
-* [clanker.world](token-deployments/clanker.world-deployments.md): fill in the deploy form on clanker.world.
-* [API](token-deployments/v5-deployments.md): deploy a v5 token with the partner deploy API.
-* [Farcaster Bot](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast. A cast launches a v4 token; to launch a v5 token from a cast, use a preclank.
-* [Preclanks](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
-* [Other Interfaces](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
+* [clanker.world Deployments](token-deployments/clanker.world-deployments.md): fill in the deploy form on clanker.world.
+* [API Deployments](token-deployments/v5-deployments.md): deploy a v5 token with a partner API key.
+* [Farcaster Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast. A cast launches a v4 token; to launch a v5 token from a cast, use a preclank.
+* [Preclank Deployments](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
+* [Alternative Interface Deployments](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
 
 ## Earlier versions
 
 Tokens launched on earlier versions keep working on their own contracts.
 
-* [v4](token-deployments/v4-deployments.md): an LP fee instead of a tax, with extensions and MEV protection at launch.
-* [v3](token-deployments/legacy-deployments.md): v3.1 and v3.0 tokens.
+* [v4 Deployments](token-deployments/v4-deployments.md): an LP fee instead of a tax, with extensions and MEV protection at launch.
+* [v3 Deployments](token-deployments/legacy-deployments.md): v3.1 and v3.0 tokens.

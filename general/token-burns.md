@@ -37,5 +37,5 @@ The token fee history (`GET /api/tokens/{address}/fees`) gives the burn share of
 
 ## Related
 
-* [Clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md) to set a burn share on a new token.
-* [v5 contracts](../references/core-contracts/v5.md) for contract details.
+* [clanker.world Deployments](token-deployments/clanker.world-deployments.md) or [API Deployments](token-deployments/v5-deployments.md) to set a burn share on a new token.
+* [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.
