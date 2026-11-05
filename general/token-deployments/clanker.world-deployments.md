@@ -6,7 +6,7 @@ You can create a token on the clanker.world [deploy page](https://www.clanker.wo
 
 1. Open the [deploy page](https://www.clanker.world/deploy) and connect a wallet.
 2. Fill in the token info: network, name, symbol, image and optional metadata.
-3. On Base, choose the **Token type** under **Token Settings**: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. The form shows the settings for that type.
+3. Choose the **Token type** under **Token Settings**: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. The form shows the settings for that type. X Layer, Arc and Elysium offer only V5.
 4. Set the options you want, then deploy and confirm the transaction in your wallet.
 
 For how each version works, see [Token Deployments](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
