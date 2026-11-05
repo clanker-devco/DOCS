@@ -1,6 +1,6 @@
-# Clanker.world Warning Tags
+# clanker.world Warning Tags
 
-clanker.world adds warning tags to tokens whose launch looks unusual. This page explains what each tag means and what to check when you see one.
+clanker.world adds warning tags to tokens whose launch looks unusual. Each tag below says what it means and what to check when you see it.
 
 ## How warning tags work
 
@@ -37,13 +37,18 @@ The token is paired with a token that isn't on the list of [Supported Quote Toke
 
 clanker.world couldn't load the token's pool configuration.
 
-**What to do**: this tag is common on legacy tokens (v3.1.0 and earlier). On a v4 or v5 token, the starting market cap and liquidity setup may be unknown, so take extra care.
+**What to do**: this tag is common on tokens on Clanker v3.1 and earlier. On a v4 or v5 token, the starting market cap and liquidity setup may be unknown, so take extra care.
 
 ## `UNUSUAL_POSITIONS`
 
 The token's pool setup doesn't match a standard configuration.
 
 * **v5**: the pool doesn't use the v5 hook.
-* **v4 and earlier**: the liquidity positions don't match a preset setup, such as `Standard` or `Project`.
+* **v4 and earlier**: the liquidity positions don't match a preset setup, such as **Standard** or **Project**.
 
 **What to do**: this isn't necessarily dangerous, but the liquidity ranges may be experimental or less straightforward. You can check the token creation transaction's event logs to see where the initial liquidity was placed.
+
+## Related
+
+* [Verifying Social Context](verifying-the-social-context-of-token-deploys.md) to check who deployed a token.
+* [Supported Quote Tokens](../references/supported-quote-tokens.md) for the pair tokens a standard launch uses.

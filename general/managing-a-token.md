@@ -12,19 +12,20 @@ Anyone can open it. To make changes, connect the wallet that holds the right rol
 
 On a v5 token, admin power belongs to the **current creator**. Each reward recipient also has a **reward admin**, who manages that recipient slot.
 
-| Card                        | Who can use it                                                   |
-| --------------------------- | ---------------------------------------------------------------- |
-| **Claim Rewards**           | The reward recipient                                             |
-| **Update reward recipient** | The slot's reward admin, or the current creator for its own slot |
-| **Update reward admin**     | The slot's reward admin                                          |
-| **Creator rights**          | The current creator, then the new creator to accept              |
-| Image and metadata cards    | The current creator                                              |
-| **Verify Token**            | The current creator                                              |
-| **Post Announcement**       | The current creator                                              |
+| Card                                                          | Who can use it                                                   |
+| ------------------------------------------------------------- | ---------------------------------------------------------------- |
+| **Claim Rewards**                                             | The reward recipient                                             |
+| **Update reward recipient**                                   | The slot's reward admin, or the current creator for its own slot |
+| **Update reward admin**                                       | The slot's reward admin                                          |
+| **Creator rights**                                            | The current creator, then the new creator to accept              |
+| **Update Token Image**, **Update Metadata**, **Rename Token** | The current creator                                              |
+| **Verify Token**                                              | The current creator                                              |
+| **Post Announcement**                                         | The current creator                                              |
+| **Bulk Distribute**                                           | Any wallet that holds the token                                  |
 
 ### Claim rewards
 
-The **Claim Rewards** card claims the selected recipient's FeeEscrow balance. Connect the reward recipient's wallet. The balance includes the rewards of all v5 tokens that pay that wallet, and a claim pays all of it in the pair token (ETH or USDC). **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](creator-rewards-and-fees.md).
+The **Claim Rewards** card claims the selected recipient's whole FeeEscrow balance, across all v5 tokens that pay that wallet, in the pair token (see [Unclaimed Rewards Balance](unclaimed-rewards-balance.md)). Connect the reward recipient's wallet to claim. **Current Rewards Info** shows each recipient, its admin and its share. See [Creator Rewards & Fees](creator-rewards-and-fees.md).
 
 ### Change reward recipients and admins
 
@@ -68,11 +69,6 @@ The **Post Announcement** card posts a short update, with an optional link, to t
 
 `GET /api/tokens/{address}/announcements` returns a token's announcements (see [Tokens](../api-reference/public/tokens.md)), and `GET /api/creator-earnings/{tokenAddress}` returns its recipients' unclaimed rewards (see [Creators](../api-reference/public/creators.md)).
 
-### Related
-
-* [Unclaimed Rewards Balance](unclaimed-rewards-balance.md) to check a balance.
-* [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.
-
 ## Clanker v4 and earlier
 
 The same Admin page manages older tokens. Depending on the version, it lets you:
@@ -85,3 +81,8 @@ The same Admin page manages older tokens. Depending on the version, it lets you:
 * claim airdrops and bulk distribute.
 
 See the [FAQ](faq.md) for claiming rewards on older tokens.
+
+## Related
+
+* [Unclaimed Rewards Balance](unclaimed-rewards-balance.md) to check a balance.
+* [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.

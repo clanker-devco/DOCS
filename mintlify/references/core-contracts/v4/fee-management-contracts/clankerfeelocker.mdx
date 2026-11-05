@@ -6,9 +6,9 @@ title: "ClankerFeeLocker"
 
 ## How it works
 
-Anyone can call the `claim()` function to transfer fees from the fee locker to the fee owner's address. We made this choice because many users point their fees to multisigs or other contracts that can't call `claim()` themselves.
+Anyone can call the `claim()` function to transfer fees from the fee locker to the fee owner's address. This is because many users point their fees to multisigs or other contracts that can't call `claim()` themselves.
 
-Fees from paired tokens are grouped together for a single fee recipient. So if you create more than one token paired with WETH, the WETH fees for all of those tokens are claimable with a single call. There's no on-chain way to see the WETH breakdown per token. For that, we recommend inspecting the [`IClankerLpLocker.ClaimedRewards`](https://github.com/clanker-devco/v4-contracts/blob/530851868af87cbda2d4163745fb7154168b1225/src/interfaces/IClankerLPLocker.sol#L32) event on Dune. This event is emitted each time rewards are claimed from a token's LP positions and moved into the fee locker. Its reward arrays contain the breakdown of token rewards per reward recipient.
+Fees from paired tokens are grouped together for a single fee recipient. So if you create more than one token paired with WETH, the WETH fees for all of those tokens are claimable with a single call. There's no on-chain way to see the WETH breakdown per token. For that, inspect the [`IClankerLpLocker.ClaimedRewards`](https://github.com/clanker-devco/v4-contracts/blob/530851868af87cbda2d4163745fb7154168b1225/src/interfaces/IClankerLPLocker.sol#L32) event on Dune. This event is emitted each time rewards are claimed from a token's LP positions and moved into the fee locker. Its reward arrays contain the breakdown of token rewards per reward recipient.
 
 ## User-facing functions
 

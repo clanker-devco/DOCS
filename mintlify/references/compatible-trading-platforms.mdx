@@ -2,11 +2,13 @@
 title: "Compatible Trading Platforms"
 ---
 
-This page lists the trading platforms known to support Clanker pools, starting with Clanker v5. If you run a trading platform or venue and want to integrate with Clanker's pools, [contact us](/references/contact).
+Trading platforms, aggregators and wallets known to support Clanker pools are listed below for each version, starting with Clanker v5. If you run a trading platform or venue and want to integrate with Clanker's pools, reach out through [Contact](/references/contact).
 
 ## Clanker v5
 
 Clanker v5 tokens trade in Uniswap v4 pools on Base that use the Clanker v5 hook. Every trade pays the token's buy or sell tax.
+
+Known compatible trading platforms as of November 2026:
 
 ### Trading platforms and frontends
 
@@ -48,6 +50,6 @@ Known compatible trading platforms as of July 8, 2025:
 
 Clanker v3.1 and earlier versions deploy tokens into Uniswap v3 pools, which almost all trading venues support.
 
-You may run into issues trading a Clanker token paired with a token other than $WETH if the paired token has no liquid `$pairedToken / $WETH` pool. In that case, hold the paired token directly, so the trade doesn't try to hop pools ($ETH to $pairedToken to $clankerToken).
+You may run into issues trading a Clanker token paired with a token other than WETH if the paired token has no liquid paired token / WETH pool. In that case, hold the paired token directly, so the trade doesn't try to hop pools (ETH to the paired token to the Clanker token).
 
 ![compatible trading platforms](/assets/compatible-trading-platforms.png)

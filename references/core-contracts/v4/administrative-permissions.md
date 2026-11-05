@@ -1,8 +1,8 @@
 # Administrative Permissions
 
-This page lists the admin roles on the Clanker v4 contracts and what each role can do.
+Each admin role on the Clanker v4 contracts is listed below with what it can do.
 
-Clanker aims to be permissionless where possible and is committed to decentralization. All of our contracts either have no owner or are owned by Clanker's team multisig. Any "admin" role can be assumed to be controlled by Clanker multisigs or EOAs. None of the contracts are upgradeable.
+Clanker aims to be permissionless where possible and is committed to decentralization. All Clanker v4 contracts either have no owner or are owned by Clanker's team multisig. Any "admin" role can be assumed to be controlled by Clanker multisigs or EOAs. None of the contracts are upgradeable.
 
 ## Clanker.sol
 
@@ -22,7 +22,7 @@ Clanker aims to be permissionless where possible and is committed to decentraliz
 * Enable or disable MEV modules via `setMevModule()`.
 * Enable or disable lockers via `setLocker()`.
 
-## ClankerLpLockerMultiple.sol, ClankerLpLockerFeeConversion.sol
+## ClankerLpLockerMultiple.sol and ClankerLpLockerFeeConversion.sol
 
 ### Owner
 
@@ -35,7 +35,7 @@ Clanker aims to be permissionless where possible and is committed to decentraliz
 
 * Add depositors via `addDepositor()`.
 
-## No Administrative Permissions
+## No administrative permissions
 
 Clanker has no administrative abilities on the following contracts:
 

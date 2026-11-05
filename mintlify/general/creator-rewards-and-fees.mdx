@@ -2,11 +2,11 @@
 title: "Creator Rewards & Fees"
 ---
 
-How a Clanker token's trading fees are split between the creator and Clanker, and how creators claim their rewards.
+Every trade of a Clanker token pays a fee that is split between the token's creator and Clanker. Creators claim their part as rewards on clanker.world or through the API.
 
 ## Clanker v5
 
-A Clanker v5 token has no LP fee. Every trade in its launch pool pays a buy tax or a sell tax, and that tax funds Clanker's fee, the creator's rewards, and any holder dividends, burn or integrator share the creator chose at launch.
+A Clanker v5 token has no LP fee. Every trade in its launch pool pays a buy tax or a sell tax, and that tax funds Clanker's fee, the creator's rewards and any holder dividends, burn or integrator share the creator chose at launch.
 
 ### How it works
 
@@ -25,7 +25,7 @@ Rewards and dividends are paid in the pair token: native ETH for an ETH pair, US
 
 ### Sniper fee
 
-If the creator turns on the sniper fee at launch, trades in the first 20 seconds after launch pay a higher total fee. It starts at 99% and falls to the normal tax by the end of the 20 seconds. All of the sniper fee goes to Clanker. The creator's own launch buy does not pay it.
+If the creator turns on the sniper fee at launch (the form's **Sniper tax** toggle, on by default), trades in the first 20 seconds after launch pay a higher total fee. It starts at 99% and falls to the normal tax by the end of the 20 seconds. All of the sniper fee goes to Clanker. The creator's own launch buy does not pay it.
 
 ### Examples
 
@@ -63,22 +63,15 @@ A past recipient, or an integrator, claims its balance from the **Tax Fees** car
 
 `GET /api/creator-earnings/{tokenAddress}` returns the unclaimed FeeEscrow balances of the token's current reward recipients. See [Creators](/api-reference/public/creators), and [Fees](/api-reference/public/fees) for a token's fee history.
 
-### Related
-
-* [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance) to check a balance.
-* [Managing a Token](/general/managing-a-token) for the other Admin page tools.
-* [v5 contracts](/references/core-contracts/v5) and [Deployed Contracts](/references/deployed-contracts) for contract details and addresses.
-* [Token Deployments](/general/token-deployments) to deploy a v5 token.
-
 ## Clanker v4 and earlier
 
-### Creator rewards
+### How it works
 
-Creators of older tokens earn rewards from trading volume. When a standard Clanker token is deployed, its full supply goes into a single-sided Uniswap LP position (the "initial LP"). Each swap in that pool pays an LP fee to the initial LP. Creators earn nothing from LP positions or pools that other holders add later.
+Creators of older tokens earn rewards from trading volume. When a standard Clanker token is deployed, the supply not used by extensions goes into single-sided Uniswap LP positions (the initial LP). Each swap in that pool pays an LP fee to the initial LP. Creators earn nothing from LP positions or pools that other holders add later.
 
 Claim creator rewards on the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. Anyone can start the claim, and the rewards always go to the reward recipient. See the [FAQ](/general/faq) for more on finding your tokens and claiming.
 
-### Clanker fees
+### Clanker fee
 
 On v4 tokens, Clanker's fee is 20% of the creator's LP fee, charged on top of it:
 
@@ -89,3 +82,12 @@ Total swap fee = creator LP fee + (creator LP fee × 0.2)
 | 1%             | 0.2%        | 1.2%           |
 | 2%             | 0.4%        | 2.4%           |
 | 3%             | 0.6%        | 3.6%           |
+
+On v3.1, Clanker takes 20% of the LP fee, and the creator and interface share the other 80% (see [LpLockerv2](/references/core-contracts/v3.1/lplockerv2)).
+
+## Related
+
+* [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance) to check a balance.
+* [Managing a Token](/general/managing-a-token) for the other Admin page tools.
+* [v5 contracts](/references/core-contracts/v5) and [Deployed Contracts](/references/deployed-contracts) for contract details and addresses.
+* [Token Deployments](/general/token-deployments) to deploy a v5 token.

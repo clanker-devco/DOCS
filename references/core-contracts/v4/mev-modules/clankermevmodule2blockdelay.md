@@ -6,4 +6,4 @@
 
 Clanker uses this module (**ClankerMevModuleDelay**) on chains where no other MEV module is suitable. The delay stops Clanker deployments from causing gas spikes.
 
-For example, when Clanker was on v3, searchers spiked the network's gas price by trying to search for deployments in the same block ([documented on X](https://x.com/0xdoug/status/1861662510023123030)). The fix was to add a delay between when a pool is deployed and when it becomes swappable. **ClankerMevModuleDelay** was our first MEV module and adds that delay.
+For example, when Clanker was on v3, searchers spiked the network's gas price by trying to search for deployments in the same block ([documented on X](https://x.com/0xdoug/status/1861662510023123030)). The fix was to add a delay between when a pool is deployed and when it becomes swappable. **ClankerMevModuleDelay** was Clanker's first MEV module and adds that delay.

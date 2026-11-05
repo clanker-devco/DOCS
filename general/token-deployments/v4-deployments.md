@@ -1,12 +1,12 @@
 # v4 Deployments
 
-Clanker v4 tokens charge an LP fee on trades, support optional extensions and use an MEV module to protect the launch. For Clanker v5, see the [Token Deployments overview](../token-deployments.md).
+Clanker v4 tokens charge an LP fee on trades, support optional extensions and use an MEV module to protect the launch. For Clanker v5, see [Token Deployments](../token-deployments.md).
 
 ## How a v4 token works
 
 <figure><img src="../../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>
 
-The details below describe Clanker v4.0.0.
+The details below describe Clanker v4.0. Tokens deployed today from the clanker.world form use v4.1, which replaces the sniper auction with a sniper tax (see [Sniper auction](#sniper-auction)).
 
 ### Supply
 
@@ -28,14 +28,20 @@ The remaining tokens (up to 100% of the supply if no extensions are used) are sp
 
 ### Sniper auction
 
-A v4.0.0 token opens with a short auction before normal trading starts. The auction captures value from MEV bots (trading bots that try to profit from new launches) and sends part of it back to the token's creator.
+A v4.0 token opens with a short auction before normal trading starts. The auction captures value from MEV bots (trading bots that try to profit from new launches) and sends part of it back to the token's creator.
 
 * Normal trading starts after 5 auction rounds (about 22 seconds after deployment), or right after a round with no bidders.
 * Normal trading starts by block *n+11* at the latest.
 * For details, see [ClankerSniperAuctionV0](../../references/core-contracts/v4/mev-modules/clankersniperauctionv0.md).
 
-v4 tokens deployed from the clanker.world form use a sniper tax instead, which falls over the first seconds of trading. See [ClankerMevDescendingFees](../../references/core-contracts/v4/mev-modules/clankermevdescendingfees.md) and [Clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters).
+v4 tokens deployed from the clanker.world form use a sniper tax instead, which falls over the first seconds of trading. See [ClankerMevDescendingFees](../../references/core-contracts/v4/mev-modules/clankermevdescendingfees.md) and [clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters).
 
-## Deploying a v4 token
+## Deploy a v4 token
 
-See [Clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters) for the v4 fields on the deploy form. The [Farcaster bot](farcaster-bot-deployments.md) also deploys v4 tokens.
+See [clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters) for the v4 fields on the deploy form. The Farcaster bot also deploys v4 tokens. See [Farcaster Bot Deployments](farcaster-bot-deployments.md).
+
+## Related
+
+* [Creator Rewards & Fees](../creator-rewards-and-fees.md)
+* [Managing a Token](../managing-a-token.md)
+* [Deployed Contracts](../../references/deployed-contracts.md)
