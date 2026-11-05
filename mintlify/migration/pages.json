@@ -5,7 +5,7 @@
     "source": "README.md",
     "route": "index",
     "oldPath": "readme",
-    "sourceSha256": "d6b8501c72897e3ed0e6e7d1c34a3a52851fb03fae3f78c2135c15558d937f45"
+    "sourceSha256": "094d2244a5a5ea5bcd4ee3c41df635bd259b79d0d556962bd2de5005b7989ffa"
   },
   {
     "indent": 1,
@@ -21,7 +21,7 @@
     "source": "general/faq.md",
     "route": "general/faq",
     "oldPath": "general/faq",
-    "sourceSha256": "2d80b40e5c1532c9a4286cabae78644b09c01ae5549452111f114e99a004cb14"
+    "sourceSha256": "1baa37c827ec213e8c8a166f81a20dd94fd0d2c891549db270fa87a4962ff3df"
   },
   {
     "indent": 0,
@@ -37,7 +37,7 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "7b5ef60659ac09dda6247e03cbc5ccd0c922b1dba9c5b2a65904132d3042f398",
+    "sourceSha256": "8f10251f81eb2592c177a4fe37aacf28220c282761e6c7dc86cde8cd02dc5441",
     "sidebarTitle": "clanker.world"
   },
   {
@@ -55,7 +55,7 @@
     "source": "general/token-deployments/farcaster-bot-deployments.md",
     "route": "general/token-deployments/farcaster-bot-deployments",
     "oldPath": "general/token-deployments/farcaster-bot-deployments",
-    "sourceSha256": "2ca99ef07948efd6f715c61a35e95a3e484fc0175b76592461fbcc0eb374f61a",
+    "sourceSha256": "65dd084dc29804d8a8cbbdbd6c11892204dc85309c693083c0d504247134b5f0",
     "sidebarTitle": "Farcaster Bot"
   },
   {
@@ -140,7 +140,7 @@
     "source": "general/clanker.world-warning-tags.md",
     "route": "general/clanker.world-warning-tags",
     "oldPath": "general/clanker.world-warning-tags",
-    "sourceSha256": "7e2a6dacc26a8dadc8e847159899370735c29b644bae9e88d677148efe1d939c",
+    "sourceSha256": "6b23d7282656ba46a54efde3441543bc9725883919963aedbebe23cade7d62a5",
     "sidebarTitle": "Warning Tags"
   },
   {
@@ -361,7 +361,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "39cbd25342622f20f6255d9f1dd6ddb19e21d4a8e52814e90c71d0123259702a",
+    "sourceSha256": "5824fd52b1a17617b8202e3515a7d60eed8c599fba9235bb94fbcf817d4525ed",
     "sidebarTitle": "v5"
   },
   {
@@ -644,7 +644,7 @@
     "source": "references/deployed-contracts.md",
     "route": "references/deployed-contracts",
     "oldPath": "references/deployed-contracts",
-    "sourceSha256": "85b006ce74aeb110508afe59516c127c3409a5803d8a6ee220d8b3c33c4c2935"
+    "sourceSha256": "d3b41fb492e6330e5e6cbce2af692f4d8d65f7f7706394b540f61386408a6a49"
   },
   {
     "indent": 0,

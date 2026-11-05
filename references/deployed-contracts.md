@@ -4,9 +4,11 @@ The Clanker contract addresses appear below, grouped by chain and version. See [
 
 Clanker v5 launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium.
 
+Chains with Clanker v5 come first, in the order Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Chains with only older versions follow, then testnets.
+
 Some v5 contracts use the same address on different chains. Identify each deployment by its chain ID and address.
 
-## Mainnets
+## Clanker v5 chains
 
 ### Base: 8453
 
@@ -41,7 +43,7 @@ Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deploy
 | Contract         | Address                                    |
 | ---------------- | ------------------------------------------ |
 | PoolManager      | 0x498581fF718922c3f8e6A244956aF099B2652b2b |
-| Quoter           | 0xE1A6C5803e3c44368b171BD680c7D32dfc92CA47 |
+| Quoter           | 0x0d5e0F971ED27FBfF6c2837bf31316121532048D |
 | StateView        | 0xA3c0c9b65baD0b08107Aa264b0f3dB444b867A71 |
 | Universal Router | 0x6fF5693b99212Da76ad316178A184AB56D299b43 |
 | Permit2          | 0x000000000022D473030F116dDEE9F6B43aC78BA3 |
@@ -139,98 +141,6 @@ Shared Uniswap v4 contracts and pair tokens on Base, from the [Uniswap v4 deploy
 | ----------------- | ------------------------------------------ |
 | SocialDexDeployer | 0x250c9FB2b411B48273f69879007803790A6AeA47 |
 | LockerFactory     | 0x515d45F06EdD179565aa2796388417ED65E88939 |
-
-</details>
-
-### Arbitrum One: 42161
-
-<details>
-
-<summary>v4.1.0</summary>
-
-| Contract         | Address                                    |
-| ---------------- | ------------------------------------------ |
-| ClankerAirdropV2 | 0x8Cb6e0216e98A7ACF622DC2dD6a39F1b4FF37014 |
-
-</details>
-
-<details>
-
-<summary>v4.0.0</summary>
-
-| Contract                     | Address                                    |
-| ---------------------------- | ------------------------------------------ |
-| Clanker                      | 0xEb9D2A726Edffc887a574dC7f46b3a3638E8E44f |
-| ClankerFeeLocker             | 0x92C0DCbAba17b0F5f3a7537dA82c0F80520e4dF6 |
-| ClankerLpLockerFeeConversion | 0xF3622742b1E446D92e45E22923Ef11C2fcD55D68 |
-| ClankerVault                 | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
-| ClankerAirdrop               | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
-| ClankerUniv4EthDevBuy        | 0x70aDdc06fE89a5cF9E533aea8D025dB06795e492 |
-| ClankerMevBlockDelay         | 0x4E35277306a83D00E13e8C8A4307C672FA31FC99 |
-| ClankerHookDynamicFee        | 0xFd213BE7883db36e1049dC42f5BD6A0ec66B68cC |
-| ClankerHookStaticFee         | 0xf7aC669593d2D9D01026Fa5B756DD5B4f7aAa8Cc |
-
-</details>
-
-### Unichain: 130
-
-<details>
-
-<summary>v4.1.0</summary>
-
-| Contract         | Address                                    |
-| ---------------- | ------------------------------------------ |
-| ClankerAirdropV2 | 0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2 |
-
-</details>
-
-<details>
-
-<summary>v4.0.0</summary>
-
-| Contract                     | Address                                    |
-| ---------------------------- | ------------------------------------------ |
-| Clanker                      | 0xE85A59c628F7d27878ACeB4bf3b35733630083a9 |
-| ClankerFeeLocker             | 0x1d5A0F0BD3eA07F78FC14577f053de7A3FEc35B2 |
-| ClankerLpLockerFeeConversion | 0x691f97752E91feAcD7933F32a1FEdCeDae7bB59c |
-| ClankerVault                 | 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441 |
-| ClankerAirdrop               | 0x35bfE89d95F26674bF06bB8bFE55f8D73E9280D2 |
-| ClankerUniv4EthDevBuy        | 0x267259e36914839Eb584e962558563760AE28862 |
-| ClankerMevBlockDelay         | 0x42A95190B4088C88Dd904d930c79deC1158bF09D |
-| ClankerHookDynamicFee        | 0x9b37A43422D7bBD4C8B231be11E50AD1acE828CC |
-| ClankerHookStaticFee         | 0xBc6e5aBDa425309c2534Bc2bC92562F5419ce8Cc |
-| ClankerSniperAuctionV0       | 0x78B512C5074a1084bf3b8e6cbA8a1710d2a8d0A2 |
-| ClankerSniperUtilV0          | 0xA25e594869ddb46c33233A793E3c8b207CC719a2 |
-
-</details>
-
-### Ethereum: 1
-
-<details>
-
-<summary>v4.1.0</summary>
-
-| Contract         | Address                                    |
-| ---------------- | ------------------------------------------ |
-| ClankerAirdropV2 | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
-
-</details>
-
-<details>
-
-<summary>v4.0.0</summary>
-
-| Contract                     | Address                                    |
-| ---------------------------- | ------------------------------------------ |
-| Clanker                      | 0x6C8599779B03B00AAaE63C6378830919Abb75473 |
-| ClankerFeeLocker             | 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441 |
-| ClankerLpLockerFeeConversion | 0x00C4b21889145CF0D99f2e05919103e0c3991974 |
-| ClankerVault                 | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
-| ClankerAirdrop               | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
-| ClankerUniv4EthDevBuy        | 0x70aDdc06fE89a5cF9E533aea8D025dB06795e492 |
-| ClankerMevDescendingFees     | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
-| ClankerHookDynamicFee        | Not supported                              |
-| ClankerHookStaticFee         | 0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc |
 
 </details>
 
@@ -355,6 +265,24 @@ Deployed on November 5, 2026. First block: 106,650,212.
 
 </details>
 
+<details>
+
+<summary>v4.1.0</summary>
+
+| Contract                     | Address                                    |
+| ---------------------------- | ------------------------------------------ |
+| Clanker                      | 0xD3f2cC1731b7Fd17f28798835C2E02f0a1839A94 |
+| ClankerLpLockerFeeConversion | 0xE4910b09709423aFafD995dD76D8A81CF9134A09 |
+| ClankerFeeLocker             | 0x88db2340bE5991B2b5Fca2Baee39B5CE048Cd70c |
+| ClankerVault                 | 0x99B2a80ed21c7af1F5cc1A97383DADeEC7DD1427 |
+| ClankerAirdrop               | 0x6f27372FF493A3855E6746b9a4fe6Ed2Cc3034B5 |
+| ClankerUniv4EthDevBuy        | 0xa27b1986e5c7e5371Cb6507f87918fBD0302fF5a |
+| ClankerMevDescendingFees     | 0xEA1Fe197dF140e5d88fC6B49f2d21Ea05092299e |
+| ClankerHookDynamicFee        | 0x65efDF8Cce99b53C925DF878Df275Df21cB6E8Cc |
+| ClankerHookStaticFee         | 0x48B8F6AD3A1b4aA477314c9a23035b8F84dDe8cc |
+
+</details>
+
 ### X Layer: 196
 
 <details>
@@ -424,6 +352,100 @@ Deployed on November 4, 2026. First block: 419,724.
 | Launch Buy Adapter      | 0x41345A5f3fe6a6be3e595b409Dbe10499B282569 |
 | Token Deployer          | 0xE76c413b26c7006CF3ac747b46A8F05E0Ccf3287 |
 | Dividend Implementation | 0x4305A1858E9E532349661a89f462d1248045Ed95 |
+
+</details>
+
+## Other mainnets
+
+### Ethereum: 1
+
+<details>
+
+<summary>v4.1.0</summary>
+
+| Contract         | Address                                    |
+| ---------------- | ------------------------------------------ |
+| ClankerAirdropV2 | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
+
+</details>
+
+<details>
+
+<summary>v4.0.0</summary>
+
+| Contract                     | Address                                    |
+| ---------------------------- | ------------------------------------------ |
+| Clanker                      | 0x6C8599779B03B00AAaE63C6378830919Abb75473 |
+| ClankerFeeLocker             | 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441 |
+| ClankerLpLockerFeeConversion | 0x00C4b21889145CF0D99f2e05919103e0c3991974 |
+| ClankerVault                 | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
+| ClankerAirdrop               | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
+| ClankerUniv4EthDevBuy        | 0x70aDdc06fE89a5cF9E533aea8D025dB06795e492 |
+| ClankerMevDescendingFees     | 0x33e2Eda238edcF470309b8c6D228986A1204c8f9 |
+| ClankerHookDynamicFee        | Not supported                              |
+| ClankerHookStaticFee         | 0x6C24D0bCC264EF6A740754A11cA579b9d225e8Cc |
+
+</details>
+
+### Arbitrum One: 42161
+
+<details>
+
+<summary>v4.1.0</summary>
+
+| Contract         | Address                                    |
+| ---------------- | ------------------------------------------ |
+| ClankerAirdropV2 | 0x8Cb6e0216e98A7ACF622DC2dD6a39F1b4FF37014 |
+
+</details>
+
+<details>
+
+<summary>v4.0.0</summary>
+
+| Contract                     | Address                                    |
+| ---------------------------- | ------------------------------------------ |
+| Clanker                      | 0xEb9D2A726Edffc887a574dC7f46b3a3638E8E44f |
+| ClankerFeeLocker             | 0x92C0DCbAba17b0F5f3a7537dA82c0F80520e4dF6 |
+| ClankerLpLockerFeeConversion | 0xF3622742b1E446D92e45E22923Ef11C2fcD55D68 |
+| ClankerVault                 | 0xa1da0600Eb4A9F3D4a892feAa2c2caf80A4A2f14 |
+| ClankerAirdrop               | 0x303470b6b6a35B06A5A05763A7caD776fbf27B71 |
+| ClankerUniv4EthDevBuy        | 0x70aDdc06fE89a5cF9E533aea8D025dB06795e492 |
+| ClankerMevBlockDelay         | 0x4E35277306a83D00E13e8C8A4307C672FA31FC99 |
+| ClankerHookDynamicFee        | 0xFd213BE7883db36e1049dC42f5BD6A0ec66B68cC |
+| ClankerHookStaticFee         | 0xf7aC669593d2D9D01026Fa5B756DD5B4f7aAa8Cc |
+
+</details>
+
+### Unichain: 130
+
+<details>
+
+<summary>v4.1.0</summary>
+
+| Contract         | Address                                    |
+| ---------------- | ------------------------------------------ |
+| ClankerAirdropV2 | 0xE143f9872A33c955F23cF442BB4B1EFB3A7402A2 |
+
+</details>
+
+<details>
+
+<summary>v4.0.0</summary>
+
+| Contract                     | Address                                    |
+| ---------------------------- | ------------------------------------------ |
+| Clanker                      | 0xE85A59c628F7d27878ACeB4bf3b35733630083a9 |
+| ClankerFeeLocker             | 0x1d5A0F0BD3eA07F78FC14577f053de7A3FEc35B2 |
+| ClankerLpLockerFeeConversion | 0x691f97752E91feAcD7933F32a1FEdCeDae7bB59c |
+| ClankerVault                 | 0xA9C0a423f0092176fC48d7B50a1fCae8cf5BB441 |
+| ClankerAirdrop               | 0x35bfE89d95F26674bF06bB8bFE55f8D73E9280D2 |
+| ClankerUniv4EthDevBuy        | 0x267259e36914839Eb584e962558563760AE28862 |
+| ClankerMevBlockDelay         | 0x42A95190B4088C88Dd904d930c79deC1158bF09D |
+| ClankerHookDynamicFee        | 0x9b37A43422D7bBD4C8B231be11E50AD1acE828CC |
+| ClankerHookStaticFee         | 0xBc6e5aBDa425309c2534Bc2bC92562F5419ce8Cc |
+| ClankerSniperAuctionV0       | 0x78B512C5074a1084bf3b8e6cbA8a1710d2a8d0A2 |
+| ClankerSniperUtilV0          | 0xA25e594869ddb46c33233A793E3c8b207CC719a2 |
 
 </details>
 
