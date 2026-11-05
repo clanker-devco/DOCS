@@ -361,7 +361,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "0b51ee181ab32f877b9b32b203a8aabf7860544eb268d77b039078cf6399c4c5",
+    "sourceSha256": "688a5dba340780a9b8cd5c8127c18d1d1b4b9a9ddadf60a5bd3ad7bc6bebebd3",
     "sidebarTitle": "v5"
   },
   {
@@ -636,7 +636,7 @@
     "source": "references/compatible-trading-platforms.md",
     "route": "references/compatible-trading-platforms",
     "oldPath": "references/compatible-trading-platforms",
-    "sourceSha256": "beb91718031ae8454f3802ca9d8456db5c54c9c173bd73bcc0c0b785a7d0f04d"
+    "sourceSha256": "8ea964c92155955f3469b9ce33d19e26ef31d73f8b22bb6bdc2f11a338bfee83"
   },
   {
     "indent": 0,
@@ -644,7 +644,7 @@
     "source": "references/deployed-contracts.md",
     "route": "references/deployed-contracts",
     "oldPath": "references/deployed-contracts",
-    "sourceSha256": "4ee6afb15db56a9c0a14269c10bf1dfbfe8c6690f8565a3e476743c3a542f23e"
+    "sourceSha256": "85b006ce74aeb110508afe59516c127c3409a5803d8a6ee220d8b3c33c4c2935"
   },
   {
     "indent": 0,
