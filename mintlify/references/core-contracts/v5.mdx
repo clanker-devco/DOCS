@@ -157,7 +157,7 @@ Only the hook can credit balances. Events: `Credited(recipient, currency, amount
 
 The Dividend Deployer creates the dividend contract of a token that pays holder dividends, in the token's launch transaction. Only the factory can call it.
 
-Each dividend contract tracks the balances of eligible holders and pays their dividends in the pair token. For an ETH pair, dividends are held as WETH and can be paid as native ETH. The factory owns every dividend contract.
+Each dividend contract tracks the balances of eligible holders and pays their dividends in the pair token. For a native pair, dividends are held in the wrapped native token and can be paid in the native coin. The factory owns every dividend contract.
 
 | Function on a dividend contract                     | Description                                                                        |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ The Dividend Claim Helper claims the caller's dividends from several v5 tokens i
 ```solidity
 struct Claim {
     address token;
-    bool unwrapWrappedNative; // pay native ETH instead of WETH for an ETH pair
+    bool unwrapWrappedNative; // pay the native coin instead of its wrapped token for a native pair
 }
 
 // Up to 64 tokens per call. Each token appears once.
@@ -253,7 +253,7 @@ Other factory settings for new launches:
 | `nativeLaunchFee()` | 0                                                                               |
 | `tickSpacing()`     | 200                                                                             |
 | `bandTemplate()`    | One band holding the whole supply, from the starting price up                   |
-| Quote tokens        | Native ETH and USDC. See [Supported Quote Tokens](/references/supported-quote-tokens) |
+| Quote tokens        | Registered per chain. See [Supported Quote Tokens](/references/supported-quote-tokens) |
 
 ## Administrative permissions
 
