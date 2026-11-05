@@ -1,0 +1,15 @@
+/* Brand Assets color swatches: show inline next to their hex code. */
+img[src*='/assets/clanker-color-'] {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  margin: 0 0.4em 0 0;
+  vertical-align: -0.15em;
+  border-radius: 0.2em;
+  pointer-events: none;
+}
+
+/* Clicking a swatch cell copies its hex code (see brand-kit.js). */
+td:has(img[src*='/assets/clanker-color-']) {
+  cursor: pointer;
+}
