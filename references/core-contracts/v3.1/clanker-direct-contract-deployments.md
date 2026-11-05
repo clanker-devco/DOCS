@@ -1,6 +1,6 @@
 # Clanker (Direct Contract Deployments)
 
-The v3.1 **Clanker** contract deploys a token, creates its Uniswap v3 pool, and places single-sided liquidity in one call to `deployToken()`.
+The v3.1 **Clanker** contract deploys a token, creates its Uniswap v3 pool and places single-sided liquidity in one call to `deployToken()`.
 
 ## Deploying a token
 
@@ -68,7 +68,7 @@ Four addresses must be specified for token deployment:
 
 | Parameter                  | Description                                                                                                                                                                           |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `creatorAdmin`             | Manages the creator's locked token supply, the creator's portion of the trading fee rewards, and the token's metadata. Also receives the initial supply purchase (the "creator buy"). |
+| `creatorAdmin`             | Manages the creator's locked token supply, the creator's portion of the trading fee rewards and the token's metadata. Also receives the initial supply purchase (the "creator buy"). |
 | `creatorRewardRecipient`   | Initially receives the creator's portion of the trading fee rewards.                                                                                                                  |
 | `interfaceAdmin`           | Manages the interface's trading fee rewards.                                                                                                                                          |
 | `interfaceRewardRecipient` | Initially receives the interface's portion of the trading fee rewards.                                                                                                                |

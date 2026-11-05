@@ -6,23 +6,23 @@ Pool Extensions are a **ClankerHookV2** feature that lets you run custom logic i
 
 ## How it works
 
-The custom logic must live in an external contract that implements the [`IClankerHookV2PoolExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2PoolExtension.sol) interface. The Clanker team must approve pool extensions before they can be used, so feel free to reach out during the design process and we'll give feedback. We expect most Pool Extensions to act on the pool's generated fees, but the logic is up to the token's deployer.
+The custom logic must live in an external contract that implements the [`IClankerHookV2PoolExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/interfaces/IClankerHookV2PoolExtension.sol) interface. The Clanker team must approve pool extensions before they can be used, so reach out to the Clanker team during the design process for feedback. Most Pool Extensions are expected to act on the pool's generated fees, but the logic is up to the token's deployer.
 
 ## Examples of Pool Extension capabilities
 
 Pool Extensions can perform various actions, including:
 
-* **Token swapping**: Use the fees generated for one of the token's reward recipients to buy a different token. See our [`UniV3SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV3SwapExtension.sol) or [`UniV4SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV4SwapExtension.sol) for examples that use generated WETH fees to swap for a different token.
+* **Token swapping**: Use the fees generated for one of the token's reward recipients to buy a different token. See the [`UniV3SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV3SwapExtension.sol) or [`UniV4SwapExtension`](https://github.com/clanker-devco/v4-contracts/blob/main/src/hooks/pool-extension-examples/UniV4SwapExtension.sol) for examples that use generated WETH fees to swap for a different token.
 * **Fee distribution**: Split the generated fees between people who stake a token on the extension contract, or between people who have swapped on the pool.
 * **Conditional fee unlocking**: Unlock the generated fees only if the pool reaches and sustains a certain market cap.
 
-These are just examples, and we'll update this list as people build interesting implementations.
+These are only examples.
 
 ## Security limitations
 
 For security reasons, Pool Extensions are limited in what they can do. Pool Extensions **cannot**:
 
-* **Stop a swap**: If the Pool Extension reverts, the swap still completes normally. We don't want a broken pool extension to stop users from exiting their positions.
+* **Stop a swap**: If the Pool Extension reverts, the swap still completes normally, so a broken pool extension can't stop users from exiting their positions.
 * **Modify a swap**: Pool Extensions can't change the swap's LP fee or balance deltas. They also run after a swap completes, so you can't use one to front-run swaps.
 
 ## Partial swap coverage
@@ -123,4 +123,4 @@ It's hard to determine who the swapper is. The `tx.origin` can be an account abs
 
 ## Legal disclaimer
 
-Please consult your lawyers before deployment. Clanker takes no responsibility for activity in Pool Extensions.
+Consult your lawyers before deployment. Clanker takes no responsibility for activity in Pool Extensions.

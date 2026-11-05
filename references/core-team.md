@@ -1,7 +1,3 @@
 # Core Team
 
-You can reach the Clanker team on Farcaster:
-
-* Veganbeef: [@veganbeef](https://farcaster.xyz/veganbeef)
-* Quazia: [@quazia](https://farcaster.xyz/quazia)
-* Clanker Support & Marketing: [@clanker](https://farcaster.xyz/clanker)
+* **CEO**: Toady Hawk. [@toady_hawk](https://x.com/toady_hawk) on X, [Toady@clanker.world](mailto:Toady@clanker.world)

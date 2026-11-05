@@ -6,7 +6,7 @@ title: "ClankerHookDynamicFee"
 
 ## How it works
 
-The dynamic fee charges higher fees when the pool is volatile. We measure volatility by simulating the price impact of a swap (the difference between the `beforeTick` and `afterTick`) and applying a fee based on its magnitude. The resulting fee combines the tick difference, recent swaps on the pool, and safeguards against bot manipulation. The math took inspiration from the [fee model](https://docs.meteora.ag/product-overview/meteora-liquidity-pools/dlmm-overview/dynamic-fees) of Meteora's Dynamic Liquidity Market Maker.
+The dynamic fee charges higher fees when the pool is volatile. Clanker measures volatility by simulating the price impact of a swap (the difference between the `beforeTick` and `afterTick`) and applying a fee based on its magnitude. The resulting fee combines the tick difference, recent swaps on the pool and safeguards against bot manipulation. The math took inspiration from the [fee model](https://docs.meteora.ag/product-overview/meteora-liquidity-pools/dlmm-overview/dynamic-fees) of Meteora's Dynamic Liquidity Market Maker.
 
 ## User-controlled configuration
 
@@ -26,9 +26,9 @@ struct PoolDynamicConfigVars {
 }
 ```
 
-You can tune the dynamic fee however you like, but we provide recommended configuration values for deployments through our website and API. We also have a spreadsheet that replicates this process and can share it on request.
+You can tune the dynamic fee however you like. Clanker provides recommended configuration values for deployments through clanker.world and the API, and can share a spreadsheet that replicates this process on request.
 
-This is our current recommendation for tokens starting at a 10 ETH market cap:
+This is Clanker's current recommendation for tokens starting at a 10 ETH market cap:
 
 ```solidity
 IClankerHookDynamicFee.PoolDynamicConfigVars({
@@ -58,7 +58,7 @@ The `volatilityAccumulator` is updated on each swap and is calculated as describ
 
 ### Volatility accumulator
 
-The volatility accumulator measures the amount of volatility on the pool. It is updated on each swap and is affected by recent swaps over different time frames. A swap's volatility accumulator uses two lagging tick values, two time periods, and a decayed version of a previous volatility accumulator.
+The volatility accumulator measures the amount of volatility on the pool. It is updated on each swap and is affected by recent swaps over different time frames. A swap's volatility accumulator uses two lagging tick values, two time periods and a decayed version of a previous volatility accumulator.
 
 The equation for the volatility accumulator is:
 
@@ -76,7 +76,7 @@ The values of `referenceTick` and `prevVR` are updated from snapshots of pool ac
 ### Time periods
 
 * `referenceTickFilterPeriod`: If the previous swap was less than `referenceTickFilterPeriod` seconds ago, the recorded `referenceTick` is used for the fee calculation instead of the current swap's `beforeTick`. This stops bots from avoiding the dynamic fee by splitting their swap into smaller swaps.
-* `resetPeriod`: If the `referenceTick` hasn't been updated for over `resetPeriod` seconds, we check that there is real volatility on the pool. This stops bots from keeping the pool's fee high by sending micro swaps that avoid updating the `referenceTick`.
+* `resetPeriod`: If the `referenceTick` hasn't been updated for over `resetPeriod` seconds, the hook checks that there is real volatility on the pool. This stops bots from keeping the pool's fee high by sending micro swaps that avoid updating the `referenceTick`.
   * If the `resetPeriod` has passed and the `beforeTick`'s difference from the recorded `resetTick` is smaller than the `resetTickFilter` (a failing reset condition), both the `referenceTick` and `resetTick` are updated to the current swap's `beforeTick`, clearing out the stored volatility.
   * If the `resetPeriod` has passed and the difference is larger than the `resetTickFilter` (a passing reset condition), only the `resetTick` is updated to the current swap's `beforeTick`, and the `referenceTick` stays the same.
 
@@ -88,4 +88,4 @@ The two time periods also determine the `prevVR` value, which smooths volatility
 * It is set to zero when the `resetPeriod` passes with a failing condition, or when a `resetPeriod` passes without a swap.
 * The same `prevVR` is used as long as the `referenceTick` hasn't been updated.
 
-There is a slight drift between the simulated `afterTick` and the actual `afterTick`. This is because the fee applied to the simulated swap is an estimate that reuses either the previous swap's fee or just the `prevVR` under some reset conditions. We consider this drift acceptable for the intended outcome.
+There is a slight drift between the simulated `afterTick` and the actual `afterTick`. This is because the fee applied to the simulated swap is an estimate that reuses either the previous swap's fee or just the `prevVR` under some reset conditions. Clanker considers this drift acceptable for the intended outcome.

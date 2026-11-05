@@ -4,7 +4,7 @@
 
 ## How it works
 
-Deployers specify a starting LP fee (up to 80%), an ending fee, and a time to descend (up to 2 minutes). Clanker's initial recommended configuration starts effective fees at 80% and descends to 5% over 30 seconds, after which the pool's normal fee behavior starts. For the reasoning behind these choices, see our [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
+Deployers specify a starting LP fee (up to 80%), an ending fee and a time to descend (up to 2 minutes). Clanker's original recommended configuration starts effective fees at 80% and descends to 5% over 30 seconds, after which the pool's normal fee behavior starts. The clanker.world form's default is 80% to 5% over 15 seconds. For the reasoning behind these choices, see the Clanker [v4 sniper activity writeup](https://paragraph.com/@clankerworld/clanker-v4_1-sniper-tech).
 
 All auctioned swaps pay the applied LP fee from `FeeConfig.startingFee`, and the fee descent starts in the block the auction concludes in.
 
@@ -43,5 +43,5 @@ The new **ClankerSniperUtilV2** example implementation does the expected encodin
 ## Approving `ClankerSniperAuctionV2` to spend WETH
 
 {% hint style="danger" %}
-We do NOT recommend approving `ClankerSniperAuctionV2` to spend WETH unless an auxiliary contract handles the approval and reverts if the bid doesn't win. For example, if an EOA approves the auction contract to spend WETH, anyone can spend that EOA's WETH by passing the EOA's address as the `auctionData` parameter to `ClankerSniperAuctionV0::beforeSwap`. The `ClankerSniperUtilV2` contract shows how to handle this safely.
+Clanker does not recommend approving `ClankerSniperAuctionV2` to spend WETH unless an auxiliary contract handles the approval and reverts if the bid doesn't win. For example, if an EOA approves the auction contract to spend WETH, anyone can spend that EOA's WETH by passing the EOA's address as the `auctionData` parameter to `ClankerSniperAuctionV0::beforeSwap`. The `ClankerSniperUtilV2` contract shows how to handle this safely.
 {% endhint %}

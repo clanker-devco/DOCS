@@ -1,6 +1,6 @@
 # Verifying the Social Context of Token Deploys
 
-Anyone can deploy a Clanker token and attach any `social_context` to it, such as a Farcaster FID or an X (Twitter) handle. This page explains how clanker.world decides whether that claimed creator is real, and how you can run the same checks with the public [`GET /api/search-creator`](../api-reference/public/creators.md) endpoint.
+Anyone can deploy a Clanker token and attach any `social_context` to it, such as a Farcaster FID or an X (Twitter) handle. clanker.world checks whether that claimed creator is real, and you can run the same checks with the public [`GET /api/search-creator`](../api-reference/public/creators.md) endpoint.
 
 ## Why it matters
 
@@ -52,11 +52,11 @@ The token's contract address is on an allowlist verified out of band, for exampl
   '0xd9aCd656A5f1B519C9E76a2A6092265A74186e58',
   '0xdd6494902709C8D7DfFf3daca21cF067271f22F8',
   '0xdc7D0Ea3B64E0c74488faF6B2BDc927B875Cd3f2',
-  '0x21c78a0350fa50e7c79c761003e33c0c7f440185',
-  '0x5e2b5027742ae08c1a018144e31f101f24dc9824',
+  '0x21C78a0350fa50E7c79C761003e33C0c7F440185',
+  '0x5E2B5027742aE08C1A018144e31f101f24Dc9824',
   '0x72469D86A92f5A9E975fE371a66015E667ab288f',
   '0x8865910d6ca985782Dc9CC521d23a10100fC800B',
-  '0xe0c959eedcfd004952441ea4fb4b8f5af424e74b',
+  '0xE0c959EeDcFD004952441Ea4FB4B8f5af424e74B',
   '0x24D514Bc8eF5649A367d9c209b3AF16b0f177026',
   '0x9844050f249604F4485aeD2fC51BAAb3DBe78411',
   '0x26D0A510553C209a584E01Bd4551bDbe38151Fd4', // bracky deployer
@@ -155,8 +155,12 @@ async function isFarcasterVerifiedDeploy({
 * A `false` result does **not** mean the token is a fraud.
 * An X match is weaker than a Farcaster match. For an X deploy, open its deployment context to see the post that triggered it, and check the X account for impersonation.
 
-If your app shows the trust status, show standard disclaimers next to it: tokens are speculative, users should do their own research, and this is not financial advice.
+If your app shows the trust status, show standard disclaimers next to it: tokens are speculative, users should do their own research and this is not financial advice.
 
 ## Show your Farcaster account as creator
 
-Deploy with a wallet that is a verified address on your Farcaster account. You can deploy by replying to @clanker in the Farcaster feed, by preclanking on the deploy page, or by calling `deployToken` from the deploy page or the SDK. To add a verified address to your Farcaster profile, go to **Settings ⇒ Verified Addresses**.
+Deploy with a wallet that is a verified address on your Farcaster account. You can deploy by replying to @clanker in the Farcaster feed, by preclanking on the deploy page or by deploying from the deploy page, the API or the SDK. To add a verified address to your Farcaster profile, go to **Settings ⇒ Verified Addresses**.
+
+## Related
+
+* [Warning Tags](clanker.world-warning-tags.md) for the automated checks on a token's launch setup.

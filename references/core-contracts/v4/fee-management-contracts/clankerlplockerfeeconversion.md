@@ -4,7 +4,7 @@
 
 ## How it works
 
-The LP fees are split between the reward recipients specified in the `LockerConfig` struct, using the split in the `rewardBps` array. Each fee recipient chooses to accumulate their fees in the deployed token, the paired token, or both.
+The LP fees are split between the reward recipients specified in the `LockerConfig` struct, using the split in the `rewardBps` array. Each fee recipient chooses to accumulate their fees in the deployed token, the paired token or both.
 
 The `rewardAdmin` can update the `rewardRecipient` and the `feePreference` for their array position, and can also update themselves. The `rewardBps` array can't be changed after deployment.
 

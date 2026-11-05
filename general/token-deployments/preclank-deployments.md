@@ -24,7 +24,7 @@ You can only save and use a preclank when you sign in with Farcaster.
 
 ### Set up the token
 
-On the [deploy page](https://www.clanker.world/deploy), connect a wallet and fill in the token settings. See [Clanker.world Deployments](clanker.world-deployments.md) for each field.
+On the [deploy page](https://www.clanker.world/deploy), connect a wallet and fill in the token settings. See [clanker.world Deployments](clanker.world-deployments.md) for each field.
 
 The default reward recipient and vault beneficiary are the wallet connected to the deploy page, not the main wallet of the Farcaster account that casts the trigger phrase. Creator buy (dev buy) is not available for preclanks.
 {% endstep %}
@@ -33,9 +33,9 @@ The default reward recipient and vault beneficiary are the wallet connected to t
 
 ### Save the preclank
 
-Turn on the `Preclank` toggle at the bottom of the form and enter a trigger phrase. Then select the `Preclank` button to save the configuration and phrase.
+Turn on the **Preclank** toggle at the bottom of the form and enter a trigger phrase. Then select the **Preclank** button to save the configuration and phrase.
 
-To see your saved preclanks, select `Manage Preclanks` at the top of the deploy page.
+To see your saved preclanks, select **Manage Preclanks** at the top of the deploy page.
 {% endstep %}
 
 {% step %}
@@ -51,3 +51,8 @@ Trigger phrases are case sensitive. Enter the phrase exactly as you saved it.
 @clanker deploys the token with your saved configuration and replies with a link to the new token's page.
 {% endstep %}
 {% endstepper %}
+
+## Related
+
+* [clanker.world Deployments](clanker.world-deployments.md)
+* [Farcaster Bot Deployments](farcaster-bot-deployments.md)

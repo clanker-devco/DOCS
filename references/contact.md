@@ -1,3 +1,3 @@
 # Contact
 
-Send us a message through the [contact form](https://clanker.world/contact-us). We'd love to hear from you.
+Email the Clanker team at [admin@clanker.world](mailto:admin@clanker.world).

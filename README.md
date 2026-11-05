@@ -2,17 +2,25 @@
 
 Clanker is a token deployment protocol on Base, Arbitrum, and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
 
-You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker on Farcaster, through the API, or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
+You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker on Farcaster, through the API or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
 
 ## Clanker v5
 
 Clanker v5 is the current version of Clanker, live on Base. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
 
-You can launch a v5 token on clanker.world or with the [deploy API](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
+You can launch a v5 token on clanker.world or through the API. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md) and [API Deployments](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
 
 ## Tokens
 
-Start with [Token Deployments](general/token-deployments.md). It explains how a v5 token works and where you can deploy one: [clanker.world](general/token-deployments/clanker.world-deployments.md), the [API](general/token-deployments/v5-deployments.md), the [Farcaster bot](general/token-deployments/farcaster-bot-deployments.md), [Preclanks](general/token-deployments/preclank-deployments.md) and [other interfaces](general/token-deployments/alternative-interface-deployments.md). Earlier versions are covered in [v4](general/token-deployments/v4-deployments.md) and [v3](general/token-deployments/legacy-deployments.md).
+Start with [Token Deployments](general/token-deployments.md). It explains how a v5 token works and where you can deploy one:
+
+- [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md)
+- [API Deployments](general/token-deployments/v5-deployments.md)
+- [Farcaster Bot Deployments](general/token-deployments/farcaster-bot-deployments.md)
+- [Preclank Deployments](general/token-deployments/preclank-deployments.md)
+- [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
+
+Earlier versions are covered in [v4 Deployments](general/token-deployments/v4-deployments.md) and [v3 Deployments](general/token-deployments/legacy-deployments.md).
 
 After launch:
 
@@ -38,7 +46,7 @@ The Clanker REST API is available at `https://www.clanker.world/api`.
 
 ## SDK Reference
 
-The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain. It covers v4 tokens today, and v5 support is coming soon. To launch a v5 token now, use clanker.world or the [deploy API](general/token-deployments/v5-deployments.md).
+The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain. It covers v4 tokens today, and v5 support is coming soon. To launch a v5 token now, use clanker.world or the API (see [API Deployments](general/token-deployments/v5-deployments.md)).
 
 ```bash
 npm install clanker-sdk
