@@ -265,6 +265,24 @@ Deployed on November 5, 2026. First block: 106,650,212.
 
 </details>
 
+<details>
+
+<summary>v4.1.0</summary>
+
+| Contract                     | Address                                    |
+| ---------------------------- | ------------------------------------------ |
+| Clanker                      | 0xD3f2cC1731b7Fd17f28798835C2E02f0a1839A94 |
+| ClankerLpLockerFeeConversion | 0xE4910b09709423aFafD995dD76D8A81CF9134A09 |
+| ClankerFeeLocker             | 0x88db2340bE5991B2b5Fca2Baee39B5CE048Cd70c |
+| ClankerVault                 | 0x99B2a80ed21c7af1F5cc1A97383DADeEC7DD1427 |
+| ClankerAirdrop               | 0x6f27372FF493A3855E6746b9a4fe6Ed2Cc3034B5 |
+| ClankerUniv4EthDevBuy        | 0xa27b1986e5c7e5371Cb6507f87918fBD0302fF5a |
+| ClankerMevDescendingFees     | 0xEA1Fe197dF140e5d88fC6B49f2d21Ea05092299e |
+| ClankerHookDynamicFee        | 0x65efDF8Cce99b53C925DF878Df275Df21cB6E8Cc |
+| ClankerHookStaticFee         | 0x48B8F6AD3A1b4aA477314c9a23035b8F84dDe8cc |
+
+</details>
+
 ### X Layer: 196
 
 <details>
