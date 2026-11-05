@@ -124,7 +124,7 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 
 ### GET `/api/wallet/{address}/dividends`
 
-The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract.
+The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. `isIncomplete` is true when a chain read fails.
 
 **Authentication:** Public
 
@@ -140,7 +140,7 @@ The dividend positions of a wallet: each V5 token that it holds and that pays ho
 |-----------|------|----------|---------|-------------|
 | `cursor` | `string` | No | — | The `cursor` from the previous page. |
 
-**Response:** Positions, highest claimable first, and a cursor when more holdings remain. Amounts are raw decimal strings in the quote currency of the token (`quote`). `withdrawable` is the unpaid amount; an excluded holder (`isExcluded`) cannot claim it. `isEligible` is false when the balance is below `minimumHolding`. `receiver` gets the payment. To claim, the holder calls `claimDividends` on the TaxDividendClaimHelper (Base `0xe896454E417400a9d7766497764e4dEBf91534BD`) with up to 64 tokens, or `withdrawDividendsFor(holder, unwrap)` on one dividend contract. A 502 means the positions could not be read.
+**Response:** Positions, highest claimable first, and a cursor when more holdings remain. Amounts are raw decimal strings in the quote currency of the token (`quote`). `withdrawable` is the unpaid amount; an excluded holder (`isExcluded`) cannot claim it. `isEligible` is false when the balance is below `minimumHolding`. `receiver` gets the payment. To claim, the holder calls `claimDividends` on the TaxDividendClaimHelper of the chain (Base `0xe896454E417400a9d7766497764e4dEBf91534BD`, every other chain `0xdb525d50c70b9303115bA19503761756136d2B49`) with up to 64 tokens, or `withdrawDividendsFor(holder, unwrap)` on one dividend contract. A 502 means the positions could not be read.
 
 ```json
 {
