@@ -75,3 +75,5 @@ These endpoints are publicly accessible and require no authentication.
 ### Market data
 
 - `GET /api/prices` — Current ETH and BTC prices in USD from Codex. Charts, the LP simulator and presale market caps share this response.
+- `GET /api/tax/quote-prices` — The reference prices of the stock price check for V5 trades and creator buys on a Base stock quote: the price of each requested stock (TickDB price times the token multiplier) and the ETH price from Codex. The route reads the snapshot of a cron and never calls TickDB.
+- `GET /api/tax/quote-market` — The pair picker data of each V5 catalog quote on a chain: the USD price (Codex for ETH and the crypto quotes, the cron snapshot of the TickDB price times the token multiplier for the stocks), the Codex liquidity, and the on-chain total supply of each stock. The stock price check of a trade does not use this route. The query must be `?chainId=<decimal>`; another parameter or another spelling of the chain ID (for example `0x2105` or `08453`) gets 400 with `Cache-Control: no-store`.
