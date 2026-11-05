@@ -47,6 +47,6 @@ Estimate uncollected fees for a position.
 |-----------|------|----------|---------|-------------|
 | `address` | `address` | Yes | — | Token or position address. |
 
-> availableRewards() reads the v4 FeeLocker. clanker-sdk has no V5 support yet. For a V5 token, GET /api/creator-earnings/{tokenAddress} gives the unclaimed FeeEscrow balances, and the token admin page claims them.
+> availableRewards() reads the v4 FeeLocker. For a V5 token, GET /api/creator-earnings/{tokenAddress} gives the unclaimed FeeEscrow balances, and the token admin page claims them.
 
 ---
