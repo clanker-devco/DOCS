@@ -3,7 +3,7 @@ title: "Clanker v5"
 sidebarTitle: "v5"
 ---
 
-Clanker v5 deploys tokens that charge a buy and sell tax instead of an LP fee. The tax pays the Clanker fee and the creator's reward recipients, and the creator can also send part of it to holder dividends, a burn and an integrator. Clanker v5 launches are open on Base. Launches on the other listed chains are closed. See [Token Deployments](/general/token-deployments) for how v5 tokens work and how to deploy one.
+Clanker v5 deploys tokens that charge a buy and sell tax instead of an LP fee. The tax pays the Clanker fee and the creator's reward recipients, and the creator can also send part of it to holder dividends, a burn and an integrator. Clanker v5 launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. See [Token Deployments](/general/token-deployments) for how v5 tokens work and how to deploy one.
 
 The v5 contracts are not upgradeable.
 
@@ -23,7 +23,7 @@ The v5 contracts are not upgradeable.
 | Token Deployer          | 0xc25FfE6374EdcCb5bFCcA3b9684046a426AbCE6A |
 | Dividend Implementation | 0x4C9C5D7Eb2D8092903262b15B720DFCc8d07E78f |
 
-The addresses above are on Base: 8453. See [Deployed Contracts](/references/deployed-contracts) for the addresses on BNB Chain, Monad, Robinhood Chain, X Layer and Arc.
+The addresses above are on Base: 8453. See [Deployed Contracts](/references/deployed-contracts) for the addresses on BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium.
 
 Each factory returns its related contracts through `hook()`, `dividendDeployer()`, `announcementRegistry()`, `launchValidation()`, `launchBuyAdapter()` and `tokenDeployer()`. The hook returns `feeEscrow()`. The Dividend Deployer returns `implementation()`.
 
@@ -157,7 +157,7 @@ Only the hook can credit balances. Events: `Credited(recipient, currency, amount
 
 The Dividend Deployer creates the dividend contract of a token that pays holder dividends, in the token's launch transaction. Only the factory can call it.
 
-Each dividend contract tracks the balances of eligible holders and pays their dividends in the pair token. For an ETH pair, dividends are held as WETH and can be paid as native ETH. The factory owns every dividend contract.
+Each dividend contract tracks the balances of eligible holders and pays their dividends in the pair token. For a native pair, dividends are held in the wrapped native token and can be paid in the native coin. The factory owns every dividend contract.
 
 | Function on a dividend contract                     | Description                                                                        |
 | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ The Dividend Claim Helper claims the caller's dividends from several v5 tokens i
 ```solidity
 struct Claim {
     address token;
-    bool unwrapWrappedNative; // pay native ETH instead of WETH for an ETH pair
+    bool unwrapWrappedNative; // pay the native coin instead of its wrapped token for a native pair
 }
 
 // Up to 64 tokens per call. Each token appears once.
@@ -253,7 +253,7 @@ Other factory settings for new launches:
 | `nativeLaunchFee()` | 0                                                                               |
 | `tickSpacing()`     | 200                                                                             |
 | `bandTemplate()`    | One band holding the whole supply, from the starting price up                   |
-| Quote tokens        | Native ETH and USDC. See [Supported Quote Tokens](/references/supported-quote-tokens) |
+| Quote tokens        | Registered per chain. See [Supported Quote Tokens](/references/supported-quote-tokens) |
 
 ## Administrative permissions
 

@@ -7,11 +7,11 @@ Clanker v5 is the current version of Clanker. Every v5 token launches with a buy
 Every v5 token launches with its full supply in a Uniswap v4 pool. Instead of an LP fee, each trade pays a buy or sell tax, and the creator chooses how their share of that tax is used.
 
 * **Supply**: an ERC-20 token with a total supply of 1 billion tokens.
-* **Liquidity**: the full supply goes into a Uniswap v4 pool paired with ETH or USDC. The liquidity can never be removed.
+* **Liquidity**: the full supply goes into a Uniswap v4 pool paired with one of the chain's registered pair tokens: its native coin, a stablecoin, a crypto token or a stock token. See [Supported Quote Tokens](../references/supported-quote-tokens.md). The liquidity can never be removed.
 * **Tax**: each trade pays a buy tax or a sell tax. The creator sets each rate between 1% and 10%.
 * **Clanker fee**: Clanker takes the larger of 10% of the tax and 0.5% of the trade, and at most 1% of the trade. The rest of the tax is the creator share.
 * **Sniper fee**: when it is on, trades in the first 20 seconds after launch pay a higher total fee that starts at 99% and falls to the normal tax. All of the sniper fee goes to Clanker.
-* **Rewards currency**: rewards are paid in the pair token (native ETH for an ETH pair, USDC for a USDC pair).
+* **Rewards currency**: rewards are paid in the pair token, or in the native coin for a native pair.
 
 ### Where the creator share goes
 

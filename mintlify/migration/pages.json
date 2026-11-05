@@ -29,7 +29,7 @@
     "source": "general/token-deployments.md",
     "route": "general/token-deployments",
     "oldPath": "general/token-deployments",
-    "sourceSha256": "90b0fca97df4f0c4b88fdedb94c1bce4c06ded03a1c2edf795535ddbc2378d91"
+    "sourceSha256": "b6b1d416912b0e841a8fc72f6143d4a99f4ed1dd41619d8b8939821e83c513f2"
   },
   {
     "indent": 2,
@@ -37,7 +37,7 @@
     "source": "general/token-deployments/clanker.world-deployments.md",
     "route": "general/token-deployments/clanker.world-deployments",
     "oldPath": "general/token-deployments/clanker.world-deployments",
-    "sourceSha256": "df9272d58ef305fec4fc04153a93e0ccf62ad4a4a9277ef4f4580109e6834622",
+    "sourceSha256": "7b5ef60659ac09dda6247e03cbc5ccd0c922b1dba9c5b2a65904132d3042f398",
     "sidebarTitle": "clanker.world"
   },
   {
@@ -73,7 +73,7 @@
     "source": "general/token-deployments/alternative-interface-deployments.md",
     "route": "general/token-deployments/alternative-interface-deployments",
     "oldPath": "general/token-deployments/alternative-interface-deployments",
-    "sourceSha256": "19fa37afdb9c0b63989f2d719a0e25a814c711875774d312ca043c143ce25219",
+    "sourceSha256": "18c70a801ae0372662eed2ba17c48266618db1f7df3f197d8b2a80fe91910698",
     "sidebarTitle": "Other Interfaces"
   },
   {
@@ -361,7 +361,7 @@
     "source": "references/core-contracts/v5.md",
     "route": "references/core-contracts/v5",
     "oldPath": "references/core-contracts/v5",
-    "sourceSha256": "0b51ee181ab32f877b9b32b203a8aabf7860544eb268d77b039078cf6399c4c5",
+    "sourceSha256": "39cbd25342622f20f6255d9f1dd6ddb19e21d4a8e52814e90c71d0123259702a",
     "sidebarTitle": "v5"
   },
   {
@@ -636,7 +636,7 @@
     "source": "references/compatible-trading-platforms.md",
     "route": "references/compatible-trading-platforms",
     "oldPath": "references/compatible-trading-platforms",
-    "sourceSha256": "beb91718031ae8454f3802ca9d8456db5c54c9c173bd73bcc0c0b785a7d0f04d"
+    "sourceSha256": "8ea964c92155955f3469b9ce33d19e26ef31d73f8b22bb6bdc2f11a338bfee83"
   },
   {
     "indent": 0,
@@ -644,7 +644,7 @@
     "source": "references/deployed-contracts.md",
     "route": "references/deployed-contracts",
     "oldPath": "references/deployed-contracts",
-    "sourceSha256": "4ee6afb15db56a9c0a14269c10bf1dfbfe8c6690f8565a3e476743c3a542f23e"
+    "sourceSha256": "85b006ce74aeb110508afe59516c127c3409a5803d8a6ee220d8b3c33c4c2935"
   },
   {
     "indent": 0,
@@ -652,7 +652,7 @@
     "source": "references/supported-quote-tokens.md",
     "route": "references/supported-quote-tokens",
     "oldPath": "references/supported-quote-tokens",
-    "sourceSha256": "aeabe6b9927ed34239409e65011c426400d4b129d3fb5042bda853c79a2d398c"
+    "sourceSha256": "69479ac223e61a8c8afcb39e79b85b9950bb5e1322711fba6250bb7475819b92"
   },
   {
     "indent": 0,
