@@ -97,7 +97,7 @@ When on, the creator can change the image and metadata after launch, and verify 
 
 *Optional. Defaults to 100% to the connected wallet.*
 
-Add reward recipients to split the **Creator funds**. For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token: native ETH for an ETH pair, USDC for a USDC pair. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
+Add reward recipients to split the **Creator funds**. For each recipient, set the admin address, the recipient address and its reward percentage. The first recipient's admin is always the creator. Rewards are paid in the pair token. See [Creator Rewards & Fees](../creator-rewards-and-fees.md).
 {% endstep %}
 
 {% step %}
@@ -106,7 +106,7 @@ Add reward recipients to split the **Creator funds**. For each recipient, set th
 
 *Optional. Defaults to ETH.*
 
-* **Pair**: ETH or USDC. The factory sets the starting price, and the form shows the starting market cap.
+* **Pair**: one of the pair tokens registered on the selected chain: its native coin, a stablecoin, a crypto token or a stock token. See [Supported Quote Tokens](../../references/supported-quote-tokens.md). The factory sets the starting price, and the form shows the starting market cap.
 {% endstep %}
 
 {% step %}
