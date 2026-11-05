@@ -73,7 +73,7 @@ The **Post Announcement** card posts a short update, with an optional link, to t
 * [Unclaimed Rewards Balance](unclaimed-rewards-balance.md) to check a balance.
 * [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.
 
-## v4 and earlier
+## Clanker v4 and earlier
 
 The same Admin page manages older tokens. Depending on the version, it lets you:
 

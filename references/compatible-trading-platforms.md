@@ -18,11 +18,19 @@ Clanker v5 tokens trade in Uniswap v4 pools on Base that use the Clanker v5 hook
 * Rabby
 * Coinbase Wallet
 
-## Clanker v4.0.0
+## Clanker v4
 
-Clanker v4.0.0 deploys tokens into Uniswap v4 pools with custom Uniswap v4 hooks. Because of these custom hooks, not every trading platform or venue supports trading through Clanker v4.0.0 pools. Many Telegram trading bots on Base don't support Uniswap v4 pools or Clanker's Uniswap v4 hooks.
+Clanker v4 deploys tokens into Uniswap v4 pools with custom Uniswap v4 hooks. Because of these custom hooks, not every trading platform or venue supports trading through Clanker v4 pools. Many Telegram trading bots on Base don't support Uniswap v4 pools or Clanker's Uniswap v4 hooks.
 
 Known compatible trading platforms as of July 8, 2025:
+
+### Trading platforms and frontends
+
+* clanker.world
+* Uniswap
+* Oku Trade
+* LlamaSwap
+* Based Trading Bot
 
 ### Aggregators
 
@@ -34,17 +42,9 @@ Known compatible trading platforms as of July 8, 2025:
 * Rabby
 * Coinbase Wallet
 
-### Other trading platforms and frontends
+## Clanker v3.1 and earlier
 
-* clanker.world
-* Uniswap
-* Oku Trade
-* LlamaSwap
-* Based Trading Bot
-
-## Clanker v3.1.0 and earlier
-
-Clanker v3.1.0 and earlier versions deploy tokens into Uniswap v3 pools, which almost all trading venues support.
+Clanker v3.1 and earlier versions deploy tokens into Uniswap v3 pools, which almost all trading venues support.
 
 You may run into issues trading a Clanker token paired with a token other than $WETH if the paired token has no liquid `$pairedToken / $WETH` pool. In that case, hold the paired token directly, so the trade doesn't try to hop pools ($ETH to $pairedToken to $clankerToken).
 

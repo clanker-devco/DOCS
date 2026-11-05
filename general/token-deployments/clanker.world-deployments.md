@@ -11,7 +11,7 @@ You can create a token on the clanker.world [deploy page](https://www.clanker.wo
 
 For how each version works, see the [Token Deployments overview](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
 
-## Token Info
+## Token info
 
 These fields are the same for both token types.
 
@@ -42,7 +42,7 @@ These fields are the same for both token types.
 {% endstep %}
 {% endstepper %}
 
-## v5 Parameters
+## Clanker v5 parameters
 
 With **Token type** set to **V5**, the form shows these settings.
 
@@ -122,7 +122,7 @@ Add reward recipients to split the creator funds. For each recipient, set the ad
 
 Vaults and airdrops are v4 only. You can also save a v5 token as a preclank and launch it later with a cast; see [Preclank Deployments](preclank-deployments.md).
 
-## v4 Parameters
+## Clanker v4 parameters
 
 With **Token type** set to **V4**, the form shows these settings. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
 

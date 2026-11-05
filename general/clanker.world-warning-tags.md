@@ -10,7 +10,7 @@ Warning tags are automated checks. A token without tags is not guaranteed to be 
 
 ## Tags at a glance
 
-| Tag                    | Meaning                                                |
+| Tag                    | Description                                            |
 | ---------------------- | ------------------------------------------------------ |
 | `UNUSUAL_TICK`         | The starting price doesn't match a standard launch.    |
 | `UNUSUAL_PAIR_ADDRESS` | The pair token isn't a supported quote token.          |

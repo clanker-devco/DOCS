@@ -68,7 +68,7 @@ A past recipient, or an integrator, claims its balance from the **Tax Fees** car
 * [v5 contracts](../references/core-contracts/v5.md) and [Deployed Contracts](../references/deployed-contracts.md) for contract details and addresses.
 * [Token Deployments](token-deployments.md) to deploy a v5 token.
 
-## v4 and earlier
+## Clanker v4 and earlier
 
 ### Creator rewards
 

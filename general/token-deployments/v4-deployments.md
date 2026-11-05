@@ -34,8 +34,8 @@ A v4.0.0 token opens with a short auction before normal trading starts. The auct
 * Normal trading starts by block *n+11* at the latest.
 * For details, see [ClankerSniperAuctionV0](../../references/core-contracts/v4/mev-modules/clankersniperauctionv0.md).
 
-v4 tokens deployed from the clanker.world form use a sniper tax instead, which falls over the first seconds of trading. See [ClankerMevDescendingFees](../../references/core-contracts/v4/mev-modules/clankermevdescendingfees.md) and [Clanker.world Deployments](clanker.world-deployments.md#v4-parameters).
+v4 tokens deployed from the clanker.world form use a sniper tax instead, which falls over the first seconds of trading. See [ClankerMevDescendingFees](../../references/core-contracts/v4/mev-modules/clankermevdescendingfees.md) and [Clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters).
 
 ## Deploying a v4 token
 
-See [Clanker.world Deployments](clanker.world-deployments.md#v4-parameters) for the v4 fields on the deploy form. The [Farcaster bot](farcaster-bot-deployments.md) also deploys v4 tokens.
+See [Clanker.world Deployments](clanker.world-deployments.md#clanker-v4-parameters) for the v4 fields on the deploy form. The [Farcaster bot](farcaster-bot-deployments.md) also deploys v4 tokens.

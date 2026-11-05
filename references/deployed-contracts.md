@@ -2,7 +2,7 @@
 
 Addresses of the Clanker contracts on each chain, grouped by version. Clanker v5 is live on Base. See [Core Contracts](core-contracts.md) for what each contract does.
 
-## Mainnet Deployments
+## Mainnets
 
 ### Base: 8453
 
@@ -266,7 +266,7 @@ Addresses of the Clanker contracts on each chain, grouped by version. Clanker v5
 
 Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token on Solana.
 
-## Testnet Deployments
+## Testnets
 
 ### Base Sepolia: 84532
 
