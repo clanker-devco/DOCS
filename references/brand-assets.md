@@ -1,15 +1,31 @@
 # Brand Assets
 
-Clanker logos and brand assets are available in Google Drive and Figma.
+The full logo and the logo mark come in three colors, all as SVG files.
 
-## Google Drive
+## Colors
 
-[Open the Google Drive folder](https://drive.google.com/drive/folders/15-9L23e79K9w7_tXk279aCs8aZtE5dmv?usp=drive_link)
+| Color | Hex                                                              | Use                         |
+| ----- | ---------------------------------------------------------------- | --------------------------- |
+| Brand | ![#8A63D2](../.gitbook/assets/clanker-color-brand.svg) `#8A63D2` | The default Clanker purple  |
+| Dark  | ![#000000](../.gitbook/assets/clanker-color-dark.svg) `#000000`  | Light backgrounds           |
+| White | ![#FFFFFF](../.gitbook/assets/clanker-color-white.svg) `#FFFFFF` | Dark backgrounds and photos |
 
-{% embed url="<https://drive.google.com/drive/u/1/folders/15-9L23e79K9w7_tXk279aCs8aZtE5dmv>" %}
+## Full Logo
 
-## Figma
+<figure><img src="../.gitbook/assets/clanker-logo-full-brand.svg" alt="Clanker full logo"><figcaption></figcaption></figure>
 
-[Open the Figma file](https://www.figma.com/design/AcUDfTVpycMZZrC8lHxcRn/Clanker---Public-Assets?node-id=0-1)
+| Color | Download                                                           |
+| ----- | ------------------------------------------------------------------ |
+| Brand | [Full logo, brand (SVG)](../.gitbook/assets/clanker-logo-full-brand.svg) |
+| Dark  | [Full logo, dark (SVG)](../.gitbook/assets/clanker-logo-full-dark.svg)   |
+| White | [Full logo, white (SVG)](../.gitbook/assets/clanker-logo-full-white.svg) |
 
-{% embed url="<https://www.figma.com/design/AcUDfTVpycMZZrC8lHxcRn/Clanker---Public-Assets?node-id=0-1&t=f7QIc8syMVw5bsIt-1>" fullWidth="false" %}
+## Logo Mark
+
+<figure><img src="../.gitbook/assets/clanker-logo-mark-brand.svg" alt="Clanker logo mark"><figcaption></figcaption></figure>
+
+| Color | Download                                                           |
+| ----- | ------------------------------------------------------------------ |
+| Brand | [Logo mark, brand (SVG)](../.gitbook/assets/clanker-logo-mark-brand.svg) |
+| Dark  | [Logo mark, dark (SVG)](../.gitbook/assets/clanker-logo-mark-dark.svg)   |
+| White | [Logo mark, white (SVG)](../.gitbook/assets/clanker-logo-mark-white.svg) |
