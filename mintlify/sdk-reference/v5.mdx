@@ -5,7 +5,7 @@ sidebarTitle: "v5"
 
 `clanker-sdk/v5` launches and manages Clanker v5 tokens. It uses the v4 method names, token fields and result format where the v5 contracts support them.
 
-v3 and v4 launches are closed. The [v4 Clanker Class](/sdk-reference/v4) and the [v3 Clanker Class](/sdk-reference/v3) manage existing tokens only.
+From `clanker-sdk` 5.0.0, the SDK launches v5 tokens only: the v3 and v4 launch methods throw. The [v4 Clanker Class](/sdk-reference/v4) and the [v3 Clanker Class](/sdk-reference/v3) still manage existing tokens.
 
 ## Installation
 
@@ -13,7 +13,7 @@ v3 and v4 launches are closed. The [v4 Clanker Class](/sdk-reference/v4) and the
 npm install clanker-sdk viem
 ```
 
-The v5 client is in `clanker-sdk` 5.0.0 and later. It requires viem 2.49.3 or later.
+The v5 client is in `clanker-sdk` 5.0.0 and later. viem 2.49.3 or later is a peer dependency, so the SDK uses your project's viem.
 
 ## Launch a token
 
@@ -52,10 +52,14 @@ if (result.error) throw result.error;
 console.log(result.address, result.poolId);
 ```
 
-`wallet` and `publicClient` must use the same chain. `deploy` returns `txHash`, `expectedAddress` and `waitForTransaction`, and also `transferTxHash` or `error` when they apply. A failure before the send returns `{ error }`.
+`wallet` and `publicClient` must use the same chain. `deploy` returns `txHash`, `expectedAddress` and `waitForTransaction`.
+
+* A top-level `error` means nothing was sent, so you can try again.
+* After the launch is sent, `deploy` returns no top-level `error`. `waitForTransaction` returns the launch or its error.
+* With a creator buy for another recipient, `transferTxHash` is the transfer. If the transfer fails, the result has `transferError` and `failedStep`, and the token exists.
 
 <Warning>
-If a result has both a `txHash` and an `error`, the launch can exist. Check the transaction before you call `deploy` again, because a second call launches a second token.
+An `error` whose `data.rawName` is `SEND_UNCERTAIN` means the send itself failed, so the launch can exist. Check the wallet's transactions before you call `deploy` again, because a second call launches a second token.
 
 </Warning>
 
@@ -85,6 +89,8 @@ If a result has both a `txHash` and an `error`, the launch can exist. Check the 
 | `integrator` | `{ address, share }`: gives an integrator `share` percent of the tax after the Clanker fee.                                            |
 
 `dividends.share`, `burn` and the integrator `share` together must not exceed 100. The rest of the tax after the Clanker fee goes to the reward recipients.
+
+The Clanker fee is 10% of the tax, but at least 0.5% and at most 1% of the trade. At the default 1% tax, it is half the tax. While no holder meets `minimumHolding`, the dividend share goes to Clanker. Read the live policy with `taxPolicy()`.
 
 ### Pool, rewards and creator buy
 
@@ -116,7 +122,7 @@ v5 does not accept v4 `fee`, `fees`, `salt`, `vault`, `airdrop`, `presale`, `sni
 | Arbitrum        | 42161    | ETH, USDC    | Not available |
 | Unichain        | 130      | ETH, USDC    | Not available |
 
-A launch works only when the factory on that chain is open. A closed factory returns `Launches are not open on chain <id>.` On Arc, the native coin is USDC. Ethereum, Arbitrum and Unichain have no creator buy, so a launch with `devBuy` returns an error there.
+Launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Ethereum, Arbitrum and Unichain have v5 contracts, but their launches are turned off, so a launch there returns `Launches are not open on chain <id>.` The SDK reads this from the factory, so these chains work without an SDK update once they open. On Arc, the native coin is USDC.
 
 ## Manage a token
 
@@ -135,9 +141,11 @@ await clanker.updateMetadata({
 });
 ```
 
-* A claim pays the recipient's whole balance in one currency, across all pools.
-* The admin of the creator slot follows creator rights. Use `proposeCreatorRightsTransfer` to change it.
-* Holders withdraw dividends with `dividendOf(token)`, `withdrawableDividends({ dividend, holder })` and `withdrawDividends({ dividend })`.
+* A claim pays the recipient's whole balance in one currency, across all pools. An integrator claims with `claimRewards({ token, rewardRecipient: integrator })`.
+* The admin of the creator slot follows creator rights, and `getTokenRewards` marks that slot with `rewardIsCreator`. Use `proposeCreatorRightsTransfer` and `acceptCreatorRightsTransfer` to change it, or `safeTransferCreatorRights` to move it to a contract.
+* Holders check dividends with `withdrawableDividends({ token, holder })` and claim up to 64 tokens at once with `claimDividends({ tokens })`.
+* `getPoolConfig({ token })` reads a launch's settings, and `getTaxRates({ token, isBuy })` reads the tax a trade pays now, including the anti-snipe fee. Its rates use a 1e24 scale, so 1% is `10n ** 22n`.
+* Each write has matching `get…Transaction` and `…Simulate` methods.
 
 ## CLI
 
@@ -146,7 +154,7 @@ npx clanker-sdk deploy --name "My Token" --symbol "TKN" --chain base \
   --buy-fee 2 --sell-fee 2
 ```
 
-`clanker-sdk deploy` launches v5 tokens only. Without a name or symbol, it asks for each option. The `rewards` and `token` commands pick v4 or v5 for each token.
+`clanker-sdk deploy` launches v5 tokens only. Without a name or symbol, it asks for each option. The `rewards` and `token` commands pick v4 or v5 for each token, and `dividends available` and `dividends claim` check and claim holder dividends.
 
 ## Related
 
