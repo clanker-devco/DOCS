@@ -10,18 +10,18 @@
 
 ### PresaleStatus
 
-Defined in: [src/v4/extensions/presale.ts:19](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L19)
+Defined in: [src/v4/extensions/presale.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L20)
 
 #### Enumeration Members
 
 | Enumeration Member | Value | Defined in |
 | ------ | ------ | ------ |
-| <a id="enumeration-member-active"></a> `Active` | `1` | [src/v4/extensions/presale.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L21) |
-| <a id="enumeration-member-claimable"></a> `Claimable` | `5` | [src/v4/extensions/presale.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L25) |
-| <a id="enumeration-member-failed"></a> `Failed` | `4` | [src/v4/extensions/presale.ts:24](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L24) |
-| <a id="enumeration-member-notcreated"></a> `NotCreated` | `0` | [src/v4/extensions/presale.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L20) |
-| <a id="enumeration-member-successfulmaximumhit"></a> `SuccessfulMaximumHit` | `3` | [src/v4/extensions/presale.ts:23](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L23) |
-| <a id="enumeration-member-successfulminimumhit"></a> `SuccessfulMinimumHit` | `2` | [src/v4/extensions/presale.ts:22](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L22) |
+| <a id="enumeration-member-active"></a> `Active` | `1` | [src/v4/extensions/presale.ts:22](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L22) |
+| <a id="enumeration-member-claimable"></a> `Claimable` | `5` | [src/v4/extensions/presale.ts:26](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L26) |
+| <a id="enumeration-member-failed"></a> `Failed` | `4` | [src/v4/extensions/presale.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L25) |
+| <a id="enumeration-member-notcreated"></a> `NotCreated` | `0` | [src/v4/extensions/presale.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L21) |
+| <a id="enumeration-member-successfulmaximumhit"></a> `SuccessfulMaximumHit` | `3` | [src/v4/extensions/presale.ts:24](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L24) |
+| <a id="enumeration-member-successfulminimumhit"></a> `SuccessfulMinimumHit` | `2` | [src/v4/extensions/presale.ts:23](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L23) |
 
 ## Type Aliases
 
@@ -41,7 +41,7 @@ Defined in: [src/v4/extensions/airdrop.ts:26](https://github.com/clanker-devco/c
 type PresaleConfig = z.input<typeof PresaleConfigSchema>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:50](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L50)
+Defined in: [src/v4/extensions/presale.ts:51](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L51)
 
 ## Functions
 
@@ -53,7 +53,7 @@ function buyIntoPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:160](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L160)
+Defined in: [src/v4/extensions/presale.ts:165](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L165)
 
 Buy into a presale
 
@@ -84,7 +84,7 @@ function buyIntoPresaleWithProof(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:650](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L650)
+Defined in: [src/v4/extensions/presale.ts:655](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L655)
 
 Buy into a presale with allowlist proof
 
@@ -166,7 +166,7 @@ function claimEth(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:338](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L338)
+Defined in: [src/v4/extensions/presale.ts:343](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L343)
 
 Claim ETH from a successful presale
 
@@ -204,7 +204,7 @@ function claimTokens(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:275](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L275)
+Defined in: [src/v4/extensions/presale.ts:280](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L280)
 
 Claim tokens from a presale
 
@@ -247,7 +247,7 @@ Create an airdrop for the recipients.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `recipients` | \{ `account`: `` `0x${string}` ``; `amount`: `number`; \}[] | Recipients recieving airdrop. |
-| `options` | \{ `tokenDecimals`: `bigint`; \} | - |
+| `options?` | \{ `tokenDecimals`: `bigint`; \} | - |
 | `options.tokenDecimals` | `bigint` | Custom token decimals. |
 
 #### Returns
@@ -281,7 +281,7 @@ function endPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:227](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L227)
+Defined in: [src/v4/extensions/presale.ts:232](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L232)
 
 End a presale and deploy the token
 
@@ -408,7 +408,7 @@ All proofs and their associated entries for claiming.
 function getAllowlistAddress(chainId): `0x${string}` | undefined;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:579](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L579)
+Defined in: [src/v4/extensions/presale.ts:584](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L584)
 
 Get the allowlist contract address for a specific chain
 
@@ -432,7 +432,7 @@ The allowlist contract address, or undefined if not available
 function getAmountAvailableToClaim(data): Promise<bigint>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:485](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L485)
+Defined in: [src/v4/extensions/presale.ts:490](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L490)
 
 Get the amount available for a user to claim from a presale
 
@@ -457,7 +457,7 @@ Amount available to claim
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/a0b4869e2dcf4159268930b0fdc4d1ad99c6896e461b8130e99bca86b43761af.txt)
 
-Defined in: [src/v4/extensions/presale.ts:128](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L128)
+Defined in: [src/v4/extensions/presale.ts:133](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L133)
 
 Get a transaction to buy into a presale
 
@@ -2208,7 +2208,7 @@ Transaction configuration for buying into a presale
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/e4150f400f998b41a5a2eb40c3d9719db94986f1e2a0fb8cdfccfc1d550a46e3.txt)
 
-Defined in: [src/v4/extensions/presale.ts:596](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L596)
+Defined in: [src/v4/extensions/presale.ts:601](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L601)
 
 Get a transaction to buy into a presale with allowlist proof
 
@@ -4394,7 +4394,7 @@ Arguments that can be used with a viem transaction.
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/63b1d64cda8044789a484e3e017a17349bc9ba20cada25e46763d13aace9cb05.txt)
 
-Defined in: [src/v4/extensions/presale.ts:300](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L300)
+Defined in: [src/v4/extensions/presale.ts:305](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L305)
 
 Get a transaction to claim ETH from a successful presale (for presale owners)
 
@@ -6150,7 +6150,7 @@ Transaction configuration for claiming ETH
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/a6cfe6af7d5e21499d743e80f1b2b209dda0dbbccdbf9eb77c3ac7e8a83b8cd2.txt)
 
-Defined in: [src/v4/extensions/presale.ts:247](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L247)
+Defined in: [src/v4/extensions/presale.ts:252](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L252)
 
 Get a transaction to claim tokens from a presale
 
@@ -7900,7 +7900,7 @@ Transaction configuration for claiming tokens
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/fc23ac90439a635718d691f3a53842b33a4a647009f252a29bc852b594ad2398.txt)
 
-Defined in: [src/v4/extensions/presale.ts:186](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L186)
+Defined in: [src/v4/extensions/presale.ts:191](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L191)
 
 Get a transaction to end a presale
 
@@ -9714,7 +9714,7 @@ function getPresale(data): Promise<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:358](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L358)
+Defined in: [src/v4/extensions/presale.ts:363](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L363)
 
 Get presale information
 
@@ -9796,7 +9796,7 @@ Presale data
 function getPresaleBuys(data): Promise<bigint>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:417](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L417)
+Defined in: [src/v4/extensions/presale.ts:422](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L422)
 
 Get the amount of ETH a user has contributed to a presale
 
@@ -9823,7 +9823,7 @@ Amount of ETH contributed
 function getPresaleClaimed(data): Promise<bigint>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:451](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L451)
+Defined in: [src/v4/extensions/presale.ts:456](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L456)
 
 Get the amount of tokens a user has claimed from a presale
 
@@ -9888,7 +9888,7 @@ function getPresaleState(data): Promise<readonly [number, {
 }, `0x${string}`, `0x${string}`, bigint, bigint, bigint, `0x${string}`, bigint, bigint, boolean, boolean, bigint, bigint, bigint, bigint, bigint]>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:387](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L387)
+Defined in: [src/v4/extensions/presale.ts:392](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L392)
 
 Get presale state (same as getPresale but different function name in contract)
 
@@ -10657,11 +10657,11 @@ Transaction configuration
 
 ***
 
-### getStartPresaleTransaction()
+### ~~getStartPresaleTransaction()~~
 
 [View full generated declaration (1,619 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f597ceba4b39d35242755caeb8b91725db5d8a827188240c1eb1e4b3bcc1d9ad.txt)
 
-Defined in: [src/v4/extensions/presale.ts:60](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L60)
+Defined in: [src/v4/extensions/presale.ts:63](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L63)
 
 Get a transaction to start a presale
 
@@ -10674,18 +10674,18 @@ Get a transaction to start a presale
 | `deploymentConfig.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
 | `deploymentConfig.presaleConfig.allowlistInitializationData?` | `` `0x${string}` `` | Allowlist initialization data (0x for no allowlist) |
 | `deploymentConfig.presaleConfig.lockupDuration?` | `number` | Lockup duration for tokens after presale ends (in seconds). Minimum 7 days (604800). |
-| `deploymentConfig.presaleConfig.maxEthGoal` | `number` | Maximum ETH goal for the presale |
-| `deploymentConfig.presaleConfig.minEthGoal` | `number` | Minimum ETH goal for the presale to be successful |
-| `deploymentConfig.presaleConfig.presaleDuration` | `number` | Duration of the presale in seconds |
+| `deploymentConfig.presaleConfig.maxEthGoal?` | `number` | Maximum ETH goal for the presale |
+| `deploymentConfig.presaleConfig.minEthGoal?` | `number` | Minimum ETH goal for the presale to be successful |
+| `deploymentConfig.presaleConfig.presaleDuration?` | `number` | Duration of the presale in seconds |
 | `deploymentConfig.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
-| `deploymentConfig.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
+| `deploymentConfig.presaleConfig.recipient?` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `deploymentConfig.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
 | `deploymentConfig.tokenConfig` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f5a0587f996f6c02255e424e06554895e48f63dbcee4f50620ac17c7813ef83f.txt) | - |
 | `deploymentConfig.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `deploymentConfig.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `deploymentConfig.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `deploymentConfig.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `deploymentConfig.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `deploymentConfig.tokenConfig.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `deploymentConfig.tokenConfig.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `deploymentConfig.tokenConfig.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `deploymentConfig.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `deploymentConfig.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `deploymentConfig.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
@@ -10695,47 +10695,47 @@ Get a transaction to start a presale
 | `deploymentConfig.tokenConfig.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `deploymentConfig.tokenConfig.devBuy?` | \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
 | `deploymentConfig.tokenConfig.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `deploymentConfig.tokenConfig.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
+| `deploymentConfig.tokenConfig.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
 | `deploymentConfig.tokenConfig.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.fee` | `number` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.tickSpacing` | `number` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.fee?` | `number` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `deploymentConfig.tokenConfig.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
 | `deploymentConfig.tokenConfig.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \} | Fee structure for the token. |
 | `deploymentConfig.tokenConfig.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
 | `deploymentConfig.tokenConfig.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \} | Token locker |
-| `deploymentConfig.tokenConfig.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `deploymentConfig.tokenConfig.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
 | `deploymentConfig.tokenConfig.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `deploymentConfig.tokenConfig.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `deploymentConfig.tokenConfig.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `deploymentConfig.tokenConfig.metadata.description?` | `string` | Description of the token or token project. |
 | `deploymentConfig.tokenConfig.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `deploymentConfig.tokenConfig.name` | `string` | Name of the token. Example: "My Token". |
+| `deploymentConfig.tokenConfig.name?` | `string` | Name of the token. Example: "My Token". |
 | `deploymentConfig.tokenConfig.pool?` | \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \} | Pool information |
 | `deploymentConfig.tokenConfig.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `deploymentConfig.tokenConfig.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `deploymentConfig.tokenConfig.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
 | `deploymentConfig.tokenConfig.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
 | `deploymentConfig.tokenConfig.pool.tickSpacing?` | `number` | Tick spacing. |
 | `deploymentConfig.tokenConfig.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `deploymentConfig.tokenConfig.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `deploymentConfig.tokenConfig.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `deploymentConfig.tokenConfig.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `deploymentConfig.tokenConfig.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `deploymentConfig.tokenConfig.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `deploymentConfig.tokenConfig.presale.bps` | `number` | Bps for allocation to presale |
+| `deploymentConfig.tokenConfig.presale.bps?` | `number` | Bps for allocation to presale |
 | `deploymentConfig.tokenConfig.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `deploymentConfig.tokenConfig.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `deploymentConfig.tokenConfig.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `deploymentConfig.tokenConfig.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
 | `deploymentConfig.tokenConfig.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `deploymentConfig.tokenConfig.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `deploymentConfig.tokenConfig.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `deploymentConfig.tokenConfig.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `deploymentConfig.tokenConfig.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `deploymentConfig.tokenConfig.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `deploymentConfig.tokenConfig.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `deploymentConfig.tokenConfig.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `deploymentConfig.tokenConfig.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `deploymentConfig.tokenConfig.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `deploymentConfig.tokenConfig.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
 | `deploymentConfig.tokenConfig.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `deploymentConfig.tokenConfig.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `deploymentConfig.tokenConfig.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `deploymentConfig.tokenConfig.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `deploymentConfig.tokenConfig.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `deploymentConfig.tokenConfig.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `deploymentConfig.tokenConfig.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `deploymentConfig.tokenConfig.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 
@@ -12363,13 +12363,18 @@ Get a transaction to start a presale
 
 Transaction configuration for starting a presale
 
+#### Deprecated
+
+clanker-sdk 5 does not start new presales, so this function throws. Existing
+presales keep working with the other presale functions.
+
 ***
 
 ### getWithdrawFromPresaleTransaction()
 
 [View full generated declaration (1,727 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/621c89fcf751ea8499b59d198503df162cb5e9dd12eefd800ff50a9cb382f51c.txt)
 
-Defined in: [src/v4/extensions/presale.ts:520](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L520)
+Defined in: [src/v4/extensions/presale.ts:525](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L525)
 
 Get a transaction to withdraw from a presale
 
@@ -14282,7 +14287,7 @@ Outcome of the transaction
 
 ***
 
-### startPresale()
+### ~~startPresale()~~
 
 ```ts
 function startPresale(data): Promise<
@@ -14298,7 +14303,7 @@ function startPresale(data): Promise<
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:104](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L104)
+Defined in: [src/v4/extensions/presale.ts:109](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L109)
 
 Start a presale
 
@@ -14312,18 +14317,18 @@ Start a presale
 | `data.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
 | `data.presaleConfig.allowlistInitializationData?` | `` `0x${string}` `` | Allowlist initialization data (0x for no allowlist) |
 | `data.presaleConfig.lockupDuration?` | `number` | Lockup duration for tokens after presale ends (in seconds). Minimum 7 days (604800). |
-| `data.presaleConfig.maxEthGoal` | `number` | Maximum ETH goal for the presale |
-| `data.presaleConfig.minEthGoal` | `number` | Minimum ETH goal for the presale to be successful |
-| `data.presaleConfig.presaleDuration` | `number` | Duration of the presale in seconds |
+| `data.presaleConfig.maxEthGoal?` | `number` | Maximum ETH goal for the presale |
+| `data.presaleConfig.minEthGoal?` | `number` | Minimum ETH goal for the presale to be successful |
+| `data.presaleConfig.presaleDuration?` | `number` | Duration of the presale in seconds |
 | `data.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
-| `data.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
+| `data.presaleConfig.recipient?` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `data.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
 | `data.tokenConfig` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f5a0587f996f6c02255e424e06554895e48f63dbcee4f50620ac17c7813ef83f.txt) | - |
 | `data.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `data.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `data.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `data.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `data.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `data.tokenConfig.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `data.tokenConfig.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `data.tokenConfig.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `data.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `data.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `data.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
@@ -14333,47 +14338,47 @@ Start a presale
 | `data.tokenConfig.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `data.tokenConfig.devBuy?` | \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
 | `data.tokenConfig.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `data.tokenConfig.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
+| `data.tokenConfig.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
 | `data.tokenConfig.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `data.tokenConfig.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.fee` | `number` | - |
-| `data.tokenConfig.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.tickSpacing` | `number` | - |
+| `data.tokenConfig.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.fee?` | `number` | - |
+| `data.tokenConfig.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `data.tokenConfig.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
 | `data.tokenConfig.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \} | Fee structure for the token. |
 | `data.tokenConfig.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
 | `data.tokenConfig.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \} | Token locker |
-| `data.tokenConfig.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `data.tokenConfig.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
 | `data.tokenConfig.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `data.tokenConfig.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `data.tokenConfig.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `data.tokenConfig.metadata.description?` | `string` | Description of the token or token project. |
 | `data.tokenConfig.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `data.tokenConfig.name` | `string` | Name of the token. Example: "My Token". |
+| `data.tokenConfig.name?` | `string` | Name of the token. Example: "My Token". |
 | `data.tokenConfig.pool?` | \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \} | Pool information |
 | `data.tokenConfig.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `data.tokenConfig.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `data.tokenConfig.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
 | `data.tokenConfig.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
 | `data.tokenConfig.pool.tickSpacing?` | `number` | Tick spacing. |
 | `data.tokenConfig.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `data.tokenConfig.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `data.tokenConfig.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `data.tokenConfig.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `data.tokenConfig.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `data.tokenConfig.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `data.tokenConfig.presale.bps` | `number` | Bps for allocation to presale |
+| `data.tokenConfig.presale.bps?` | `number` | Bps for allocation to presale |
 | `data.tokenConfig.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `data.tokenConfig.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `data.tokenConfig.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `data.tokenConfig.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
 | `data.tokenConfig.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `data.tokenConfig.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `data.tokenConfig.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `data.tokenConfig.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `data.tokenConfig.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `data.tokenConfig.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `data.tokenConfig.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `data.tokenConfig.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `data.tokenConfig.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `data.tokenConfig.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `data.tokenConfig.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
 | `data.tokenConfig.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `data.tokenConfig.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `data.tokenConfig.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `data.tokenConfig.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `data.tokenConfig.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `data.tokenConfig.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `data.tokenConfig.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `data.tokenConfig.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 
@@ -14393,6 +14398,10 @@ Start a presale
 
 Outcome of the transaction
 
+#### Deprecated
+
+clanker-sdk 5 does not start new presales, so this function throws.
+
 ***
 
 ### withdrawFromPresale()
@@ -14403,7 +14412,7 @@ function withdrawFromPresale(data): ClankerResult<{
 }>;
 ```
 
-Defined in: [src/v4/extensions/presale.ts:554](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L554)
+Defined in: [src/v4/extensions/presale.ts:559](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/extensions/presale.ts#L559)
 
 Withdraw ETH from an active presale
 
