@@ -30,7 +30,7 @@ Returns a Farcaster user profile by verified wallet address.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `address` | `address` | Yes | — | Verified wallet address (0x…). |
+| `address` | `address` | Yes | — | Ethereum address. |
 
 **Response:** Neynar User object.
 

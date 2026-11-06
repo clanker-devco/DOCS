@@ -59,7 +59,9 @@ Returns the allowlist for a presale.
 
 ### POST `/api/presales/allowlists`
 
-Saves a presale allowlist Merkle tree.
+> **Deprecated**: Presales are closed. The route answers 410 and saves nothing.
+
+Saved a presale allowlist Merkle tree. Closed.
 
 **Authentication:** Public
 
@@ -72,10 +74,10 @@ Saves a presale allowlist Merkle tree.
 | `merkleRoot` | `string` | Yes | — | Hex-encoded Merkle root. |
 | `tree` | `object` | Yes | — | MerkleTreeDump object ({ format, leafEncoding, tree, values }). |
 
-**Response:** Success confirmation.
+**Response:** Always HTTP 410.
 
 ```json
-{ "success": true }
+{ "error": "Presales are closed. Allowlists cannot change." }
 ```
 
 ---
