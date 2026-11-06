@@ -26,9 +26,9 @@ Clanker v4
 Constructors
 </h4>
 
-<h5 id="constructor">
-Constructor
-</h5>
+<a id="constructor"></a>
+
+##### Constructor
 
 ```ts
 new Clanker(config?): Clanker;
@@ -36,17 +36,17 @@ new Clanker(config?): Clanker;
 
 Defined in: [src/v4/index.ts:35](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L35)
 
-<h6 id="parameters">
-Parameters
-</h6>
+<a id="parameters"></a>
+
+###### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `config?` | `ClankerConfig` |
 
-<h6 id="returns">
-Returns
-</h6>
+<a id="returns"></a>
+
+###### Returns
 
 [`Clanker`](#clanker)
 
@@ -63,9 +63,9 @@ Properties
 Methods
 </h4>
 
-<h5 id="availablerewards">
-availableRewards()
-</h5>
+<a id="availablerewards"></a>
+
+##### availableRewards()
 
 ```ts
 availableRewards(token): Promise<bigint>;
@@ -75,9 +75,9 @@ Defined in: [src/v4/index.ts:152](https://github.com/clanker-devco/clanker-sdk/b
 
 Check available rewards for a token and recipient.
 
-<h6 id="parameters-1">
-Parameters
-</h6>
+<a id="parameters-1"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -85,17 +85,17 @@ Parameters
 | `token.rewardRecipient` | `` `0x${string}` `` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-1">
-Returns
-</h6>
+<a id="returns-1"></a>
+
+###### Returns
 
 `Promise`\<`bigint`\>
 
 Amount of rewards for the `token` and `rewardRecipient`
 
-<h5 id="claimrewards">
-claimRewards()
-</h5>
+<a id="claimrewards"></a>
+
+##### claimRewards()
 
 ```ts
 claimRewards(token): Promise<
@@ -113,9 +113,9 @@ Defined in: [src/v4/index.ts:98](https://github.com/clanker-devco/clanker-sdk/bl
 
 Claim rewards for a clanker token.
 
-<h6 id="parameters-2">
-Parameters
-</h6>
+<a id="parameters-2"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -123,9 +123,9 @@ Parameters
 | `token.rewardRecipient` | `` `0x${string}` `` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-2">
-Returns
-</h6>
+<a id="returns-2"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -139,9 +139,9 @@ Returns
 
 Transaction hash of the claim or error
 
-<h5 id="claimrewardssimulate">
-claimRewardsSimulate()
-</h5>
+<a id="claimrewardssimulate"></a>
+
+##### claimRewardsSimulate()
 
 [View full generated declaration (593 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/ada917a1362016063d4b2eae3cb6871f395699365ee926cbf64f2cda96f3e970.txt)
 
@@ -150,9 +150,9 @@ Defined in: [src/v4/index.ts:75](https://github.com/clanker-devco/clanker-sdk/bl
 Simulate claiming rewards. Will use the wallet account on the Clanker class or
 the passed-in account.
 
-<h6 id="parameters-3">
-Parameters
-</h6>
+<a id="parameters-3"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -161,9 +161,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling claiming for |
 
-<h6 id="returns-3">
-Returns
-</h6>
+<a id="returns-3"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<readonly \[\{
@@ -761,9 +761,9 @@ Returns
 
 The simulated output
 
-<h5 id="claimvaultedtokens">
-claimVaultedTokens()
-</h5>
+<a id="claimvaultedtokens"></a>
+
+##### claimVaultedTokens()
 
 ```ts
 claimVaultedTokens(token): Promise<
@@ -783,18 +783,18 @@ Defined in: [src/v4/index.ts:492](https://github.com/clanker-devco/clanker-sdk/b
 
 Claim vaulted tokens for a clanker token.
 
-<h6 id="parameters-4">
-Parameters
-</h6>
+<a id="parameters-4"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `token` | \{ `token`: `` `0x${string}` ``; \} | Token to claim vaulted tokens for |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-4">
-Returns
-</h6>
+<a id="returns-4"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -810,9 +810,9 @@ Returns
 
 Transaction hash of the claim or error
 
-<h5 id="deploy">
-~~deploy()~~
-</h5>
+<a id="deploy"></a>
+
+##### ~~deploy()~~
 
 ```ts
 deploy(token, options?): Promise<
@@ -838,9 +838,9 @@ Defined in: [src/v4/index.ts:215](https://github.com/clanker-devco/clanker-sdk/b
 
 Deploy a token
 
-<h6 id="parameters-5">
-Parameters
-</h6>
+<a id="parameters-5"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -904,9 +904,9 @@ Parameters
 | `token.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `options?` | [`DeployTokenOptions`](/sdk-reference/core-utilities#deploytokenoptions) | Optional deployment options |
 
-<h6 id="returns-5">
-Returns
-</h6>
+<a id="returns-5"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -928,16 +928,16 @@ Returns
 
 Transaction hash and awaitable function for full deployment
 
-<h6 id="deprecated">
-Deprecated
-</h6>
+<a id="deprecated"></a>
+
+###### Deprecated
 
 clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
 `clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
 
-<h5 id="deploysimulate">
-~~deploySimulate()~~
-</h5>
+<a id="deploysimulate"></a>
+
+##### ~~deploySimulate()~~
 
 ```ts
 deploySimulate(token, account?): Promise<
@@ -987,9 +987,9 @@ Defined in: [src/v4/index.ts:194](https://github.com/clanker-devco/clanker-sdk/b
 
 Simulate a token deployment
 
-<h6 id="parameters-6">
-Parameters
-</h6>
+<a id="parameters-6"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -1053,9 +1053,9 @@ Parameters
 | `token.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `account?` | `Account` | Optional account for the deployer |
 
-<h6 id="returns-6">
-Returns
-</h6>
+<a id="returns-6"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<`ClankerFactory`, 
@@ -1101,16 +1101,16 @@ Returns
 
 Abi transaction
 
-<h6 id="deprecated-1">
-Deprecated
-</h6>
+<a id="deprecated-1"></a>
+
+###### Deprecated
 
 clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
 `clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
 
-<h5 id="getavailablerewardstransaction">
-getAvailableRewardsTransaction()
-</h5>
+<a id="getavailablerewardstransaction"></a>
+
+##### getAvailableRewardsTransaction()
 
 [View full generated declaration (294 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/5510b481cb39ada4963e1ea810178b91a08102901c0e3ba960141cd2775f759c.txt)
 
@@ -1118,9 +1118,9 @@ Defined in: [src/v4/index.ts:125](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for checking rewards on a token.
 
-<h6 id="parameters-7">
-Parameters
-</h6>
+<a id="parameters-7"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -1130,9 +1130,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | - |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-7">
-Returns
-</h6>
+<a id="returns-7"></a>
+
+###### Returns
 
 `Promise`\<\{
   `abi`: readonly \[\{
@@ -1431,9 +1431,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getclaimrewardstransaction">
-getClaimRewardsTransaction()
-</h5>
+<a id="getclaimrewardstransaction"></a>
+
+##### getClaimRewardsTransaction()
 
 [View full generated declaration (289 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/ccff050fbbd0a4feab28a6c9f94fa7b73f6318657070e34cfc63852502b8a7f9.txt)
 
@@ -1441,9 +1441,9 @@ Defined in: [src/v4/index.ts:47](https://github.com/clanker-devco/clanker-sdk/bl
 
 Get an abi-typed transaction for claiming rewards on a token.
 
-<h6 id="parameters-8">
-Parameters
-</h6>
+<a id="parameters-8"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -1453,9 +1453,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | - |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-8">
-Returns
-</h6>
+<a id="returns-8"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -1749,9 +1749,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getdeploytransaction">
-~~getDeployTransaction()~~
-</h5>
+<a id="getdeploytransaction"></a>
+
+##### ~~getDeployTransaction()~~
 
 [View full generated declaration (820 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/4e40aea66468e76911e9fe9bdc8096023a6150d6af9cfae320caba1b92d23a30.txt)
 
@@ -1759,9 +1759,9 @@ Defined in: [src/v4/index.ts:179](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for deploying a clanker.
 
-<h6 id="parameters-9">
-Parameters
-</h6>
+<a id="parameters-9"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -1824,9 +1824,9 @@ Parameters
 | `token.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `token.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 
-<h6 id="returns-9">
-Returns
-</h6>
+<a id="returns-9"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -2651,16 +2651,16 @@ Returns
 
 Abi transaction
 
-<h6 id="deprecated-2">
-Deprecated
-</h6>
+<a id="deprecated-2"></a>
+
+###### Deprecated
 
 clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
 `clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
 
-<h5 id="gettokenrewards">
-getTokenRewards()
-</h5>
+<a id="gettokenrewards"></a>
+
+##### getTokenRewards()
 
 ```ts
 getTokenRewards(token): Promise<{
@@ -2694,18 +2694,18 @@ The returned object contains:
 - rewardAdmins: Array of admin addresses (index = rewardIndex)
 - rewardRecipients: Array of recipient addresses (index = rewardIndex)
 
-<h6 id="parameters-10">
-Parameters
-</h6>
+<a id="parameters-10"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `token` | \{ `token`: `` `0x${string}` ``; \} | The token address to get rewards info for |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-10">
-Returns
-</h6>
+<a id="returns-10"></a>
+
+###### Returns
 
 `Promise`\<\{
   `numPositions`: `bigint`;
@@ -2725,9 +2725,9 @@ Returns
 
 Token rewards information including rewardAdmins and rewardRecipients arrays
 
-<h5 id="gettokenrewardstransaction">
-getTokenRewardsTransaction()
-</h5>
+<a id="gettokenrewardstransaction"></a>
+
+##### getTokenRewardsTransaction()
 
 [View full generated declaration (842 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/6f80702bee3aa33fc40f63600adea5db1be44a84e1ee3275662abbbd5682d3d0.txt)
 
@@ -2735,9 +2735,9 @@ Defined in: [src/v4/index.ts:719](https://github.com/clanker-devco/clanker-sdk/b
 
 Get the transaction config for reading token rewards information from the locker contract.
 
-<h6 id="parameters-11">
-Parameters
-</h6>
+<a id="parameters-11"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -2746,9 +2746,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-11">
-Returns
-</h6>
+<a id="returns-11"></a>
+
+###### Returns
 
 `Promise`\<\{
   `abi`: readonly \[\{
@@ -3595,9 +3595,9 @@ Returns
 
 Abi transaction config for reading token rewards
 
-<h5 id="getupdateimagetransaction">
-getUpdateImageTransaction()
-</h5>
+<a id="getupdateimagetransaction"></a>
+
+##### getUpdateImageTransaction()
 
 [View full generated declaration (979 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/2cb913cedf802539be44c8eebb50b3a715a0eb8504e56188673dba4c586fc9ab.txt)
 
@@ -3605,9 +3605,9 @@ Defined in: [src/v4/index.ts:574](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for updating the token image.
 
-<h6 id="parameters-12">
-Parameters
-</h6>
+<a id="parameters-12"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -3617,9 +3617,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-12">
-Returns
-</h6>
+<a id="returns-12"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -4603,9 +4603,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getupdatemetadatatransaction">
-getUpdateMetadataTransaction()
-</h5>
+<a id="getupdatemetadatatransaction"></a>
+
+##### getUpdateMetadataTransaction()
 
 [View full generated declaration (979 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/a561f5b59d5813f8590967244097f1ac1388fabc8350b33d0e5bffe267bfac29.txt)
 
@@ -4613,9 +4613,9 @@ Defined in: [src/v4/index.ts:601](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for updating the token metadata.
 
-<h6 id="parameters-13">
-Parameters
-</h6>
+<a id="parameters-13"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -4625,9 +4625,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-13">
-Returns
-</h6>
+<a id="returns-13"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -5611,9 +5611,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getupdaterewardadmintransaction">
-getUpdateRewardAdminTransaction()
-</h5>
+<a id="getupdaterewardadmintransaction"></a>
+
+##### getUpdateRewardAdminTransaction()
 
 [View full generated declaration (837 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/257175f3d708bc27f324549461b72a7ec692e16548d30ed058b9176e6b44cb60.txt)
 
@@ -5621,9 +5621,9 @@ Defined in: [src/v4/index.ts:269](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for updating the reward admin.
 
-<h6 id="parameters-14">
-Parameters
-</h6>
+<a id="parameters-14"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -5634,9 +5634,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-14">
-Returns
-</h6>
+<a id="returns-14"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -6478,9 +6478,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getupdaterewardrecipienttransaction">
-getUpdateRewardRecipientTransaction()
-</h5>
+<a id="getupdaterewardrecipienttransaction"></a>
+
+##### getUpdateRewardRecipientTransaction()
 
 [View full generated declaration (837 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/6c6689c81853d454aad794f426f2624ead9cc503af4f2eefc75d8cc666b9f619.txt)
 
@@ -6488,9 +6488,9 @@ Defined in: [src/v4/index.ts:233](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for updating the reward recipient.
 
-<h6 id="parameters-15">
-Parameters
-</h6>
+<a id="parameters-15"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -6501,9 +6501,9 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-15">
-Returns
-</h6>
+<a id="returns-15"></a>
+
+###### Returns
 
 `Promise`\<`ClankerTransactionConfig`\<readonly \[\{
   `inputs`: readonly \[\{
@@ -7345,9 +7345,9 @@ Returns
 
 Abi transaction
 
-<h5 id="getvaultclaimableamount">
-getVaultClaimableAmount()
-</h5>
+<a id="getvaultclaimableamount"></a>
+
+##### getVaultClaimableAmount()
 
 ```ts
 getVaultClaimableAmount(token): Promise<bigint>;
@@ -7357,26 +7357,26 @@ Defined in: [src/v4/index.ts:505](https://github.com/clanker-devco/clanker-sdk/b
 
 Get the amount of vaulted tokens available to claim.
 
-<h6 id="parameters-16">
-Parameters
-</h6>
+<a id="parameters-16"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `token` | \{ `token`: `` `0x${string}` ``; \} | Token to check claimable vault amount for |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-16">
-Returns
-</h6>
+<a id="returns-16"></a>
+
+###### Returns
 
 `Promise`\<`bigint`\>
 
 Amount of tokens available to claim
 
-<h5 id="getvaultclaimtransaction">
-getVaultClaimTransaction()
-</h5>
+<a id="getvaultclaimtransaction"></a>
+
+##### getVaultClaimTransaction()
 
 ```ts
 getVaultClaimTransaction(token, options?): Promise<any>;
@@ -7386,9 +7386,9 @@ Defined in: [src/v4/index.ts:467](https://github.com/clanker-devco/clanker-sdk/b
 
 Get an abi-typed transaction for claiming vaulted tokens.
 
-<h6 id="parameters-17">
-Parameters
-</h6>
+<a id="parameters-17"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -7397,17 +7397,17 @@ Parameters
 | `options?` | \{ `chain?`: `Chain`; \} | - |
 | `options.chain?` | `Chain` | - |
 
-<h6 id="returns-17">
-Returns
-</h6>
+<a id="returns-17"></a>
+
+###### Returns
 
 `Promise`\<`any`\>
 
 Abi transaction
 
-<h5 id="updateimage">
-updateImage()
-</h5>
+<a id="updateimage"></a>
+
+##### updateImage()
 
 ```ts
 updateImage(token): Promise<
@@ -7425,9 +7425,9 @@ Defined in: [src/v4/index.ts:671](https://github.com/clanker-devco/clanker-sdk/b
 
 Update the token image.
 
-<h6 id="parameters-18">
-Parameters
-</h6>
+<a id="parameters-18"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -7435,9 +7435,9 @@ Parameters
 | `token.newImage` | `string` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-18">
-Returns
-</h6>
+<a id="returns-18"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -7451,9 +7451,9 @@ Returns
 
 Transaction hash of the update or error
 
-<h5 id="updateimagesimulate">
-updateImageSimulate()
-</h5>
+<a id="updateimagesimulate"></a>
+
+##### updateImageSimulate()
 
 [View full generated declaration (1,991 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/c4d8636d1e940d80e3c425a5b691fe29a0c7ce470ed4fe3c888167967f159af1.txt)
 
@@ -7462,9 +7462,9 @@ Defined in: [src/v4/index.ts:629](https://github.com/clanker-devco/clanker-sdk/b
 Simulate updating the token image. Will use the wallet account on the Clanker class or
 the passed-in account.
 
-<h6 id="parameters-19">
-Parameters
-</h6>
+<a id="parameters-19"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -7473,9 +7473,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-19">
-Returns
-</h6>
+<a id="returns-19"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<readonly \[\{
@@ -9471,9 +9471,9 @@ Returns
 
 The simulated output
 
-<h5 id="updatemetadata">
-updateMetadata()
-</h5>
+<a id="updatemetadata"></a>
+
+##### updateMetadata()
 
 ```ts
 updateMetadata(token): Promise<
@@ -9491,9 +9491,9 @@ Defined in: [src/v4/index.ts:695](https://github.com/clanker-devco/clanker-sdk/b
 
 Update the token metadata.
 
-<h6 id="parameters-20">
-Parameters
-</h6>
+<a id="parameters-20"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -9501,9 +9501,9 @@ Parameters
 | `token.metadata` | `string` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-20">
-Returns
-</h6>
+<a id="returns-20"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -9517,9 +9517,9 @@ Returns
 
 Transaction hash of the update or error
 
-<h5 id="updatemetadatasimulate">
-updateMetadataSimulate()
-</h5>
+<a id="updatemetadatasimulate"></a>
+
+##### updateMetadataSimulate()
 
 [View full generated declaration (1,991 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/de3a4f4995549fa7f76610695353047f795278b455102167b6a1424e96f56a9e.txt)
 
@@ -9528,9 +9528,9 @@ Defined in: [src/v4/index.ts:651](https://github.com/clanker-devco/clanker-sdk/b
 Simulate updating the token metadata. Will use the wallet account on the Clanker class or
 the passed-in account.
 
-<h6 id="parameters-21">
-Parameters
-</h6>
+<a id="parameters-21"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -9539,9 +9539,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-21">
-Returns
-</h6>
+<a id="returns-21"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<readonly \[\{
@@ -11537,9 +11537,9 @@ Returns
 
 The simulated output
 
-<h5 id="updaterewardadmin">
-updateRewardAdmin()
-</h5>
+<a id="updaterewardadmin"></a>
+
+##### updateRewardAdmin()
 
 ```ts
 updateRewardAdmin(token): Promise<
@@ -11557,9 +11557,9 @@ Defined in: [src/v4/index.ts:429](https://github.com/clanker-devco/clanker-sdk/b
 
 Update the reward admin for a token.
 
-<h6 id="parameters-22">
-Parameters
-</h6>
+<a id="parameters-22"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -11568,9 +11568,9 @@ Parameters
 | `token.rewardIndex` | `bigint` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-22">
-Returns
-</h6>
+<a id="returns-22"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -11584,9 +11584,9 @@ Returns
 
 Transaction hash of the update or error
 
-<h5 id="updaterewardadminsimulate">
-updateRewardAdminSimulate()
-</h5>
+<a id="updaterewardadminsimulate"></a>
+
+##### updateRewardAdminSimulate()
 
 [View full generated declaration (1,661 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/56991d7dbca6a953a9f84db901e28a764f936667a9378c842e495a0e9a47cf88.txt)
 
@@ -11595,9 +11595,9 @@ Defined in: [src/v4/index.ts:349](https://github.com/clanker-devco/clanker-sdk/b
 Simulate updating the reward admin. Will use the wallet account on the Clanker class or
 the passed-in account.
 
-<h6 id="parameters-23">
-Parameters
-</h6>
+<a id="parameters-23"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -11607,9 +11607,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-23">
-Returns
-</h6>
+<a id="returns-23"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<readonly \[\{
@@ -13275,9 +13275,9 @@ Returns
 
 The simulated output
 
-<h5 id="updaterewardrecipient">
-updateRewardRecipient()
-</h5>
+<a id="updaterewardrecipient"></a>
+
+##### updateRewardRecipient()
 
 ```ts
 updateRewardRecipient(token): Promise<
@@ -13295,9 +13295,9 @@ Defined in: [src/v4/index.ts:390](https://github.com/clanker-devco/clanker-sdk/b
 
 Update the reward recipient for a token.
 
-<h6 id="parameters-24">
-Parameters
-</h6>
+<a id="parameters-24"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -13306,9 +13306,9 @@ Parameters
 | `token.rewardIndex` | `bigint` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-24">
-Returns
-</h6>
+<a id="returns-24"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -13322,9 +13322,9 @@ Returns
 
 Transaction hash of the update or error
 
-<h5 id="updaterewardrecipientsimulate">
-updateRewardRecipientSimulate()
-</h5>
+<a id="updaterewardrecipientsimulate"></a>
+
+##### updateRewardRecipientSimulate()
 
 [View full generated declaration (1,661 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/67b76ecc494e4fb69702e0342cf8b8847d54aab8f3f9d2199d9ba7a8d3286c91.txt)
 
@@ -13333,9 +13333,9 @@ Defined in: [src/v4/index.ts:306](https://github.com/clanker-devco/clanker-sdk/b
 Simulate updating the reward recipient. Will use the wallet account on the Clanker class or
 the passed-in account.
 
-<h6 id="parameters-25">
-Parameters
-</h6>
+<a id="parameters-25"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -13345,9 +13345,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-25">
-Returns
-</h6>
+<a id="returns-25"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<readonly \[\{
@@ -15013,9 +15013,9 @@ Returns
 
 The simulated output
 
-<h5 id="getvaultclaimtransactionobject">
-getVaultClaimTransactionObject()
-</h5>
+<a id="getvaultclaimtransactionobject"></a>
+
+##### getVaultClaimTransactionObject()
 
 [View full generated declaration (412 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/8b856fa9c2cc7772e703c96e65fdbbc68d32dfa61b7c92ee53401f16afbeb524.txt)
 
@@ -15023,9 +15023,9 @@ Defined in: [src/v4/index.ts:545](https://github.com/clanker-devco/clanker-sdk/b
 
 Get the transaction object for claiming vaulted tokens (for offline signing or inspection).
 
-<h6 id="parameters-26">
-Parameters
-</h6>
+<a id="parameters-26"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -15034,9 +15034,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `token.vaultAddress?` | `` `0x${string}` `` | - |
 
-<h6 id="returns-26">
-Returns
-</h6>
+<a id="returns-26"></a>
+
+###### Returns
 
 [View full generated declaration (412 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/0bd20f0033d21571403c37ea64f8344ae38a2ee3334e6805898e196cabcec786.txt)
 

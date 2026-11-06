@@ -43,9 +43,9 @@ await clanker.claimLegacyCreatorFees({
 Constructors
 </h4>
 
-<h5 id="constructor">
-Constructor
-</h5>
+<a id="constructor"></a>
+
+##### Constructor
 
 ```ts
 new LegacyCreatorFees(config?): LegacyCreatorFees;
@@ -53,17 +53,17 @@ new LegacyCreatorFees(config?): LegacyCreatorFees;
 
 Defined in: [src/legacyFeeClaims/claimCreatorFees.ts:150](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/claimCreatorFees.ts#L150)
 
-<h6 id="parameters">
-Parameters
-</h6>
+<a id="parameters"></a>
+
+###### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `config?` | `LegacyFeeClaimsConfig` |
 
-<h6 id="returns">
-Returns
-</h6>
+<a id="returns"></a>
+
+###### Returns
 
 [`LegacyCreatorFees`](#legacycreatorfees)
 
@@ -80,9 +80,9 @@ Properties
 Methods
 </h4>
 
-<h5 id="claimlegacycreatorfees">
-claimLegacyCreatorFees()
-</h5>
+<a id="claimlegacycreatorfees"></a>
+
+##### claimLegacyCreatorFees()
 
 ```ts
 claimLegacyCreatorFees(input): Promise<
@@ -100,17 +100,17 @@ Defined in: [src/legacyFeeClaims/claimCreatorFees.ts:229](https://github.com/cla
 
 Claim legacy creator fees.
 
-<h6 id="parameters-1">
-Parameters
-</h6>
+<a id="parameters-1"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `input` | [`ClaimLegacyCreatorFeesInput`](#claimlegacycreatorfeesinput) | Token address, version, and locker params (for v0/v1) |
 
-<h6 id="returns-1">
-Returns
-</h6>
+<a id="returns-1"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -124,9 +124,9 @@ Returns
 
 Transaction hash or error
 
-<h5 id="claimlegacycreatorfeessimulate">
-claimLegacyCreatorFeesSimulate()
-</h5>
+<a id="claimlegacycreatorfeessimulate"></a>
+
+##### claimLegacyCreatorFeesSimulate()
 
 ```ts
 claimLegacyCreatorFeesSimulate(input, account?): Promise<
@@ -140,18 +140,18 @@ Defined in: [src/legacyFeeClaims/claimCreatorFees.ts:205](https://github.com/cla
 
 Simulate claiming legacy creator fees.
 
-<h6 id="parameters-2">
-Parameters
-</h6>
+<a id="parameters-2"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `input` | [`ClaimLegacyCreatorFeesInput`](#claimlegacycreatorfeesinput) | Token address, version, and locker params (for v0/v1) |
 | `account?` | `Account` | Optional account to simulate from |
 
-<h6 id="returns-2">
-Returns
-</h6>
+<a id="returns-2"></a>
+
+###### Returns
 
 `Promise`\<
   \| `SimulateContractReturnType`\<`Abi` \| readonly `unknown`[], `string`, readonly `unknown`[], `Chain` \| `undefined`, `undefined`, `undefined`, `undefined`, readonly \[`never`\], `undefined`\>
@@ -161,9 +161,9 @@ Returns
 
 Simulation result or error
 
-<h5 id="getclaimlegacycreatorfeestransaction">
-getClaimLegacyCreatorFeesTransaction()
-</h5>
+<a id="getclaimlegacycreatorfeestransaction"></a>
+
+##### getClaimLegacyCreatorFeesTransaction()
 
 ```ts
 getClaimLegacyCreatorFeesTransaction(input): LegacyClaimTransactionConfig;
@@ -173,25 +173,25 @@ Defined in: [src/legacyFeeClaims/claimCreatorFees.ts:170](https://github.com/cla
 
 Get a transaction config for claiming legacy creator fees.
 
-<h6 id="parameters-3">
-Parameters
-</h6>
+<a id="parameters-3"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `input` | [`ClaimLegacyCreatorFeesInput`](#claimlegacycreatorfeesinput) | Token address, version, and locker params (for v0/v1) |
 
-<h6 id="returns-3">
-Returns
-</h6>
+<a id="returns-3"></a>
+
+###### Returns
 
 [`LegacyClaimTransactionConfig`](#legacyclaimtransactionconfig)
 
 Transaction config
 
-<h5 id="getmetalockerclaimtransaction">
-getMetaLockerClaimTransaction()
-</h5>
+<a id="getmetalockerclaimtransaction"></a>
+
+##### getMetaLockerClaimTransaction()
 
 ```ts
 getMetaLockerClaimTransaction(locker, positionId): LegacyClaimTransactionConfig;
@@ -201,18 +201,18 @@ Defined in: [src/legacyFeeClaims/claimCreatorFees.ts:184](https://github.com/cla
 
 Get a transaction config for claiming via meta-locker (some v0 tokens).
 
-<h6 id="parameters-4">
-Parameters
-</h6>
+<a id="parameters-4"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `locker` | `` `0x${string}` `` | The locker contract address |
 | `positionId` | `bigint` | The Uniswap V3 position NFT ID |
 
-<h6 id="returns-4">
-Returns
-</h6>
+<a id="returns-4"></a>
+
+###### Returns
 
 [`LegacyClaimTransactionConfig`](#legacyclaimtransactionconfig)
 
@@ -240,9 +240,9 @@ Creators have three main actions:
 Constructors
 </h4>
 
-<h5 id="constructor-1">
-Constructor
-</h5>
+<a id="constructor-1"></a>
+
+##### Constructor
 
 ```ts
 new LegacyFeeClaims(config?): LegacyFeeClaims;
@@ -250,17 +250,17 @@ new LegacyFeeClaims(config?): LegacyFeeClaims;
 
 Defined in: [src/legacyFeeClaims/index.ts:268](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L268)
 
-<h6 id="parameters-5">
-Parameters
-</h6>
+<a id="parameters-5"></a>
+
+###### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `config?` | `LegacyFeeClaimsConfig` |
 
-<h6 id="returns-5">
-Returns
-</h6>
+<a id="returns-5"></a>
+
+###### Returns
 
 [`LegacyFeeClaims`](#legacyfeeclaims)
 
@@ -277,9 +277,9 @@ Properties
 Methods
 </h4>
 
-<h5 id="getclaimlegacyfeestransaction">
-getClaimLegacyFeesTransaction()
-</h5>
+<a id="getclaimlegacyfeestransaction"></a>
+
+##### getClaimLegacyFeesTransaction()
 
 ```ts
 getClaimLegacyFeesTransaction(args): Promise<LegacyClaimTx>;
@@ -289,25 +289,25 @@ Defined in: [src/legacyFeeClaims/index.ts:285](https://github.com/clanker-devco/
 
 Build a Base-only transaction for claiming legacy fees (v0-v3.1).
 
-<h6 id="parameters-6">
-Parameters
-</h6>
+<a id="parameters-6"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `args` | [`LegacyClaimArgs`](#legacyclaimargs) | Claim arguments |
 
-<h6 id="returns-6">
-Returns
-</h6>
+<a id="returns-6"></a>
+
+###### Returns
 
 `Promise`\<[`LegacyClaimTx`](#legacyclaimtx)\>
 
 Transaction object with &#123; kind, to, data, value? &#125;
 
-<h5 id="getinitializetokencreatortransaction">
-getInitializeTokenCreatorTransaction()
-</h5>
+<a id="getinitializetokencreatortransaction"></a>
+
+##### getInitializeTokenCreatorTransaction()
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/b093e85bc2b7ca4e43238a507162f65a97a27774a69b984520c2ea27b59cb742.txt)
 
@@ -319,9 +319,9 @@ This must be called once per token by the original creator to claim ownership
 of the token's fees. During this call, the creator can optionally set a different
 admin key to manage the token's rewards.
 
-<h6 id="parameters-7">
-Parameters
-</h6>
+<a id="parameters-7"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -330,9 +330,9 @@ Parameters
 | `token.proof` | `` `0x${string}` ``[] | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-7">
-Returns
-</h6>
+<a id="returns-7"></a>
+
+###### Returns
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/463cb23279dc7e3eb9c5edda54138edf3debd6f040191de2c22574684bfb9219.txt)
 
@@ -345,9 +345,9 @@ Abi transaction config
 | `args` | readonly \[`` `0x${string}` ``, `` `0x${string}` ``, `` `0x${string}` ``[]\] | - | [src/legacyFeeClaims/index.ts:497](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L497) |
 | `functionName` | `"initializeTokenCreator"` | - | [src/legacyFeeClaims/index.ts:496](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L496) |
 
-<h5 id="getlegacyclaimablefees">
-getLegacyClaimableFees()
-</h5>
+<a id="getlegacyclaimablefees"></a>
+
+##### getLegacyClaimableFees()
 
 ```ts
 getLegacyClaimableFees(opts): Promise<LegacyClaimableFees>;
@@ -357,9 +357,9 @@ Defined in: [src/legacyFeeClaims/index.ts:425](https://github.com/clanker-devco/
 
 Estimate claimable Uniswap v3 LP fees for a legacy position on Base.
 
-<h6 id="parameters-8">
-Parameters
-</h6>
+<a id="parameters-8"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -367,17 +367,17 @@ Parameters
 | `opts.chainId` | `number` | - |
 | `opts.positionId` | `bigint` | - |
 
-<h6 id="returns-8">
-Returns
-</h6>
+<a id="returns-8"></a>
+
+###### Returns
 
 `Promise`\<[`LegacyClaimableFees`](#legacyclaimablefees)\>
 
 Claimable fees with position owner, token0, token1, amount0, amount1
 
-<h5 id="gettokencreator">
-getTokenCreator()
-</h5>
+<a id="gettokencreator"></a>
+
+##### getTokenCreator()
 
 ```ts
 getTokenCreator(token): Promise<`0x${string}`>;
@@ -390,26 +390,26 @@ Get the stored creator address for a token.
 Returns the address that is authorized to claim fees for this token.
 Returns zero address if the token creator has not been initialized yet.
 
-<h6 id="parameters-9">
-Parameters
-</h6>
+<a id="parameters-9"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `token` | \{ `token`: `` `0x${string}` ``; \} | The token address to check |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-9">
-Returns
-</h6>
+<a id="returns-9"></a>
+
+###### Returns
 
 `Promise`\<`` `0x${string}` ``\>
 
 The creator address for the token
 
-<h5 id="gettokencreatorroot">
-getTokenCreatorRoot()
-</h5>
+<a id="gettokencreatorroot"></a>
+
+##### getTokenCreatorRoot()
 
 ```ts
 getTokenCreatorRoot(): Promise<`0x${string}`>;
@@ -421,17 +421,17 @@ Get the current Merkle root used for verifying token creator proofs.
 
 This is used internally by the contract to verify initialization proofs.
 
-<h6 id="returns-10">
-Returns
-</h6>
+<a id="returns-10"></a>
+
+###### Returns
 
 `Promise`\<`` `0x${string}` ``\>
 
 The current token creator Merkle root
 
-<h5 id="gettokencreatortransfertransaction">
-getTokenCreatorTransferTransaction()
-</h5>
+<a id="gettokencreatortransfertransaction"></a>
+
+##### getTokenCreatorTransferTransaction()
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/e3e06279daab4efed5214a5a3aac05928a83270ad9894feaa7219127633c8a78.txt)
 
@@ -443,9 +443,9 @@ This allows the authorized creator to transfer all accumulated fees from the
 Safe wallet to any recipient address. Only callable by the authorized creator
 for the specified token.
 
-<h6 id="parameters-10">
-Parameters
-</h6>
+<a id="parameters-10"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -454,9 +454,9 @@ Parameters
 | `safe.safe` | `` `0x${string}` `` | - |
 | `safe.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-11">
-Returns
-</h6>
+<a id="returns-11"></a>
+
+###### Returns
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/58088a4829790c79b2a742e51772c19f624a284e32d027bfe156b80c9518d1ae.txt)
 
@@ -469,9 +469,9 @@ Abi transaction config
 | `args` | readonly \[`` `0x${string}` ``, `` `0x${string}` ``, `` `0x${string}` ``\] | - | [src/legacyFeeClaims/index.ts:701](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L701) |
 | `functionName` | `"tokenCreatorTransfer"` | - | [src/legacyFeeClaims/index.ts:700](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L700) |
 
-<h5 id="getupdatetokencreatortransaction">
-getUpdateTokenCreatorTransaction()
-</h5>
+<a id="getupdatetokencreatortransaction"></a>
+
+##### getUpdateTokenCreatorTransaction()
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/1fbc964c4f3eddedb38cd7b70e2b5af952b5ffec7c33f97e1ac5cfe4e08cf9f8.txt)
 
@@ -482,9 +482,9 @@ Get an abi-typed transaction for updating the token creator admin address.
 This allows the current creator to change the address that can trigger claims.
 Only callable by the current creator address for the specified token.
 
-<h6 id="parameters-11">
-Parameters
-</h6>
+<a id="parameters-11"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -492,9 +492,9 @@ Parameters
 | `token.newCreator` | `` `0x${string}` `` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-12">
-Returns
-</h6>
+<a id="returns-12"></a>
+
+###### Returns
 
 [View full generated declaration (402 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/708093a4b6241501545a36788ed801fde9b71d345e7b14e8518baf9fe29f4e2f.txt)
 
@@ -507,9 +507,9 @@ Abi transaction config
 | `args` | readonly \[`` `0x${string}` ``, `` `0x${string}` ``\] | - | [src/legacyFeeClaims/index.ts:601](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L601) |
 | `functionName` | `"updateTokenCreator"` | - | [src/legacyFeeClaims/index.ts:600](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/index.ts#L600) |
 
-<h5 id="initializetokencreator">
-initializeTokenCreator()
-</h5>
+<a id="initializetokencreator"></a>
+
+##### initializeTokenCreator()
 
 ```ts
 initializeTokenCreator(token): Promise<
@@ -531,9 +531,9 @@ This must be called once per token by the original creator. The proof must be
 obtained from the Clanker team or frontend. During initialization, you can
 optionally set a different admin address to manage future claims.
 
-<h6 id="parameters-12">
-Parameters
-</h6>
+<a id="parameters-12"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -542,9 +542,9 @@ Parameters
 | `token.proof` | `` `0x${string}` ``[] | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-13">
-Returns
-</h6>
+<a id="returns-13"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -558,9 +558,9 @@ Returns
 
 Transaction hash or error
 
-<h5 id="initializetokencreatorsimulate">
-initializeTokenCreatorSimulate()
-</h5>
+<a id="initializetokencreatorsimulate"></a>
+
+##### initializeTokenCreatorSimulate()
 
 ```ts
 initializeTokenCreatorSimulate(token, account?): Promise<any>;
@@ -570,9 +570,9 @@ Defined in: [src/legacyFeeClaims/index.ts:510](https://github.com/clanker-devco/
 
 Simulate initializing token creator ownership.
 
-<h6 id="parameters-13">
-Parameters
-</h6>
+<a id="parameters-13"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -582,17 +582,17 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-14">
-Returns
-</h6>
+<a id="returns-14"></a>
+
+###### Returns
 
 `Promise`\<`any`\>
 
 The simulated output
 
-<h5 id="tokencreatortransfer">
-tokenCreatorTransfer()
-</h5>
+<a id="tokencreatortransfer"></a>
+
+##### tokenCreatorTransfer()
 
 ```ts
 tokenCreatorTransfer(safe): Promise<
@@ -616,9 +616,9 @@ Only callable by the authorized creator address for the token.
 Note: Not all Clanker tokens can be sent to the zero address. If you get an error,
 consider sending to 0x000000000000000000000000000000000000dEaD instead.
 
-<h6 id="parameters-14">
-Parameters
-</h6>
+<a id="parameters-14"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -627,9 +627,9 @@ Parameters
 | `safe.safe` | `` `0x${string}` `` | - |
 | `safe.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-15">
-Returns
-</h6>
+<a id="returns-15"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -643,9 +643,9 @@ Returns
 
 Transaction hash or error
 
-<h5 id="tokencreatortransfersimulate">
-tokenCreatorTransferSimulate()
-</h5>
+<a id="tokencreatortransfersimulate"></a>
+
+##### tokenCreatorTransferSimulate()
 
 ```ts
 tokenCreatorTransferSimulate(safe, account?): Promise<any>;
@@ -655,9 +655,9 @@ Defined in: [src/legacyFeeClaims/index.ts:714](https://github.com/clanker-devco/
 
 Simulate claiming token creator fees.
 
-<h6 id="parameters-15">
-Parameters
-</h6>
+<a id="parameters-15"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -667,17 +667,17 @@ Parameters
 | `safe.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-16">
-Returns
-</h6>
+<a id="returns-16"></a>
+
+###### Returns
 
 `Promise`\<`any`\>
 
 The simulated output
 
-<h5 id="updatetokencreator">
-updateTokenCreator()
-</h5>
+<a id="updatetokencreator"></a>
+
+##### updateTokenCreator()
 
 ```ts
 updateTokenCreator(token): Promise<
@@ -698,9 +698,9 @@ Update the token creator admin address.
 This allows you to change which address can trigger fee claims for your token.
 Only callable by the current creator address.
 
-<h6 id="parameters-16">
-Parameters
-</h6>
+<a id="parameters-16"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -708,9 +708,9 @@ Parameters
 | `token.newCreator` | `` `0x${string}` `` | - |
 | `token.token` | `` `0x${string}` `` | - |
 
-<h6 id="returns-17">
-Returns
-</h6>
+<a id="returns-17"></a>
+
+###### Returns
 
 `Promise`\<
   \| \{
@@ -724,9 +724,9 @@ Returns
 
 Transaction hash or error
 
-<h5 id="updatetokencreatorsimulate">
-updateTokenCreatorSimulate()
-</h5>
+<a id="updatetokencreatorsimulate"></a>
+
+##### updateTokenCreatorSimulate()
 
 ```ts
 updateTokenCreatorSimulate(token, account?): Promise<any>;
@@ -736,9 +736,9 @@ Defined in: [src/legacyFeeClaims/index.ts:613](https://github.com/clanker-devco/
 
 Simulate updating the token creator admin address.
 
-<h6 id="parameters-17">
-Parameters
-</h6>
+<a id="parameters-17"></a>
+
+###### Parameters
 
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
@@ -747,9 +747,9 @@ Parameters
 | `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
-<h6 id="returns-18">
-Returns
-</h6>
+<a id="returns-18"></a>
+
+###### Returns
 
 `Promise`\<`any`\>
 
@@ -831,9 +831,9 @@ For v0/v1: Additional `lockerParams` are required.
 Union Members
 </h4>
 
-<h5 id="type-literal">
-Type Literal
-</h5>
+<a id="type-literal"></a>
+
+##### Type Literal
 
 ```ts
 {
@@ -849,9 +849,9 @@ Type Literal
 
 ***
 
-<h5 id="type-literal-1">
-Type Literal
-</h5>
+<a id="type-literal-1"></a>
+
+##### Type Literal
 
 ```ts
 {
