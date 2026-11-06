@@ -175,6 +175,24 @@ test('SDK duplicate headings preserve TypeDoc fragment links', async () => {
   await validatePage(output, 'SDK anchors');
 });
 
+test('SDK method headings below level 4 stay Markdown with their anchors', async () => {
+  const output = convertMarkdown(
+    '# SDK\n\n#### Methods\n\n##### deploy()\n\n###### Parameters\n\nA table.\n\n##### ~~deploySimulate()~~\n\n###### Parameters\n\n[Deploy](#deploy)',
+    {
+      source: 'sdk-reference/v4.md',
+      title: 'SDK',
+      pages,
+    },
+  );
+  assert.ok(output.includes('<h4 id="methods">'));
+  assert.ok(output.includes('<a id="deploy"></a>\n\n##### deploy()'));
+  assert.ok(output.includes('<a id="parameters"></a>\n\n###### Parameters'));
+  assert.ok(output.includes('<a id="deploysimulate"></a>\n\n##### ~~deploySimulate()~~'));
+  assert.ok(output.includes('<a id="parameters-1"></a>\n\n###### Parameters'));
+  assert.ok(!/<h[56]\b/.test(output));
+  await validatePage(output, 'SDK method anchors');
+});
+
 test('a page can set a shorter sidebar title', () => {
   const output = convertMarkdown('# API Deployments\n\nBody', {
     source: 'general/token-deployments/v5-deployments.md',
