@@ -8,7 +8,7 @@ You can launch a token from [clanker.world](https://www.clanker.world), by taggi
 
 Clanker v5 is the current version of Clanker, live on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
 
-You can launch a v5 token on clanker.world or through the API. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md) and [API Deployments](general/token-deployments/v5-deployments.md). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
+You can launch a v5 token on clanker.world, through the API or with the SDK. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md), [API Deployments](general/token-deployments/v5-deployments.md) and the [SDK v5 reference](https://www.clanker.world/docs/sdk-reference/v5). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
 
 ## Tokens
 
@@ -46,16 +46,17 @@ The Clanker REST API is available at `https://www.clanker.world/api`.
 
 ## SDK Reference
 
-The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for deploying and managing Clanker tokens on-chain. It covers v4 tokens today, and v5 support is coming soon. To launch a v5 token now, use clanker.world or the API (see [API Deployments](general/token-deployments/v5-deployments.md)).
+The [clanker-sdk](https://www.npmjs.com/package/clanker-sdk) is a TypeScript library for launching and managing Clanker tokens on-chain. It launches v5 tokens, and its v3 and v4 clients manage existing tokens. To launch without code, use clanker.world or the API (see [API Deployments](general/token-deployments/v5-deployments.md)).
 
 ```bash
-npm install clanker-sdk
+npm install clanker-sdk viem
 ```
 
+- [V5](https://www.clanker.world/docs/sdk-reference/v5): launch v5 tokens, claim rewards and update metadata.
 - [Core Utilities](sdk-reference/index.md): types, constants, vanity addresses and Merkle tree helpers.
-- [V4 Clanker Class](sdk-reference/v4.md): deploy tokens, claim rewards and update metadata.
-- [V3 Clanker Class](sdk-reference/v3.md): v3 token deployment and management.
-- [V4 Extensions](sdk-reference/v4/extensions.md): airdrops, presales and allowlist management.
+- [V4 Clanker Class](sdk-reference/v4.md): manage existing v4 tokens, claim rewards and update metadata.
+- [V3 Clanker Class](sdk-reference/v3.md): manage existing v3 tokens.
+- [V4 Extensions](sdk-reference/v4/extensions.md): airdrops, existing presales and allowlist management.
 - [Legacy Fee Claims](sdk-reference/legacyFeeClaims.md): fee claims for v0 to v3.1 tokens.
 
 ## References

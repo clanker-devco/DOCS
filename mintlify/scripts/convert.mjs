@@ -289,6 +289,14 @@ export function convertMarkdown(
       });
     });
     for (const heading of headings.reverse()) {
+      // Mintlify drops raw <h5> and <h6> elements, so these keep Markdown and get an anchor.
+      if (heading.depth > 4) {
+        text =
+          text.slice(0, heading.start) +
+          `<a id="${attribute(heading.id)}"></a>\n\n` +
+          text.slice(heading.start);
+        continue;
+      }
       const label = text.slice(heading.start, heading.end).replace(/^#+\s*/, '');
       text =
         text.slice(0, heading.start) +

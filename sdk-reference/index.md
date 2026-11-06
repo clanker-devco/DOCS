@@ -111,7 +111,7 @@ Defined in: [src/utils/clankers.ts:75](https://github.com/clanker-devco/clanker-
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `T` *extends* `RelatedAddresses` | `RelatedAddresses` |
+| <a id="type-parameter-t"></a> `T` *extends* `RelatedAddresses` | `RelatedAddresses` |
 
 #### Properties
 
@@ -665,22 +665,22 @@ Defined in: [src/utils/chains/robinhood.ts:4](https://github.com/clanker-devco/c
 
 | Name | Type | Default value | Description | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-blockexplorers"></a> `blockExplorers` | \{ `default`: \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \}; \} | - | Collection of block explorers | node\_modules/viem/\_types/types/chain.d.ts:14 |
+| <a id="property-blockexplorers"></a> `blockExplorers` | \{ `default`: \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \}; \} | - | Collection of block explorers | node\_modules/viem/\_types/types/chain.d.ts:15 |
 | `blockExplorers.default` | \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \} | - | - | [src/utils/chains/robinhood.ts:19](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L19) |
 | `blockExplorers.default.name` | `"Robinhood Chain Blockscout Explorer"` | `'Robinhood Chain Blockscout Explorer'` | - | [src/utils/chains/robinhood.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L20) |
 | `blockExplorers.default.url` | `"https://robinhoodchain.blockscout.com"` | `'https://robinhoodchain.blockscout.com'` | - | [src/utils/chains/robinhood.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L21) |
-| <a id="property-blocktime"></a> `blockTime` | `100` | - | Block time in milliseconds. | node\_modules/viem/\_types/types/chain.d.ts:19 |
-| <a id="property-contracts"></a> `contracts` | \{ \} | - | Collection of contracts | node\_modules/viem/\_types/types/chain.d.ts:21 |
-| <a id="property-id"></a> `id` | `4663` | - | ID in number form | node\_modules/viem/\_types/types/chain.d.ts:34 |
-| <a id="property-name"></a> `name` | `"Robinhood Chain"` | - | Human-readable name | node\_modules/viem/\_types/types/chain.d.ts:36 |
-| <a id="property-nativecurrency"></a> `nativeCurrency` | \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \} | - | Currency used by chain | node\_modules/viem/\_types/types/chain.d.ts:38 |
+| <a id="property-blocktime"></a> `blockTime` | `100` | - | Block time in milliseconds. | node\_modules/viem/\_types/types/chain.d.ts:20 |
+| <a id="property-contracts"></a> `contracts` | \{ \} | - | Collection of contracts | node\_modules/viem/\_types/types/chain.d.ts:22 |
+| <a id="property-id"></a> `id` | `4663` | - | ID in number form | node\_modules/viem/\_types/types/chain.d.ts:35 |
+| <a id="property-name"></a> `name` | `"Robinhood Chain"` | - | Human-readable name | node\_modules/viem/\_types/types/chain.d.ts:37 |
+| <a id="property-nativecurrency"></a> `nativeCurrency` | \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \} | - | Currency used by chain | node\_modules/viem/\_types/types/chain.d.ts:39 |
 | `nativeCurrency.decimals` | `18` | `18` | - | [src/utils/chains/robinhood.ts:11](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L11) |
 | `nativeCurrency.name` | `"Ether"` | `'Ether'` | - | [src/utils/chains/robinhood.ts:9](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L9) |
 | `nativeCurrency.symbol` | `"ETH"` | `'ETH'` | - | [src/utils/chains/robinhood.ts:10](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L10) |
-| <a id="property-rpcurls"></a> `rpcUrls` | \{ `default`: \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \}; \} | - | Collection of RPC endpoints | node\_modules/viem/\_types/types/chain.d.ts:42 |
+| <a id="property-rpcurls"></a> `rpcUrls` | \{ `default`: \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \}; \} | - | Collection of RPC endpoints | node\_modules/viem/\_types/types/chain.d.ts:43 |
 | `rpcUrls.default` | \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \} | - | - | [src/utils/chains/robinhood.ts:14](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L14) |
 | `rpcUrls.default.http` | readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\] | - | - | [src/utils/chains/robinhood.ts:15](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L15) |
-| <a id="property-testnet"></a> `testnet` | `false` | - | Flag for test networks | node\_modules/viem/\_types/types/chain.d.ts:49 |
+| <a id="property-testnet"></a> `testnet` | `false` | - | Flag for test networks | node\_modules/viem/\_types/types/chain.d.ts:52 |
 
 ***
 
@@ -744,7 +744,7 @@ Get a specific clanker deployment.
 
 | Type Parameter | Default type |
 | ------ | ------ |
-| `T` *extends* [`ClankerDeployment`](#clankerdeployment)\<`RelatedAddresses`\> | [`ClankerDeployment`](#clankerdeployment)\<`RelatedAddresses`\> |
+| <a id="type-parameter-t-1"></a> `T` *extends* [`ClankerDeployment`](#clankerdeployment)\<`RelatedAddresses`\> | [`ClankerDeployment`](#clankerdeployment)\<`RelatedAddresses`\> |
 
 #### Parameters
 
@@ -853,7 +853,8 @@ Defined in: [src/utils/merkleTree.ts:20](https://github.com/clanker-devco/clanke
 function encodeAirdropData(
    merkleRoot, 
    lockupDuration, 
-   vestingDuration): `0x${string}`;
+   vestingDuration
+): `0x${string}`;
 ```
 
 Defined in: [src/utils/merkleTree.ts:58](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/merkleTree.ts#L58)
@@ -944,7 +945,8 @@ function findVanityAddress(
    args, 
    admin, 
    suffix?, 
-   options?): Promise<{
+   options?
+): Promise<{
   salt: `0x${string}`;
   token: `0x${string}`;
 }>;
@@ -958,7 +960,7 @@ Defined in: [src/services/vanityAddress.ts:21](https://github.com/clanker-devco/
 | ------ | ------ | ------ |
 | `args` | readonly \[`string`, `string`, `bigint`, `` `0x${string}` ``, `string`, `string`, `string`, `bigint`\] | `undefined` |
 | `admin` | `` `0x${string}` `` | `undefined` |
-| `suffix` | `` `0x${string}` `` | `'0x4b07'` |
+| `suffix?` | `` `0x${string}` `` | `'0x4b07'` |
 | `options?` | \{ `chainId?`: `number`; \} | `undefined` |
 | `options.chainId?` | `number` | `undefined` |
 
@@ -978,7 +980,8 @@ function findVanityAddressV4(
    args, 
    admin, 
    suffix?, 
-   config): Promise<{
+   config
+): Promise<{
   salt: `0x${string}`;
   token: `0x${string}`;
 }>;
@@ -992,7 +995,7 @@ Defined in: [src/services/vanityAddress.ts:64](https://github.com/clanker-devco/
 | ------ | ------ | ------ |
 | `args` | readonly \[`string`, `string`, `bigint`, `` `0x${string}` ``, `string`, `string`, `string`, `bigint`\] | `undefined` |
 | `admin` | `` `0x${string}` `` | `undefined` |
-| `suffix` | `` `0x${string}` `` | `'0x4b07'` |
+| `suffix?` | `` `0x${string}` `` | `'0x4b07'` |
 | `config` | [`ClankerDeployment`](#clankerdeployment) | `undefined` |
 
 #### Returns
@@ -1012,7 +1015,8 @@ function getAllowedAmountForBuyer(
    presaleId, 
    buyer, 
    proof, 
-chainId): Promise<bigint>;
+   chainId
+): Promise<bigint>;
 ```
 
 Defined in: [src/utils/presale-allowlist.ts:213](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/presale-allowlist.ts#L213)
@@ -1067,7 +1071,8 @@ The allowlist contract address, or undefined if not available on this chain
 function getAllowlistInfo(
    publicClient, 
    presaleId, 
-   chainId): Promise<{
+   chainId
+): Promise<{
   enabled: boolean;
   merkleRoot: `0x${string}`;
   presaleOwner: `0x${string}`;
@@ -1105,7 +1110,8 @@ function getAllowlistMerkleProof(
    tree, 
    entries, 
    address, 
-   allowedAmount): `0x${string}`[];
+   allowedAmount
+): `0x${string}`[];
 ```
 
 Defined in: [src/utils/presale-allowlist.ts:83](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/presale-allowlist.ts#L83)
@@ -1143,7 +1149,8 @@ function getMerkleProof(
    tree, 
    entries, 
    account, 
-   amount): `0x${string}`[];
+   amount
+): `0x${string}`[];
 ```
 
 Defined in: [src/utils/merkleTree.ts:40](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/merkleTree.ts#L40)
@@ -1209,7 +1216,8 @@ Tick information for the pool
 function getTickFromMarketCapStable(
    marketCap, 
    stableDecimals, 
-   tickSpacing?): number;
+   tickSpacing?
+): number;
 ```
 
 Defined in: [src/utils/market-cap.ts:53](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/market-cap.ts#L53)
@@ -1223,7 +1231,7 @@ an arbitrary number of decimals.
 | ------ | ------ | ------ | ------ |
 | `marketCap` | `number` | `undefined` | Desired market cap in USD terms (e.g., 10_000 for $10k) |
 | `stableDecimals` | `number` | `undefined` | Decimals of the paired stablecoin (6 for USDC, 18 for BSC-USDT) |
-| `tickSpacing` | `number` | `200` | Tick spacing (must be multiple of this, default 200) |
+| `tickSpacing?` | `number` | `200` | Tick spacing (must be multiple of this, default 200) |
 
 #### Returns
 
@@ -1253,7 +1261,7 @@ Calculate the tick for a desired market cap in USDC (6 decimals)
 | Parameter | Type | Default value | Description |
 | ------ | ------ | ------ | ------ |
 | `marketCapUSDC` | `number` | `undefined` | Desired market cap in USDC (e.g., 10 for $10) |
-| `tickSpacing` | `number` | `200` | Tick spacing (must be multiple of this, default 200) |
+| `tickSpacing?` | `number` | `200` | Tick spacing (must be multiple of this, default 200) |
 
 #### Returns
 
@@ -1276,7 +1284,8 @@ function predictTokenAddressV4(
    args, 
    config, 
    salt, 
-   tokenAdmin): `0x${string}`;
+   tokenAdmin
+): `0x${string}`;
 ```
 
 Defined in: [src/services/vanityAddress.ts:102](https://github.com/clanker-devco/clanker-sdk/blob/main/src/services/vanityAddress.ts#L102)
@@ -1312,7 +1321,8 @@ function verifyBuyerAllowance(
    buyer, 
    desiredAmount, 
    proof, 
-   chainId): Promise<{
+   chainId
+): Promise<{
   allowedAmountEth: number;
   allowedAmountWei: bigint;
   isAllowed: boolean;
