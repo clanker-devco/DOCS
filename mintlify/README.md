@@ -13,7 +13,7 @@ npm run prepare
 npm run dev
 ```
 
-Open http://localhost:3001. No product environment variables, database, wallet or Docker setup is needed. `npm run prepare` turns on the git hooks: staged scripts and config are formatted on commit, and `npm run check` runs before each push.
+Open http://localhost:3001. No product environment variables, database, wallet or Docker setup is needed. `npm run prepare` turns on the git hook that formats staged scripts and config on commit. Pushing runs no local checks; CI runs them on the PR, so run `npm run check` yourself when you want an answer first.
 
 Local search asks for a Mintlify CLI login. Larger generated SDK pages can take longer on their first render; check hosted performance before release.
 
