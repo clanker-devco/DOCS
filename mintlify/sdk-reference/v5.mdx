@@ -118,11 +118,8 @@ v5 does not accept v4 `fee`, `fees`, `salt`, `vault`, `airdrop`, `presale`, `sni
 | Robinhood Chain | 4663     | ETH, USDG    | ETH or USDG   |
 | X Layer         | 196      | OKB, USDC    | OKB or USDC   |
 | Arc             | 5042     | USDC         | USDC          |
-| Ethereum        | 1        | ETH, USDC    | Not available |
-| Arbitrum        | 42161    | ETH, USDC    | Not available |
-| Unichain        | 130      | ETH, USDC    | Not available |
 
-Launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Ethereum, Arbitrum and Unichain have v5 contracts, but their launches are turned off, so a launch there returns `Launches are not open on chain <id>.` The SDK reads this from the factory, so these chains work without an SDK update once they open. On Arc, the native coin is USDC.
+Launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Clanker no longer supports new launches on Ethereum, Arbitrum and Unichain. Their factories have launches turned off, so a launch there returns `Launches are not open on chain <id>.` On Arc, the native coin is USDC.
 
 ## Manage a token
 
