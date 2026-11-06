@@ -18,7 +18,7 @@ Classes
 Clanker
 </h3>
 
-Defined in: [src/v4/index.ts:30](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L30)
+Defined in: [src/v4/index.ts:31](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L31)
 
 Clanker v4
 
@@ -34,7 +34,7 @@ Constructor
 new Clanker(config?): Clanker;
 ```
 
-Defined in: [src/v4/index.ts:34](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L34)
+Defined in: [src/v4/index.ts:35](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L35)
 
 <h6 id="parameters">
 Parameters
@@ -56,8 +56,8 @@ Properties
 
 | Property | Modifier | Type | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="publicclient"></a> `publicClient?` | `readonly` | \{ \} | [src/v4/index.ts:32](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L32) |
-| <a id="wallet"></a> `wallet?` | `readonly` | \{ \} | [src/v4/index.ts:31](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L31) |
+| <a id="publicclient"></a> `publicClient?` | `readonly` | \{ \} | [src/v4/index.ts:33](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L33) |
+| <a id="wallet"></a> `wallet?` | `readonly` | \{ \} | [src/v4/index.ts:32](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L32) |
 
 <h4 id="methods">
 Methods
@@ -71,7 +71,7 @@ availableRewards()
 availableRewards(token): Promise<bigint>;
 ```
 
-Defined in: [src/v4/index.ts:151](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L151)
+Defined in: [src/v4/index.ts:152](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L152)
 
 Check available rewards for a token and recipient.
 
@@ -109,7 +109,7 @@ claimRewards(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:97](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L97)
+Defined in: [src/v4/index.ts:98](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L98)
 
 Claim rewards for a clanker token.
 
@@ -145,7 +145,7 @@ claimRewardsSimulate()
 
 [View full generated declaration (593 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/ada917a1362016063d4b2eae3cb6871f395699365ee926cbf64f2cda96f3e970.txt)
 
-Defined in: [src/v4/index.ts:74](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L74)
+Defined in: [src/v4/index.ts:75](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L75)
 
 Simulate claiming rewards. Will use the wallet account on the Clanker class or
 the passed-in account.
@@ -779,7 +779,7 @@ claimVaultedTokens(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:481](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L481)
+Defined in: [src/v4/index.ts:492](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L492)
 
 Claim vaulted tokens for a clanker token.
 
@@ -811,7 +811,7 @@ Returns
 Transaction hash of the claim or error
 
 <h5 id="deploy">
-deploy()
+~~deploy()~~
 </h5>
 
 ```ts
@@ -834,7 +834,7 @@ deploy(token, options?): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:204](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L204)
+Defined in: [src/v4/index.ts:215](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L215)
 
 Deploy a token
 
@@ -928,8 +928,15 @@ Returns
 
 Transaction hash and awaitable function for full deployment
 
+<h6 id="deprecated">
+Deprecated
+</h6>
+
+clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
+`clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
+
 <h5 id="deploysimulate">
-deploySimulate()
+~~deploySimulate()~~
 </h5>
 
 ```ts
@@ -976,7 +983,7 @@ deploySimulate(token, account?): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:186](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L186)
+Defined in: [src/v4/index.ts:194](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L194)
 
 Simulate a token deployment
 
@@ -1094,13 +1101,20 @@ Returns
 
 Abi transaction
 
+<h6 id="deprecated-1">
+Deprecated
+</h6>
+
+clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
+`clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
+
 <h5 id="getavailablerewardstransaction">
 getAvailableRewardsTransaction()
 </h5>
 
 [View full generated declaration (294 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/5510b481cb39ada4963e1ea810178b91a08102901c0e3ba960141cd2775f759c.txt)
 
-Defined in: [src/v4/index.ts:124](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L124)
+Defined in: [src/v4/index.ts:125](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L125)
 
 Get an abi-typed transaction for checking rewards on a token.
 
@@ -1423,7 +1437,7 @@ getClaimRewardsTransaction()
 
 [View full generated declaration (289 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/ccff050fbbd0a4feab28a6c9f94fa7b73f6318657070e34cfc63852502b8a7f9.txt)
 
-Defined in: [src/v4/index.ts:46](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L46)
+Defined in: [src/v4/index.ts:47](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L47)
 
 Get an abi-typed transaction for claiming rewards on a token.
 
@@ -1736,12 +1750,12 @@ Returns
 Abi transaction
 
 <h5 id="getdeploytransaction">
-getDeployTransaction()
+~~getDeployTransaction()~~
 </h5>
 
 [View full generated declaration (820 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/4e40aea66468e76911e9fe9bdc8096023a6150d6af9cfae320caba1b92d23a30.txt)
 
-Defined in: [src/v4/index.ts:175](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L175)
+Defined in: [src/v4/index.ts:179](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L179)
 
 Get an abi-typed transaction for deploying a clanker.
 
@@ -2637,6 +2651,13 @@ Returns
 
 Abi transaction
 
+<h6 id="deprecated-2">
+Deprecated
+</h6>
+
+clanker-sdk 5 launches V5 tokens only, so this method throws. Use `Clanker` from
+`clanker-sdk/v5` for new launches. This client still manages existing V4 tokens.
+
 <h5 id="gettokenrewards">
 getTokenRewards()
 </h5>
@@ -2659,7 +2680,7 @@ getTokenRewards(token): Promise<{
 }>;
 ```
 
-Defined in: [src/v4/index.ts:743](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L743)
+Defined in: [src/v4/index.ts:754](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L754)
 
 Get the token rewards information from the locker contract.
 This is useful for obtaining the rewardIndex needed for updateRewardRecipient and updateRewardAdmin.
@@ -2710,7 +2731,7 @@ getTokenRewardsTransaction()
 
 [View full generated declaration (842 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/6f80702bee3aa33fc40f63600adea5db1be44a84e1ee3275662abbbd5682d3d0.txt)
 
-Defined in: [src/v4/index.ts:708](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L708)
+Defined in: [src/v4/index.ts:719](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L719)
 
 Get the transaction config for reading token rewards information from the locker contract.
 
@@ -3580,7 +3601,7 @@ getUpdateImageTransaction()
 
 [View full generated declaration (979 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/2cb913cedf802539be44c8eebb50b3a715a0eb8504e56188673dba4c586fc9ab.txt)
 
-Defined in: [src/v4/index.ts:563](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L563)
+Defined in: [src/v4/index.ts:574](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L574)
 
 Get an abi-typed transaction for updating the token image.
 
@@ -4588,7 +4609,7 @@ getUpdateMetadataTransaction()
 
 [View full generated declaration (979 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/a561f5b59d5813f8590967244097f1ac1388fabc8350b33d0e5bffe267bfac29.txt)
 
-Defined in: [src/v4/index.ts:590](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L590)
+Defined in: [src/v4/index.ts:601](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L601)
 
 Get an abi-typed transaction for updating the token metadata.
 
@@ -5596,7 +5617,7 @@ getUpdateRewardAdminTransaction()
 
 [View full generated declaration (837 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/257175f3d708bc27f324549461b72a7ec692e16548d30ed058b9176e6b44cb60.txt)
 
-Defined in: [src/v4/index.ts:258](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L258)
+Defined in: [src/v4/index.ts:269](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L269)
 
 Get an abi-typed transaction for updating the reward admin.
 
@@ -6463,7 +6484,7 @@ getUpdateRewardRecipientTransaction()
 
 [View full generated declaration (837 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/6c6689c81853d454aad794f426f2624ead9cc503af4f2eefc75d8cc666b9f619.txt)
 
-Defined in: [src/v4/index.ts:222](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L222)
+Defined in: [src/v4/index.ts:233](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L233)
 
 Get an abi-typed transaction for updating the reward recipient.
 
@@ -7332,7 +7353,7 @@ getVaultClaimableAmount()
 getVaultClaimableAmount(token): Promise<bigint>;
 ```
 
-Defined in: [src/v4/index.ts:494](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L494)
+Defined in: [src/v4/index.ts:505](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L505)
 
 Get the amount of vaulted tokens available to claim.
 
@@ -7361,7 +7382,7 @@ getVaultClaimTransaction()
 getVaultClaimTransaction(token, options?): Promise<any>;
 ```
 
-Defined in: [src/v4/index.ts:456](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L456)
+Defined in: [src/v4/index.ts:467](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L467)
 
 Get an abi-typed transaction for claiming vaulted tokens.
 
@@ -7400,7 +7421,7 @@ updateImage(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:660](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L660)
+Defined in: [src/v4/index.ts:671](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L671)
 
 Update the token image.
 
@@ -7436,7 +7457,7 @@ updateImageSimulate()
 
 [View full generated declaration (1,991 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/c4d8636d1e940d80e3c425a5b691fe29a0c7ce470ed4fe3c888167967f159af1.txt)
 
-Defined in: [src/v4/index.ts:618](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L618)
+Defined in: [src/v4/index.ts:629](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L629)
 
 Simulate updating the token image. Will use the wallet account on the Clanker class or
 the passed-in account.
@@ -9466,7 +9487,7 @@ updateMetadata(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:684](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L684)
+Defined in: [src/v4/index.ts:695](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L695)
 
 Update the token metadata.
 
@@ -9502,7 +9523,7 @@ updateMetadataSimulate()
 
 [View full generated declaration (1,991 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/de3a4f4995549fa7f76610695353047f795278b455102167b6a1424e96f56a9e.txt)
 
-Defined in: [src/v4/index.ts:640](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L640)
+Defined in: [src/v4/index.ts:651](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L651)
 
 Simulate updating the token metadata. Will use the wallet account on the Clanker class or
 the passed-in account.
@@ -11532,7 +11553,7 @@ updateRewardAdmin(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:418](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L418)
+Defined in: [src/v4/index.ts:429](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L429)
 
 Update the reward admin for a token.
 
@@ -11569,7 +11590,7 @@ updateRewardAdminSimulate()
 
 [View full generated declaration (1,661 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/56991d7dbca6a953a9f84db901e28a764f936667a9378c842e495a0e9a47cf88.txt)
 
-Defined in: [src/v4/index.ts:338](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L338)
+Defined in: [src/v4/index.ts:349](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L349)
 
 Simulate updating the reward admin. Will use the wallet account on the Clanker class or
 the passed-in account.
@@ -13270,7 +13291,7 @@ updateRewardRecipient(token): Promise<
 }>;
 ```
 
-Defined in: [src/v4/index.ts:379](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L379)
+Defined in: [src/v4/index.ts:390](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L390)
 
 Update the reward recipient for a token.
 
@@ -13307,7 +13328,7 @@ updateRewardRecipientSimulate()
 
 [View full generated declaration (1,661 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/67b76ecc494e4fb69702e0342cf8b8847d54aab8f3f9d2199d9ba7a8d3286c91.txt)
 
-Defined in: [src/v4/index.ts:295](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L295)
+Defined in: [src/v4/index.ts:306](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L306)
 
 Simulate updating the reward recipient. Will use the wallet account on the Clanker class or
 the passed-in account.
@@ -14998,7 +15019,7 @@ getVaultClaimTransactionObject()
 
 [View full generated declaration (412 lines)](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/8b856fa9c2cc7772e703c96e65fdbbc68d32dfa61b7c92ee53401f16afbeb524.txt)
 
-Defined in: [src/v4/index.ts:534](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L534)
+Defined in: [src/v4/index.ts:545](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L545)
 
 Get the transaction object for claiming vaulted tokens (for offline signing or inspection).
 
@@ -15023,11 +15044,11 @@ Transaction object for claiming vaulted tokens
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| `abi` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/94a450732ddc3c2783871a07a1de268ae16372686f9b5e1cbb12c8e1807a6ffa.txt) | `ClankerVault_v4_abi` | [src/v4/index.ts:548](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L548) |
-| `address` | `` `0x${string}` `` | `vaultAddress` | [src/v4/index.ts:547](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L547) |
-| `args` | `` `0x${string}` ``[] | - | [src/v4/index.ts:550](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L550) |
-| `chainId` | `number` \| `undefined` | - | [src/v4/index.ts:551](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L551) |
-| `functionName` | `string` | `'claim'` | [src/v4/index.ts:549](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L549) |
+| `abi` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/94a450732ddc3c2783871a07a1de268ae16372686f9b5e1cbb12c8e1807a6ffa.txt) | `ClankerVault_v4_abi` | [src/v4/index.ts:559](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L559) |
+| `address` | `` `0x${string}` `` | `vaultAddress` | [src/v4/index.ts:558](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L558) |
+| `args` | `` `0x${string}` ``[] | - | [src/v4/index.ts:561](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L561) |
+| `chainId` | `number` \| `undefined` | - | [src/v4/index.ts:562](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L562) |
+| `functionName` | `string` | `'claim'` | [src/v4/index.ts:560](https://github.com/clanker-devco/clanker-sdk/blob/main/src/v4/index.ts#L560) |
 
 <h2 id="functions">
 Functions
