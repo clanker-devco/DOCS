@@ -4,7 +4,7 @@ The Clanker contract addresses appear below, grouped by chain and version. See [
 
 Clanker v5 launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium.
 
-Chains with Clanker v5 come first, in the order Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Chains with only older versions follow, then testnets.
+Chains with Clanker v5 come first, in the order Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Retired chains follow, then testnets.
 
 Some v5 contracts use the same address on different chains. Identify each deployment by its chain ID and address.
 
@@ -355,7 +355,9 @@ Deployed on November 4, 2026. First block: 419,724.
 
 </details>
 
-## Other mainnets
+## Retired chains
+
+Clanker no longer supports Ethereum, Arbitrum One and Unichain, and new launches there are turned off. The addresses below stay listed for tokens that were launched on these chains before.
 
 ### Ethereum: 1
 
@@ -448,10 +450,6 @@ Deployed on November 4, 2026. First block: 419,724.
 | ClankerSniperUtilV0          | 0xA25e594869ddb46c33233A793E3c8b207CC719a2 |
 
 </details>
-
-### Solana
-
-Tag `@clanker` on Farcaster or `@clanker_world` on X to deploy a Meteora token on Solana.
 
 ## Testnets
 

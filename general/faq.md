@@ -42,7 +42,7 @@ If a v5 token has a burn share, part of every trade's tax is taken in the token 
 
 <summary>Which chains does Clanker support?</summary>
 
-Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker v4 is deployed on Base, BNB Chain, Monad, Robinhood Chain, Ethereum, Arbitrum One and Unichain. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
+Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker no longer supports Ethereum, Arbitrum One, Unichain or Solana. The Ethereum, Arbitrum One and Unichain contracts stay listed for tokens launched there before. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
 
 </details>
 
