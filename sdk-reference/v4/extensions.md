@@ -247,7 +247,7 @@ Create an airdrop for the recipients.
 | Parameter | Type | Description |
 | ------ | ------ | ------ |
 | `recipients` | \{ `account`: `` `0x${string}` ``; `amount`: `number`; \}[] | Recipients recieving airdrop. |
-| `options` | \{ `tokenDecimals`: `bigint`; \} | - |
+| `options?` | \{ `tokenDecimals`: `bigint`; \} | - |
 | `options.tokenDecimals` | `bigint` | Custom token decimals. |
 
 #### Returns
@@ -10674,18 +10674,18 @@ Get a transaction to start a presale
 | `deploymentConfig.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
 | `deploymentConfig.presaleConfig.allowlistInitializationData?` | `` `0x${string}` `` | Allowlist initialization data (0x for no allowlist) |
 | `deploymentConfig.presaleConfig.lockupDuration?` | `number` | Lockup duration for tokens after presale ends (in seconds). Minimum 7 days (604800). |
-| `deploymentConfig.presaleConfig.maxEthGoal` | `number` | Maximum ETH goal for the presale |
-| `deploymentConfig.presaleConfig.minEthGoal` | `number` | Minimum ETH goal for the presale to be successful |
-| `deploymentConfig.presaleConfig.presaleDuration` | `number` | Duration of the presale in seconds |
+| `deploymentConfig.presaleConfig.maxEthGoal?` | `number` | Maximum ETH goal for the presale |
+| `deploymentConfig.presaleConfig.minEthGoal?` | `number` | Minimum ETH goal for the presale to be successful |
+| `deploymentConfig.presaleConfig.presaleDuration?` | `number` | Duration of the presale in seconds |
 | `deploymentConfig.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
-| `deploymentConfig.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
+| `deploymentConfig.presaleConfig.recipient?` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `deploymentConfig.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
 | `deploymentConfig.tokenConfig` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f5a0587f996f6c02255e424e06554895e48f63dbcee4f50620ac17c7813ef83f.txt) | - |
 | `deploymentConfig.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `deploymentConfig.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `deploymentConfig.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `deploymentConfig.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `deploymentConfig.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `deploymentConfig.tokenConfig.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `deploymentConfig.tokenConfig.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `deploymentConfig.tokenConfig.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `deploymentConfig.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `deploymentConfig.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `deploymentConfig.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
@@ -10695,47 +10695,47 @@ Get a transaction to start a presale
 | `deploymentConfig.tokenConfig.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `deploymentConfig.tokenConfig.devBuy?` | \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
 | `deploymentConfig.tokenConfig.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `deploymentConfig.tokenConfig.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
+| `deploymentConfig.tokenConfig.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
 | `deploymentConfig.tokenConfig.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.fee` | `number` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `deploymentConfig.tokenConfig.devBuy.poolKey.tickSpacing` | `number` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.fee?` | `number` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `deploymentConfig.tokenConfig.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `deploymentConfig.tokenConfig.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
 | `deploymentConfig.tokenConfig.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \} | Fee structure for the token. |
 | `deploymentConfig.tokenConfig.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
 | `deploymentConfig.tokenConfig.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \} | Token locker |
-| `deploymentConfig.tokenConfig.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `deploymentConfig.tokenConfig.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
 | `deploymentConfig.tokenConfig.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `deploymentConfig.tokenConfig.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `deploymentConfig.tokenConfig.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `deploymentConfig.tokenConfig.metadata.description?` | `string` | Description of the token or token project. |
 | `deploymentConfig.tokenConfig.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `deploymentConfig.tokenConfig.name` | `string` | Name of the token. Example: "My Token". |
+| `deploymentConfig.tokenConfig.name?` | `string` | Name of the token. Example: "My Token". |
 | `deploymentConfig.tokenConfig.pool?` | \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \} | Pool information |
 | `deploymentConfig.tokenConfig.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `deploymentConfig.tokenConfig.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `deploymentConfig.tokenConfig.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
 | `deploymentConfig.tokenConfig.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
 | `deploymentConfig.tokenConfig.pool.tickSpacing?` | `number` | Tick spacing. |
 | `deploymentConfig.tokenConfig.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `deploymentConfig.tokenConfig.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `deploymentConfig.tokenConfig.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `deploymentConfig.tokenConfig.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `deploymentConfig.tokenConfig.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `deploymentConfig.tokenConfig.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `deploymentConfig.tokenConfig.presale.bps` | `number` | Bps for allocation to presale |
+| `deploymentConfig.tokenConfig.presale.bps?` | `number` | Bps for allocation to presale |
 | `deploymentConfig.tokenConfig.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `deploymentConfig.tokenConfig.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `deploymentConfig.tokenConfig.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `deploymentConfig.tokenConfig.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
 | `deploymentConfig.tokenConfig.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `deploymentConfig.tokenConfig.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `deploymentConfig.tokenConfig.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `deploymentConfig.tokenConfig.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `deploymentConfig.tokenConfig.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `deploymentConfig.tokenConfig.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `deploymentConfig.tokenConfig.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `deploymentConfig.tokenConfig.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `deploymentConfig.tokenConfig.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `deploymentConfig.tokenConfig.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `deploymentConfig.tokenConfig.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
 | `deploymentConfig.tokenConfig.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `deploymentConfig.tokenConfig.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `deploymentConfig.tokenConfig.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `deploymentConfig.tokenConfig.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `deploymentConfig.tokenConfig.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `deploymentConfig.tokenConfig.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `deploymentConfig.tokenConfig.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `deploymentConfig.tokenConfig.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 
@@ -14312,18 +14312,18 @@ Start a presale
 | `data.presaleConfig.allowlist?` | `` `0x${string}` `` | Allowlist contract address (zero address for no allowlist) |
 | `data.presaleConfig.allowlistInitializationData?` | `` `0x${string}` `` | Allowlist initialization data (0x for no allowlist) |
 | `data.presaleConfig.lockupDuration?` | `number` | Lockup duration for tokens after presale ends (in seconds). Minimum 7 days (604800). |
-| `data.presaleConfig.maxEthGoal` | `number` | Maximum ETH goal for the presale |
-| `data.presaleConfig.minEthGoal` | `number` | Minimum ETH goal for the presale to be successful |
-| `data.presaleConfig.presaleDuration` | `number` | Duration of the presale in seconds |
+| `data.presaleConfig.maxEthGoal?` | `number` | Maximum ETH goal for the presale |
+| `data.presaleConfig.minEthGoal?` | `number` | Minimum ETH goal for the presale to be successful |
+| `data.presaleConfig.presaleDuration?` | `number` | Duration of the presale in seconds |
 | `data.presaleConfig.presaleSupplyBps?` | `number` | Percentage of token supply allocated to presale (in basis points, 10000 = 100%). Defaults to 5000 (50%) |
-| `data.presaleConfig.recipient` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
+| `data.presaleConfig.recipient?` | `` `0x${string}` `` | Recipient of the ETH raised during presale |
 | `data.presaleConfig.vestingDuration?` | `number` | Vesting duration for tokens after lockup ends (in seconds) |
 | `data.tokenConfig` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f5a0587f996f6c02255e424e06554895e48f63dbcee4f50620ac17c7813ef83f.txt) | - |
 | `data.tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `data.tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `data.tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `data.tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `data.tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `data.tokenConfig.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `data.tokenConfig.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `data.tokenConfig.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `data.tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `data.tokenConfig.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `data.tokenConfig.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
@@ -14333,47 +14333,47 @@ Start a presale
 | `data.tokenConfig.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `data.tokenConfig.devBuy?` | \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
 | `data.tokenConfig.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `data.tokenConfig.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
+| `data.tokenConfig.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
 | `data.tokenConfig.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `data.tokenConfig.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.fee` | `number` | - |
-| `data.tokenConfig.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `data.tokenConfig.devBuy.poolKey.tickSpacing` | `number` | - |
+| `data.tokenConfig.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.fee?` | `number` | - |
+| `data.tokenConfig.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `data.tokenConfig.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `data.tokenConfig.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
 | `data.tokenConfig.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \} | Fee structure for the token. |
 | `data.tokenConfig.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
 | `data.tokenConfig.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \} | Token locker |
-| `data.tokenConfig.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `data.tokenConfig.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
 | `data.tokenConfig.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `data.tokenConfig.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `data.tokenConfig.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `data.tokenConfig.metadata.description?` | `string` | Description of the token or token project. |
 | `data.tokenConfig.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `data.tokenConfig.name` | `string` | Name of the token. Example: "My Token". |
+| `data.tokenConfig.name?` | `string` | Name of the token. Example: "My Token". |
 | `data.tokenConfig.pool?` | \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \} | Pool information |
 | `data.tokenConfig.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `data.tokenConfig.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `data.tokenConfig.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
 | `data.tokenConfig.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
 | `data.tokenConfig.pool.tickSpacing?` | `number` | Tick spacing. |
 | `data.tokenConfig.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `data.tokenConfig.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `data.tokenConfig.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `data.tokenConfig.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `data.tokenConfig.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `data.tokenConfig.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `data.tokenConfig.presale.bps` | `number` | Bps for allocation to presale |
+| `data.tokenConfig.presale.bps?` | `number` | Bps for allocation to presale |
 | `data.tokenConfig.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `data.tokenConfig.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `data.tokenConfig.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `data.tokenConfig.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
 | `data.tokenConfig.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `data.tokenConfig.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `data.tokenConfig.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `data.tokenConfig.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `data.tokenConfig.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `data.tokenConfig.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `data.tokenConfig.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `data.tokenConfig.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `data.tokenConfig.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `data.tokenConfig.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `data.tokenConfig.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
 | `data.tokenConfig.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `data.tokenConfig.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `data.tokenConfig.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `data.tokenConfig.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `data.tokenConfig.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `data.tokenConfig.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `data.tokenConfig.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `data.tokenConfig.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 

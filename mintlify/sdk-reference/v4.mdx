@@ -158,7 +158,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `rewardRecipient`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The token to simulate reward claiming for |
 | `token.rewardRecipient` | `` `0x${string}` `` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling claiming for |
 
 <h6 id="returns-3">
@@ -1112,7 +1112,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `rewardRecipient`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | Token to check rewards for |
 | `token.rewardRecipient` | `` `0x${string}` `` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | - |
 | `options.chain?` | `Chain` | - |
 
@@ -1435,7 +1435,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `rewardRecipient`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The token to claim for |
 | `token.rewardRecipient` | `` `0x${string}` `` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | - |
 | `options.chain?` | `Chain` | - |
 
@@ -1754,9 +1754,9 @@ Parameters
 | `token` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/f5a0587f996f6c02255e424e06554895e48f63dbcee4f50620ac17c7813ef83f.txt) | The token to deploy |
 | `token.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `token.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `token.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `token.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `token.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `token.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `token.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `token.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
 | `token.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `token.chainId?` | `1` \| `143` \| `4663` \| `8453` \| `10143` \| `2741` \| `84532` \| `42161` \| `130` \| `56` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
 | `token.context?` | \{ `id?`: `string`; `interface?`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
@@ -1766,47 +1766,47 @@ Parameters
 | `token.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `token.devBuy?` | \{ `amountOutMin?`: `number`; `ethAmount`: `number`; `poolKey?`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
 | `token.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `token.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
+| `token.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
 | `token.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `token.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `token.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `token.devBuy.poolKey.fee` | `number` | - |
-| `token.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `token.devBuy.poolKey.tickSpacing` | `number` | - |
+| `token.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `token.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `token.devBuy.poolKey.fee?` | `number` | - |
+| `token.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `token.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `token.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
 | `token.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type?`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type?`: `"dynamic"`; \} | Fee structure for the token. |
 | `token.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
 | `token.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData?`: `` `0x${string}` ``; \} | Token locker |
-| `token.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `token.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
 | `token.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `token.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `token.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `token.metadata.description?` | `string` | Description of the token or token project. |
 | `token.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `token.name` | `string` | Name of the token. Example: "My Token". |
+| `token.name?` | `string` | Name of the token. Example: "My Token". |
 | `token.pool?` | \{ `pairedToken?`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker?`: `number`; `tickSpacing?`: `number`; \} | Pool information |
 | `token.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `token.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `token.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
 | `token.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
 | `token.pool.tickSpacing?` | `number` | Tick spacing. |
 | `token.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `token.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `token.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `token.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `token.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `token.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `token.presale.bps` | `number` | Bps for allocation to presale |
+| `token.presale.bps?` | `number` | Bps for allocation to presale |
 | `token.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `token.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `token.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `token.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
 | `token.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `token.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `token.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `token.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `token.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `token.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `token.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `token.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `token.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `token.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `token.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
 | `token.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `token.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration?`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `token.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `token.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `token.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `token.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `token.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
 | `token.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 
@@ -3592,7 +3592,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newImage`: `string`; `token`: `` `0x${string}` ``; \} | The token to update the image for |
 | `token.newImage` | `string` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
@@ -4600,7 +4600,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `metadata`: `string`; `token`: `` `0x${string}` ``; \} | The token to update the metadata for |
 | `token.metadata` | `string` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
@@ -5608,8 +5608,8 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newAdmin`: `` `0x${string}` ``; `rewardIndex`: `bigint`; `token`: `` `0x${string}` ``; \} | The token to update the reward admin for |
 | `token.newAdmin` | `` `0x${string}` `` | - |
-| `token.rewardIndex?` | `bigint` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.rewardIndex` | `bigint` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
@@ -6475,8 +6475,8 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newRecipient`: `` `0x${string}` ``; `rewardIndex`: `bigint`; `token`: `` `0x${string}` ``; \} | The token to update the reward recipient for |
 | `token.newRecipient` | `` `0x${string}` `` | - |
-| `token.rewardIndex?` | `bigint` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.rewardIndex` | `bigint` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `options?` | \{ `chain?`: `Chain`; \} | Optional chain configuration |
 | `options.chain?` | `Chain` | - |
 
@@ -7449,7 +7449,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newImage`: `string`; `token`: `` `0x${string}` ``; \} | The token to update the image for |
 | `token.newImage` | `string` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 <h6 id="returns-19">
@@ -9515,7 +9515,7 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `metadata`: `string`; `token`: `` `0x${string}` ``; \} | The token to update the metadata for |
 | `token.metadata` | `string` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 <h6 id="returns-21">
@@ -11582,8 +11582,8 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newAdmin`: `` `0x${string}` ``; `rewardIndex`: `bigint`; `token`: `` `0x${string}` ``; \} | The token to update the reward admin for |
 | `token.newAdmin` | `` `0x${string}` `` | - |
-| `token.rewardIndex?` | `bigint` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.rewardIndex` | `bigint` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 <h6 id="returns-23">
@@ -13320,8 +13320,8 @@ Parameters
 | ------ | ------ | ------ |
 | `token` | \{ `newRecipient`: `` `0x${string}` ``; `rewardIndex`: `bigint`; `token`: `` `0x${string}` ``; \} | The token to update the reward recipient for |
 | `token.newRecipient` | `` `0x${string}` `` | - |
-| `token.rewardIndex?` | `bigint` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.rewardIndex` | `bigint` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 <h6 id="returns-25">
@@ -15057,61 +15057,61 @@ Parameters
 | `tokenConfig` | [Full type](https://raw.githubusercontent.com/clanker-devco/DOCS/refs/heads/main/mintlify/assets/sdk-types/6db4da74dfd926c79bb571afcc24b3b87963bcb33d4450d31afb4b350493aa8f.txt) | - |
 | `tokenConfig.airdrop?` | \{ `admin?`: `` `0x${string}` ``; `amount`: `number`; `lockupDuration`: `number`; `merkleRoot`: `` `0x${string}` ``; `vestingDuration`: `number`; \} | Token airdrop. Tokens are locked for some duration with possible vesting. |
 | `tokenConfig.airdrop.admin?` | `` `0x${string}` `` | Admin for the airdrop. Defaults to TokenAdmin if not set. |
-| `tokenConfig.airdrop.amount` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
-| `tokenConfig.airdrop.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
-| `tokenConfig.airdrop.merkleRoot` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
-| `tokenConfig.airdrop.vestingDuration` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
-| `tokenConfig.chainId` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
-| `tokenConfig.context` | \{ `id?`: `string`; `interface`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
+| `tokenConfig.airdrop.amount?` | `number` | How many tokens to lock up. Denoted in whole tokens (without the 18 decimals). Minimum is 25 bps of the supply. |
+| `tokenConfig.airdrop.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 1 day. |
+| `tokenConfig.airdrop.merkleRoot?` | `` `0x${string}` `` | Root of the airdrop merkle tree. |
+| `tokenConfig.airdrop.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
+| `tokenConfig.chainId?` | `1` \| `56` \| `130` \| `143` \| `2741` \| `4663` \| `8453` \| `10143` \| `42161` \| `84532` | Id of the chain that the token will be deployed to. Defaults to base (8453). |
+| `tokenConfig.context?` | \{ `id?`: `string`; `interface`: `string`; `messageId?`: `string`; `platform?`: `string`; \} | Social provenance for the token. Interface defaults to "SDK" if not set. |
 | `tokenConfig.context.id?` | `string` | User id of the poster on the social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
-| `tokenConfig.context.interface` | `string` | System the token was deployed via. Defaults to "SDK". |
+| `tokenConfig.context.interface?` | `string` | System the token was deployed via. Defaults to "SDK". |
 | `tokenConfig.context.messageId?` | `string` | Id of the message on the social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `tokenConfig.context.platform?` | `string` | Social platform the token was deployed from. Used for provenance and will be verified by aggregators. |
 | `tokenConfig.devBuy?` | \{ `amountOutMin`: `number`; `ethAmount`: `number`; `poolKey`: \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \}; `recipient?`: `` `0x${string}` ``; \} | Token dev buy. Tokens are bought in the token creation transaction. |
-| `tokenConfig.devBuy.amountOutMin` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
-| `tokenConfig.devBuy.ethAmount` | `number` | How much of the token to buy (denoted in ETH). |
-| `tokenConfig.devBuy.poolKey` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
-| `tokenConfig.devBuy.poolKey.currency0` | `` `0x${string}` `` | - |
-| `tokenConfig.devBuy.poolKey.currency1` | `` `0x${string}` `` | - |
-| `tokenConfig.devBuy.poolKey.fee` | `number` | - |
-| `tokenConfig.devBuy.poolKey.hooks` | `` `0x${string}` `` | - |
-| `tokenConfig.devBuy.poolKey.tickSpacing` | `number` | - |
+| `tokenConfig.devBuy.amountOutMin?` | `number` | Amount out min for the ETH -> PAIR swap. Used if the clanker is not paired with ETH. |
+| `tokenConfig.devBuy.ethAmount?` | `number` | How much of the token to buy (denoted in ETH). |
+| `tokenConfig.devBuy.poolKey?` | \{ `currency0`: `` `0x${string}` ``; `currency1`: `` `0x${string}` ``; `fee`: `number`; `hooks`: `` `0x${string}` ``; `tickSpacing`: `number`; \} | Pool identifier. Used if the clanker is not paired with ETH. Then the devbuy will pay ETH -> PAIR -> CLANKER. |
+| `tokenConfig.devBuy.poolKey.currency0?` | `` `0x${string}` `` | - |
+| `tokenConfig.devBuy.poolKey.currency1?` | `` `0x${string}` `` | - |
+| `tokenConfig.devBuy.poolKey.fee?` | `number` | - |
+| `tokenConfig.devBuy.poolKey.hooks?` | `` `0x${string}` `` | - |
+| `tokenConfig.devBuy.poolKey.tickSpacing?` | `number` | - |
 | `tokenConfig.devBuy.recipient?` | `` `0x${string}` `` | Recipient address for the purchased tokens. Defaults to tokenAdmin if not specified. |
-| `tokenConfig.fees` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type`: `"dynamic"`; \} | Fee structure for the token. |
-| `tokenConfig.image` | `string` | Image for the token. This should be a normal or ipfs url. |
-| `tokenConfig.locker` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData`: `` `0x${string}` ``; \} | Token locker |
-| `tokenConfig.locker.locker` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
-| `tokenConfig.locker.lockerData` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
+| `tokenConfig.fees?` | \| \{ `clankerFee`: `number`; `pairedFee`: `number`; `type`: `"static"`; \} \| \{ `baseFee`: `number`; `decayFilterBps`: `number`; `feeControlNumerator`: `number`; `maxFee`: `number`; `referenceTickFilterPeriod`: `number`; `resetPeriod`: `number`; `resetTickFilter`: `number`; `type`: `"dynamic"`; \} | Fee structure for the token. |
+| `tokenConfig.image?` | `string` | Image for the token. This should be a normal or ipfs url. |
+| `tokenConfig.locker?` | \{ `locker`: `` `0x${string}` `` \| `"Locker"`; `lockerData`: `` `0x${string}` ``; \} | Token locker |
+| `tokenConfig.locker.locker?` | `` `0x${string}` `` \| `"Locker"` | Locker extension address. |
+| `tokenConfig.locker.lockerData?` | `` `0x${string}` `` | Locker extension specific data. Abi encoded hex of the parameters. |
 | `tokenConfig.metadata?` | \{ `auditUrls?`: `string`[]; `description?`: `string`; `socialMediaUrls?`: \{ `platform`: `string`; `url`: `string`; \}[]; \} | Metadata for the token. |
 | `tokenConfig.metadata.auditUrls?` | `string`[] | Audits for other contracts or services offered by the project. |
 | `tokenConfig.metadata.description?` | `string` | Description of the token or token project. |
 | `tokenConfig.metadata.socialMediaUrls?` | \{ `platform`: `string`; `url`: `string`; \}[] | Socials for the token. These may be displayed on aggregators. |
-| `tokenConfig.name` | `string` | Name of the token. Example: "My Token". |
-| `tokenConfig.pool` | \{ `pairedToken`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker`: `number`; `tickSpacing`: `number`; \} | Pool information |
-| `tokenConfig.pool.pairedToken` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
-| `tokenConfig.pool.positions` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
-| `tokenConfig.pool.tickIfToken0IsClanker` | `number` | Starting tick of the pool. |
-| `tokenConfig.pool.tickSpacing` | `number` | Tick spacing. |
-| `tokenConfig.poolExtension` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
-| `tokenConfig.poolExtension.address` | `` `0x${string}` `` | Address of the developer extension |
-| `tokenConfig.poolExtension.initData` | `` `0x${string}` `` | Initialization data for the extension |
+| `tokenConfig.name?` | `string` | Name of the token. Example: "My Token". |
+| `tokenConfig.pool?` | \{ `pairedToken`: `` `0x${string}` `` \| `"WETH"`; `positions`: \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[]; `tickIfToken0IsClanker`: `number`; `tickSpacing`: `number`; \} | Pool information |
+| `tokenConfig.pool.pairedToken?` | `` `0x${string}` `` \| `"WETH"` | Token to pair the clanker with. |
+| `tokenConfig.pool.positions?` | \{ `positionBps`: `number`; `tickLower`: `number`; `tickUpper`: `number`; \}[] | Positions for initial pool liquidity. Bps must sum to 100%. |
+| `tokenConfig.pool.tickIfToken0IsClanker?` | `number` | Starting tick of the pool. |
+| `tokenConfig.pool.tickSpacing?` | `number` | Tick spacing. |
+| `tokenConfig.poolExtension?` | \{ `address`: `` `0x${string}` ``; `initData`: `` `0x${string}` ``; \} | [v4.1+ only] Custom developer extension |
+| `tokenConfig.poolExtension.address?` | `` `0x${string}` `` | Address of the developer extension |
+| `tokenConfig.poolExtension.initData?` | `` `0x${string}` `` | Initialization data for the extension |
 | `tokenConfig.presale?` | \{ `bps`: `number`; \} | Presale configuration for the token. Must be deployed via the presale contract. |
-| `tokenConfig.presale.bps` | `number` | Bps for allocation to presale |
+| `tokenConfig.presale.bps?` | `number` | Bps for allocation to presale |
 | `tokenConfig.rewards?` | \{ `recipients`: \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[]; \} | Rewards & recipients for rewards generated by the token. |
-| `tokenConfig.rewards.recipients` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
+| `tokenConfig.rewards.recipients?` | \{ `admin`: `` `0x${string}` ``; `bps`: `number`; `recipient`: `` `0x${string}` ``; `token`: `"Both"` \| `"Paired"` \| `"Clanker"`; \}[] | Recipients of the token rewards. Must sum to 100%. |
 | `tokenConfig.salt?` | `` `0x${string}` `` | Custom salt for CREATE2 deployment. If provided, this will be used instead of vanity address generation. Takes precedence over vanity. |
-| `tokenConfig.sniperFees` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
-| `tokenConfig.sniperFees.endingFee` | `number` | Ending sniper fee (units: Unibps) |
-| `tokenConfig.sniperFees.secondsToDecay` | `number` | Sniper fee duration |
-| `tokenConfig.sniperFees.startingFee` | `number` | Starting sniper fee (units: Unibps) |
-| `tokenConfig.symbol` | `string` | Symbol for the token. Example: "MTK". |
-| `tokenConfig.tokenAdmin` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
-| `tokenConfig.vanity` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
+| `tokenConfig.sniperFees?` | \{ `endingFee`: `number`; `secondsToDecay`: `number`; `startingFee`: `number`; \} | [v4.1+ only] Sniper fees |
+| `tokenConfig.sniperFees.endingFee?` | `number` | Ending sniper fee (units: Unibps) |
+| `tokenConfig.sniperFees.secondsToDecay?` | `number` | Sniper fee duration |
+| `tokenConfig.sniperFees.startingFee?` | `number` | Starting sniper fee (units: Unibps) |
+| `tokenConfig.symbol?` | `string` | Symbol for the token. Example: "MTK". |
+| `tokenConfig.tokenAdmin?` | `` `0x${string}` `` | Admin for the token. They will be able to change fields like image, metadata, etc. |
+| `tokenConfig.vanity?` | `boolean` | Whether or not to enable the "0xb07" address suffix. |
 | `tokenConfig.vault?` | \{ `lockupDuration`: `number`; `percentage`: `number`; `recipient?`: `` `0x${string}` ``; `vestingDuration`: `number`; \} | Token vault. Tokens are locked for some duration with possible vesting. |
-| `tokenConfig.vault.lockupDuration` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
-| `tokenConfig.vault.percentage` | `number` | Percent of total supply allocated to the vault. |
+| `tokenConfig.vault.lockupDuration?` | `number` | How long to lock the tokens for. In seconds. Minimum 7 days. |
+| `tokenConfig.vault.percentage?` | `number` | Percent of total supply allocated to the vault. |
 | `tokenConfig.vault.recipient?` | `` `0x${string}` `` | Recipient for the vault extension. Defaults to tokenAdmin if not set. |
-| `tokenConfig.vault.vestingDuration` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
+| `tokenConfig.vault.vestingDuration?` | `number` | After the lockup, how long the tokens should vest for. Vesting is linear over the duration. In seconds. |
 | `clankerConfig` | [`ClankerDeployment`](/sdk-reference/core-utilities#clankerdeployment)\<[`RelatedV4`](/sdk-reference/core-utilities#relatedv4)\> | A clanker configuration |
 
 <h4 id="returns-27">

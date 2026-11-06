@@ -469,8 +469,8 @@ Simulate initializing token creator ownership.
 | ------ | ------ | ------ |
 | `token` | \{ `newCreator`: `` `0x${string}` ``; `proof`: `` `0x${string}` ``[]; `token`: `` `0x${string}` ``; \} | The token address to initialize a creator for |
 | `token.newCreator` | `` `0x${string}` `` | - |
-| `token.proof?` | `` `0x${string}` ``[] | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.proof` | `` `0x${string}` ``[] | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 ###### Returns
@@ -542,8 +542,8 @@ Simulate claiming token creator fees.
 | ------ | ------ | ------ |
 | `safe` | \{ `recipient`: `` `0x${string}` ``; `safe`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The Safe wallet address holding the fees |
 | `safe.recipient` | `` `0x${string}` `` | - |
-| `safe.safe?` | `` `0x${string}` `` | - |
-| `safe.token?` | `` `0x${string}` `` | - |
+| `safe.safe` | `` `0x${string}` `` | - |
+| `safe.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 ###### Returns
@@ -611,7 +611,7 @@ Simulate updating the token creator admin address.
 | ------ | ------ | ------ |
 | `token` | \{ `newCreator`: `` `0x${string}` ``; `token`: `` `0x${string}` ``; \} | The token address to update the creator for |
 | `token.newCreator` | `` `0x${string}` `` | - |
-| `token.token?` | `` `0x${string}` `` | - |
+| `token.token` | `` `0x${string}` `` | - |
 | `account?` | `Account` | Optional account to simulate calling for |
 
 ###### Returns
@@ -678,7 +678,9 @@ Input for claiming legacy creator fees.
 For v2/v3/v3.1: Only `token` and `version` are required.
 For v0/v1: Additional `lockerParams` are required.
 
-#### Type Declaration
+#### Union Members
+
+##### Type Literal
 
 ```ts
 {
@@ -691,6 +693,10 @@ For v0/v1: Additional `lockerParams` are required.
 | ------ | ------ | ------ | ------ |
 | `token` | `` `0x${string}` `` | The Clanker token address | [src/legacyFeeClaims/claimCreatorFees.ts:111](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/claimCreatorFees.ts#L111) |
 | `version` | `2` \| `3` \| `3.1` | Token version | [src/legacyFeeClaims/claimCreatorFees.ts:113](https://github.com/clanker-devco/clanker-sdk/blob/main/src/legacyFeeClaims/claimCreatorFees.ts#L113) |
+
+***
+
+##### Type Literal
 
 ```ts
 {
@@ -1013,7 +1019,7 @@ const LEGACY_FACTORIES: {
   1: "0x9B84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1";
   2: "0x732560fa1d1A76350b1A500155BA978031B53833";
   3: "0x375C15db32D28cEcdcAB5C03Ab889bf15cbD2c5E";
-  3.1: "0x2A787b2362021cC3eEa3C24C4748a6cD5B687382";
+  "3.1": "0x2A787b2362021cC3eEa3C24C4748a6cD5B687382";
 };
 ```
 
