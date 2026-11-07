@@ -8,7 +8,7 @@ The questions below cover Clanker tokens, fees, rewards and Farcaster accounts.
 
 <summary>What is a v5 token?</summary>
 
-Clanker v5 is the current version of Clanker, live on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Token Deployments](token-deployments.md) and [Creator Rewards & Fees](creator-rewards-and-fees.md).
+Clanker v5 is the current version of Clanker, live on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. A v5 token has no LP fee. Instead, every trade pays a buy tax or a sell tax, each between 1% and 10%. The tax pays Clanker's fee and the creator's rewards, and the creator can also send part of it to holder dividends, a token burn or an integrator. See [Token Deployments](token-deployments.md) and [Creator Rewards & Fees](creator-rewards-and-fees.md).
 
 </details>
 
@@ -42,7 +42,7 @@ If a v5 token has a burn share, part of every trade's tax is taken in the token 
 
 <summary>Which chains does Clanker support?</summary>
 
-Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Clanker no longer supports Ethereum, Arbitrum One, Unichain or Solana. The Ethereum, Arbitrum One and Unichain contracts stay listed for tokens launched there before. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
+Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker no longer supports Ethereum, Arbitrum One, Unichain or Solana. The Ethereum, Arbitrum One and Unichain contracts stay listed for tokens launched there before. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
 
 </details>
 
