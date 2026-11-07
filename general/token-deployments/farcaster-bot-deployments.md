@@ -16,7 +16,7 @@ The bot replies in one of three ways:
 
 ## Settings
 
-Every token is a v5 token with a buy and sell tax of 1% each unless you give a rate. In the same post you can also ask for:
+Every token is a v5 token with a buy and sell tax of 1% each unless you give a rate. A bot launch has no dev buy, vault, airdrop or presale. In the same post you can also ask for:
 
 - A tax rate, such as `3% tax`, or separate rates, such as `2% buy tax 4% sell tax`. Each rate must be between 1% and 10%.
 - A share of the tax for holder dividends or burns, such as `20% dividends 10% burn`, and a minimum holding for dividends. See [Holder Dividends](../holder-dividends.md) and [Token Burns](../token-burns.md).
@@ -27,25 +27,28 @@ The bot uses only the values you write. See [Token Deployments](../token-deploym
 
 ## Chains
 
-The bot deploys on Base by default. Name another chain in your post to deploy there:
+The bot deploys on Base by default. Name another chain in your post to deploy there. X Layer and Arc are available when they are open for bot launches.
 
-| Chain                  | X   | Farcaster | Example phrase |
-| ---------------------- | --- | --------- | -------------- |
-| Base (8453)            | Yes | Yes       | `on base`      |
-| BNB Chain (56)         | Yes | Yes       | `on bnb`       |
-| Monad (143)            | Yes | Yes       | `on monad`     |
-| Robinhood Chain (4663) | Yes | Yes       | `on robinhood` |
-| X Layer (196)          | Yes | Yes       | `on x layer`   |
-| Arc (5042)             | Yes | Yes       | `on arc`       |
+| Chain                  | X         | Farcaster | Example phrase |
+| ---------------------- | --------- | --------- | -------------- |
+| Base (8453)            | Yes       | Yes       | `on base`      |
+| BNB Chain (56)         | Yes       | Yes       | `on bnb`       |
+| Monad (143)            | Yes       | Yes       | `on monad`     |
+| Robinhood Chain (4663) | Yes       | Yes       | `on robinhood` |
+| X Layer (196)          | When open | When open | `on x layer`   |
+| Arc (5042)             | When open | When open | `on arc`       |
 
 ## Limits
 
-- Each person can deploy 5 tokens per day across X and Farcaster, on any chain.
-- On X, the account must be at least 24 hours old and have at least 10 followers.
-- On Farcaster, the account needs a Neynar score of at least 0.6.
+- Each account gets 5 server-paid launches per UTC day, and so does each token wallet, on any chain. Clanker pays the gas.
+- On both X and Farcaster, the account must be at least 24 hours old and have at least 10 followers.
+
+## Duplicate tickers
+
+- If you ask for a ticker you launched in the last 24 hours, the bot replies with that token instead of launching a new one.
+- If another user launched a token with the exact same name and ticker in about the last day, the bot declines the launch.
 
 ## Related
 
-- [Preclank Deployments](preclank-deployments.md)
 - [Creator Rewards & Fees](../creator-rewards-and-fees.md)
 - [Supported Quote Tokens](../../references/supported-quote-tokens.md)

@@ -1,6 +1,6 @@
 # Overview
 
-Clanker v5 is the current version of Clanker. Every v5 token launches with a buy and sell tax that pays the creator, and you can deploy one from clanker.world, through the API or with a cast.
+Clanker v5 is the current version of Clanker. Every v5 token launches with a buy and sell tax that pays the creator, and you can deploy one from clanker.world, through the API or by tagging the bot on X or Farcaster.
 
 ## How a v5 token works
 
@@ -32,19 +32,18 @@ The creator manages a v5 token from its Admin page on clanker.world: claim rewar
 - [clanker.world Deployments](token-deployments/clanker.world-deployments.md): fill in the deploy form on clanker.world.
 - [API Deployments](token-deployments/v5-deployments.md): deploy a v5 token with a partner API key.
 - [Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker_world on X or @clanker on Farcaster.
-- [Preclank Deployments](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
 - [Alternative Interface Deployments](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
 
 ### Chains by deploy method
 
-| Chain                  | clanker.world | API | X bot | Farcaster bot | Preclanks |
-| ---------------------- | ------------- | --- | ----- | ------------- | --------- |
-| Base (8453)            | Yes           | Yes | Yes   | Yes           | Yes       |
-| BNB Chain (56)         | Yes           | Yes | Yes   | Yes           | Yes       |
-| Monad (143)            | Yes           | Yes | Yes   | Yes           | Yes       |
-| Robinhood Chain (4663) | Yes           | Yes | Yes   | Yes           | Yes       |
-| X Layer (196)          | Yes           | Yes | Yes   | Yes           | Yes       |
-| Arc (5042)             | Yes           | Yes | Yes   | Yes           | Yes       |
+| Chain                  | clanker.world | API | X bot     | Farcaster bot |
+| ---------------------- | ------------- | --- | --------- | ------------- |
+| Base (8453)            | Yes           | Yes | Yes       | Yes           |
+| BNB Chain (56)         | Yes           | Yes | Yes       | Yes           |
+| Monad (143)            | Yes           | Yes | Yes       | Yes           |
+| Robinhood Chain (4663) | Yes           | Yes | Yes       | Yes           |
+| X Layer (196)          | Yes           | Yes | When open | When open     |
+| Arc (5042)             | Yes           | Yes | When open | When open     |
 
 ## Earlier versions
 

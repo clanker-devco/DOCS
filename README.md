@@ -2,7 +2,7 @@
 
 Clanker is a token deployment protocol on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc, Elysium and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
 
-You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker on Farcaster, through the API or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
+You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker_world on X or @clanker on Farcaster, through the API or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
 
 ## Clanker v5
 
@@ -17,7 +17,6 @@ Start with [Token Deployments](general/token-deployments.md). It explains how a 
 - [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md)
 - [API Deployments](general/token-deployments/v5-deployments.md)
 - [Farcaster Bot Deployments](general/token-deployments/farcaster-bot-deployments.md)
-- [Preclank Deployments](general/token-deployments/preclank-deployments.md)
 - [Alternative Interface Deployments](general/token-deployments/alternative-interface-deployments.md)
 
 Earlier versions are covered in [v4 Deployments](general/token-deployments/v4-deployments.md) and [v3 Deployments](general/token-deployments/legacy-deployments.md).
@@ -42,7 +41,7 @@ The Clanker REST API is available at `https://www.clanker.world/api`.
 
 - [Public API](api-reference/public/README.md): token search, trending, users, presales, airdrops and market data.
 - [Authenticated API](api-reference/authenticated/README.md): partner endpoints for tokens, deployment and fees.
-- [User API](api-reference/user/README.md): Preclank management and saved tokens.
+- [User API](api-reference/user/README.md): saved tokens and image upload.
 
 ## SDK Reference
 

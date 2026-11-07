@@ -26,7 +26,6 @@
               "general/token-deployments/clanker.world-deployments",
               "general/token-deployments/v5-deployments",
               "general/token-deployments/farcaster-bot-deployments",
-              "general/token-deployments/preclank-deployments",
               "general/token-deployments/alternative-interface-deployments",
               {
                 "group": "Earlier Versions",
@@ -66,7 +65,6 @@
               "api-reference/public/airdrops",
               "api-reference/public/market-data",
               "api-reference/public/fees",
-              "api-reference/public/legion",
               "api-reference/public/deployment"
             ]
           },
@@ -83,7 +81,6 @@
             "group": "User API",
             "root": "api-reference/user",
             "pages": [
-              "api-reference/user/preclanks",
               "api-reference/user/deployment"
             ]
           }
@@ -216,6 +213,18 @@
   "redirects": [
     {
       "source": "/droids/:slug*",
+      "destination": "/general/token-deployments"
+    },
+    {
+      "source": "/general/token-deployments/preclank-deployments",
+      "destination": "/general/token-deployments"
+    },
+    {
+      "source": "/api-reference/public/legion",
+      "destination": "/general/token-deployments"
+    },
+    {
+      "source": "/api-reference/user/preclanks",
       "destination": "/general/token-deployments"
     },
     {
