@@ -6,7 +6,7 @@ Clanker v4 tokens charge an LP fee on trades, support optional extensions and us
 
 <figure><img src="../../.gitbook/assets/token-deployment.png" alt=""><figcaption></figcaption></figure>
 
-The details below describe Clanker v4.0. Tokens deployed today from the clanker.world form use v4.1, which replaces the sniper auction with a sniper tax (see [Sniper auction](#sniper-auction)).
+The details below describe Clanker v4.0. v4 tokens deployed from the clanker.world form before v5 use v4.1, which replaces the sniper auction with a sniper tax (see [Sniper auction](#sniper-auction)).
 
 ### Supply
 

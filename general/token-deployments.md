@@ -41,7 +41,7 @@ The creator manages a v5 token from its Admin page on clanker.world: claim rewar
 | ---------------------- | ------------- | --- | ----- | ------------- | --------- |
 | Base (8453)            | Yes           | Yes | Yes   | Yes           | Yes       |
 | BNB Chain (56)         | Yes           | Yes | Yes   | Yes           | Yes       |
-| Monad (143)            | Yes           | Yes | No    | Yes           | Yes       |
+| Monad (143)            | Yes           | Yes | Yes   | Yes           | Yes       |
 | Robinhood Chain (4663) | Yes           | Yes | Yes   | Yes           | Yes       |
 | X Layer (196)          | Yes           | Yes | Yes   | Yes           | Yes       |
 | Arc (5042)             | Yes           | Yes | Yes   | Yes           | Yes       |
