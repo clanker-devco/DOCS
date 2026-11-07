@@ -1,19 +1,16 @@
 # clanker.world Deployments
 
-You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. The form starts with token info that every token needs, then shows the parameters for the token type you choose.
+You can create a token on the clanker.world [deploy page](https://www.clanker.world/deploy) by connecting a wallet and filling in a form. Every token created there is a Clanker v5 token with a buy and sell tax.
 
 ## How it works
 
 1. Open the [deploy page](https://www.clanker.world/deploy) and connect a wallet.
 2. Fill in the token info: network, name, symbol, image and optional metadata.
-3. Choose the **Token type** under **Token Settings**: **V5** for a Clanker v5 token with a buy and sell tax, or **V4** for a v4 token with an LP fee. The form shows the settings for that type. X Layer, Arc and Elysium offer only V5.
-4. Set the options you want, then deploy and confirm the transaction in your wallet.
+3. Set the tax and the other options under **Token Settings**, then deploy and confirm the transaction in your wallet.
 
-For how each version works, see [Token Deployments](../token-deployments.md) and [v4 Deployments](v4-deployments.md).
+For how v5 tokens work, see [Token Deployments](../token-deployments.md).
 
 ## Token info
-
-These fields are the same for both token types.
 
 {% stepper %}
 {% step %}
@@ -42,9 +39,7 @@ These fields are the same for both token types.
 {% endstep %}
 {% endstepper %}
 
-## Clanker v5 parameters
-
-With **Token type** set to **V5**, the form shows these settings.
+## Token settings
 
 {% stepper %}
 {% step %}
@@ -120,79 +115,9 @@ Add reward recipients to split the **Creator funds**. For each recipient, set th
 {% endstep %}
 {% endstepper %}
 
-Vaults and airdrops are v4 only. You can also save a v5 token as a preclank with the **Preclank** option at the bottom of the form and launch it later with a cast. See [Preclank Deployments](preclank-deployments.md).
+You can also save a token as a preclank with the **Preclank** option at the bottom of the form and launch it later with a cast. See [Preclank Deployments](preclank-deployments.md).
 
-## Clanker v4 parameters
-
-With **Token type** set to **V4**, the form shows these settings. See [v4 Deployments](v4-deployments.md) for how v4 tokens work.
-
-{% stepper %}
-{% step %}
-
-### Fees
-
-*Optional. Defaults to a static 1% fee.*
-
-* **Type**:
-  * `Static`: a fixed fee on trades, with a tier of 1%, 2% or 3%.
-  * `Dynamic 3%`: a fee that changes with the pool's volatility, up to 3%.
-* **Sniper tax**: how many seconds the sniper tax lasts after launch (1 to 120, default 15). The tax falls from 80% to 5% over that time.
-{% endstep %}
-
-{% step %}
-
-### Reward recipients
-
-*Optional. Defaults to 100% to the connected wallet, paid in the pair token.*
-
-For each recipient, set:
-
-* **Admin address**: the address that can change this recipient to a new address.
-* **Recipient address**: the address that receives the rewards.
-* **Reward percentage**: the share of total rewards for this recipient.
-* **Reward type**: the token the recipient is paid in. The creator sets it at launch, and the recipient's admin can change it at any time after.
-  * `Both`: rewards in both the new token and its pair token.
-  * `Clanker`: rewards only in the new token.
-  * `Paired`: rewards only in the pair token (usually WETH).
-{% endstep %}
-
-{% step %}
-
-### Pool
-
-*Optional. Choose the pair token and a preset liquidity layout. Defaults to `Project 10`.*
-
-* **Pool type**:
-  * `Project 10`: the recommended layout across multiple LP positions, with a fixed starting market cap of 10 ETH. With a USDC pair, it is called `Project`.
-  * `Project 20`: the same layout with a fixed starting market cap of 20 ETH. ETH pairs only.
-  * `Legacy`: all liquidity in one LP position, with a starting market cap you set.
-* **Starting market cap**: the starting market cap in the pair token, for `Legacy` pools.
-{% endstep %}
-
-{% step %}
-
-### Creator vault
-
-*Optional. Set aside tokens in a vault with a lockup and vesting period. Defaults to a 30-day lockup with instant vesting.*
-
-* **Vault percentage**: the percent of total supply placed in the vault.
-  * The creator wallet is the default beneficiary. The creator can set a new beneficiary after launch.
-* **Lockup period**: when the lockup ends and vesting begins. The contract enforces a 7-day minimum.
-* **Vesting period**: when vesting ends. Tokens vest linearly between the end of the lockup and the end of vesting.
-  * Once vesting begins, anyone can call the vault to release the tokens. They always go to the current beneficiary.
-{% endstep %}
-
-{% step %}
-
-### Creator buy (dev buy)
-
-*Optional. Spend ETH to make the first buy at launch. ETH pairs only.*
-
-There is no upper or lower limit on the ETH amount.
-{% endstep %}
-{% endstepper %}
-
-The v4 form also has airdrop settings and the same **Preclank** option at the bottom of the form.
+New launches are v5 only. Existing v4 tokens keep working and can still be managed: see [v4 Deployments](v4-deployments.md) and [Managing a Token](../managing-a-token.md).
 
 ## Related
 
