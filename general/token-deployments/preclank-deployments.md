@@ -1,6 +1,6 @@
 # Preclank Deployments
 
-A preclank lets you set up a token on clanker.world now and launch it later from Farcaster. Preclanks work for v5 and v4 tokens on Base.
+A preclank lets you set up a token on clanker.world now and launch it later from Farcaster. Preclanks launch v5 tokens on Base and Monad.
 
 ## How it works
 
@@ -26,7 +26,7 @@ You can only save and use a preclank when you sign in with Farcaster.
 
 On the [deploy page](https://www.clanker.world/deploy), connect a wallet and fill in the token settings. See [clanker.world Deployments](clanker.world-deployments.md) for each field.
 
-The default reward recipient and vault beneficiary are the wallet connected to the deploy page, not the main wallet of the Farcaster account that casts the trigger phrase. Creator buy (dev buy) is not available for preclanks.
+The default reward recipient is the wallet connected to the deploy page, not the main wallet of the Farcaster account that casts the trigger phrase. Creator buy (dev buy) is not available for preclanks.
 {% endstep %}
 
 {% step %}

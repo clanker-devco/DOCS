@@ -31,7 +31,7 @@ The creator manages a v5 token from its Admin page on clanker.world: claim rewar
 
 * [clanker.world Deployments](token-deployments/clanker.world-deployments.md): fill in the deploy form on clanker.world.
 * [API Deployments](token-deployments/v5-deployments.md): deploy a v5 token with a partner API key.
-* [Farcaster Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker in a cast. A cast launches a v4 token; to launch a v5 token from a cast, use a preclank.
+* [Bot Deployments](token-deployments/farcaster-bot-deployments.md): deploy by tagging @clanker_world on X or @clanker on Farcaster.
 * [Preclank Deployments](token-deployments/preclank-deployments.md): save a token setup on clanker.world and launch it later with a cast.
 * [Alternative Interface Deployments](token-deployments/alternative-interface-deployments.md): deploy through other apps built on Clanker.
 
