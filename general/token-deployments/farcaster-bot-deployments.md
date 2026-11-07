@@ -18,10 +18,10 @@ The bot replies in one of three ways:
 
 Every token is a v5 token with a buy and sell tax of 1% each unless you give a rate. In the same post you can also ask for:
 
-* A tax rate, such as `3% tax`, or separate rates, such as `2% buy tax 4% sell tax`. Each rate must be between 1% and 10%.
-* A share of the tax for holder dividends or burns, such as `20% dividends 10% burn`, and a minimum holding for dividends. See [Holder Dividends](../holder-dividends.md) and [Token Burns](../token-burns.md).
-* Locked metadata, so the image and metadata can't change after launch.
-* A pair: the chain's native coin (the default) or its stable, such as `paired with usdc`.
+- A tax rate, such as `3% tax`, or separate rates, such as `2% buy tax 4% sell tax`. Each rate must be between 1% and 10%.
+- A share of the tax for holder dividends or burns, such as `20% dividends 10% burn`, and a minimum holding for dividends. See [Holder Dividends](../holder-dividends.md) and [Token Burns](../token-burns.md).
+- Locked metadata, so the image and metadata can't change after launch.
+- A pair: the chain's native coin (the default) or its stable, such as `paired with usdc`.
 
 The bot uses only the values you write. See [Token Deployments](../token-deployments.md) for how v5 tokens work.
 
@@ -29,23 +29,23 @@ The bot uses only the values you write. See [Token Deployments](../token-deploym
 
 The bot deploys on Base by default. Name another chain in your post to deploy there:
 
-| Chain                  | Example phrase   |
-| ---------------------- | ---------------- |
-| Base (8453)            | `on base`        |
-| BNB Chain (56)         | `on bnb`         |
-| Monad (143)            | `on monad`       |
-| Robinhood Chain (4663) | `on robinhood`   |
-| X Layer (196)          | `on x layer`     |
-| Arc (5042)             | `on arc`         |
+| Chain                  | X   | Farcaster | Example phrase |
+| ---------------------- | --- | --------- | -------------- |
+| Base (8453)            | Yes | Yes       | `on base`      |
+| BNB Chain (56)         | Yes | Yes       | `on bnb`       |
+| Monad (143)            | No  | Yes       | `on monad`     |
+| Robinhood Chain (4663) | Yes | Yes       | `on robinhood` |
+| X Layer (196)          | Yes | Yes       | `on x layer`   |
+| Arc (5042)             | Yes | Yes       | `on arc`       |
 
 ## Limits
 
-* Each person can deploy 5 tokens per day across X and Farcaster, on any chain.
-* On X, the account must be at least 24 hours old and have at least 10 followers.
-* On Farcaster, the account needs a Neynar score of at least 0.6.
+- Each person can deploy 5 tokens per day across X and Farcaster, on any chain.
+- On X, the account must be at least 24 hours old and have at least 10 followers.
+- On Farcaster, the account needs a Neynar score of at least 0.6.
 
 ## Related
 
-* [Preclank Deployments](preclank-deployments.md)
-* [Creator Rewards & Fees](../creator-rewards-and-fees.md)
-* [Supported Quote Tokens](../../references/supported-quote-tokens.md)
+- [Preclank Deployments](preclank-deployments.md)
+- [Creator Rewards & Fees](../creator-rewards-and-fees.md)
+- [Supported Quote Tokens](../../references/supported-quote-tokens.md)
