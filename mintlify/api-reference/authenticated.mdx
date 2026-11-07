@@ -24,6 +24,6 @@ These endpoints require a partner API key passed via the `x-api-key` header. Con
 
 ### Deployment
 
-- `POST /api/tokens/deploy` — Deploy a new Clanker token. Supports v4 deployment with rewards, fees, vault, airdrop, and presale configuration. Defaults to v4. Select protocol: v5 for a configured V5 factory.
-- `POST /api/tokens/deploy/v4` — Alias for POST /api/tokens/deploy (same handler).
+- `POST /api/tokens/deploy` — Deploy a new Clanker V5 token. V5 is the only launch protocol: a request without tax settings launches with a 1% buy and 1% sell tax. V4 launches are no longer available.
+- `POST /api/tokens/deploy/v4` — Removed. Returns 410 Gone. Use POST /api/tokens/deploy, which launches V5 tokens. *(deprecated)*
 - `POST /api/tokens/index` — Triggers token indexing by transaction hash. Use after deploying a token outside the API.

@@ -1,14 +1,16 @@
 # API Deployments
 
-With a partner API key, you can deploy Clanker v5 tokens on Base through `POST /api/tokens/deploy`. The example request and field tables below cover every v5 field. For how v5 tokens work, see [Token Deployments](../token-deployments.md). For the full endpoint reference, see [Deployment](../../api-reference/authenticated/deployment.md).
+With a partner API key, you can deploy Clanker v5 tokens through `POST /api/tokens/deploy`. The example request and field tables below cover every v5 field. For how v5 tokens work, see [Token Deployments](../token-deployments.md). For the full endpoint reference, see [Deployment](../../api-reference/authenticated/deployment.md).
 
 ## How it works
 
 1. Send a `POST` request to `https://www.clanker.world/api/tokens/deploy` with your partner API key in the `x-api-key` header.
-2. Set `protocol` to `"v5"` and add a `tax` object. Without `protocol: "v5"`, the route deploys a v4 token.
+2. Add a `tax` object to set the tax. Without one, the token launches with a 1% buy and sell tax.
 3. The response gives the expected token address. The deployment is queued and lands on chain shortly after.
 
-Use `dryRun: true` to check a request without deploying. The `/api/tokens/deploy/v4` route accepts v4 deployments only.
+Use `dryRun: true` to check a request without deploying.
+
+Each API key can launch 20 tokens per day and 1 per minute unless Clanker set other limits for it. Over a limit, the route returns 429 with `Retry-After`.
 
 ## Example request
 
@@ -76,8 +78,8 @@ With `dryRun: true`, nothing is deployed. The response gives `"message": "Dryrun
 
 | Parameter               | Description                                                                           |
 | ----------------------- | ------------------------------------------------------------------------------------- |
-| `protocol`              | Set to `"v5"`. Defaults to `"v4"`.                                                    |
-| `chainId`               | `8453` (Base). Defaults to Base.                                                      |
+| `protocol`              | `"v5"`, the default.                                                                  |
+| `chainId`               | Base (8453), BNB Chain (56), Monad (143), Robinhood Chain (4663), X Layer (196) or Arc (5042). Defaults to Base. |
 | `token.name`            | Token name. Required.                                                                 |
 | `token.symbol`          | Token symbol. Required.                                                               |
 | `token.image`           | Public PNG or JPEG image URL.                                                         |
@@ -92,8 +94,8 @@ With `dryRun: true`, nothing is deployed. The response gives `"message": "Dryrun
 
 | Parameter                    | Description                                                                                                                                     |
 | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `tax.buyFee`                 | Total buy tax in percent, including the Clanker fee. Required. Must be within the launch policy bounds (1 to 10).                               |
-| `tax.sellFee`                | Total sell tax in percent, including the Clanker fee. Required. Same bounds as `buyFee`.                                                        |
+| `tax.buyFee`                 | Total buy tax in percent, including the Clanker fee. Defaults to 1. Must be within the launch policy bounds (1 to 10).                          |
+| `tax.sellFee`                | Total sell tax in percent, including the Clanker fee. Defaults to 1. Same bounds as `buyFee`.                                                   |
 | `tax.dividends`              | Percent of the tax after the Clanker fee paid to holders. Defaults to 0.                                                                        |
 | `tax.minimumDividendHolding` | Balance a holder needs to earn dividends, as a string of whole tokens. At least `"10000"` (the default). Used only when `dividends` is above 0. |
 | `tax.burn`                   | Percent of the tax after the Clanker fee burned in the launched token. Defaults to 0.                                                           |
@@ -107,14 +109,14 @@ With `dryRun: true`, nothing is deployed. The response gives `"message": "Dryrun
 
 | Parameter                | Description                                                                                                                                            |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `pool.pairedToken`       | WETH (`0x4200000000000000000000000000000000000006`) for an ETH pair, or USDC (`0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913`). Defaults to the ETH pair. |
+| `pool.pairedToken`       | The pair token: the chain's wrapped native coin for a native pair (the default; on Arc the default is USDC), its stable, or another pair the v5 factory registers. See [Supported Quote Tokens](../../references/supported-quote-tokens.md). |
 | `rewards`                | List of reward recipients. Allocations must add up to 100. Defaults to 100% to `tokenAdmin`.                                                           |
 | `rewards[].admin`        | Address that can change this recipient after launch.                                                                                                   |
 | `rewards[].recipient`    | Address that receives the rewards.                                                                                                                     |
 | `rewards[].allocation`   | Percent of the creator rewards for this recipient.                                                                                                     |
 | `rewards[].rewardsToken` | Leave unset or use `"Paired"`. v5 rewards are paid in the pair token.                                                                                  |
 
-v5 does not accept v4 `fees`, other `pool` settings, `vault`, `airdrop` or `poolExtension`. A request that includes them returns a 400 error.
+The route does not accept v4 fields (`fees`, other `pool` settings, `vault`, `airdrop`, `poolExtension` or `devBuy`). A request that includes them returns a 400 error that lists them.
 
 ## Launch policy
 

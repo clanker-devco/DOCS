@@ -70,7 +70,7 @@ Returns detailed token data by token contract address, including deployer info a
 }
 ```
 
-> Cached for 2 minutes.
+> Token data is cached on the server for up to 1 minute. Responses are not cached by the CDN.
 
 ---
 
@@ -96,7 +96,7 @@ Returns tokens deployed by a Farcaster FID.
 }
 ```
 
-> Fixed page size of 10. Cached for 5 seconds.
+> Fixed page size of 10. Responses are not cached by the CDN.
 
 ---
 
@@ -151,6 +151,6 @@ Checks whether a token address is blocked.
 }
 ```
 
-> Cached for 1 minute.
+> Responses are not cached by the CDN.
 
 ---

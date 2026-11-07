@@ -51,12 +51,12 @@
   },
   {
     "indent": 2,
-    "title": "Farcaster Bot Deployments",
+    "title": "Bot Deployments",
     "source": "general/token-deployments/farcaster-bot-deployments.md",
     "route": "general/token-deployments/farcaster-bot-deployments",
     "oldPath": "general/token-deployments/farcaster-bot-deployments",
     "sourceSha256": "65dd084dc29804d8a8cbbdbd6c11892204dc85309c693083c0d504247134b5f0",
-    "sidebarTitle": "Farcaster Bot"
+    "sidebarTitle": "Bots"
   },
   {
     "indent": 2,

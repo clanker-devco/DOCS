@@ -7,7 +7,7 @@
 * [Token Deployments](general/token-deployments.md)
   * [clanker.world](general/token-deployments/clanker.world-deployments.md)
   * [API](general/token-deployments/v5-deployments.md)
-  * [Farcaster Bot](general/token-deployments/farcaster-bot-deployments.md)
+  * [Bots](general/token-deployments/farcaster-bot-deployments.md)
   * [Preclanks](general/token-deployments/preclank-deployments.md)
   * [Other Interfaces](general/token-deployments/alternative-interface-deployments.md)
   * [Earlier Versions: v4](general/token-deployments/v4-deployments.md)
