@@ -1,6 +1,6 @@
 # Preclank Deployments
 
-A preclank lets you set up a token on clanker.world now and launch it later from Farcaster. Preclanks launch v5 tokens on Base and Monad.
+A preclank lets you set up a token on clanker.world now and launch it later from Farcaster. Preclanks launch v5 tokens on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc.
 
 ## How it works
 
