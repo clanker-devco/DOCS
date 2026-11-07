@@ -379,6 +379,6 @@ The creator announcements of a V5 token, newest first, from the V5 announcement 
 }
 ```
 
-> Cached for 1 minute. A 502 means the registry logs could not be read: the read stops after 22 seconds, and a history of more than 2,000 log ranges (about 15 months on Base) is not read. The server keeps a failed read for up to 1 minute (a too-long history for hours), so retry after the Retry-After time. Rate limited per IP.
+> Cached for 1 minute. A 502 means the registry logs could not be read: the read stops after 22 seconds, and a history of more than 2,000 log ranges (about 15 months on Base) is not read. The server keeps a failed read for up to 1 minute (a too-long history for hours), so retry after the Retry-After time. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---

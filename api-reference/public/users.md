@@ -104,7 +104,7 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 }
 ```
 
-> Up to 100 holdings per page across all chains asked for. Cached for 15 seconds. Rate limited per IP.
+> Up to 100 holdings per page across all chains asked for. Cached for 15 seconds. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---
 
@@ -151,6 +151,6 @@ The dividend positions of a wallet: each V5 token that it holds and that pays ho
 }
 ```
 
-> Codex lists the tokens that the wallet holds now. The first page (no cursor) also lists the sold V5 tokens with unpaid dividends among the 200 newest V5 tokens of each chain, with a balance of "0"; the token page shows the claim of an older sold token. One request reads up to 500 holdings. Cached for 15 seconds. Rate limited per IP.
+> Codex lists the tokens that the wallet holds now. The first page (no cursor) also lists the sold V5 tokens with unpaid dividends among the 200 newest V5 tokens of each chain, with a balance of "0"; the token page shows the claim of an older sold token. One request reads up to 500 holdings. Cached for 15 seconds. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---

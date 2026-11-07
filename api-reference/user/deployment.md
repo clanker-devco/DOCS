@@ -25,7 +25,7 @@ Saves a UI-deployed token and enqueues it for indexing. Auth is optional — una
 }
 ```
 
-> Indexing is enqueued with a 6 s delay. Answers 503 with Retry-After: 5 for a hash the node does not have yet or an RPC error, 400 for a transaction that is not a Clanker launch or an unsupported chain, and 429 after 10 requests a minute from one IP address.
+> Indexing is enqueued with a 6 s delay. Answers 503 with Retry-After: 5 for a hash the node does not have yet or an RPC error, 400 for a transaction that is not a Clanker launch or an unsupported chain, and 429 after 10 requests a minute from one IP address. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---
 
@@ -47,6 +47,6 @@ Pins a token image to IPFS for the deploy form and the token metadata editor.
 { "url": "https://.../ipfs/bafy..." }
 ```
 
-> Requires Farcaster or Privy authentication. 50 uploads per person per UTC day and 30 per IP address per hour (429 over either). Answers 400 for a body that is not multipart form data, no file or an unsupported image, and 413 for a file over 4 MB.
+> Requires Farcaster or Privy authentication. 50 uploads per person per UTC day and 30 per IP address per hour (429 over either; the daily one waits until the next UTC day). A 503 (`code` `limits_unavailable`) means the daily count could not be checked. Answers 400 for a body that is not multipart form data, no file or an unsupported image, and 413 for a file over 4 MB. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---

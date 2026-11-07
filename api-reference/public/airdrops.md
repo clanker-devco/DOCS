@@ -47,6 +47,8 @@ Saves an airdrop Merkle tree for a token. The tree must hash to merkleRoot, and 
 { "success": true }
 ```
 
+> Rate limited to 30 saves an hour per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
 ---
 
 ### GET `/api/airdrops/allocations`

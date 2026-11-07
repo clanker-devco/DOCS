@@ -31,7 +31,7 @@ Deploy a new Clanker V5 token. V5 is the only launch protocol: a request without
 }
 ```
 
-> V4-only fields give 400 with a fields list: protocol v4, fees, vault, airdrop, poolExtension, devBuy, any pool field other than pairedToken, and rewardsToken Both or Clanker. Each API key can launch 20 tokens per UTC day and 1 per minute unless the Clanker team set other limits for it; over a limit the deploy returns 429 with Retry-After. A key with no launch in 60 days (and older than 60 days) gets 403 until the Clanker team turns it back on. Max duration: 120 s.
+> V4-only fields give 400 with a fields list: protocol v4, fees, vault, airdrop, poolExtension, devBuy, any pool field other than pairedToken, and rewardsToken Both or Clanker. Each API key can launch 20 tokens per UTC day and 1 per minute unless the Clanker team set other limits for it; over a limit the deploy returns 429 with Retry-After, and 503 (`code` `limits_unavailable`) with Retry-After when the launch counter cannot be read. There is no other daily request cap. A key with no launch in 60 days (and older than 60 days) gets 403 until the Clanker team turns it back on. Max duration: 120 s. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`. An unknown or disabled key gets 401. When the key cannot be checked (a database error), the answer is 503 with `Retry-After: 30` and `{ "error", "code": "limits_unavailable", "retryAfter": 30 }`: retry, the key is not the problem.
 
 ---
 
@@ -68,6 +68,6 @@ Triggers token indexing by transaction hash. Use after deploying a token outside
 }
 ```
 
-> Rate limited to 10 requests per minute per IP.
+> Rate limited to 10 requests per minute per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`. An unknown or disabled key gets 401. When the key cannot be checked (a database error), the answer is 503 with `Retry-After: 30` and `{ "error", "code": "limits_unavailable", "retryAfter": 30 }`: retry, the key is not the problem.
 
 ---

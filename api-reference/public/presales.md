@@ -132,6 +132,6 @@ Enqueues a presale for re-indexing by transaction hash.
 }
 ```
 
-> Answers 400 for a hidden or unsupported chain, 503 with Retry-After: 5 when the node does not have the transaction yet or could not read it, and 429 after 10 requests a minute from one IP address.
+> Answers 400 for a hidden or unsupported chain, 503 with Retry-After: 5 when the node does not have the transaction yet or could not read it, and 429 after 10 requests a minute from one IP address. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---

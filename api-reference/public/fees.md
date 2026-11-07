@@ -29,7 +29,7 @@ The fee history of a token: the fee configuration, each swap with its fees (up t
 }
 ```
 
-> Cached for 5 minutes when the history is complete, else 30 seconds. A V5 history of more than 2,000 log ranges (about 15 months on Base) is not read (`feeLogsStatus` `too-long`, cached for 1 hour). The finished log blocks of a V5 history are cached on the server, so a request reads only the newest blocks. Rate limited per IP.
+> Cached for 5 minutes when the history is complete, else 30 seconds. A V5 history of more than 2,000 log ranges (about 15 months on Base) is not read (`feeLogsStatus` `too-long`, cached for 1 hour). The finished log blocks of a V5 history are cached on the server, so a request reads only the newest blocks. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---
 
