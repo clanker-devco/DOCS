@@ -29,3 +29,19 @@ Index a token by contract address. Looks up the deployment transaction on-chain.
 > Rate limited to 5 requests per minute per IP and 1 per hour per address.
 
 ---
+
+### POST `/api/tokens/save-deployed-token/from-ui/legacy`
+
+> **Deprecated**: Retired: the route answers 410 and saves nothing. Use POST /api/tokens/save-deployed-token/from-ui.
+
+Saved a token from the old v3.1 deploy form. Retired.
+
+**Authentication:** Public
+
+**Body Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `hash` | `string` | Yes | — | Deployment transaction hash. |
+
+---

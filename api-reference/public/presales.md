@@ -119,7 +119,7 @@ Enqueues a presale for re-indexing by transaction hash.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `txHash` | `string` | Yes | — | Hex-encoded transaction hash. |
+| `txHash` | `string` | Yes | — | Transaction hash: 0x and 64 hex digits. The chain must have the transaction. |
 | `chainId` | `number` | No | 8453 | Chain ID (defaults to Base). |
 
 **Response:** Confirmation that the presale was enqueued.
@@ -131,5 +131,7 @@ Enqueues a presale for re-indexing by transaction hash.
   "data": { "txHash": "0x...", "chainId": 8453 }
 }
 ```
+
+> Answers 400 for a hidden or unsupported chain, 503 with Retry-After: 5 when the node does not have the transaction yet or could not read it, and 429 after 10 requests a minute from one IP address.
 
 ---
