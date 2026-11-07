@@ -29,7 +29,7 @@ Returns LP info for a token: pool address, locker, NFT ID, liquidity locked perc
 }
 ```
 
-> Cached for 2 minutes. For a V5 token, lockerAddress is the V5 hook, which holds the seed positions, and no code path can remove them. amountDepositedIntoLP is the launch supply from the Launched event, and lpNftId is 0, as for v4.
+> Responses are not cached by the CDN. For a V5 token, lockerAddress is the V5 hook, which holds the seed positions, and no code path can remove them. amountDepositedIntoLP is the launch supply from the Launched event, and lpNftId is 0, as for v4.
 
 ---
 
