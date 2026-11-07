@@ -1,12 +1,12 @@
 # Clanker Documentation
 
-Clanker is a token deployment protocol on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc, Elysium and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
+Clanker is a token deployment protocol on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and other EVM chains. This repository is the source for the [Clanker Gitbook documentation](https://clanker.gitbook.io) and is auto-generated from the SDK and API.
 
 You can launch a token from [clanker.world](https://www.clanker.world), by tagging @clanker on Farcaster, through the API or with the SDK. Each token launches with its own liquidity pool, and the fees or tax from trading flow back to the creator as rewards.
 
 ## Clanker v5
 
-Clanker v5 is the current version of Clanker, live on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
+Clanker v5 is the current version of Clanker, live on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. A v5 token charges a buy and sell tax on every trade instead of an LP fee. The tax pays the creator's rewards and can also fund holder dividends, a burn and an integrator share.
 
 You can launch a v5 token on clanker.world, through the API or with the SDK. See [clanker.world Deployments](general/token-deployments/clanker.world-deployments.md), [API Deployments](general/token-deployments/v5-deployments.md) and the [SDK v5 reference](https://www.clanker.world/docs/sdk-reference/v5). The [v5 contracts](references/core-contracts/v5.md) page covers the contracts, launch policy and permissions.
 
