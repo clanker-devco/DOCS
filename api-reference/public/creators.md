@@ -14,7 +14,7 @@ Search creators by Farcaster username, Twitter handle, or wallet address. Return
 |-----------|------|----------|---------|-------------|
 | `q` | `string` | Yes | — | Username, handle, or address. |
 | `trustedOnly` | `boolean` | No | false | Only return trusted deployers. |
-| `usersOnly` | `boolean` | No | false | Return only the matched users (no token list). Much faster; used by search boxes. |
+| `usersOnly` | `boolean` | No | false | Return only the matched users (no token list). Much faster; used by search boxes. For an address, `searchedAddressHasLaunches` is true when that wallet launched a token. |
 | `sort` | `"asc" | "desc"` | No | desc | Sort by deployment date. |
 | `platform` | `"farcaster" | "twitter"` | No | — | Platform filter. |
 | `limit` | `number` | No | 20 | Page size (1–50). |
@@ -65,7 +65,7 @@ Returns creator fee earnings for a token.
 }
 ```
 
-> Cached for 1 hour. Only a V5 token has the currency field: { address, symbol, decimals }, and the recipients field. A response with a null totalWethClaimed is not cached.
+> Cached for 5 minutes at the edge (stale for up to 10 more while it refreshes). Only a V5 token has the currency field: { address, symbol, decimals }, and the recipients field. A response with a null totalWethClaimed is not cached.
 
 ---
 

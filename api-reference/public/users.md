@@ -16,7 +16,7 @@ Returns a Farcaster user profile by FID.
 
 **Response:** Neynar User object.
 
-> Cached for 5 minutes.
+> Not cached.
 
 ---
 
@@ -34,7 +34,7 @@ Returns a Farcaster user profile by verified wallet address.
 
 **Response:** Neynar User object.
 
-> Cached for 24 hours.
+> Not cached.
 
 ---
 

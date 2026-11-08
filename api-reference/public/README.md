@@ -61,7 +61,7 @@ These endpoints are publicly accessible and require no authentication.
 ### Market Data
 
 - `GET /api/marketcap` — Returns the market cap for a token calculated from its Uniswap V3 pool.
-- `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator. Aggregators do not route Clanker V5 pools, so for a V5 token the route quotes the V5 pool with the Uniswap v4 Quoter and returns a SwapX transaction. When SwapX has no quote, a V5 token falls back to the aggregators with a default slippage of 5%. The route accepts an aggregator quote only when its minimum output is not less than the minimum of the V5 pool route (Uniswap v4 Quoter). Without a V5 pool quote, a V5 token gets 404.
+- `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator. Aggregators do not route Clanker V5 pools, so for a V5 token the route quotes the V5 pool with the Uniswap v4 Quoter and returns a SwapX transaction. A V5 trade pays or receives the native coin (Arc: its USDC token), a stable payment token where a SwapX route exists (Base USDC, BNB Chain USDC and USDT, Monad USDC, Robinhood USDG, X Layer USDC and USDG), or the pool pair when it is not the native coin. Another currency gets 400. When SwapX has no quote, a V5 token falls back to the aggregators with a default slippage of 5%. The route accepts an aggregator quote only when its minimum output is not less than the minimum of the V5 pool route (Uniswap v4 Quoter). Without a V5 pool quote, a V5 token gets 404.
 - `GET /api/metadata/factories` — Returns Clanker factory contract addresses, their chain id (`chainId`) and event selectors. The row of a V5 factory has `events.launched` (the Launched event) instead of `events.tokenCreated`, and `taxPolicy`, the current V5 policy of the factory.
 
 ### Legion
@@ -75,6 +75,6 @@ These endpoints are publicly accessible and require no authentication.
 
 ### Market data
 
-- `GET /api/prices` — Current ETH, BTC, BNB and MON prices in USD from Codex. Charts, the LP simulator, presale market caps and the swap box share this response.
+- `GET /api/prices` — Current ETH, BTC, BNB, MON, OKB, USDC, USDG and USDT prices in USD from Codex. Charts, the LP simulator, presale market caps and the swap box share this response.
 - `GET /api/tax/quote-prices` — The reference prices of the stock price check for V5 trades and creator buys on a Base stock quote: the price of each requested stock (TickDB price times the token multiplier) and the ETH price from Codex. The route reads the snapshot of a cron and never calls TickDB.
 - `GET /api/tax/quote-market` — The pair picker data of each V5 catalog quote on a chain: the USD price (Codex for ETH and the crypto quotes, the cron snapshot of the TickDB price times the token multiplier for the stocks), the Codex liquidity, and the on-chain total supply of each stock. The stock price check of a trade does not use this route. The query must be `?chainId=<decimal>`; another parameter or another spelling of the chain ID (for example `0x2105` or `08453`) gets 400 with `Cache-Control: no-store`.
