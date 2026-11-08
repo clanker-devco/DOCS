@@ -2,11 +2,11 @@
 
 ### GET `/api/prices`
 
-Current ETH, BTC, BNB and MON prices in USD from Codex. Charts, the LP simulator, presale market caps and the swap box share this response.
+Current ETH, BTC, BNB, MON, OKB, USDC, USDG and USDT prices in USD from Codex. Charts, the LP simulator, presale market caps and the swap box share this response.
 
 **Authentication:** Public
 
-**Response:** USD prices keyed by symbol. Either value is null when that lookup failed.
+**Response:** USD prices keyed by symbol. A value is null when that lookup failed. A dollar stable without a Codex price is 1.
 
 ```json
 {

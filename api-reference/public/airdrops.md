@@ -73,6 +73,8 @@ Returns all allocations for an airdrop.
 }
 ```
 
+> Found allocations are cached for 1 hour at the edge (stale for up to a day while it refreshes); an airdrop is saved once and never changes. A 404 (the airdrop is not saved yet, e.g. right after launch) is not cached.
+
 ---
 
 ### GET `/api/airdrops/claim`
