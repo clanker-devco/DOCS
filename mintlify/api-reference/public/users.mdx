@@ -8,7 +8,7 @@ Endpoints for looking up Farcaster user profiles.
 
 ### GET `/api/get-user-by-fid`
 
-Returns a Farcaster user profile by FID.
+Returns a Farcaster profile by FID, read from the public Farcaster node.
 
 **Authentication:** Public
 
@@ -18,47 +18,19 @@ Returns a Farcaster user profile by FID.
 |-----------|------|----------|---------|-------------|
 | `fid` | `string` | Yes | — | Farcaster ID. |
 
-**Response:** Neynar User object.
+**Response:** A small profile object: `{ fid, username, displayName, pfpUrl, bio }` (the last three may be null), or `null` when the FID has no profile. An account without a username has the username `!<fid>`. 502 when the Farcaster node is unavailable. Follower counts, verified wallets and other Neynar user fields are no longer returned.
 
-> Not cached.
+```json
+{
+  "fid": 3,
+  "username": "dwr.eth",
+  "displayName": "Dan Romero",
+  "pfpUrl": "https://...",
+  "bio": "..."
+}
+```
 
----
-
-<a id="get-apiget-user-by-address"></a>
-
-### GET `/api/get-user-by-address`
-
-Returns a Farcaster user profile by verified wallet address.
-
-**Authentication:** Public
-
-**Query Parameters**
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `address` | `address` | Yes | — | Verified wallet address (0x…). |
-
-**Response:** Neynar User object.
-
-> Not cached.
-
----
-
-<a id="get-apiget-user-by-name"></a>
-
-### GET `/api/get-user-by-name`
-
-Returns a Farcaster user profile by username.
-
-**Authentication:** Public
-
-**Query Parameters**
-
-| Parameter | Type | Required | Default | Description |
-|-----------|------|----------|---------|-------------|
-| `name` | `string` | Yes | — | Farcaster username. |
-
-**Response:** User object or 404.
+> Cached for 5 minutes.
 
 ---
 
@@ -66,7 +38,7 @@ Returns a Farcaster user profile by username.
 
 ### GET `/api/get-multiple-users-by-fid`
 
-Returns multiple Farcaster user profiles by FIDs.
+Returns Farcaster profiles for up to 25 FIDs, read from the public Farcaster node.
 
 **Authentication:** Public
 
@@ -74,15 +46,17 @@ Returns multiple Farcaster user profiles by FIDs.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `fids` | `string` | No | — | Comma-separated FIDs. |
+| `fids` | `string` | No | — | Comma-separated FIDs (at most 25; 400 above that). |
 
-**Response:** Array of user objects.
+**Response:** Profiles in the order of the FIDs, each `{ fid, username, displayName, pfpUrl, bio }` as in /api/get-user-by-fid. FIDs without a profile, or that the node did not answer in time, are left out.
 
 ```json
 {
-  "users": [ { "fid": 1, "username": "...", ... } ]
+  "users": [ { "fid": 1, "username": "...", "displayName": "...", "pfpUrl": "...", "bio": null } ]
 }
 ```
+
+> Profiles are cached for 1 hour on the server; responses for 60 seconds.
 
 ---
 
@@ -107,7 +81,7 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 | `chainIds` | `string` | Yes | — | Comma-separated EVM chain ids, each one the site supports. One request covers them all. |
 | `cursor` | `string` | No | — | The `cursor` from the previous page. |
 
-**Response:** Token balances as raw decimal strings with their chain, and a cursor when more holdings remain. Codex lists the holdings (tokens it labels as scams are left out); amounts are read on-chain at the latest block, and zero balances are dropped. A 502 means the balances could not be read.
+**Response:** Token balances as raw decimal strings with their chain, and a cursor when more holdings remain. Codex lists the holdings (tokens it labels as scams are left out); amounts are read on-chain at the latest block, and zero balances are dropped. `failedChainIds` lists the chains whose balances could not be read; their tokens are missing from the page, and the response is not cached. A 502 means no chain could be read.
 
 ```json
 {

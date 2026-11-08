@@ -208,7 +208,7 @@ Returns tokens deployed by a Farcaster FID.
 
 ### GET `/api/tokens/fetch-deployed-by-address`
 
-Returns tokens deployed by a wallet address.
+Returns the tokens a wallet deployed through the v2, v3 and v3.1 factories on Base (read on chain), and the tokens it is the admin of.
 
 **Authentication:** Public
 
@@ -219,7 +219,7 @@ Returns tokens deployed by a wallet address.
 | `address` | `address` | Yes | — | Wallet address. |
 | `cursor` | `string` | No | — | Pagination cursor. |
 
-**Response:** Paginated token list.
+**Response:** Paginated token list. Tokens are no longer looked up by the Farcaster account of the wallet.
 
 ```json
 {
