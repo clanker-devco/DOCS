@@ -333,6 +333,8 @@ Deployed on November 5, 2026. First block: 29,652,403.
 
 ### Elysium: 99901
 
+Elysium is Kinetiq's chain. Its gas token is HYPE and its explorer is [elysium.kinetiq.xyz](https://elysium.kinetiq.xyz). Elysium has no public RPC, so bring your own RPC URL to read or launch there.
+
 <details>
 
 <summary>v5</summary>

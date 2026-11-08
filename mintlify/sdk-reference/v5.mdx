@@ -105,6 +105,7 @@ v5 does not accept v4 `fee`, `fees`, `salt`, `vault`, `airdrop`, `presale`, `sni
 ## Creator buy
 
 * The SDK picks the route for the native quote and for the stable quote of each chain. Another quote needs `devBuy.routeData` or the `buildBuyRoute` option.
+* Elysium has no HYPE/USDC pool, so a USDC creator buy there also needs `devBuy.routeData` or `buildBuyRoute`. A HYPE creator buy needs no route.
 * The SDK simulates the launch and sets the minimum output 5% below the quote. Set `devBuySlippagePercent` in the second argument of `deploy` to change it.
 * The contract sends the bought tokens to the caller. If `devBuy.recipient` or `tokenAdmin` is another address, `deploy` sends them in a second transaction and returns `transferTxHash`.
 
@@ -118,8 +119,46 @@ v5 does not accept v4 `fee`, `fees`, `salt`, `vault`, `airdrop`, `presale`, `sni
 | Robinhood Chain | 4663     | ETH, USDG    | ETH or USDG   |
 | X Layer         | 196      | OKB, USDC    | OKB or USDC   |
 | Arc             | 5042     | USDC         | USDC          |
+| Elysium         | 99901    | HYPE, USDC   | HYPE          |
 
-Launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer and Arc. Clanker no longer supports new launches on Ethereum, Arbitrum and Unichain. Their factories have launches turned off, so a launch there returns `Launches are not open on chain <id>.` On Arc, the native coin is USDC.
+Launches are open on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker no longer supports new launches on Ethereum, Arbitrum and Unichain. Their factories have launches turned off, so a launch there returns `Launches are not open on chain <id>.` On Arc, the native coin is USDC.
+
+### Elysium
+
+Elysium (chain ID 99901) support needs the `clanker-sdk` release that adds Elysium. viem has no Elysium chain, so import `elysium` from `clanker-sdk`. Elysium has no public RPC, so pass your own RPC URL to both clients.
+
+```typescript
+import { elysium } from "clanker-sdk";
+import { Clanker } from "clanker-sdk/v5";
+import {
+  createPublicClient,
+  createWalletClient,
+  http,
+  type PublicClient,
+} from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+
+const account = privateKeyToAccount(process.env.PRIVATE_KEY as `0x${string}`);
+const transport = http(process.env.ELYSIUM_RPC_URL);
+const publicClient = createPublicClient({
+  chain: elysium,
+  transport,
+}) as PublicClient;
+const wallet = createWalletClient({ account, chain: elysium, transport });
+
+const clanker = new Clanker({ wallet, publicClient });
+
+const { waitForTransaction, error } = await clanker.deploy({
+  name: "My Token",
+  symbol: "TKN",
+  buyFee: 2,
+  sellFee: 2,
+  devBuy: { ethAmount: "0.01" },
+});
+if (error) throw error;
+```
+
+`elysium.id` is 99901, and `clanker-sdk/v5` also exports it as `ELYSIUM_CHAIN_ID`. The token pairs with HYPE, and `devBuy.ethAmount` is in HYPE. `ELYSIUM_USDC` is the USDC pair address. In the CLI, use `--chain elysium --rpc <url>`.
 
 ## Manage a token
 
