@@ -30,14 +30,17 @@ These endpoints are publicly accessible and require no authentication.
 ### Users
 
 - `GET /api/get-user-by-fid` — Returns a Farcaster user profile by FID.
-- `GET /api/get-multiple-users-by-fid` — Returns multiple Farcaster user profiles by FIDs, up to 25 per request.
+- `GET /api/get-user-by-address` — Returns a Farcaster user profile by verified wallet address.
+- `GET /api/get-user-by-name` — Returns a Farcaster user profile by username.
+- `GET /api/get-multiple-users-by-fid` — Returns multiple Farcaster user profiles by FIDs.
 - `GET /api/wallet/{address}/balances` — A page of a wallet's non-zero ERC-20 balances across one or more chains, for the portfolio and send widget.
 - `GET /api/wallet/{address}/dividends` — The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. `isIncomplete` is true when a chain read fails.
 
 ### Creators
 
-- `GET /api/search-creator` — Search creators by an exact Farcaster username or FID. Returns matching tokens with trust status.
+- `GET /api/search-creator` — Search creators by Farcaster username, Twitter handle, or wallet address. Returns matching tokens with trust status.
 - `GET /api/creator-earnings/{tokenAddress}` — Returns creator fee earnings for a token.
+- `GET /api/creator/{address}` — Returns a creator profile with stats.
 - `GET /api/get-clankers-deployed/by-following` — Returns tokens deployed by accounts that a given FID follows.
 
 ### Presales
@@ -60,6 +63,10 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/marketcap` — Returns the market cap for a token calculated from its Uniswap V3 pool.
 - `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator. Aggregators do not route Clanker V5 pools, so for a V5 token the route quotes the V5 pool with the Uniswap v4 Quoter and returns a SwapX transaction. When SwapX has no quote, a V5 token falls back to the aggregators with a default slippage of 5%. The route accepts an aggregator quote only when its minimum output is not less than the minimum of the V5 pool route (Uniswap v4 Quoter). Without a V5 pool quote, a V5 token gets 404.
 - `GET /api/metadata/factories` — Returns Clanker factory contract addresses, their chain id (`chainId`) and event selectors. The row of a V5 factory has `events.launched` (the Launched event) instead of `events.tokenCreated`, and `taxPolicy`, the current V5 policy of the factory.
+
+### Legion
+
+- `GET /api/droid/leaderboard` — Ranked droid leaderboard rows for a given interval. Public projection covers token, runs, actions, cast metrics, creator, and last-active fields. The composite `score` object (composite, components, washConfidence, washFlags) is admin-only and omitted from non-admin responses.
 
 ### Deployment
 

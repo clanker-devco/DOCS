@@ -4,7 +4,7 @@ Endpoints for searching creators and retrieving their tokens and earnings.
 
 ### GET `/api/search-creator`
 
-Search creators by an exact Farcaster username or FID. Returns matching tokens with trust status.
+Search creators by Farcaster username, Twitter handle, or wallet address. Returns matching tokens with trust status.
 
 **Authentication:** Public
 
@@ -12,7 +12,7 @@ Search creators by an exact Farcaster username or FID. Returns matching tokens w
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `q` | `string` | Yes | — | Exact Farcaster username or FID. |
+| `q` | `string` | Yes | — | Username, handle, or address. |
 | `trustedOnly` | `boolean` | No | false | Only return trusted deployers. |
 | `usersOnly` | `boolean` | No | false | Return only the matched users (no token list). Much faster; used by search boxes. |
 | `sort` | `"asc" | "desc"` | No | desc | Sort by deployment date. |
@@ -66,6 +66,32 @@ Returns creator fee earnings for a token.
 ```
 
 > Cached for 1 hour. Only a V5 token has the currency field: { address, symbol, decimals }, and the recipients field. A response with a null totalWethClaimed is not cached.
+
+---
+
+### GET `/api/creator/{address}`
+
+Returns a creator profile with stats.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Creator wallet address. |
+
+**Response:** Creator user info and launch stats.
+
+```json
+{
+  "user": { "fid": 1, "username": "...", ... },
+  "address": "0x...",
+  "stats": { "tokensLaunched": 12 }
+}
+```
+
+> Cached for 30 seconds.
 
 ---
 

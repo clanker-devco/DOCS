@@ -96,8 +96,6 @@ flowchart TD
 
 ## Check with the API
 
-Search by an exact Farcaster username or FID:
-
 ```bash
 curl "https://www.clanker.world/api/search-creator?q=dish"
 ```

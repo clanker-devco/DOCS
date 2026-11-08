@@ -14,19 +14,15 @@ Returns a Farcaster user profile by FID.
 |-----------|------|----------|---------|-------------|
 | `fid` | `string` | Yes | — | Farcaster ID. |
 
-**Response:** A small profile read from the public Farcaster node.
-
-```json
-{ "fid": 3, "username": "dwr", "displayName": "Dan Romero", "pfpUrl": "https://...", "bio": "..." }
-```
+**Response:** Neynar User object.
 
 > Cached for 5 minutes.
 
 ---
 
-### GET `/api/get-multiple-users-by-fid`
+### GET `/api/get-user-by-address`
 
-Returns multiple Farcaster user profiles by FIDs, up to 25 per request.
+Returns a Farcaster user profile by verified wallet address.
 
 **Authentication:** Public
 
@@ -34,13 +30,47 @@ Returns multiple Farcaster user profiles by FIDs, up to 25 per request.
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `fids` | `string` | No | — | Comma-separated FIDs (at most 25). |
+| `address` | `address` | Yes | — | Verified wallet address (0x…). |
 
-**Response:** The profiles, in the same small shape as `get-user-by-fid`.
+**Response:** Neynar User object.
+
+> Cached for 24 hours.
+
+---
+
+### GET `/api/get-user-by-name`
+
+Returns a Farcaster user profile by username.
+
+**Authentication:** Public
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `name` | `string` | Yes | — | Farcaster username. |
+
+**Response:** User object or 404.
+
+---
+
+### GET `/api/get-multiple-users-by-fid`
+
+Returns multiple Farcaster user profiles by FIDs.
+
+**Authentication:** Public
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `fids` | `string` | No | — | Comma-separated FIDs. |
+
+**Response:** Array of user objects.
 
 ```json
 {
-  "users": [{ "fid": 3, "username": "dwr", "displayName": "Dan Romero", "pfpUrl": "https://...", "bio": "..." }]
+  "users": [ { "fid": 1, "username": "...", ... } ]
 }
 ```
 
