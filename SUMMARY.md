@@ -8,7 +8,6 @@
   * [clanker.world](general/token-deployments/clanker.world-deployments.md)
   * [API](general/token-deployments/v5-deployments.md)
   * [Bots](general/token-deployments/farcaster-bot-deployments.md)
-  * [Preclanks](general/token-deployments/preclank-deployments.md)
   * [Other Interfaces](general/token-deployments/alternative-interface-deployments.md)
   * [Earlier Versions: v4](general/token-deployments/v4-deployments.md)
   * [Earlier Versions: v3](general/token-deployments/legacy-deployments.md)
@@ -34,14 +33,12 @@
   * [Airdrops](api-reference/public/airdrops.md)
   * [Market Data](api-reference/public/market-data.md)
   * [Fees](api-reference/public/fees.md)
-  * [Legion](api-reference/public/legion.md)
   * [Deployment](api-reference/public/deployment.md)
 * [Authenticated API](api-reference/authenticated/README.md)
   * [Tokens](api-reference/authenticated/tokens.md)
   * [Fees](api-reference/authenticated/fees.md)
   * [Deployment](api-reference/authenticated/deployment.md)
 * [User API](api-reference/user/README.md)
-  * [Preclanks](api-reference/user/preclanks.md)
   * [Deployment](api-reference/user/deployment.md)
 
 ## SDK Reference

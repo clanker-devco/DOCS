@@ -115,14 +115,11 @@ Add reward recipients to split the **Creator funds**. For each recipient, set th
 {% endstep %}
 {% endstepper %}
 
-You can also save a token as a preclank with the **Preclank** option at the bottom of the form and launch it later with a cast. See [Preclank Deployments](preclank-deployments.md).
-
 New launches are v5 only. Existing v4 tokens keep working and can still be managed: see [v4 Deployments](v4-deployments.md) and [Managing a Token](../managing-a-token.md).
 
 ## Related
 
 * [Token Deployments](../token-deployments.md)
 * [v4 Deployments](v4-deployments.md)
-* [Preclank Deployments](preclank-deployments.md)
 * [Creator Rewards & Fees](../creator-rewards-and-fees.md)
 * [Managing a Token](../managing-a-token.md)

@@ -16,7 +16,7 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/tokens/chart-marks` — Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
 - `GET /api/tokens/{address}/market` — A token's market numbers and holder count from its pool_market_data row, mapped as the token lists map them. The token page header polls it every 60 seconds.
 - `GET /api/tokens/fetch-deployed-by-fid` — Returns tokens deployed by a Farcaster FID.
-- `GET /api/tokens/fetch-deployed-by-address` — Returns tokens deployed by a wallet address.
+- `GET /api/tokens/fetch-deployed-by-address` — Returns the tokens a wallet deployed through the v2, v3 and v3.1 factories on Base (read on chain), and the tokens it is the admin of.
 - `GET /api/tokens/fetch-by-pool-address` — Returns token data for a single pool address.
 - `POST /api/tokens/fetch-by-pool-addresses` — Returns token data for multiple pool addresses (max 100).
 - `POST /api/tokens/fetch-by-addresses` — Returns clanker tokens for up to 100 (token address, chain) pairs, e.g. the tokens a wallet holds.
@@ -31,18 +31,15 @@ These endpoints are publicly accessible and require no authentication.
 
 ### Users
 
-- `GET /api/get-user-by-fid` — Returns a Farcaster user profile by FID.
-- `GET /api/get-user-by-address` — Returns a Farcaster user profile by verified wallet address.
-- `GET /api/get-user-by-name` — Returns a Farcaster user profile by username.
-- `GET /api/get-multiple-users-by-fid` — Returns multiple Farcaster user profiles by FIDs.
+- `GET /api/get-user-by-fid` — Returns a Farcaster profile by FID, read from the public Farcaster node.
+- `GET /api/get-multiple-users-by-fid` — Returns Farcaster profiles for up to 25 FIDs, read from the public Farcaster node.
 - `GET /api/wallet/{address}/balances` — A page of a wallet's non-zero ERC-20 balances across one or more chains, for the portfolio and send widget.
 - `GET /api/wallet/{address}/dividends` — The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. `isIncomplete` is true when a chain read fails.
 
 ### Creators
 
-- `GET /api/search-creator` — Search creators by Farcaster username, Twitter handle, or wallet address. Returns matching tokens with trust status.
+- `GET /api/search-creator` — Search creators by exact Farcaster username or FID, Twitter handle, or wallet address. Returns matching tokens with trust status.
 - `GET /api/creator-earnings/{tokenAddress}` — Returns creator fee earnings for a token.
-- `GET /api/creator/{address}` — Returns a creator profile with stats.
 - `GET /api/get-clankers-deployed/by-following` — Returns tokens deployed by accounts that a given FID follows.
 
 ### Presales
@@ -65,10 +62,6 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/marketcap` — Returns the market cap for a token calculated from its Uniswap V3 pool.
 - `GET /api/quotes` — Returns a swap quote via the spanDEX aggregator. Aggregators do not route Clanker V5 pools, so for a V5 token the route quotes the V5 pool with the Uniswap v4 Quoter and returns a SwapX transaction. A V5 trade pays or receives the native coin (Arc: its USDC token), a stable payment token where a SwapX route exists (Base USDC, BNB Chain USDC and USDT, Monad USDC, Robinhood USDG, X Layer USDC and USDG), or the pool pair when it is not the native coin. Another currency gets 400. When SwapX has no quote, a V5 token falls back to the aggregators with a default slippage of 5%. The route accepts an aggregator quote only when its minimum output is not less than the minimum of the V5 pool route (Uniswap v4 Quoter). Without a V5 pool quote, a V5 token gets 404.
 - `GET /api/metadata/factories` — Returns Clanker factory contract addresses, their chain id (`chainId`) and event selectors. The row of a V5 factory has `events.launched` (the Launched event) instead of `events.tokenCreated`, and `taxPolicy`, the current V5 policy of the factory.
-
-### Legion
-
-- `GET /api/droid/leaderboard` — Ranked droid leaderboard rows for a given interval. Public projection covers token, runs, actions, cast metrics, creator, and last-active fields. The composite `score` object (composite, components, washConfidence, washFlags) is admin-only and omitted from non-admin responses.
 
 ### Deployment
 

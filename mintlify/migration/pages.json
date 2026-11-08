@@ -60,15 +60,6 @@
   },
   {
     "indent": 2,
-    "title": "Preclank Deployments",
-    "source": "general/token-deployments/preclank-deployments.md",
-    "route": "general/token-deployments/preclank-deployments",
-    "oldPath": "general/token-deployments/preclank-deployments",
-    "sourceSha256": "4da563c2057f733ca8f8b1ae5a9300e4d39cd15a7ef99ede53dbcb990b969ab0",
-    "sidebarTitle": "Preclanks"
-  },
-  {
-    "indent": 2,
     "title": "Alternative Interface Deployments",
     "source": "general/token-deployments/alternative-interface-deployments.md",
     "route": "general/token-deployments/alternative-interface-deployments",
@@ -226,14 +217,6 @@
   },
   {
     "indent": 2,
-    "title": "Legion",
-    "source": "api-reference/public/legion.md",
-    "route": "api-reference/public/legion",
-    "oldPath": "api-reference/public/legion",
-    "sourceSha256": "0eb2aa87f5963b779af4ad271961f34d0432b0d5d7e6969bae90d30d515ccb7a"
-  },
-  {
-    "indent": 2,
     "title": "Deployment",
     "source": "api-reference/public/deployment.md",
     "route": "api-reference/public/deployment",
@@ -279,14 +262,6 @@
     "route": "api-reference/user",
     "oldPath": "api-reference/user",
     "sourceSha256": "622f077ebf317fa2687877dc7f6377b65df236c42069566e5e7228a0e5fa11a7"
-  },
-  {
-    "indent": 2,
-    "title": "Preclanks",
-    "source": "api-reference/user/preclanks.md",
-    "route": "api-reference/user/preclanks",
-    "oldPath": "api-reference/user/preclanks",
-    "sourceSha256": "074005b5dba8f07042a0fa55e91ae9ef766d465efb0c8be0a697340c2d0c7b42"
   },
   {
     "indent": 2,

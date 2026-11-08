@@ -68,7 +68,7 @@ The token's contract address is on an allowlist verified out of band, for exampl
 
 ### 3. Farcaster FID match (`fidMatchesDeployer`)
 
-For a Farcaster token, clanker.world looks up the FID's `verified_addresses.eth_addresses` through Neynar and checks:
+For a Farcaster token, clanker.world reads the FID's verified Ethereum addresses from the public Farcaster node (`verificationsByFid`) and checks:
 
 > `msg_sender ∈ verifiedAddresses`
 
@@ -87,7 +87,7 @@ flowchart TD
   B -- no --> C{msg_sender in TRUSTED_DEPLOYERS?}
   C -- yes --> T2[Trusted: vetted deployer]
   C -- no --> D{social_context.platform}
-  D -- farcaster --> E[Fetch FID via Neynar]
+  D -- farcaster --> E[Read FID verifications from a Farcaster node]
   E --> F{msg_sender ∈ verified_addresses?}
   F -- yes --> T3[Trusted: FID-verified]
   F -- no --> U[Unverified]
@@ -125,12 +125,14 @@ This returns tokens where at least one of `isTrustedClanker`, `isTrustedDeployer
 1. Get the token's `msg_sender`, `contract_address` and `social_context`.
 2. Accept it if `contract_address` is allowlisted.
 3. Accept it if `msg_sender` is a trusted deployer.
-4. For Farcaster context, look up the FID's user on Neynar and compare `msg_sender` with its `verified_addresses`. A match proves ownership.
+4. For Farcaster context, read the FID's verified addresses from a Farcaster node and compare `msg_sender` with them. A match proves ownership.
 5. For X context, confirm that the user ID matches `social_context.id`.
 
 The Farcaster check in TypeScript:
 
 ```ts
+const FARCASTER_NODE = 'https://snap.farcaster.xyz:3381';
+
 async function isFarcasterVerifiedDeploy({
   msgSender,
   socialContext,
@@ -141,15 +143,29 @@ async function isFarcasterVerifiedDeploy({
   const fid = Number(socialContext.id);
   if (!fid) return false;
 
-  const res = await fetch(
-    `https://api.neynar.com/v2/farcaster/user/bulk?fids=${fid}`,
-    { headers: { 'x-api-key': process.env.NEYNAR_API_KEY! } },
-  );
-  const { users } = await res.json();
-  const verified: string[] = users?.[0]?.verified_addresses?.eth_addresses ?? [];
+  const res = await fetch(`${FARCASTER_NODE}/v1/verificationsByFid?fid=${fid}&pageSize=100`);
+  if (!res.ok) return false;
+  const { messages } = await res.json();
+  const verified: string[] = (messages ?? [])
+    .map((m: any) => m.data?.verificationAddAddressBody)
+    .filter((body: any) => body?.protocol === 'PROTOCOL_ETHEREUM')
+    .map((body: any) => body.address);
 
   return verified.some((addr) => addr.toLowerCase() === msgSender.toLowerCase());
 }
+```
+
+The public node needs no API key. These calls also help:
+
+```bash
+# Verified wallets of an FID (Ethereum and Solana)
+curl "https://snap.farcaster.xyz:3381/v1/verificationsByFid?fid=3"
+
+# The FID's primary Ethereum address
+curl "https://api.farcaster.xyz/fc/primary-address?fid=3&protocol=ethereum"
+
+# Profile data: find the message with type USER_DATA_TYPE_USERNAME for the username
+curl "https://snap.farcaster.xyz:3381/v1/userDataByFid?fid=3"
 ```
 
 ## What the trust check doesn't prove
@@ -162,7 +178,7 @@ If your app shows the trust status, show standard disclaimers next to it: tokens
 
 ## Show your Farcaster account as creator
 
-Deploy with a wallet that is a verified address on your Farcaster account. You can deploy by replying to @clanker in the Farcaster feed, by preclanking on the deploy page or by deploying from the deploy page, the API or the SDK. To add a verified address to your Farcaster profile, go to **Settings ⇒ Verified Addresses**.
+Deploy with a wallet that is a verified address on your Farcaster account. You can deploy by tagging @clanker in the Farcaster feed or by deploying from the deploy page, the API or the SDK. To add a verified address to your Farcaster profile, go to **Settings ⇒ Verified Addresses**.
 
 ## Related
 

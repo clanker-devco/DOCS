@@ -6,13 +6,6 @@ These endpoints require user authentication via Farcaster JWT or Privy token in 
 
 ## Endpoints
 
-### Preclanks
-
-- `POST /api/preclank/v4` — Removed. Returns 410 Gone: V4 preclanks are retired; create a V5 preclank with /api/preclank/tax. *(deprecated)*
-- `POST /api/preclank/tax` — Create a V5 preclank. The bot launches it through the V5 factory when the creator casts the keyword. The server builds the launch once to check it.
-- `GET /api/preclank/pending` — Returns all pending preclanks for the authenticated user.
-- `DELETE /api/preclank/{id}` — Soft-deletes a preclank owned by the authenticated user.
-
 ### Deployment
 
 - `POST /api/tokens/save-deployed-token/from-ui` — Saves a UI-deployed token and enqueues it for indexing. Auth is optional — unauthenticated requests still trigger indexing but skip the database save. Only a Clanker launch transaction (mined, or sent and not mined yet) is enqueued.
