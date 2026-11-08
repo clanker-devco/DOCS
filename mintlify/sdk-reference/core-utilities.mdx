@@ -671,6 +671,88 @@ Defined in: [src/constants.ts:16](https://github.com/clanker-devco/clanker-sdk/b
 
 ***
 
+<h3 id="elysium">
+elysium
+</h3>
+
+```ts
+const elysium: {
+  blockExplorers: {
+     default: {
+        name: "Elysium Explorer";
+        url: "https://elysium.kinetiq.xyz";
+     };
+  };
+  contracts: {
+     multicall3: {
+        address: "0xcA11bde05977b3631167028862bE2a173976CA11";
+     };
+  };
+  id: 99901;
+  name: "Elysium";
+  nativeCurrency: {
+     decimals: 18;
+     name: "HYPE";
+     symbol: "HYPE";
+  };
+  rpcUrls: {
+     default: {
+        http: readonly [];
+     };
+  };
+  testnet: false;
+};
+```
+
+Defined in: [src/utils/chains/elysium.ts:11](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L11)
+
+Elysium, the Kinetiq chain (Arbitrum Nitro). Viem doesn't define it yet; its `elysiumTestnet`
+(chain id 1338) is a different chain. Once viem defines it, remove this definition.
+
+Elysium has no public RPC, so this definition has no default RPC URL. Pass your own, for
+example `createPublicClient({ chain: elysium, transport: http('<your Elysium RPC URL>') })`,
+or `--rpc` in the CLI.
+
+<h4 id="type-declaration-1">
+Type Declaration
+</h4>
+
+| Name | Type | Default value | Description | Defined in |
+| ------ | ------ | ------ | ------ | ------ |
+| <a id="property-blockexplorers"></a> `blockExplorers` | \{ `default`: \{ `name`: `"Elysium Explorer"`; `url`: `"https://elysium.kinetiq.xyz"`; \}; \} | - | Collection of block explorers | node\_modules/viem/\_types/types/chain.d.ts:15 |
+| `blockExplorers.default` | \{ `name`: `"Elysium Explorer"`; `url`: `"https://elysium.kinetiq.xyz"`; \} | - | - | [src/utils/chains/elysium.ts:25](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L25) |
+| `blockExplorers.default.name` | `"Elysium Explorer"` | `'Elysium Explorer'` | - | [src/utils/chains/elysium.ts:26](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L26) |
+| `blockExplorers.default.url` | `"https://elysium.kinetiq.xyz"` | `'https://elysium.kinetiq.xyz'` | - | [src/utils/chains/elysium.ts:27](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L27) |
+| <a id="property-contracts"></a> `contracts` | \{ `multicall3`: \{ `address`: `"0xcA11bde05977b3631167028862bE2a173976CA11"`; \}; \} | - | Collection of contracts | node\_modules/viem/\_types/types/chain.d.ts:22 |
+| `contracts.multicall3` | \{ `address`: `"0xcA11bde05977b3631167028862bE2a173976CA11"`; \} | - | - | [src/utils/chains/elysium.ts:31](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L31) |
+| `contracts.multicall3.address` | `"0xcA11bde05977b3631167028862bE2a173976CA11"` | `'0xcA11bde05977b3631167028862bE2a173976CA11'` | - | [src/utils/chains/elysium.ts:32](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L32) |
+| <a id="property-id"></a> `id` | `99901` | - | ID in number form | node\_modules/viem/\_types/types/chain.d.ts:35 |
+| <a id="property-name"></a> `name` | `"Elysium"` | - | Human-readable name | node\_modules/viem/\_types/types/chain.d.ts:37 |
+| <a id="property-nativecurrency"></a> `nativeCurrency` | \{ `decimals`: `18`; `name`: `"HYPE"`; `symbol`: `"HYPE"`; \} | - | Currency used by chain | node\_modules/viem/\_types/types/chain.d.ts:39 |
+| `nativeCurrency.decimals` | `18` | `18` | - | [src/utils/chains/elysium.ts:17](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L17) |
+| `nativeCurrency.name` | `"HYPE"` | `'HYPE'` | - | [src/utils/chains/elysium.ts:15](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L15) |
+| `nativeCurrency.symbol` | `"HYPE"` | `'HYPE'` | - | [src/utils/chains/elysium.ts:16](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L16) |
+| <a id="property-rpcurls"></a> `rpcUrls` | \{ `default`: \{ `http`: readonly \[\]; \}; \} | - | Collection of RPC endpoints | node\_modules/viem/\_types/types/chain.d.ts:43 |
+| `rpcUrls.default` | \{ `http`: readonly \[\]; \} | - | - | [src/utils/chains/elysium.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L20) |
+| `rpcUrls.default.http` | readonly \[\] | `[]` | - | [src/utils/chains/elysium.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L21) |
+| <a id="property-testnet"></a> `testnet` | `false` | - | Flag for test networks | node\_modules/viem/\_types/types/chain.d.ts:52 |
+
+***
+
+<h3 id="elysium_whype_address">
+ELYSIUM\_WHYPE\_ADDRESS
+</h3>
+
+```ts
+const ELYSIUM_WHYPE_ADDRESS: `0x${string}` = '0xbA876237B0F021A6c6D852d6c26E107997cC5E81';
+```
+
+Defined in: [src/utils/chains/elysium.ts:39](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/elysium.ts#L39)
+
+WHYPE, the wrapped native coin on Elysium.
+
+***
+
 <h3 id="fee_configs">
 FEE\_CONFIGS
 </h3>
@@ -752,28 +834,28 @@ const robinhood: {
 
 Defined in: [src/utils/chains/robinhood.ts:4](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L4)
 
-<h4 id="type-declaration-1">
+<h4 id="type-declaration-2">
 Type Declaration
 </h4>
 
 | Name | Type | Default value | Description | Defined in |
 | ------ | ------ | ------ | ------ | ------ |
-| <a id="property-blockexplorers"></a> `blockExplorers` | \{ `default`: \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \}; \} | - | Collection of block explorers | node\_modules/viem/\_types/types/chain.d.ts:15 |
+| <a id="property-blockexplorers-1"></a> `blockExplorers` | \{ `default`: \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \}; \} | - | Collection of block explorers | node\_modules/viem/\_types/types/chain.d.ts:15 |
 | `blockExplorers.default` | \{ `name`: `"Robinhood Chain Blockscout Explorer"`; `url`: `"https://robinhoodchain.blockscout.com"`; \} | - | - | [src/utils/chains/robinhood.ts:19](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L19) |
 | `blockExplorers.default.name` | `"Robinhood Chain Blockscout Explorer"` | `'Robinhood Chain Blockscout Explorer'` | - | [src/utils/chains/robinhood.ts:20](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L20) |
 | `blockExplorers.default.url` | `"https://robinhoodchain.blockscout.com"` | `'https://robinhoodchain.blockscout.com'` | - | [src/utils/chains/robinhood.ts:21](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L21) |
 | <a id="property-blocktime"></a> `blockTime` | `100` | - | Block time in milliseconds. | node\_modules/viem/\_types/types/chain.d.ts:20 |
-| <a id="property-contracts"></a> `contracts` | \{ \} | - | Collection of contracts | node\_modules/viem/\_types/types/chain.d.ts:22 |
-| <a id="property-id"></a> `id` | `4663` | - | ID in number form | node\_modules/viem/\_types/types/chain.d.ts:35 |
-| <a id="property-name"></a> `name` | `"Robinhood Chain"` | - | Human-readable name | node\_modules/viem/\_types/types/chain.d.ts:37 |
-| <a id="property-nativecurrency"></a> `nativeCurrency` | \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \} | - | Currency used by chain | node\_modules/viem/\_types/types/chain.d.ts:39 |
+| <a id="property-contracts-1"></a> `contracts` | \{ \} | - | Collection of contracts | node\_modules/viem/\_types/types/chain.d.ts:22 |
+| <a id="property-id-1"></a> `id` | `4663` | - | ID in number form | node\_modules/viem/\_types/types/chain.d.ts:35 |
+| <a id="property-name-1"></a> `name` | `"Robinhood Chain"` | - | Human-readable name | node\_modules/viem/\_types/types/chain.d.ts:37 |
+| <a id="property-nativecurrency-1"></a> `nativeCurrency` | \{ `decimals`: `18`; `name`: `"Ether"`; `symbol`: `"ETH"`; \} | - | Currency used by chain | node\_modules/viem/\_types/types/chain.d.ts:39 |
 | `nativeCurrency.decimals` | `18` | `18` | - | [src/utils/chains/robinhood.ts:11](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L11) |
 | `nativeCurrency.name` | `"Ether"` | `'Ether'` | - | [src/utils/chains/robinhood.ts:9](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L9) |
 | `nativeCurrency.symbol` | `"ETH"` | `'ETH'` | - | [src/utils/chains/robinhood.ts:10](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L10) |
-| <a id="property-rpcurls"></a> `rpcUrls` | \{ `default`: \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \}; \} | - | Collection of RPC endpoints | node\_modules/viem/\_types/types/chain.d.ts:43 |
+| <a id="property-rpcurls-1"></a> `rpcUrls` | \{ `default`: \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \}; \} | - | Collection of RPC endpoints | node\_modules/viem/\_types/types/chain.d.ts:43 |
 | `rpcUrls.default` | \{ `http`: readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\]; \} | - | - | [src/utils/chains/robinhood.ts:14](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L14) |
 | `rpcUrls.default.http` | readonly \[`"https://rpc.mainnet.chain.robinhood.com"`\] | - | - | [src/utils/chains/robinhood.ts:15](https://github.com/clanker-devco/clanker-sdk/blob/main/src/utils/chains/robinhood.ts#L15) |
-| <a id="property-testnet"></a> `testnet` | `false` | - | Flag for test networks | node\_modules/viem/\_types/types/chain.d.ts:52 |
+| <a id="property-testnet-1"></a> `testnet` | `false` | - | Flag for test networks | node\_modules/viem/\_types/types/chain.d.ts:52 |
 
 ***
 
