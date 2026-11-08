@@ -8,13 +8,11 @@
   "api-reference/public/airdrops",
   "api-reference/public/market-data",
   "api-reference/public/fees",
-  "api-reference/public/legion",
   "api-reference/public/deployment",
   "api-reference/authenticated",
   "api-reference/authenticated/tokens",
   "api-reference/authenticated/fees",
   "api-reference/authenticated/deployment",
   "api-reference/user",
-  "api-reference/user/preclanks",
   "api-reference/user/deployment"
 ]

@@ -18,7 +18,7 @@ Run only what answers a question. CI runs everything on the PR.
 
 - docs.clanker.world deploys from the `release` branch, folder `mintlify/`. Changes on `main` go live only after a `main` -> `release` PR is merged.
 - The API reference is generated from `clanker.world/docs/api-registry.ts`. The clanker.world docs workflow runs on its `release` merges and pushes the result straight to DOCS `main` (commits like `Update API reference docs from clanker.world@<sha>`). The SDK reference comes from TypeDoc in `clanker-sdk`. Edit those sources, never the generated pages in `api-reference/`, `sdk-reference/` or their `mintlify/` copies.
-- GitBook renders only the root Markdown files listed in `SUMMARY.md`. Files outside it (like this one, or `droids/`) are not published.
+- GitBook renders only the root Markdown files listed in `SUMMARY.md`. Files outside it (like this one) are not published.
 
 ## Adding or editing a page
 
@@ -26,7 +26,7 @@ Run only what answers a question. CI runs everything on the PR.
 2. For a new page, add it to `SUMMARY.md`, `mintlify/migration/pages.json` (title, source, route, oldPath, `sourceSha256` of the source file) and the navigation in `mintlify/docs.json`. Removing a page means removing all three entries and adding a redirect in `docs.json`.
 3. Run `npm run sync:guides`, then `npm run check`. Commit the root file and the generated `.mdx` together; Lint fails on unsynced guides.
 
-Droids are hidden: source stays in `droids/`, out of `SUMMARY.md` and `pages.json`, and `/droids/*` redirects to token deployments. Do not re-add them.
+Droids were removed, along with preclanks and the Legion API. `/droids/*` and the old preclank and Legion pages redirect to token deployments. Do not re-add them.
 
 ## Writing rules
 
