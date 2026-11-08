@@ -88,7 +88,7 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 
 ### GET `/api/wallet/{address}/dividends`
 
-The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. `isIncomplete` is true when a chain read fails.
+The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. On a chain without a Codex wallet index (Elysium), the first page reads the wallet balance of the 200 newest V5 tokens on the chain. `isIncomplete` is true when a chain read failed or a chain has more V5 tokens than that read covers.
 
 **Authentication:** Public
 
