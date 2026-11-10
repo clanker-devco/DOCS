@@ -6,13 +6,13 @@ The quote token, also called the pair token, is the token a Clanker token is pai
 
 Each chain's v5 factory keeps its own list of registered pair tokens, and a v5 token can launch against any of them. The factory sets each pair's starting price, so the starting market cap depends on the pair. Rewards and dividends are paid in the pair token. In a v5 pool the native coin is the zero address.
 
-The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 9, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
+The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 10, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
 
 | Chain | Native and stablecoin pairs | Crypto pairs | Stock tokens |
 | --- | --- | --- | --- |
 | [Base](#base-8453) | ETH, USDC | 16 | 319 |
 | [BNB Chain](#bnb-chain-56) | BNB, USDC | — | 21 |
-| [Monad](#monad-143) | MON, USDC | 1 | — |
+| [Monad](#monad-143) | MON, USDC | 1 | 10 |
 | [Robinhood Chain](#robinhood-chain-4663) | ETH, USDG | — | 194 |
 | [X Layer](#x-layer-196) | OKB, USDC | 1 | 45 |
 | [Arc](#arc-5042) | USDC | 1 | — |
@@ -415,6 +415,25 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | Monad (MON)          | 0x0000000000000000000000000000000000000000 | 18       |
 | USDC (USDC)          | 0x754704Bc059F8C67012fEd69BC8A327a5aafb603 | 6        |
 | Wrapped Ether (WETH) | 0xEE8c0E9f1BFFb4Eb878d8f15f368A02a35481242 | 18       |
+
+<details>
+
+<summary>10 stock tokens</summary>
+
+| Symbol | Name                                               | Address                                    | Decimals |
+| ------ | -------------------------------------------------- | ------------------------------------------ | -------- |
+| wEWYx  | Wrapped iShares MSCI South Korea xStock            | 0x021b40617982074748C81a19d22046CC2548C3bE | 18       |
+| wMUx   | Wrapped Micron Technology xStock                   | 0xe2047ee3bdDb5C99ae428AB83df63f8730698e30 | 18       |
+| wNVDAx | Wrapped NVIDIA xStock                              | 0xa8ddb5Cd96b5222AFe198316E9A57CAA642850D5 | 18       |
+| wQQQx  | Wrapped Nasdaq xStock                              | 0x4C1AE29c159838fC1b224636E28E086EB69101f7 | 18       |
+| wSGOVx | Wrapped iShares 0-3 Month Treasury Bond ETF xStock | 0x4Ac39e0881e5967822cCE9d166D1b7Ac12402ba1 | 18       |
+| wSKHYx | Wrapped SK hynix xStock                            | 0x6215a58ed045d71F2561AaAbe54f4C885C522998 | 18       |
+| wSMHx  | Wrapped VanEck Semiconductor ETF xStock            | 0x23c4BDDea5e7E284fB4027c6050bC5E6f7FaE23f | 18       |
+| wSPCXx | Wrapped SpaceX xStock                              | 0x8e2eeD8b8B5E13Ea7BF38e50d7821d2C57309072 | 18       |
+| wSPYx  | Wrapped SP500 xStock                               | 0xE7E553Cd128F0011777323A0b44a7b96EA1CB540 | 18       |
+| wTSLAx | Wrapped Tesla xStock                               | 0xc3FdBe3A68EE5dE461D30415a8165cf9Aefe1171 | 18       |
+
+</details>
 
 ### Robinhood Chain: 4663
 
