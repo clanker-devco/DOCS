@@ -99,7 +99,7 @@ Add reward recipients to split the **Creator funds**. For each recipient, set th
 
 ### Pool
 
-*Optional. Defaults to ETH.*
+*Optional. Defaults to USDC on Base and to the chain's native coin on other chains.*
 
 * **Pair**: one of the pair tokens registered on the selected chain: its native coin, a stablecoin, a crypto token or a stock token. See [Supported Quote Tokens](../../references/supported-quote-tokens.md). The factory sets the starting price, and the form shows the starting market cap.
 {% endstep %}

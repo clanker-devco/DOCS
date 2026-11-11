@@ -42,7 +42,7 @@ If a v5 token has a burn share, part of every trade's tax is taken in the token 
 
 <summary>Which chains does Clanker support?</summary>
 
-Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker no longer supports Ethereum, Arbitrum One, Unichain or Solana. The Ethereum, Arbitrum One and Unichain contracts stay listed for tokens launched there before. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
+Clanker v5 runs on Base, BNB Chain, Monad, Robinhood Chain, X Layer, Arc and Elysium. Clanker no longer supports Ethereum, Arbitrum One, Unichain, Abstract or Solana. clanker.world hides tokens on these chains: they are left out of its lists, search and API, and their token pages return 404. The Ethereum, Arbitrum One and Unichain contracts stay listed for tokens launched there before. See [Deployed Contracts](../references/deployed-contracts.md) for every chain and contract.
 
 </details>
 
@@ -76,11 +76,9 @@ See [Managing a Token](managing-a-token.md) for everything else the Admin page d
 
 <details>
 
-<summary>What does Creator Earnings on the clanker.world token page mean?</summary>
+<summary>What does the creator earnings card on the clanker.world token page show?</summary>
 
-**Creator Earnings** is an **estimate** of the rewards a creator earned in the past 30 days. It may not match the current market value of the tokens in those rewards.
-
-The unclaimed rewards figure is different: it is the current unclaimed balance, not a 30-day estimate.
+The card, titled **Fees Available to Claim**, shows each reward recipient's unclaimed rewards in the pair token, read live from the chain, for v5 tokens and for v4 tokens on Base. A v5 balance includes the rewards of every v5 token that pays that wallet.
 
 </details>
 
