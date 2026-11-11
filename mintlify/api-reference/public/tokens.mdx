@@ -75,7 +75,7 @@ Returns the Trending list (the homepage Trending tab), ranked every minute from 
 }
 ```
 
-> Cached for 5 minutes (s-maxage=300). Attributes the old pool list had that clanker.world does not track (native prices, 5m and 15m changes, dex) are left out. Returns 503 when the ranking is unavailable.
+> Cached for 15 seconds (s-maxage=15, stale-while-revalidate=15). Attributes the old pool list had that clanker.world does not track (native prices, 5m and 15m changes, dex) are left out. Returns 503 (not cached) when the ranking is unavailable.
 
 ---
 
