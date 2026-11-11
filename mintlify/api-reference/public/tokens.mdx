@@ -177,6 +177,69 @@ A token's market numbers and holder count from its pool_market_data row, mapped 
 
 ---
 
+<a id="get-apitokensaddresstrades"></a>
+
+### GET `/api/tokens/{address}/trades`
+
+A page of a Clanker token's newest buys and sells in its top pool, newest first, from Codex. The token page's Trades tab reads it.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `cursor` | `string` | No | — | The `cursor` of the previous page, for the next 25 older trades. |
+
+**Response:** `side` is about the token (`buy` or `sell`); `amount` is in whole tokens; `priceUsd` and `valueUsd` are null when Codex has no USD price; `timestamp` is in Unix seconds. `cursor` is null on the last page. `available` is false (and the list empty) when Codex does not index the chain.
+
+```json
+{
+  "available": true,
+  "trades": [{ "id": "0x...:12", "txHash": "0x...", "timestamp": 1794276494, "maker": "0x...", "side": "sell", "amount": 4.4776, "priceUsd": 13.77, "valueUsd": 61.67 }],
+  "cursor": "eyJ..."
+}
+```
+
+> The newest page is cached at the CDN for 10 seconds (stale-while-revalidate=20), an older page for 5 minutes and a chain Codex does not index for 1 hour. A token that is not a Clanker token returns 404, an invalid address or cursor 400 and a Codex failure 502, none cached. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
+<a id="get-apitokensaddressholders"></a>
+
+### GET `/api/tokens/{address}/holders`
+
+A Clanker token's 50 largest wallets from Codex, largest first, with each one's share of the supply. The token page's Holders tab reads it.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Response:** `amount` is in whole tokens and `percent` is the share of the total supply (0 to 100). `label` names a wallet that is the pool (on Base, the Uniswap v4 PoolManager for a v4 pool), a Clanker locker, vault, airdrop or presale contract, a burn address or the token admin (`Creator`); otherwise it is null. `count` is the number of holders and `top10Percent` the share of the 10 largest. `status` is `disabled`, with an empty list, when Codex keeps no holder list for the token or does not index the chain.
+
+```json
+{
+  "status": "enabled",
+  "count": 2303,
+  "top10Percent": 94.42,
+  "holders": [{ "address": "0x...", "amount": 80000000000, "percent": 80, "label": "Vault" }]
+}
+```
+
+> Cached at the CDN for 1 minute (stale-while-revalidate=120), and for 1 hour on a chain Codex does not index. A token that is not a Clanker token returns 404, an invalid address 400 and a Codex failure 502, none cached. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 <a id="get-apitokensfetch-deployed-by-fid"></a>
 
 ### GET `/api/tokens/fetch-deployed-by-fid`
