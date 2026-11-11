@@ -67,7 +67,13 @@ A past recipient, or an integrator, claims its balance from the **Tax Fees** car
 
 Creators of older tokens earn rewards from trading volume. When a standard Clanker token is deployed, the supply not used by extensions goes into single-sided Uniswap LP positions (the initial LP). Each swap in that pool pays an LP fee to the initial LP. Creators earn nothing from LP positions or pools that other holders add later.
 
-Claim creator rewards on the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. Anyone can start the claim, and the rewards always go to the reward recipient. See the [FAQ](faq.md) for more on finding your tokens and claiming.
+Claim creator rewards on the token's Admin page: `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`. A claim always pays the reward recipient. Who can start it depends on the version:
+
+* **v4**: rewards wait in the fee locker, and the token side and the pair side are claimed separately. On clanker.world the claim buttons show only to the reward recipient's wallet, unless that recipient turned on letting any wallet claim.
+* **v2, v3 and v3.1**: anyone can start the claim, and the rewards always go to the reward recipient, not to the wallet that started it.
+* **v1, and v0 tokens with their own locker**: only the token's creator can claim.
+
+See the [FAQ](faq.md) for more on finding your tokens and claiming.
 
 ### Clanker fee
 
