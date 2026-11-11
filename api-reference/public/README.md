@@ -13,6 +13,8 @@ These endpoints are publicly accessible and require no authentication.
 - `GET /api/tokens/ohlcv` — USD OHLCV candles for one token in a pool. The response is this app’s chart contract, read from Codex pool bars.
 - `GET /api/tokens/chart-marks` — Buy and sell marks for the token chart. Dev wallets are resolved on the server. The response is this app’s chart contract, not the upstream Codex payload.
 - `GET /api/tokens/{address}/market` — A token's market numbers and holder count from its pool_market_data row, mapped as the token lists map them. The token page header polls it every 60 seconds.
+- `GET /api/tokens/{address}/trades` — A page of a Clanker token's newest buys and sells in its top pool, newest first, from Codex. The token page's Trades tab reads it.
+- `GET /api/tokens/{address}/holders` — A Clanker token's 50 largest wallets from Codex, largest first, with each one's share of the supply. The token page's Holders tab reads it.
 - `GET /api/tokens/fetch-deployed-by-fid` — Returns tokens deployed by a Farcaster FID.
 - `GET /api/tokens/fetch-deployed-by-address` — Returns the tokens a wallet deployed through the v2, v3 and v3.1 factories on Base (read on chain), and the tokens it is the admin of.
 - `GET /api/tokens/fetch-by-pool-address` — Returns token data for a single pool address.
