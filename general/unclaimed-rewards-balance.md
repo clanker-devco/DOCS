@@ -35,7 +35,7 @@ Open the token's Admin page and select **Check Claimable Fees** in the **Claim R
 
 ## Clanker v3.1 and earlier
 
-The token page on clanker.world shows an estimate of unclaimed rewards near the bottom. The initial LP of these tokens is a Uniswap v3 position, so you can also check that position's **Uncollected fees** on chain:
+The initial LP of these tokens is a Uniswap v3 position, so you can check that position's **Uncollected fees** on chain:
 
 {% stepper %}
 {% step %}

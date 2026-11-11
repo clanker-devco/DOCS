@@ -94,7 +94,9 @@ On [clanker.world](https://www.clanker.world/):
 Open the token's Admin page, `https://www.clanker.world/clanker/TOKEN_CONTRACT_ADDRESS_HERE/admin`, connect the reward recipient's wallet and claim in the **Claim Rewards** card.
 
 * **v5**: a claim pays the recipient's whole FeeEscrow balance across its v5 tokens (see [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance)). A past recipient claims from the **Tax Fees** card on its [clanker.world profile](https://www.clanker.world/profile).
-* **v4 and earlier**: the claim pays out the creator rewards from the token's LP. Anyone can start it, and the rewards always go to the reward recipient, not to the wallet that started the claim.
+* **v4**: rewards wait in the fee locker, and the token side and the pair side are claimed separately. On clanker.world the claim buttons show only to the reward recipient's wallet, unless that recipient turned on letting any wallet claim.
+* **v2, v3 and v3.1**: anyone can start the claim, and the rewards always go to the reward recipient, not to the wallet that started it.
+* **v1, and v0 tokens with their own locker**: only the token's creator can claim.
 
 See [Managing a Token](/general/managing-a-token) for everything else the Admin page does.
 
@@ -123,7 +125,7 @@ The unclaimed rewards figure is different: it is the current unclaimed balance, 
 
 
 * **v5 and v4**: select **Check Claimable Fees** in the **Claim Rewards** card on the token's Admin page. For v5, `GET /api/creator-earnings/{tokenAddress}` returns the FeeEscrow balances of all current recipients.
-* **v3.1 and earlier**: the bottom of the token page shows an estimate of unclaimed rewards.
+* **v3.1 and earlier**: check the **Uncollected fees** of the token's initial Uniswap v3 position on chain.
 
 See [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance).
 
@@ -138,7 +140,7 @@ See [Unclaimed Rewards Balance](/general/unclaimed-rewards-balance).
 
 
 * **v5**: one FeeEscrow claim pays the rewards of all your v5 tokens, so claiming on one token also clears the balance shown on your other v5 tokens.
-* **v4 and earlier**: anyone can start the payout of creator rewards, so you may already have received rewards without claiming them yourself.
+* **v2 to v4**: the contracts let anyone start the payout of creator rewards, so you may already have received rewards without claiming them yourself.
 
 
 </Accordion>
