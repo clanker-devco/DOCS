@@ -12,7 +12,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
-| `q` | `string` | No | — | Search query (max 100 chars). A token address, pool address or v4 pool id returns that token. Text needs at least 2 letters or digits: 2 characters match a symbol exactly, 3–10 match a symbol prefix or a name substring, longer terms match either substring. A leading $ is ignored. Results are ordered by 24h volume, exact and prefix symbol matches first on the first page. |
+| `q` | `string` | No | — | Search query (max 100 chars). A token address, pool address or v4 pool id returns that token. A wallet address that is no token or pool returns the launches sent from that wallet, and the tokens it manages by the Verified rule of the Managed tab of its profile (for example a bot or partner launch that made it the admin). `@username` returns the launches of the Farcaster and X accounts with that username. In `@<number>`, the number is a Farcaster ID when that ID has a profile, else a username. A Solana-only search (`chain=solana`) returns no tokens for `@username`. Both creator searches order the launches by launch date, whatever `sortBy` says: newest first, or oldest first with `sort=asc`. Text needs at least 2 letters or digits: 2 characters match a symbol exactly, 3–10 match a symbol prefix or a name substring, longer terms match either substring. A leading $ is ignored. Results are ordered by 24h volume, exact and prefix symbol matches first on the first page. |
 | `fid` | `number` | No | — | Filter by a single Farcaster FID. |
 | `fids` | `string` | No | — | Comma-separated list of Farcaster FIDs. |
 | `msgSender` | `address` | No | — | Filter by deployer wallet address. |
@@ -31,7 +31,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 | `chainId` | `number` | No | — | Chain ID (e.g. 8453 for Base). |
 | `champagne` | `boolean` | No | false | Only champagne (curated) tokens. Combines with other filters such as q. Boolean flags accept true/1/yes/on; any other value is false. |
 
-**Response:** Paginated list of tokens with optional user and market data.
+**Response:** Paginated list of tokens with optional user and market data. `partial: true` marks an `@username` search whose Farcaster or X account lookup failed: the list can miss launches, the response is not cached, and a later request can return the whole list.
 
 ```json
 {
