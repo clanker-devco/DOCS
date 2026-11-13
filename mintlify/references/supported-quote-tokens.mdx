@@ -8,11 +8,11 @@ The quote token, also called the pair token, is the token a Clanker token is pai
 
 Each chain's v5 factory keeps its own list of registered pair tokens, and a v5 token can launch against any of them. The factory sets each pair's starting price, so the starting market cap depends on the pair. Rewards and dividends are paid in the pair token. In a v5 pool the native coin is the zero address.
 
-The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 10, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
+The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 13, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
 
 | Chain | Native and stablecoin pairs | Crypto pairs | Stock tokens |
 | --- | --- | --- | --- |
-| [Base](#base-8453) | ETH, USDC | 16 | 319 |
+| [Base](#base-8453) | ETH, USDC | 16 | 329 |
 | [BNB Chain](#bnb-chain-56) | BNB, USDC | — | 21 |
 | [Monad](#monad-143) | MON, USDC | 1 | 10 |
 | [Robinhood Chain](#robinhood-chain-4663) | ETH, USDG | — | 194 |
@@ -46,9 +46,9 @@ The lists below were read from each factory with `quoteConfig(address)`, which r
 Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the Valvoline stock token below. Identify a pair by its address.
 
 
-<a id="319-stock-tokens"></a>
+<a id="329-stock-tokens"></a>
 
-<Accordion title="319 stock tokens">
+<Accordion title="329 stock tokens">
 
 
 | Symbol | Name                                        | Address                                    | Decimals |
@@ -57,6 +57,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | AAOIc  | Applied Optoelectronics Inc                 | 0xb200000000000000000000cf36D05963A3E2205c | 8        |
 | AAPLc  | Apple Inc.                                  | 0xb200000000000000000000C2e324d24d7eEcd1fb | 8        |
 | ABNBc  | Airbnb, Inc.                                | 0xb200000000000000000000045beafafBE0Dc7664 | 8        |
+| ABSIc  | Absci Corporation                           | 0xb20000000000000000000010718397ACA876A20a | 8        |
 | ACHRc  | Archer Aviation Inc.                        | 0xb2000000000000000000008a494D531D88cF55d6 | 8        |
 | ADBEc  | Adobe Inc.                                  | 0xB20000000000000000000034533Ed3961f222Cd4 | 8        |
 | ADIc   | Analog Devices, Inc.                        | 0xB200000000000000000000c33e458d1f892A7917 | 8        |
@@ -126,6 +127,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | COMPc  | Compass, Inc.                               | 0xB200000000000000000000A1d16a625A68F38811 | 8        |
 | COPc   | ConocoPhillips                              | 0xB200000000000000000000eC622942B76a2d3b21 | 8        |
 | CORZc  | Core Scientific, Inc.                       | 0xB2000000000000000000001aaa9010Cd65f82c5E | 8        |
+| CPNGc  | Coupang, Inc.                               | 0xB20000000000000000000038e9982fE875b7E066 | 8        |
 | CRCLc  | Circle Internet Group Inc.                  | 0xB20000000000000000000019f6E7C675b73C2e4D | 8        |
 | CRMc   | Salesforce, Inc.                            | 0xB2000000000000000000006432a3a7991e718DBB | 8        |
 | CROXc  | Crocs, Inc.                                 | 0xb200000000000000000000431a5C1E48E3b1d130 | 8        |
@@ -149,6 +151,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | ELFc   | e.l.f. Beauty, Inc.                         | 0xb2000000000000000000006b7f6966EE0453E251 | 8        |
 | EMRc   | Emerson Electric Co.                        | 0xB200000000000000000000FCD9C2A4Ee4A2B5481 | 8        |
 | ENPHc  | Enphase Energy, Inc.                        | 0xB2000000000000000000007a90b2D9Ed101035A8 | 8        |
+| ENVXc  | Enovix Corporation                          | 0xB200000000000000000000BBc68170Eb0b049E42 | 8        |
 | Fc     | Ford Motor Company                          | 0xB200000000000000000000CE4f8fC7ba5cA0359b | 8        |
 | FIGc   | Figma, Inc.                                 | 0xb2000000000000000000003Fa80315bFd87eFed8 | 8        |
 | FIGRc  | Figure Technology Solutions, Inc.           | 0xb2000000000000000000005A41bef59807119850 | 8        |
@@ -175,6 +178,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | HDc    | The Home Depot, Inc.                        | 0xB200000000000000000000b11c7e7295fE11fBa7 | 8        |
 | HIMSc  | Hims & Hers Health, Inc.                    | 0xB20000000000000000000043a599976181Bcf336 | 8        |
 | HOGc   | Harley-Davidson, Inc.                       | 0xB2000000000000000000001FaA7Fa5eF4184eDE5 | 8        |
+| HOODc  | Robinhood Markets, Inc.                     | 0xb2000000000000000000006F944897540579D3f2 | 8        |
 | HPEc   | Hewlett Packard Enterprise Company          | 0xB200000000000000000000d8aEccF70906AB125d | 8        |
 | HPQc   | HP Inc.                                     | 0xB2000000000000000000009a3602cF5d020afA98 | 8        |
 | HSAIc  | Hesai Group                                 | 0xb200000000000000000000f3049F4aa834b23b64 | 8        |
@@ -256,6 +260,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | PENGc  | Penguin Solutions, Inc.                     | 0xb200000000000000000000EF65AFE26a07bab24e | 8        |
 | PEPc   | PepsiCo, Inc.                               | 0xB2000000000000000000006d1bC7Faa266Eb099D | 8        |
 | PFEc   | Pfizer Inc                                  | 0xB20000000000000000000018FE7eC7d6DfeeB528 | 8        |
+| PGc    | The Procter & Gamble Company                | 0xb200000000000000000000c25611C4BdA138d298 | 8        |
 | PLAYc  | Dave & Buster’s Entertainment, Inc.         | 0xB20000000000000000000087d144F2C70cd1A5F6 | 8        |
 | PLc    | Planet Labs PBC                             | 0xB200000000000000000000cB6B2f4e33f0471556 | 8        |
 | PLNTc  | Planet Fitness, Inc.                        | 0xb20000000000000000000011b20aebe0Bd567F1c | 8        |
@@ -275,6 +280,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | QUBTc  | Quantum Computing Inc.                      | 0xb200000000000000000000CA425ab42e07C35bC3 | 8        |
 | QXOc   | QXO, Inc.                                   | 0xB2000000000000000000000Cd31253817b36f88a | 8        |
 | RBLXc  | Roblox Corporation                          | 0xB2000000000000000000005bd7AE89b9E6189Bb5 | 8        |
+| RBRKc  | Rubrik, Inc.                                | 0xb200000000000000000000B6354bC256DbCD93a8 | 8        |
 | RCATc  | Red Cat Holdings, Inc.                      | 0xB200000000000000000000a67C3271F0584F6C1D | 8        |
 | RDDTc  | Reddit, Inc.                                | 0xb20000000000000000000066242d4067724cB7A1 | 8        |
 | RDWc   | Redwire Corporation                         | 0xB200000000000000000000cd7dFaef0423F1f103 | 8        |
@@ -322,6 +328,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | SWBIc  | Smith & Wesson Brands, Inc.                 | 0xb2000000000000000000003FE90a64263B7F9E74 | 8        |
 | SYMc   | Symbotic Inc.                               | 0xb20000000000000000000047984EcaE84db5fcF9 | 8        |
 | TAPc   | Molson Coors Beverage Company               | 0xb200000000000000000000e0B9460c97F38f412F | 8        |
+| TDOCc  | Teladoc Health, Inc.                        | 0xB200000000000000000000A49b5EED0c1CF792BA | 8        |
 | TEAMc  | Atlassian Corporation                       | 0xB2000000000000000000004217B9b4f6f6aCb7B8 | 8        |
 | TEMc   | Tempus AI, Inc.                             | 0xb200000000000000000000d033253ABB1104107b | 8        |
 | TERc   | Teradyne, Inc.                              | 0xB2000000000000000000006BC65AF32d24870A2d | 8        |
@@ -331,7 +338,9 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | TRONc  | Tron Inc.                                   | 0xb2000000000000000000000A22ac22D031B657DA | 8        |
 | TSLAc  | Tesla Inc.                                  | 0xb2000000000000000000001e800a7f5189430cD0 | 8        |
 | TTDc   | The Trade Desk, Inc.                        | 0xB2000000000000000000008baF7bb82e4C37743f | 8        |
+| TTMIc  | TTM Technologies, Inc.                      | 0xB2000000000000000000007292D3D91c6b559058 | 8        |
 | TTWOc  | Take-Two Interactive Software, Inc.         | 0xB200000000000000000000f720C26062Bc3067Da | 8        |
+| TWSTc  | Twist Bioscience Corporation                | 0xB200000000000000000000A15628dCEA6934EDE0 | 8        |
 | UAAc   | Under Armour, Inc.                          | 0xb200000000000000000000879A74C76C73a27d71 | 8        |
 | UBERc  | Uber Technologies, Inc.                     | 0xb200000000000000000000cAE20cb1446462e24c | 8        |
 | Uc     | Unity Software Inc.                         | 0xB200000000000000000000902F48CBa1f39149F7 | 8        |
@@ -355,6 +364,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | Wc     | Wayfair Inc.                                | 0xb20000000000000000000089BC72C3E637a02AdB | 8        |
 | WDCc   | Western Digital Corporation                 | 0xb2000000000000000000008fde21a1F5c69FeC0b | 8        |
 | WENc   | Wendy's Co                                  | 0xB20000000000000000000044E3CD7a0E1028E57a | 8        |
+| WGSc   | GeneDx Holdings Corp.                       | 0xB200000000000000000000c6F4B26Bd2BE77F18D | 8        |
 | WINGc  | Wingstop Inc.                               | 0xB200000000000000000000281C973bf2555dD94B | 8        |
 | WKHSc  | Workhorse Group Inc.                        | 0xb200000000000000000000DfA6C77AEa5329D187 | 8        |
 | WMTc   | Walmart Inc.                                | 0xb2000000000000000000008a7508619c717A7106 | 8        |
