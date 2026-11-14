@@ -32,7 +32,7 @@ The reference prices of the stock price check for V5 trades and creator buys on 
 | `chainId` | `number` | Yes | — | Chain ID. |
 | `quotes` | `string` | Yes | — | Comma-separated quote token addresses, at most 64. A quote that is not a stock of the V5 catalog gets no row. |
 
-**Response:** One row for each stock with a stored price, and one ETH row (quote = zero address). Times are Unix milliseconds. A row is a reference for at most 5 minutes after it was received and 1 hour after its source time.
+**Response:** One row for each stock with a stored price, and one ETH row (quote = zero address). Times are Unix milliseconds. A stock row is a reference for at most 10 minutes after it was received and 7 days after its source time, so a closed market keeps its last close; the ETH row for at most 5 minutes after it was received and 1 hour after its source time.
 
 ```json
 {
