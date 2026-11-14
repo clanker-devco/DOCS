@@ -33,7 +33,7 @@ The fees of a token: the fee configuration, each swap with its fees (up to 200) 
 }
 ```
 
-> A V5 or V4 answer is cached for 30 seconds. An older token's answer is cached for 5 minutes when its history, claims and balance were read, else 30 seconds. A V5 history of more than 2,000 log ranges (about 15 months on Base) is not read (`feeLogsStatus` `too-long`). On the chains that share one chain-wide log read, the limit is 40,000 log ranges. The finished log blocks of a V5 history are cached on the server, so a request reads only the newest blocks. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+> A V5 or V4 answer is cached for 30 seconds. An older token's answer is cached for 5 minutes when its history, claims and balance were read, else 30 seconds. A V5 history over the range limit (2,000 log ranges, 20,000,000 blocks after the launch on Base; 40,000 ranges on the chains that share one chain-wide log read) is not read from the chain: it comes from clanker-analytics, which indexes the same events. In that answer, a dividend claim has `receiver` (the wallet that received the payout) in place of `holder`, and `feeLogs.hasRecentCommentsOnly` is true: `feeLogs.comments` holds the 20 newest comments of the newest swaps only. When analytics has no answer, or its collector is more than 10 minutes behind, `feeLogsStatus` is `too-long`. The finished log blocks of a V5 history are cached on the server, so a request reads only the newest blocks. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
 
 ---
 
