@@ -86,6 +86,50 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 
 ---
 
+### GET `/api/wallet/{address}/stats`
+
+Profile numbers for a wallet: the count of tokens that it manages. This is the size of the Managed tab of its creator page in the Verified view: the tokens where the wallet is the admin and the wallet or a launch service (for example the bot) sent the launch, or its V5 creator rights moved to the wallet. A token that another wallet launched with this wallet as admin does not count.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Wallet address. |
+
+**Response:** `tokensManaged` is the exact count. A 502 means the count could not be read.
+
+```json
+{ "tokensManaged": 12 }
+```
+
+> Cached for 5 minutes at the edge (stale for up to 10 more while it refreshes). Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
+### GET `/api/wallet/{address}/creator-fees`
+
+Lifetime fees that a wallet earned and claimed as a fee recipient, in USD, from clanker-analytics through the bot's fee lookup, so both give the same figures: v4 fee locker shares and sniper auction payouts, V5 tax shares, v3.1 claims, and refunds from the team Safes, each at the price of its own day. Hidden chains and the tokens that clanker.world hides are left out. Not counted: v0 to v3 creator shares (their claims name no wallet) and fees still inside an older-version pool that nobody collected.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Wallet address. |
+
+**Response:** `earnedUsd` and `claimedUsd` add up the currencies that have a USD price. Each is null when it cannot be worked out, for example when the wallet has fees on more tokens than one read returns. `isIncomplete` is true when the figures leave out some fees of this wallet (currencies without a USD price, hidden tokens, history still loading). A 502 means the fees could not be read.
+
+```json
+{ "earnedUsd": 1250.5, "claimedUsd": 900, "isIncomplete": false }
+```
+
+> Cached for 5 minutes at the edge (stale for up to 10 more while it refreshes). New fees reach analytics after a few minutes. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 ### GET `/api/wallet/{address}/dividends`
 
 The dividend positions of a wallet: each V5 token that it holds and that pays holder dividends, with the claimable, earned and claimed amounts from the dividend contract. On a chain without a Codex wallet index (Elysium), the first page reads the wallet balance of the 200 newest V5 tokens on the chain. `isIncomplete` is true when a chain read failed or a chain has more V5 tokens than that read covers.
