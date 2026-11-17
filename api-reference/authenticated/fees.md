@@ -69,7 +69,7 @@ Returns claimed fees for a token and fee recipient with pagination. For a V5 tok
 }
 ```
 
-> Cached for 1 minute. claimCount is exact up to 1000; claimCountCapped is true above that. For a V5 token, a 503 with Retry-After means that the claim history was not read in time (retry: the server caches the finished log blocks, so the next request reads less) or that it is longer than 2,000 log ranges (about 15 months on Base).
+> Not cached here. The claims come from clanker-analytics, which caches an answer for 1 minute and can give it for 5 minutes more while it reads again. claimCount is exact up to 1000; claimCountCapped is true above that. For a V5 token, a 503 with Retry-After means that the token was not read (a database error, or a new launch with no record yet), that the claim history was not read in time (retry: the server caches the finished log blocks, so the next request reads less) or that it is over the range limit and clanker-analytics, which answers for such a history, had no answer or its collector is more than 10 minutes behind the chain.
 
 ---
 
