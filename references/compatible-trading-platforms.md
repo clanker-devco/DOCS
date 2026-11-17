@@ -11,6 +11,7 @@ Known compatible trading platforms as of November 2026:
 ### Trading platforms and frontends
 
 * clanker.world
+* Fomo
 * GMGN
 * Uniswap
 
