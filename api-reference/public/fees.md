@@ -33,6 +33,31 @@ The fees of a token: the fee configuration, each swap with its fees (up to 200) 
 
 ---
 
+### GET `/api/legacy-fees/proof`
+
+The Merkle proof that lets the original creator of one legacy (v0–v3.1) token initialize fee ownership. The proof comes from the fixed creator snapshot.
+
+**Authentication:** Public
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `token` | `address` | Yes | — | Legacy token contract address. |
+
+**Response:** `creator` is the snapshot creator, and `proof` is the bytes32 Merkle proof for that token. 404 when the token is not in the snapshot.
+
+```json
+{
+  "creator": "0x...",
+  "proof": ["0x..."]
+}
+```
+
+> Cached for 24 hours. A 400 or 404 is not cached. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 ### GET `/api/get-estimated-uncollected-fees/{address}`
 
 > **Deprecated**: This endpoint is deprecated. Use the clanker-sdk `availableRewards()` method instead.

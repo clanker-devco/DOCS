@@ -20,7 +20,7 @@ Search and list Clanker tokens with filters, sorting, and cursor-based paginatio
 | `pair` | `string` | No | all | Paired token filter (e.g. "WETH"). "ETH" selects tokens paired with native ETH (V5 pools). The `pair` field of a native-ETH token is "ETH". |
 | `type` | `"all" | "standard" | "tax"` | No | all | Token type filter: "tax" returns only V5 tokens (V5 factory launches) and "standard" returns every other Clanker token. |
 | `sort` | `"asc" | "desc"` | No | desc | Sort direction. |
-| `sortBy` | `"market-cap" | "tx-h24" | "volume-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at" | "trending" | "liquidity"` | No | — | Field to sort by. "trending" ranks tokens that can trend (market data from the last 3h, cap of $5K+, 5+ trades, $100+ volume, not 0%-fee) by a 0-100 score from 24h volume, liquidity, unique traders and trades, 1h momentum and top-wallet concentration; volume beyond 3x the market cap does not count. The score is recomputed every minute and is always highest first; tokens without a score yet follow by 24h volume. When nothing in scope can trend (a quiet chain), the first page lists the most-traded tokens instead (the same floor without the 5-trade minimum), with no next page, and the response has `fallback: "most-traded"`. With q, fids or msgSender it orders the matches the same way without the activity floor. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from the stored Codex snapshot), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. |
+| `sortBy` | `"market-cap" | "tx-h24" | "volume-h24" | "price-percent-h24" | "price-percent-h1" | "deployed-at" | "trending" | "liquidity"` | No | — | Field to sort by. "trending" ranks tokens that can trend (market data from the last 3h, cap of $5K+, 5+ trades, $100+ volume, not 0%-fee) by a 0-100 score from 24h volume, liquidity, unique traders and trades, 1h momentum and top-wallet concentration; volume beyond 3x the market cap does not count. The score is recomputed every minute and is always highest first; tokens without a score yet follow by 24h volume. When nothing in scope can trend (a quiet chain), the first page lists the most-traded tokens instead (the same floor without the 5-trade minimum), with no next page, and the response has `fallback: "most-traded"`. With q, fids or msgSender it orders the matches the same way without the activity floor. "market-cap" ranks only caps refreshed in the last 24h; caps of $1M+ need $100+ of 24h volume. "liquidity" ranks pools by USD liquidity (both sides, from the stored Codex snapshot), with the same rules: refreshed in the last 24h, and $1M+ needs $100+ of 24h volume. "price-percent-h24", "price-percent-h1", "tx-h24" and "volume-h24" rank only tokens with market data from the last 3h (except with q), a cap of $5K+ and 5+ trades in 24h (except with q, fids or msgSender). |
 | `socialInterface` | `string` | No | — | Filter by social interface. |
 | `cursor` | `string` | No | — | Pagination cursor returned by a previous request. |
 | `startDate` | `number` | No | — | Unix timestamp — only return tokens deployed after this date. |
@@ -224,6 +224,40 @@ A Clanker token's 50 largest wallets from Codex, largest first, with each one's 
 
 ---
 
+### GET `/api/tokens/{address}/top-traders`
+
+A Clanker token's top 50 wallets over a day, a week or a month, by USD volume, realized profit or realized loss, from Codex, with what each one bought, sold and realized. The token page's Top traders tab reads it.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `period` | `"day" | "week" | "month"` | No | day | The trading period: the last 24 hours, 7 days or 30 days. |
+| `sort` | `"volume" | "profit" | "loss"` | No | volume | The ranking. `volume` lists the busiest wallets. `profit` lists only wallets that realized a profit in the period, the biggest first; `loss` only those that realized a loss, the biggest first. Either can be shorter than 50, or empty. |
+
+**Response:** `boughtUsd`, `soldUsd` and `volumeUsd` (their sum) are in USD for the period. `realizedProfitUsd` is the profit on what the wallet sold in the period (negative for a loss) and `realizedProfitPercent` the same against the cost of what it sold; both are null when Codex has no figure. `buys` and `sells` count trades. `isBot` is true when Codex labels the wallet a bot. `label` is as on the holders route. `available` is false (and the list empty) when Codex does not index the chain.
+
+```json
+{
+  "available": true,
+  "period": "day",
+  "sort": "volume",
+  "traders": [{ "address": "0x...", "boughtUsd": 33473.31, "soldUsd": 32196.87, "volumeUsd": 65670.18, "realizedProfitUsd": -1591.51, "realizedProfitPercent": -4.71, "buys": 99, "sells": 102, "isBot": false, "label": null }]
+}
+```
+
+> Each period and sort is cached at the CDN on its own: 5 minutes for a day (stale-while-revalidate=600), 15 minutes for a week or a month, and 1 hour on a chain Codex does not index. A token that is not a Clanker token returns 404, an invalid address, period or sort 400 and a Codex failure 502, none cached. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 ### GET `/api/tokens/fetch-deployed-by-fid`
 
 Returns tokens deployed by a Farcaster FID.
@@ -331,6 +365,7 @@ Returns clanker tokens for up to 100 (token address, chain) pairs, e.g. the toke
 | Parameter | Type | Required | Default | Description |
 |-----------|------|----------|---------|-------------|
 | `tokens` | `array` | Yes | — | Array of up to 100 { address, chainId } objects. Only tokens on the given chain are returned. |
+| `includeUser` | `boolean` | No | — | Adds each Farcaster launch's creator profile (related.user). Defaults to false. |
 
 **Response:** Array of matching token objects (with DB market data); addresses that are not clankers on that chain are left out.
 

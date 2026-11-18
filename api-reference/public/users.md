@@ -108,6 +108,28 @@ Profile numbers for a wallet: the count of tokens that it manages. This is the s
 
 ---
 
+### GET `/api/wallet/{address}/name`
+
+A wallet's primary name: its Basename (primary name on Base) first, then its Ethereum ENS primary name. A name is returned only when its forward record points back at the wallet and it passes ENS normalization.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Wallet address. |
+
+**Response:** `name` is the name, or null when the wallet has none or the lookup timed out.
+
+```json
+{ "name": "jesse.base.eth" }
+```
+
+> A found name is cached for an hour at the edge, a missing one for 10 minutes. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 ### GET `/api/wallet/{address}/creator-fees`
 
 Lifetime fees that a wallet earned and claimed as a fee recipient, in USD, from clanker-analytics through the bot's fee lookup, so both give the same figures: v4 fee locker shares and sniper auction payouts, V5 tax shares, v3.1 claims, and refunds from the team Safes, each at the price of its own day. Hidden chains and the tokens that clanker.world hides are left out. Not counted: v0 to v3 creator shares (their claims name no wallet) and fees still inside an older-version pool that nobody collected.
