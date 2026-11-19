@@ -86,6 +86,37 @@ A page of a wallet's non-zero ERC-20 balances across one or more chains, for the
 
 ---
 
+### GET `/api/wallet/{address}/trades`
+
+A page of a wallet's newest buys and sells of Clanker tokens on every chain the site lists, newest first, from Codex. The creator page's Activity tab reads it.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Wallet address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `cursor` | `string` | No | — | The `cursor` of the previous page, for older trades. |
+
+**Response:** `side` is about the Clanker token (`buy` or `sell`), also when the wallet paid with it for another token; a swap between two Clanker tokens is one trade of each, with the same `txHash` and its own `id`. `amount` is in whole tokens; `priceUsd` and `valueUsd` are null when Codex has no USD price; `timestamp` is in Unix seconds. `token.imageUrl` is null when the token has no image. A page has no fixed size: one request reads up to 300 of the wallet's swaps and returns the ones in Clanker tokens, so `trades` can be empty while `cursor` is set. `cursor` is null when the wallet has no older swaps.
+
+```json
+{
+  "trades": [{ "id": "0x...:12:0x...", "txHash": "0x...", "timestamp": 1794276494, "side": "sell", "amount": 200070.47, "priceUsd": 0.00007, "valueUsd": 14, "token": { "address": "0x...", "chainId": 8453, "name": "Example", "symbol": "EX", "imageUrl": "https://..." } }],
+  "cursor": "eyJ..."
+}
+```
+
+> The newest page is cached at the CDN for 30 seconds (stale-while-revalidate=60) and an older page for 5 minutes. An invalid address or cursor returns 400, a Codex failure 502 and a missing Codex key 503, none cached. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 ### GET `/api/wallet/{address}/stats`
 
 Profile numbers for a wallet: the count of tokens that it manages. This is the size of the Managed tab of its creator page in the Verified view: the tokens where the wallet is the admin and the wallet or a launch service (for example the bot) sent the launch, or its V5 creator rights moved to the wallet. A token that another wallet launched with this wallet as admin does not count.
