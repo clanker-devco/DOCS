@@ -6,11 +6,11 @@ The quote token, also called the pair token, is the token a Clanker token is pai
 
 Each chain's v5 factory keeps its own list of registered pair tokens, and a v5 token can launch against any of them. The factory sets each pair's starting price, so the starting market cap depends on the pair. Rewards and dividends are paid in the pair token. In a v5 pool the native coin is the zero address.
 
-The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 17, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
+The lists below were read from each factory with `quoteConfig(address)`, which returns whether a token is registered and its decimals. Last updated on November 20, 2026. Registrations can change for future launches. Existing pools keep the pair they launched with.
 
 | Chain | Native and stablecoin pairs | Crypto pairs | Stock tokens |
 | --- | --- | --- | --- |
-| [Base](#base-8453) | ETH, USDC | 16 | 379 |
+| [Base](#base-8453) | ETH, USDC | 16 | 381 |
 | [BNB Chain](#bnb-chain-56) | BNB, USDC | — | 21 |
 | [Monad](#monad-143) | MON, USDC | 1 | 10 |
 | [Robinhood Chain](#robinhood-chain-4663) | ETH, USDG | — | 194 |
@@ -45,7 +45,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 
 <details>
 
-<summary>379 stock tokens</summary>
+<summary>381 stock tokens</summary>
 
 | Symbol | Name                                        | Address                                    | Decimals |
 | ------ | ------------------------------------------- | ------------------------------------------ | -------- |
@@ -281,6 +281,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | ONDSc  | Ondas Inc.                                  | 0xB200000000000000000000e7137cA231c5e35f25 | 8        |
 | OPADc  | Offerpad Solutions Inc.                     | 0xB2000000000000000000003086b1355bd43e25Da | 8        |
 | OPENc  | Opendoor Technologies Inc.                  | 0xb200000000000000000000259694B27Bf052E7d7 | 8        |
+| OPNWc  | OpenWorld, Inc.                             | 0xb2000000000000000000002a3E91E59fFc3CeD94 | 8        |
 | OPRAc  | Opera Limited                               | 0xB200000000000000000000fE6b283199e6BD432d | 8        |
 | ORCLc  | Oracle Corporation                          | 0xb200000000000000000000347AFbA223D7B6b63C | 8        |
 | OUSTc  | Ouster, Inc.                                | 0xB200000000000000000000314B9f5F580168766a | 8        |
@@ -344,6 +345,7 @@ Two Base pairs use the symbol VVV: the Venice Token crypto pair above, and the V
 | SHAZc  | SharonAI Holdings Inc.                      | 0xB2000000000000000000000D9947c759429e7fE5 | 8        |
 | SIDUc  | Sidus Space, Inc.                           | 0xb2000000000000000000002B9AC07a0544688079 | 8        |
 | SKHYc  | SK hynix Inc.                               | 0xb200000000000000000000187f7071D6E321a7d2 | 8        |
+| SKYDc  | Skydance Corporation                        | 0xB200000000000000000000a21B5ae62fEA392B73 | 8        |
 | SLDPc  | Solid Power, Inc.                           | 0xb200000000000000000000dF3EB2AF7316B29122 | 8        |
 | SLSc   | SELLAS Life Sciences Group, Inc.            | 0xB2000000000000000000000C431e2a7c0CE7Ea31 | 8        |
 | SMCIc  | Super Micro Computer, Inc.                  | 0xB20000000000000000000065F11d53A1e442bB84 | 8        |
