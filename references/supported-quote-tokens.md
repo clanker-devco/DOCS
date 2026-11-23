@@ -10,7 +10,7 @@ The lists below were read from each factory with `quoteConfig(address)`, which r
 
 | Chain | Native and stablecoin pairs | Crypto pairs | Stock tokens |
 | --- | --- | --- | --- |
-| [Base](#base-8453) | ETH, USDC | 16 | 418 |
+| [Base](#base-8453) | ETH, USDC | 17 | 418 |
 | [BNB Chain](#bnb-chain-56) | BNB, USDC | — | 21 |
 | [Monad](#monad-143) | MON, USDC | 1 | 10 |
 | [Robinhood Chain](#robinhood-chain-4663) | ETH, USDG | — | 194 |
@@ -38,6 +38,7 @@ The lists below were read from each factory with `quoteConfig(address)`, which r
 | BankrCoin (BNKR)                       | 0x22aF33FE49fD1Fa80c7149773dDe5890D3c76F3b | 18       |
 | tokenbot (CLANKER)                     | 0x1bc0c42215582d5A085795f4baDbaC3ff36d1Bcb | 18       |
 | Venice Token (VVV)                     | 0xacfE6019Ed1A7Dc6f7B508C02d1b04ec88cC21bf | 18       |
+| Diem (DIEM)                            | 0xF4d97F2da56e8c3098f3a8D538DB630A2606a024 | 18       |
 | Aerodrome (AERO)                       | 0x940181a94A35A4569E4529A3CDfB74e38FD98631 | 18       |
 | Morpho Token (MORPHO)                  | 0xBAa5CC21fd487B8Fcc2F632f3F4E8D37262a0842 | 18       |
 
