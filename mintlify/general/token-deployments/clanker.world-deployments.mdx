@@ -126,6 +126,8 @@ Add reward recipients to split the **Creator funds**. For each recipient, set th
 * **ETH amount**: the ETH to spend. With a USDC pair, the launch swaps the ETH to USDC first, then buys the token.
 * **Maximum slippage**: above 0% and below 50%. If the buy gets fewer tokens than this allows, the whole launch reverts.
 
+On Base, a creator buy also works with a stock token or another pair from [Supported Quote Tokens](/references/supported-quote-tokens). The app builds the route for you: it swaps the ETH to USDC, then to the pair token through that token's deepest Aerodrome pool, including Aero MetaDEX pools, then buys the token.
+
 </Step>
 
 
