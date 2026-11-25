@@ -10,7 +10,7 @@ These endpoints require a partner API key passed via the `x-api-key` header. Con
 
 ### Tokens
 
-- `GET /api/tokens/authenticated` — Search and list tokens (authenticated variant with higher limits up to 200 per page).
+- `GET /api/tokens/authenticated` — Search and list tokens (authenticated variant with higher limits up to 200 per page). This route lists every launch: the bulk launch wallet rule of `/api/tokens` does not apply here.
 - `GET /api/get-clanker-by-address` — Returns detailed token data by token contract address, including deployer info and social URLs.
 - `GET /api/get-clankers-by-fid` — Returns tokens deployed by a Farcaster FID.
 - `GET /api/tokens/fetch-by-admin` — Returns tokens administered by a given address.

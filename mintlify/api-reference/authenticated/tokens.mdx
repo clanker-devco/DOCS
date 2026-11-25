@@ -8,7 +8,7 @@ Endpoints for searching, listing, and retrieving Clanker token data.
 
 ### GET `/api/tokens/authenticated`
 
-Search and list tokens (authenticated variant with higher limits up to 200 per page).
+Search and list tokens (authenticated variant with higher limits up to 200 per page). This route lists every launch: the bulk launch wallet rule of `/api/tokens` does not apply here.
 
 **Authentication:** Partner API Key (`x-api-key` header)
 

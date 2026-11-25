@@ -8,7 +8,7 @@ Endpoints for searching, listing, and retrieving Clanker token data.
 
 ### GET `/api/tokens`
 
-Search and list Clanker tokens with filters, sorting, and cursor-based pagination.
+Search and list Clanker tokens with filters, sorting, and cursor-based pagination. The list by launch date (the default order, and `sortBy=deployed-at`) and a text search leave out the tokens of a bulk launch wallet until such a token has $100 of 24-hour volume (a Champagne token is never left out): a wallet that sent 10 or more launches for one admin within 24 hours in the last 7 days. A search by token address, pool or wallet, an `@username` search, and the `fid`, `fids` and `msgSender` filters still return these tokens. `total` and `tokensDeployed` are the estimated count of the listed tokens. The sitemap, `/api/tokens/search/for-goplus` and the bot data views do not use this rule.
 
 **Authentication:** Public
 
@@ -241,6 +241,42 @@ A Clanker token's 50 largest wallets from Codex, largest first, with each one's 
 
 ---
 
+<a id="get-apitokensaddresscomp"></a>
+
+### GET `/api/tokens/{address}/comp`
+
+The leaderboard of a partner's trading competition on its token, read from Clanker Analytics (`/api/v1/traders/volume`): the round to show (the live one, else the last one that ended, else the next one) and its top 50 wallets by the USD value of their buys and sells in the token's Clanker pool, with the partner's own wallets left out. A transaction counts for the address whose token balance changes most in it, after the pool's infrastructure (PoolManager, hooks, fee escrow, zero and burn addresses) is removed, so a trade through a router or a smart wallet counts for the wallet itself. The token page's Trading comp tab reads it.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Token contract address. |
+
+**Query Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `chainId` | `number` | Yes | — | The token's chain ID (e.g. 8453 for Base). |
+
+**Response:** `round` has the `label`, the `start` and `end` (ISO, UTC; the end is left out), the number of `winners` and the `status` (`live`, `ended` or `upcoming`). `wallets` counts every ranked wallet in the round, not only the listed ones. `volumeUsd` is everything that went through the pool in the round. Between two rounds, `next` has the `label` and `start` of the next one. `asOf` (ISO) is the time of the last block that analytics has read; an ended round is final once `asOf` reaches its end.
+
+```json
+{
+  "round": { "label": "Round 1", "start": "2026-11-17T15:42:00Z", "end": "2026-11-20T15:42:00Z", "winners": 30, "status": "ended" },
+  "wallets": 1517,
+  "volumeUsd": 1158080,
+  "traders": [{ "address": "0x...", "volumeUsd": 1234.56, "buys": 3, "sells": 1 }],
+  "asOf": "2026-11-24T19:00:00.000Z"
+}
+```
+
+> A token with no competition returns 404, an invalid address or chainId 400, and 502 when analytics is down, answers a malformed body or has no wallet for over 1% of the volume (its wallet fill has not run), none of them cached except the 404. A live round, and an ended one that is not final yet, is cached at the CDN for 1 minute, a final one for 1 hour, and never past the next round start or end, stale copies included. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 <a id="get-apitokensaddresstop-traders"></a>
 
 ### GET `/api/tokens/{address}/top-traders`
@@ -412,7 +448,7 @@ Returns clanker tokens for up to 100 (token address, chain) pairs, e.g. the toke
 
 > **Deprecated**: Use GET /api/tokens instead.
 
-Search tokens by query or FIDs.
+Search tokens by query or FIDs. As on `/api/tokens`, a search with no FIDs leaves out the tokens of a bulk launch wallet until such a token has $100 of 24-hour volume.
 
 **Authentication:** Public
 

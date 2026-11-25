@@ -199,6 +199,48 @@ Lifetime fees that a wallet earned and claimed as a fee recipient, in USD, from 
 
 ---
 
+<a id="get-apiwalletaddressunclaimed-rewards"></a>
+
+### GET `/api/wallet/{address}/unclaimed-rewards`
+
+Every token that pays a wallet as a fee recipient and still owes it fees, V4 (fee locker) and V5 (fee escrow) together, with the amount waiting in each currency (WETH, USDC or the token itself). From the per-token rows of the clanker-analytics creator fees, the same rows as the bot fee lookup; hidden chains, testnets and the tokens that clanker.world hides are left out. The amounts are worked out from fee events, so they can differ a little from what a claim pays; the token admin page reads the fee contracts and claims.
+
+**Authentication:** Public
+
+**Path Parameters**
+
+| Parameter | Type | Required | Default | Description |
+|-----------|------|----------|---------|-------------|
+| `address` | `address` | Yes | — | Fee recipient wallet address. |
+
+**Response:** `tokens`: highest USD first, at most 50, each with `amounts` (raw integer strings in the currency units, with `decimals`), `waitingUsd` (the priced amounts added up), `version` (`v5`, `v4` or `older`), `href` (token page) and `claimHref` (admin page). `tokenCount` counts every token with fees waiting, listed or not. `hasUnpriced` is true when an amount has no USD price and is left out of the USD figures. `isPartial` is true when analytics cut its rows (it returns the 100 token rows with the newest fees), so older tokens with fees waiting can be missing. A wallet without fees gets an empty list. A 502 means the fees could not be read.
+
+```json
+{
+  "tokens": [{
+    "chainId": 8453,
+    "address": "0x...",
+    "name": "Token",
+    "symbol": "TKN",
+    "imageUrl": "https://...",
+    "version": "v4",
+    "href": "/clanker/0x...",
+    "claimHref": "/clanker/0x.../admin",
+    "waitingUsd": 3.4,
+    "hasUnpriced": false,
+    "amounts": [{ "currency": "0x4200000000000000000000000000000000000006", "symbol": "WETH", "decimals": 18, "waiting": "2020732014559706", "waitingUsd": 3.4 }]
+  }],
+  "tokenCount": 1,
+  "totalWaitingUsd": 3.4,
+  "hasUnpriced": false,
+  "isPartial": false
+}
+```
+
+> Cached for 1 minute at the edge (stale for up to 5 more while it refreshes). New fees and claims reach analytics after a few minutes. Rate limited per IP. Over a limit: 429 with `Retry-After` (seconds) and `{ "error", "code": "rate_limited", "retryAfter" }`.
+
+---
+
 <a id="get-apiwalletaddressdividends"></a>
 
 ### GET `/api/wallet/{address}/dividends`
