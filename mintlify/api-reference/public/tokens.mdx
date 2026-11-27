@@ -261,7 +261,7 @@ The leaderboard of a partner's trading competition on its token, read from Clank
 |-----------|------|----------|---------|-------------|
 | `chainId` | `number` | Yes | — | The token's chain ID (e.g. 8453 for Base). |
 
-**Response:** `round` has the `label`, the `start` and `end` (ISO, UTC; the end is left out), the number of `winners` and the `status` (`live`, `ended` or `upcoming`). `wallets` counts every ranked wallet in the round, not only the listed ones. `volumeUsd` is everything that went through the pool in the round. Between two rounds, `next` has the `label` and `start` of the next one. `asOf` (ISO) is the time of the last block that analytics has read; an ended round is final once `asOf` reaches its end.
+**Response:** `round` has the `label`, the `start` and `end` (ISO, UTC; the round includes its start and not its end), the number of `winners`, the `status` (`live`, `ended` or `upcoming`) and, when the partner gave them, its `prize` terms as text. `wallets` counts every ranked wallet in the round, not only the listed ones. `volumeUsd` is everything that went through the pool in the round. Between two rounds, `next` has the `label` and `start` of the next one. `asOf` (ISO) is the time of the last block that analytics has read, not set before a round starts; an ended round is final once `asOf` reaches its end.
 
 ```json
 {
