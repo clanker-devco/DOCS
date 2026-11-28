@@ -21,7 +21,7 @@ On a v5 token, admin power belongs to the **current creator**. Each reward recip
 | **Update reward admin**                                       | The slot's reward admin                                          |
 | **Creator rights**                                            | The current creator, then the new creator to accept              |
 | **Update Token Image**, **Update Metadata**, **Rename Token** | The current creator                                              |
-| **Verify Token**                                              | The current creator                                              |
+| **Confirm token**                                             | The current creator                                              |
 | **Post Announcement**                                         | The current creator                                              |
 | **Bulk Distribute**                                           | Any wallet that holds the token                                  |
 
@@ -53,11 +53,11 @@ If the token was launched with editable metadata (the default), the current crea
 * change the description and social links (**Update Metadata**),
 * change the name, symbol and contract URI (**Rename Token**).
 
-A token launched without editable metadata can't change these, and can't be verified.
+A token launched without editable metadata can't change these, and can't be confirmed.
 
-### Verify the token
+### Confirm the token
 
-The **Verify Token** card gives the token the Verified badge on clanker.world. It calls the factory's `updateTokenExtraMetadata(token, "verified", "true")` from the current creator's wallet. Only the exact value `true`, written by the current creator after launch, counts. A value set at launch does not.
+The **Confirm token** card records on chain that the current creator confirms the token. The token page shows no badge for it. The card calls the factory's `updateTokenExtraMetadata(token, "verified", "true")` from the current creator's wallet. Only the exact value `true`, written by the current creator after launch, counts. A value set at launch does not.
 
 ### Post announcements
 
